@@ -19,24 +19,16 @@ $state = $mysqli->real_escape_string($_REQUEST['state']);
 $zip = $mysqli->real_escape_string($_REQUEST['zip']);
 $type = $mysqli->real_escape_string($_REQUEST['type']);
 $eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
-$userid = $mysqli->real_escape_string($_REQUEST['uid']);
 
 $sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate' WHERE id='$saleid'"; 
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale updated.";
-	header('Location: create2.php#show?id=' . $id);
+	header('Location: show.php?id=' . $id);
 } 
 else {
 	echo "Something went wrong.";
-	#header('Location: create2.php#sales');
-	echo $saleid . "<br>";
-	echo $street . "<br>";
-	echo $city . "<br>";
-	echo $zip . "<br>";
-	echo $type . "<br>";
-	echo $eventdate . "<br>";
-	echo $userid . "<br>";
+	header('Location: create2.php#sales');
 }
 
 $mysqli->close();

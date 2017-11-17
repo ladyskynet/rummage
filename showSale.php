@@ -46,49 +46,26 @@ session_start();
 					
 					if ($result->num_rows > 0){
 						$row = $result->fetch_assoc();
-						
-						echo '<form action="edit.php" method="post">';
-						
-						echo '<label for="street">Street Address</label> 
-						<input type="hidden" name="saleid" value="' . $row["id"] . '"/>
-						<input type="hidden" name="uid" value="' . $row["uid"] . '"/>
-						<input type="text" name="street" maxlength="40" value="' . $row["street"] . '"/><br>';
-								
-						echo '<label for="city">City</label>
-						<input type="text" name="city" maxlength="20" value="' . $row["city"] . '"/><br>';
-								
-						echo '<label for="state">State</label>
-						<input type="text" name="state" maxlength="2" value="' . $row["state"] . '"/><br>';
-								
-						echo '<label for="zip">Zip</label> 
-						<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"/><br>';
 
-						echo '<div class="field half first">';
+						echo '<li>Street: ' . $row["street"] . '</li>';
+								
+						echo '<li>City: ' . $row["city"] . '</li>';
+								
+						echo '<li>State: ' . $row["state"] . '</li>';
+								
+						echo '<li>Zip: ' . $row["zip"] . '</li>' 
+
 						if ($row["type"] == 'c')
 						{
-							echo '<label for="community">Community Rummage Sale</label>
-								<input type="radio" id="community" name="type" value="c" checked="checked"/>
-							</div>
-							<div class="field half first">
-							<label for="single">Single Family Rummage Sale</label>
-								<input type="radio" id="single" name="type" value="s"/>
-							</div><br>';
+							echo '<li>Type: Community Rummage Sale</li>';
 						} else {
-							echo '<label for="community">Community Rummage Sale</label>
-							<input type="radio" id="community" name="type" value="c"/>
-							</div>
-							<div class="field half first">
-							<label for="single">Single Family Rummage Sale</label>
-								<input type="radio" id="single" name="type" value="s" checked="checked"/>
-							</div><br>';
+							echo '<li>Type: Single Family Rummage Sale</li>';
 						}
-						$date = str_replace(' ', 'T', $row["eventdate"]);
-						echo '<label for="eventdate">Date/Time</label><br>
-						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
+						echo '<li>Date/Time: ' . $date . '</li>';
 					}
 					$mysqli->close();
 					?>
-					<br /><br/>
+					<br>
 						<input type="submit" class="button special">
 					</form>
 					<!--<div class="inner">

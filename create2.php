@@ -127,7 +127,7 @@ session_start();
 										$_SESSION['index'] = $index;
 									}	
 								 	foreach ($salearray as &$value){
-								 		echo '<tr><td><a href="editSale.php?id=' . $value[0] . ' ">Show</a></td>';
+								 		echo '<tr><td><a href="showSale.php?id=' . $value[0] . ' ">Show</a></td>';
 										echo '<td>' . $value[1] . "</td>";
 										echo '<td>' . $value[2] . "</td>";
 										echo '<td>' . $value[3] . "</td>";
