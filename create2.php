@@ -175,7 +175,9 @@ session_start();
 									$index = 0;
 
 									if ($result2->num_rows > 0){
+										echo "nsql renedered something";
 										while($row2 = $result2->fetch_assoc()) {
+											echo "new row";
 											$salearray[$index][0] = $row2['id']; 
 											$salearray[$index][1] = $row2['street']; 
 											$salearray[$index][2] = $row2['city']; 
