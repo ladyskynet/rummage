@@ -49,9 +49,9 @@ session_start();
 						
 						echo '<ul><li>Street: ' . $row2["street"] . '</li>';
 								
-						/**echo '<li>City: ' . $row2["city"] . '</li>';
+						echo '<li>City: ' . $row2["city"] . '</li>';
 								
-						echo '<li>State: ' . $row2["state"] . '</li>';
+						/**echo '<li>State: ' . $row2["state"] . '</li>';
 								
 						echo '<li>Zip: ' . $row2["zip"] . '</li>' 
 
