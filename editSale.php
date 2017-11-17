@@ -21,10 +21,11 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2 class="major">Edit</h2>
+				<h2>Edit</h2>
 				<div class="content">
 
 				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
+				<br>
 
 					<?php
 					$servername = "localhost";
