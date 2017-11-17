@@ -23,10 +23,7 @@ session_start();
 				</div>
 				<h2>Edit</h2>
 				<div class="content">
-
-				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
-				<br>
-
+					<br>
 					<?php
 					$servername = "localhost";
 					$username = "root";
@@ -38,7 +35,7 @@ session_start();
 					if ($mysqli === false){
 						die("Connection failed: " . $mysqli->connect_error);
 					}
-					$id = $mysqli->real_escape_string($_REQUEST['id']);
+					$id = $mysqli->real_escape_string($_REQUEST['saleid']);
 
 					$sql = "SELECT * FROM yardsale WHERE id='$id'";
 
@@ -47,7 +44,7 @@ session_start();
 					if ($result->num_rows > 0){
 						$row = $result->fetch_assoc();
 
-						echo '<li>Street: ' . $row["street"] . '</li>';
+						echo '<ul><li>Street: ' . $row["street"] . '</li>';
 								
 						echo '<li>City: ' . $row["city"] . '</li>';
 								
@@ -61,17 +58,15 @@ session_start();
 						} else {
 							echo '<li>Type: Single Family Rummage Sale</li>';
 						}
-						echo '<li>Date/Time: ' . $date . '</li>';
+						echo '<li>Date/Time: ' . $date . '</li></ul><br/>';
+						
+						echo '<li><a href="create2.php#sales">Sales</a></li>';
+
+						echo '<li><a href="editSale.php?id=' . $id . ' ">Edit</a></li></ul>';
 					}
 					$mysqli->close();
 					?>
-					<br>
-						<a href="create2.php#sales">Sales</a>
-						<?php echo '<a href="editSale.php?id=' . $id . ' ">Edit</a>';?>
-					<!--<div class="inner">
-						<h1>Rummage</h1>
-						<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.</p>
-					</div>-->
+				
 				</div>
 				<nav>
 					<ul>
