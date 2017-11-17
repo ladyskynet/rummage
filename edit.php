@@ -12,31 +12,31 @@ if ($mysqli === false){
 	die("Connection failed: " . $mysqli->connect_error);
 }
 
-$id = $mysqli->real_escape_string($_REQUEST['id']);
+$saleid = $mysqli->real_escape_string($_REQUEST['saleid']);
 $street = $mysqli->real_escape_string($_REQUEST['street']);
 $city = $mysqli->real_escape_string($_REQUEST['city']);
 $state = $mysqli->real_escape_string($_REQUEST['state']);
 $zip = $mysqli->real_escape_string($_REQUEST['zip']);
 $type = $mysqli->real_escape_string($_REQUEST['type']);
 $eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
-$userid = $_SESSION['id'];
+$userid = $mysqli->real_escape_string($_REQUEST['uid']);
 
-$sql = "UPDATE yardsale (id, street, city, state, zip, type, uid, eventdate) VALUES ('$id', '$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate') WHERE id='$id'"; 
+$sql = "UPDATE yardsale (id, street, city, state, zip, type, uid, eventdate) VALUES ('$saleid', '$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate') WHERE id='$saleid'"; 
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale updated.";
 	header('Location: create2.php#show?id=' . $id);
 } 
 else {
-	echo "Something went wrong.";
+	echo "Something went wrong." . $mysqli->error();
 	#header('Location: create2.php#sales');
-	echo $id;
-	echo $street;
-	echo $city;
-	echo $zip;
-	echo $type;
-	echo $eventdate;
-	echo $userid;
+	echo $id . "<br>";
+	echo $street . "<br>";
+	echo $city . "<br>";
+	echo $zip . "<br>";
+	echo $type . "<br>";
+	echo $eventdate . "<br>";
+	echo $userid . "<br>";
 }
 
 $mysqli->close();

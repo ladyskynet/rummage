@@ -50,7 +50,7 @@ session_start();
 						echo '<form action="edit.php" method="post">';
 						
 						echo '<label for="street">Street Address</label> 
-						<input type="hidden" name="id" value="' . $row["id"] . '"/>
+						<input type="hidden" name="saleid" value="' . $row["id"] . '"/>
 						<input type="hidden" name="uid" value="' . $row["uid"] . '"/>
 						<input type="text" name="street" maxlength="40" value="' . $row["street"] . '"/><br>';
 								
