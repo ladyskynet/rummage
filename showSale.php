@@ -21,7 +21,7 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Edit</h2>
+				<h2>Show</h2>
 				<div class="content">
 					<br>
 					<?php
@@ -41,9 +41,10 @@ session_start();
 
 					$result = $mysqli->query($sql);
 					
-					/**if ($result->num_rows > 0){
+					if ($result->num_rows > 0){
+						echo "okay";
 
-						$row = $result->fetch_assoc();
+						/**$row = $result->fetch_assoc();
 
 						echo '<ul><li>Street: ' . $row["street"] . '</li>';
 								
@@ -63,10 +64,10 @@ session_start();
 						
 						echo '<li><a href="create2.php#sales">Sales</a></li>';
 
-						echo '<li><a href="editSale.php?id=' . $id . ' ">Edit</a></li></ul>';
+						echo '<li><a href="editSale.php?id=' . $id . ' ">Edit</a></li></ul>';**/
 					} else {
 						echo "FAILURE?"
-					}**/
+					}
 					$mysqli->close();
 					?>
 				
