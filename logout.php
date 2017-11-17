@@ -7,16 +7,12 @@ if ($mysqli === false){
 	die("ERROR: Could not connect. " . $mysqli->connect_error);
 }
 
-if (ini_get("session.use_cookies")) {
-	$params = session_get_cookie_params();
-	setcookie(session_name(), '', time() - 42000,
-	$params["path"], $params["domain"], $params["secure"],
-	$params["httponly"]);
-}
 exit();
 
 session_destroy();
-header("Location:index.html);
+
+header("Location:index.php");
+
 echo "<h3>You have been successfully logged out.</h3>";
 ?>
 
