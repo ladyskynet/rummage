@@ -28,7 +28,7 @@ if ($mysqli->query($sql) === TRUE){
 	header('Location: create2.php#show?id=' . $id);
 } 
 else {
-	echo "Something went wrong." . $mysqli->error();
+	echo "Something went wrong.";
 	#header('Location: create2.php#sales');
 	echo $id . "<br>";
 	echo $street . "<br>";
