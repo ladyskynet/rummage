@@ -35,13 +35,14 @@ session_start();
 					if ($mysqli === false){
 						die("Connection failed: " . $mysqli->connect_error);
 					}
-					$id = $mysqli->real_escape_string($_REQUEST['saleid']);
+					$id = $mysqli->real_escape_string($_REQUEST['id']);
 
 					$sql = "SELECT * FROM yardsale WHERE id='$id'";
 
 					$result = $mysqli->query($sql);
 					
 					if ($result->num_rows > 0){
+
 						$row = $result->fetch_assoc();
 
 						echo '<ul><li>Street: ' . $row["street"] . '</li>';
@@ -58,11 +59,13 @@ session_start();
 						} else {
 							echo '<li>Type: Single Family Rummage Sale</li>';
 						}
-						echo '<li>Date/Time: ' . $date . '</li></ul><br/>';
+						echo '<li>Date/Time: ' . $row["eventdate"] . '</li><br/>';
 						
 						echo '<li><a href="create2.php#sales">Sales</a></li>';
 
 						echo '<li><a href="editSale.php?id=' . $id . ' ">Edit</a></li></ul>';
+					} else {
+						echo "FAILURE?"
 					}
 					$mysqli->close();
 					?>
