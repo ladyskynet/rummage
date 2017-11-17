@@ -65,7 +65,7 @@ session_start();
 						
 						echo '<li><a href="create2.php#sales">Sales</a></li>';
 
-						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';**/
+						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';
 					} else {
 						echo "FAILURE?"
 					}
