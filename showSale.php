@@ -33,14 +33,18 @@ session_start();
 					$mysqli = new mysqli($servername, $username, $password, $dbname);
 
 					if ($mysqli === false){
-						die("Connection failed: " . $mysqli->connect_error);
+						die("Connection failed: " . $mysqli->connect_error());
 					} 
-					$id = $mysqli->real_escape_string($_REQUEST['id']);
+					$saleid = $mysqli->real_escape_string($_REQUEST['id']);
+					echo $saleid;
 
-					$sql = "SELECT * FROM yardsale WHERE id='$id'";
+					$sql = "SELECT * FROM yardsale WHERE id='$saleid'";
 
 					$result = $mysqli->query($sql);
-					echo $result;
+
+					if ($result->num_rows == 1){
+						echo "Okay";
+					}
 					
 					/**if ($result->num_rows > 0){
 						echo "okay";
