@@ -187,14 +187,13 @@ session_start();
 									}	
 
 								 	foreach ($_SESSION['salearray'] as &$value){
-								 		echo '<tr><a href="create2.php#edit?id=' . $value["id"] . ' "><td>Show</td></a>';
+								 		echo '<tr><td><a href="create2.php#edit?id=' . $value['id'] . ' ">Show</a></td>';
 										echo '<td>' . $value['street'] . "</td>";
 										echo '<td>' . $value['city'] . "</td>";
 										echo '<td>' . $value['state'] . "</td>";
 										echo '<td>' . $value['zip'] . "</td>";
 										echo '<td>' . $value['type'] . "</td>" ;
 							 			echo '<td>' . $value['eventdate'] . "</td></tr>";
-							 			echo '<td><a href="edit.php">Edit</a></td>';
 									}
 									?>
 								</tbody>
