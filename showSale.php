@@ -66,8 +66,8 @@ session_start();
 					$mysqli->close();
 					?>
 					<br>
-						<input type="submit" class="button special">
-					</form>
+						<a href="create2.php#sales">Sales</a>
+						<?php echo '<a href="editSale.php?id=' . $id . ' ">Edit</a>';?>
 					<!--<div class="inner">
 						<h1>Rummage</h1>
 						<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.</p>
