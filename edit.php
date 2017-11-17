@@ -29,7 +29,14 @@ if ($mysqli->query($sql) === TRUE){
 } 
 else {
 	echo "Something went wrong.";
-	header('Location: create2.php#sales');
+	#header('Location: create2.php#sales');
+	echo $id;
+	echo $street;
+	echo $city;
+	echo $zip;
+	echo $type;
+	echo $eventdate;
+	echo $userid;
 }
 
 $mysqli->close();
