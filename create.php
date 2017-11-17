@@ -22,23 +22,12 @@ $userid = $_SESSION['id'];
 $sql2 = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate')"; 
 
 if($mysqli->query($sql2) === true){
-	$index = $_SESSION['index'] + 1;
-	$salearray = $_SESSION['salearray'];
-	$salearray[$index]['street'] = $street;
-	$salearray[$index]['city'] = $city;
-	$salearray[$index]['state'] = $state;
-	$salearray[$index]['zip'] = $zip;
-	$salearray[$index]['type'] = $type;
-	$salearray[$index]['eventdate'] = $eventdate;
-	$_SESSION['salearray'] = $salearray;
-	header('Location: http://128.163.141.189/create2.php#sales');
-	echo "Rummage sale created.";
-} 
-else {
+		header('Location: http://128.163.141.189/create2.php#sales');
+		echo "Rummage sale created.";
+} else {
 	header('Location: http://128.163.141.189/create2.php#profile');
 	echo "Something went wrong. " . $mysqli->error;
 }
-
 $mysqli->close();
 
 ?>

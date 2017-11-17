@@ -12,32 +12,24 @@ if ($mysqli === false){
 	die("Connection failed: " . $mysqli->connect_error);
 }
 
-$firstname = $mysqli->real_escape_string($_REQUEST['firstname']);
-$lastname = $mysqli->real_escape_string($_REQUEST['lastname']);
-$username = $mysqli->real_escape_string($_REQUEST['username']);
-$password = $mysqli->real_escape_string($_REQUEST['password']);
-$email = $mysqli->real_escape_string($_REQUEST['email']);
+$id = $mysqli->real_escape_string($_REQUEST['id']);
+$street = $mysqli->real_escape_string($_REQUEST['street']);
+$city = $mysqli->real_escape_string($_REQUEST['city']);
+$state = $mysqli->real_escape_string($_REQUEST['state']);
+$zip = $mysqli->real_escape_string($_REQUEST['zip']);
+$type = $mysqli->real_escape_string($_REQUEST['type']);
+$eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
+$userid = $_SESSION['id'];
 
-$sql = "SELECT * FROM user WHERE username='$username'";
-$result = $mysqli->query($sql);
+$sql = "UPDATE yardsale (street, city, state, zip, type, uid, eventdate) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate') WHERE id='$id'"; 
 
-if ($result->num_rows == 0){
-	$sql2 = "INSERT INTO user (firstname, lastname, username, password, email, type) VALUES ('$firstname', '$lastname', '$username', '$password', '$email', 'x')"; 
-	if($mysqli->query($sql2) === true){
-		header('Location: http://128.163.141.189/create2.php');
-		echo "Welcome to Rummage, $username.";
-		$_SESSION['firstname'] = $firstname;
-		$_SESSION['username'] = $username;
-		$_SESSION['password'] = $password;
-		$_SESSION['email'] = $email;
-		$_SESSION['lastname'] = $lastname;
-	} 
-	else {
-		echo "Something went wrong. " . $mysqli->error;
-	}
+if ($mysqli->query($sql) === TRUE){
+	echo "Yard sale updated.";
+	header('Location: create2.php#show?id=' . $id);
 } 
 else {
-	echo "A user with the username $username already exists. Please choose another.";
+	echo "Something went wrong.";
+	header('Location: create2.php#sales');
 }
 
 $mysqli->close();

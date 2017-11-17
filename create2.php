@@ -186,7 +186,7 @@ session_start();
 										$_SESSION['index'] = $index;
 									}	
 
-								 	foreach ($_SESSION['salearray'] as &$value){
+								 	foreach ($salearray as &$value){
 								 		echo '<tr><td><a href="create2.php#edit?id=' . $value['id'] . ' ">Show</a></td>';
 										echo '<td>' . $value['street'] . "</td>";
 										echo '<td>' . $value['city'] . "</td>";
