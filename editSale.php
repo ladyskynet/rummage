@@ -46,8 +46,7 @@ session_start();
 					
 					if ($result->num_rows > 0){
 						$row = $result->fetch_assoc();
-						echo $row["id"] "<br>";
-						
+						echo $row["id"] . "<br>";
 						
 						echo '<form action="edit.php" method="post">';
 						
