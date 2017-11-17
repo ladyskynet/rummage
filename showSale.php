@@ -44,7 +44,7 @@ session_start();
 					if ($result2->num_rows == 1){
 						echo "okay";
 
-						$row2 = $result->fetch_assoc();
+						/**$row2 = $result->fetch_assoc();
 
 						echo '<ul><li>Street: ' . $row2["street"] . '</li>';
 								
@@ -64,7 +64,7 @@ session_start();
 						
 						echo '<li><a href="create2.php#sales">Sales</a></li>';
 
-						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';
+						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';**/
 					} else {
 						echo "FAILURE?"
 					}**/
