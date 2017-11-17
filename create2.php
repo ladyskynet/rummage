@@ -98,20 +98,20 @@ session_start();
 								
 								<input type="text" name="zip" maxlength="5" value="' echo $row["zip"] '"><br>
 
-								<div class="field half first">'
+								<div class="field half first">';
 								if ($row["type"] == 'c')
 								{
 									echo '<input type="radio" id="community" name="type" value="c" checked>
 									</div>
 									<div class="field half first">
 										<input type="radio" id="single" name="type" value="s">
-									</div><br>'
+									</div><br>';
 								} else {
 									echo '<input type="radio" id="community" name="type" value="c">
 									</div>
 									<div class="field half first">
 										<input type="radio" id="single" name="type" value="s" checked>
-									</div><br>'
+									</div><br>';
 								}
 								echo '<input type="datetime-local" name="eventdate" style="font-color: black"><br><br> value="' echo $row["eventdate"] '">';
 					}
