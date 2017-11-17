@@ -88,7 +88,6 @@ session_start();
 					}
 					$mysqli->close();
 					?>
-					<br><br>
 						<input type="submit" class="button special">
 					</form>
 					<!--<div class="inner">
