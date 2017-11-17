@@ -81,7 +81,7 @@ session_start();
 							</div><br>';
 						}
 						echo '<label for="eventdate">Date/Time</label><br>
-						<input type="text" name="eventdate"><br><br> value="' . $row["eventdate"] . '">';
+						<input type="datetime-local" name="eventdate" value="' . $row["eventdate"] . '">';
 					}
 					$mysqli->close();
 					?>
