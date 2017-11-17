@@ -47,9 +47,9 @@ session_start();
 
 						$row2 = $result->fetch_assoc();
 
-						/**echo '<ul><li>Street: ' . $row2["street"] . '</li>';
+						echo '<ul><li>Street: ' . $row2["street"] . '</li>';
 								
-						echo '<li>City: ' . $row2["city"] . '</li>';
+						/**echo '<li>City: ' . $row2["city"] . '</li>';
 								
 						echo '<li>State: ' . $row2["state"] . '</li>';
 								
