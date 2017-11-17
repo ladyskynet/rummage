@@ -24,7 +24,7 @@ $sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip=
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale updated.";
-	header('Location: showSale.php?id=' . $saleid . '\'');
+	header("Location: showSale.php?id='" . $saleid . "'");
 } 
 else {
 	echo "Something went wrong.";
