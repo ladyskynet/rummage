@@ -10,6 +10,7 @@ session_start();
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 	</head>
 	<body>
 		<!-- Wrapper -->
