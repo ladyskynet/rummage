@@ -65,7 +65,7 @@ session_start();
 						if ($row["type"] == 'c')
 						{
 							echo '<label for="community">Community Rummage Sale</label>
-								<input type="radio" id="community" name="type" value="c" checked>
+								<input type="radio" id="community" name="type" value="c" checked="checked">
 							</div>
 							<div class="field half first">
 							<label for="single">Single Family Rummage Sale</label>
@@ -77,11 +77,11 @@ session_start();
 							</div>
 							<div class="field half first">
 							<label for="single">Single Family Rummage Sale</label>
-								<input type="radio" id="single" name="type" value="s" checked>
+								<input type="radio" id="single" name="type" value="s" checked="checked">
 							</div><br>';
 						}
 						echo '<label for="eventdate">Date/Time</label><br>
-						<input type="datetime-local" name="eventdate" style="font-color: black"><br><br> value="' . $row["eventdate"] . '">';
+						<input type="text" name="eventdate"><br><br> value="' . $row["eventdate"] . '">';
 					}
 					$mysqli->close();
 					?>
