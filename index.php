@@ -46,11 +46,16 @@ session_start();
 								<h2 class="major">Join</h2>
 								<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
 								<form action="join.php" method="post">
-									First Name: <input type="text" name="firstname" required/><br>
-									Last Name: <input type="text" name"lastname" required/><br>
-									Username: <input type="text" name="username" required/><br>
-									Password: <input type="text" name="password" required/><br>
-									Email: <input type="text" name="email" required/><br>
+									<label for="firstname">First Name</label>
+									<input type="text" name="firstname" required/><br>
+									<label for="lastname">Last Name</label>
+									<input type="text" name="lastname" required/><br>
+									<label for="username">Username</label>
+									<input type="text" name="username" required/><br>
+									<label for="password">Password</label>
+									<input type="text" name="password" required/><br>
+									<label for="email">Email</label>
+									<input type="text" name="email" required/><br>
 									<input type="submit" class="button special">
 								</form>	
 							</article>
