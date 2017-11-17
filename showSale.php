@@ -44,6 +44,7 @@ session_start();
 					echo $saleid;
 					if ($result2->num_rows == 1){
 						echo "okay";
+						echo $row2["street"] . "<br>";
 
 						/**$row2 = $result2->fetch_assoc();
 						echo '<ul><li>Street: ' . $row2["street"] . '</li>';
