@@ -30,7 +30,7 @@ if ($mysqli->query($sql) === TRUE){
 else {
 	echo "Something went wrong.";
 	#header('Location: create2.php#sales');
-	echo $id . "<br>";
+	echo $saleid . "<br>";
 	echo $street . "<br>";
 	echo $city . "<br>";
 	echo $zip . "<br>";
