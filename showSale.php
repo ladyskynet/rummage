@@ -45,7 +45,7 @@ session_start();
 					if ($result2->num_rows == 1){
 						echo "okay";
 
-						$row2 = $result->fetch_array();
+						$row2 = $result2->fetch_array();
 						echo $row2["street"] . "<br>";
 						/**echo '<ul><li>Street: ' . $row2["street"] . '</li>';
 								
