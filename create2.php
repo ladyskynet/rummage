@@ -48,7 +48,7 @@ session_start();
 						<label for="street">Street Address</label> 
 						<input type="text" name="street" maxlength="40"><br>
 						<label for="city">City</label>
-						<input type="text" name"city" maxlength="20"><br>
+						<input type="text" name="city" maxlength="20"><br>
 						<label for="state">State</label>
 						<input type="text" name="state" maxlength="2"><br>
 						<label for="zip">Zip</label> 
