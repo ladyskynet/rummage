@@ -36,15 +36,16 @@ session_start();
 						die("Connection failed: " . $mysqli->connect_error);
 					} 
 					$id = $mysqli->real_escape_string($_REQUEST['id']);
+					echo $id;
 
 					$sql = "SELECT * FROM yardsale WHERE id='$id'";
 
 					$result = $mysqli->query($sql);
 					
-					if ($result->num_rows > 0){
+					/**if ($result->num_rows > 0){
 						echo "okay";
 
-						/**$row = $result->fetch_assoc();
+						$row = $result->fetch_assoc();
 
 						echo '<ul><li>Street: ' . $row["street"] . '</li>';
 								
@@ -64,10 +65,10 @@ session_start();
 						
 						echo '<li><a href="create2.php#sales">Sales</a></li>';
 
-						echo '<li><a href="editSale.php?id=' . $id . ' ">Edit</a></li></ul>';**/
+						echo '<li><a href="editSale.php?id=' . $id . ' ">Edit</a></li></ul>';
 					} else {
 						echo "FAILURE?"
-					}
+					}**/
 					$mysqli->close();
 					?>
 				
