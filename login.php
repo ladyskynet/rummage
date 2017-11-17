@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $mysqli = new mysqli("localhost", "root", "password", "yardsale");
 
 if ($mysqli === false){

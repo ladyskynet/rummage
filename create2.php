@@ -85,6 +85,7 @@ session_start();
 							<table class="alt">
 								<thead>
 									<tr>
+										<th>ID</th>
 										<th>Street</th>
 										<th>City</th>
 										<th>State</th>
@@ -95,13 +96,42 @@ session_start();
 								</thead>
 								<tbody>
 									<?php
+									$mysqli = new mysqli("localhost", "root", "password", "yardsale");
+
+									if ($mysqli === false){
+										die("ERROR: Could not connect. " . $mysqli->connect_error);
+									}
+
+									$userid = $_SESSION['id'];
+									$sql2 = "SELECT * FROM yardsale WHERE uid='$userid'";
+									$result2 = $mysqli->query($sql2);
+									$salearray = array();
+									$index = 0;
+
+									if ($result2->num_rows > 0){
+										while($row2 = $result2->fetch_assoc()) {
+											$salearray[$index][0] = $row2['id']; 
+											$salearray[$index][1] = $row2['street']; 
+											$salearray[$index][2] = $row2['city']; 
+											$salearray[$index][3] = $row2['state']; 
+											$salearray[$index][4] = $row2['zip']; 
+											$salearray[$index][5] = $row2['eventdate']; 
+											$salearray[$index][6] = $row2['uid']; 
+											$salearray[$index][7] = $row2['type']; 
+											$index +=1;
+										}
+										$_SESSION['index'] = $index;
+									}	
+
 								 	foreach ($_SESSION['salearray'] as &$value){
-										echo '<tr><td>' . $value['street'] . "</td>";
+								 		echo '<tr><a href="edit.php?id=' . $value["id"] . ' "><td>Show<td></a>';
+										echo '<td>' . $value['street'] . "</td>";
 										echo '<td>' . $value['city'] . "</td>";
 										echo '<td>' . $value['state'] . "</td>";
 										echo '<td>' . $value['zip'] . "</td>";
 										echo '<td>' . $value['type'] . "</td>" ;
 							 			echo '<td>' . $value['eventdate'] . "</td></tr>";
+							 			echo '<td><a href="edit.php">Edit</a></td>';
 									}
 									?>
 								</tbody>
