@@ -67,7 +67,7 @@ session_start();
 						<input type="text" name="username" required/><br>
 						<label for="password">Password</label>
 						<input type="text" name="password" required/><br>
-						<input type="submit">
+						<input type="submit" class="button special">
 					</form>
 				</article>
 

@@ -83,12 +83,11 @@ session_start();
 						$date = str_replace(' ', 'T', $row["eventdate"]);
 						echo '<label for="eventdate">Date/Time</label><br>
 						<input type="datetime-local" name="eventdate" value="' . $date . '">';
-						echo $row["eventdate"];
 					}
 					$mysqli->close();
 					?>
-					<br>
-						<input type="submit">
+					<br><br>
+						<input type="submit" class="button special">
 					</form>
 					<!--<div class="inner">
 						<h1>Rummage</h1>
