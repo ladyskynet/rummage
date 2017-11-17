@@ -21,7 +21,7 @@ $type = $mysqli->real_escape_string($_REQUEST['type']);
 $eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
 $userid = $mysqli->real_escape_string($_REQUEST['uid']);
 
-$sql = "UPDATE yardsale (id, street, city, state, zip, type, uid, eventdate) VALUES ('$saleid', '$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate') WHERE id='$saleid'"; 
+$sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate' WHERE id='$saleid'"; 
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale updated.";
