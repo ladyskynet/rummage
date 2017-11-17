@@ -81,10 +81,12 @@ session_start();
 							</div><br>';
 						}
 						echo '<label for="eventdate">Date/Time</label><br>
-						<input type="datetime-local" name="eventdate" value="' . $row["eventdate"] . '">';
+						<input type="text" name="eventdate" value="' . $row["eventdate"] . '">';
+						echo $row["eventdate"];
 					}
 					$mysqli->close();
 					?>
+					<br>
 						<input type="submit">
 					</form>
 					<!--<div class="inner">
