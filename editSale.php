@@ -80,7 +80,7 @@ session_start();
 								<input type="radio" id="single" name="type" value="s" checked="checked">
 							</div><br>';
 						}
-						$date = $row["eventdate"]->format('Y-m-dTH:m:s');
+						$date = $row["eventdate"]->format('Y-m-d\TH:m:s');
 						echo '<label for="eventdate">Date/Time</label><br>
 						<input type="datetime-local" name="eventdate" value="' . $date . '">';
 						echo $row["eventdate"];
