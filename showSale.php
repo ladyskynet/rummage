@@ -36,11 +36,11 @@ session_start();
 						die("Connection failed: " . $mysqli->connect_error);
 					} 
 					$id = $mysqli->real_escape_string($_REQUEST['id']);
-					echo $id;
 
 					$sql = "SELECT * FROM yardsale WHERE id='$id'";
 
 					$result = $mysqli->query($sql);
+					echo $result;
 					
 					/**if ($result->num_rows > 0){
 						echo "okay";
