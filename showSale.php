@@ -34,14 +34,14 @@ session_start();
 
 					if ($mysqli === false){
 						die("Connection failed: " . $mysqli->connect_error);
-					}
+					} 
 					$id = $mysqli->real_escape_string($_REQUEST['id']);
 
 					$sql = "SELECT * FROM yardsale WHERE id='$id'";
 
 					$result = $mysqli->query($sql);
 					
-					if ($result->num_rows > 0){
+					/**if ($result->num_rows > 0){
 
 						$row = $result->fetch_assoc();
 
@@ -66,7 +66,7 @@ session_start();
 						echo '<li><a href="editSale.php?id=' . $id . ' ">Edit</a></li></ul>';
 					} else {
 						echo "FAILURE?"
-					}
+					}**/
 					$mysqli->close();
 					?>
 				
@@ -82,13 +82,6 @@ session_start();
 					</ul>
 				</nav>
 			</header>
-
-			<!-- Main -->
-			<div id="main">
-
-			<!-- Intro -->
-				
-			</div>
 
 			<!-- Footer -->
 			<footer id="footer">
