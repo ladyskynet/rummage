@@ -42,8 +42,8 @@ session_start();
 					
 					$result2 = $mysqli->query($sql2);
 					echo $saleid;
-					/**if ($result2->num_rows == 1){
-						echo "okay";**/
+					if ($result2->num_rows == 1){
+						echo "okay";}
 
 						/**$row2 = $result->fetch_assoc();
 
