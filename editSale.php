@@ -53,7 +53,7 @@ session_start();
 						<input type="text" name="street" maxlength="40" value="' . $row["street"] . '"><br>';
 								
 						echo '<label for="city">City</label>
-						<input type="text" name"city" maxlength="20" value="' . $row["city"] . '"><br>';
+						<input type="text" name="city" maxlength="20" value="' . $row["city"] . '"><br>';
 								
 						echo '<label for="state">State</label>
 						<input type="text" name="state" maxlength="2" value="' . $row["state"] . '"><br>';
