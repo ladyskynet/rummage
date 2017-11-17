@@ -40,7 +40,7 @@ session_start();
 			<!-- Main -->
 			<div id="main">
 
-				<!-- Intro -->
+				<!-- Create -->
 				<article id="create">
 					<h2 class="major">Create</h2>
 					<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
@@ -65,6 +65,66 @@ session_start();
 						<br> <input type="datetime-local" name="eventdate" style="font-color: black"><br><br>
 						<input type="submit">
 					</form>	
+				</article>
+
+				<!-- Intro -->
+				<article id="edit">
+					<h2 class="major">Edit</h2>
+					<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
+
+					<?php
+					$servername = "localhost";
+					$username = "root";
+					$password = "password";
+					$dbname = "yardsale";
+
+					$mysqli = new mysqli($servername, $username, $password, $dbname);
+
+					if ($mysqli === false){
+						die("Connection failed: " . $mysqli->connect_error);
+					}
+
+					$sql = "SELECT * FROM yardsale WHERE id='$id'"
+					$result = $mysqli->query($sql);
+					if ($result->num_rows > 0){
+						$row = $result->fetch_assoc()
+						echo '<form action="edit.php" method="post">
+								
+								<input type="text" name="street" maxlength="40" value="' echo $row["street"] '"><br>
+								
+								<input type="text" name"city" maxlength="20" value="' echo $row["city"] '"><br>
+								
+								<input type="text" name="state" maxlength="2" value="' echo $row["state"] '"><br>
+								
+								<input type="text" name="zip" maxlength="5" value="' echo $row["zip"] '"><br>
+
+								<div class="field half first">'
+								if ($row["type"] == 'c')
+								{
+									echo '<input type="radio" id="community" name="type" value="c" checked>
+									</div>
+									<div class="field half first">
+										<input type="radio" id="single" name="type" value="s">
+									</div><br>'
+								} else {
+									echo '<input type="radio" id="community" name="type" value="c">
+									</div>
+									<div class="field half first">
+										<input type="radio" id="single" name="type" value="s" checked>
+									</div><br>'
+								}
+								echo '<input type="datetime-local" name="eventdate" style="font-color: black"><br><br> value="' echo $row["eventdate"] '">';
+					}
+					?>
+						<label for="street">Street Address</label> 
+						<label for="city">City</label>
+						<label for="state">State</label>
+						<label for="zip">Zip</label> 
+						<label for="community">Community Rummage Sale</label>
+						<label for="single">Single Family Rummage Sale</label>
+						<label for="eventdate">Date/Time</label><br>
+						<input type="submit">
+					</form>
 				</article>
 
 				<!-- Profile -->
@@ -124,7 +184,7 @@ session_start();
 									}	
 
 								 	foreach ($_SESSION['salearray'] as &$value){
-								 		echo '<tr><a href="edit.php?id=' . $value["id"] . ' "><td>Show<td></a>';
+								 		echo '<tr><a href="create2.php#edit?id=' . $value["id"] . ' "><td>Show</td></a>';
 										echo '<td>' . $value['street'] . "</td>";
 										echo '<td>' . $value['city'] . "</td>";
 										echo '<td>' . $value['state'] . "</td>";
