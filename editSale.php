@@ -50,39 +50,41 @@ session_start();
 						echo '<form action="edit.php" method="post">';
 						
 						echo '<label for="street">Street Address</label> 
-						<input type="text" name="street" maxlength="40" value="' . $row["street"] . '"><br>';
+						<input type="hidden" name="id" value="' . $row["id"] . '"/>
+						<input type="hidden" name="uid" value="' . $row["uid"] . '"/>
+						<input type="text" name="street" maxlength="40" value="' . $row["street"] . '"/><br>';
 								
 						echo '<label for="city">City</label>
-						<input type="text" name="city" maxlength="20" value="' . $row["city"] . '"><br>';
+						<input type="text" name="city" maxlength="20" value="' . $row["city"] . '"/><br>';
 								
 						echo '<label for="state">State</label>
-						<input type="text" name="state" maxlength="2" value="' . $row["state"] . '"><br>';
+						<input type="text" name="state" maxlength="2" value="' . $row["state"] . '"/><br>';
 								
 						echo '<label for="zip">Zip</label> 
-						<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"><br>';
+						<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"/><br>';
 
 						echo '<div class="field half first">';
 						if ($row["type"] == 'c')
 						{
 							echo '<label for="community">Community Rummage Sale</label>
-								<input type="radio" id="community" name="type" value="c" checked="checked">
+								<input type="radio" id="community" name="type" value="c" checked="checked"/>
 							</div>
 							<div class="field half first">
 							<label for="single">Single Family Rummage Sale</label>
-								<input type="radio" id="single" name="type" value="s">
+								<input type="radio" id="single" name="type" value="s"/>
 							</div><br>';
 						} else {
 							echo '<label for="community">Community Rummage Sale</label>
-							<input type="radio" id="community" name="type" value="c">
+							<input type="radio" id="community" name="type" value="c"/>
 							</div>
 							<div class="field half first">
 							<label for="single">Single Family Rummage Sale</label>
-								<input type="radio" id="single" name="type" value="s" checked="checked">
+								<input type="radio" id="single" name="type" value="s" checked="checked"/>
 							</div><br>';
 						}
 						$date = str_replace(' ', 'T', $row["eventdate"]);
 						echo '<label for="eventdate">Date/Time</label><br>
-						<input type="datetime-local" name="eventdate" value="' . $date . '">';
+						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
 					}
 					$mysqli->close();
 					?>
