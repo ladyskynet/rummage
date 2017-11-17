@@ -49,7 +49,7 @@ session_start();
 						
 						echo '<ul><li>Street: ' . $row2["street"] . '</li>';
 								
-						echo '<li>City: ' . $row2["city"] . '</li>';
+						/**echo '<li>City: ' . $row2["city"] . '</li>';
 								
 						echo '<li>State: ' . $row2["state"] . '</li>';
 								
@@ -65,7 +65,7 @@ session_start();
 						
 						echo '<li><a href="create2.php#sales">Sales</a></li>';
 
-						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';
+						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';**/
 					}
 
 					$mysqli->close();
