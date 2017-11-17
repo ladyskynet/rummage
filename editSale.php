@@ -80,8 +80,9 @@ session_start();
 								<input type="radio" id="single" name="type" value="s" checked="checked">
 							</div><br>';
 						}
+						$date = $row["eventdate"]->format('Y-m-dTH:m:s');
 						echo '<label for="eventdate">Date/Time</label><br>
-						<input type="text" name="eventdate" value="' . $row["eventdate"] . '">';
+						<input type="datetime-local" name="eventdate" value="' . $date . '">';
 						echo $row["eventdate"];
 					}
 					$mysqli->close();
