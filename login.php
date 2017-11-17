@@ -63,5 +63,6 @@ else {
 	header('Location: http://128.163.141.189');
 	echo "That username or password is incorrect. Please try again.";
 }
-?>
 
+$mysqli->close();
+?>

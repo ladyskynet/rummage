@@ -118,6 +118,7 @@ session_start();
 								}
 								echo '<input type="datetime-local" name="eventdate" style="font-color: black"><br><br> value="' . $row["eventdate"] . '">';
 					}
+					$mysqli->close();
 					?>
 						<label for="street">Street Address</label> 
 						<label for="city">City</label>
@@ -166,6 +167,7 @@ session_start();
 									}
 
 									$userid = $_SESSION['id'];
+									echo $userid;
 									$sql2 = "SELECT * FROM yardsale WHERE uid='$userid'";
 									$result2 = $mysqli->query($sql2);
 									$salearray = array();
