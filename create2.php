@@ -68,70 +68,6 @@ session_start();
 					</form>	
 				</article>
 
-				<!-- Intro -->
-				<article id="edit">
-					<h2 class="major">Edit</h2>
-					<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
-
-					<?php
-					$servername = "localhost";
-					$username = "root";
-					$password = "password";
-					$dbname = "yardsale";
-
-					$mysqli = new mysqli($servername, $username, $password, $dbname);
-
-					if ($mysqli === false){
-						die("Connection failed: " . $mysqli->connect_error);
-					}
-
-					$sql = "SELECT * FROM yardsale WHERE id='$id'";
-
-					$result = $mysqli->query($sql);
-					
-					if ($result->num_rows > 0){
-						$row = $result->fetch_assoc();
-						
-						echo '<form action="edit.php" method="post">';
-						
-						echo '<input type="text" name="street" maxlength="40" value="' . $row["street"] . '"><br>';
-								
-						echo '<input type="text" name"city" maxlength="20" value="' . $row["city"] . '"><br>';
-								
-						echo '<input type="text" name="state" maxlength="2" value="' . $row["state"] . '"><br>';
-								
-						echo '<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"><br>';
-
-						echo '<div class="field half first">';
-								if ($row["type"] == 'c')
-								{
-									echo '<input type="radio" id="community" name="type" value="c" checked>
-									</div>
-									<div class="field half first">
-										<input type="radio" id="single" name="type" value="s">
-									</div><br>';
-								} else {
-									echo '<input type="radio" id="community" name="type" value="c">
-									</div>
-									<div class="field half first">
-										<input type="radio" id="single" name="type" value="s" checked>
-									</div><br>';
-								}
-								echo '<input type="datetime-local" name="eventdate" style="font-color: black"><br><br> value="' . $row["eventdate"] . '">';
-					}
-					$mysqli->close();
-					?>
-						<label for="street">Street Address</label> 
-						<label for="city">City</label>
-						<label for="state">State</label>
-						<label for="zip">Zip</label> 
-						<label for="community">Community Rummage Sale</label>
-						<label for="single">Single Family Rummage Sale</label>
-						<label for="eventdate">Date/Time</label><br>
-						<input type="submit">
-					</form>
-				</article>
-
 				<!-- Profile -->
 				<article id="profile">
 					<h2 class="major">Profile</h2>
@@ -168,16 +104,16 @@ session_start();
 									}
 
 									$userid = $_SESSION['id'];
-									echo $userid;
+							
 									$sql2 = "SELECT * FROM yardsale WHERE uid='$userid'";
 									$result2 = $mysqli->query($sql2);
 									$salearray = array();
 									$index = 0;
 
 									if ($result2->num_rows > 0){
-										echo "nsql renedered something";
+
 										while($row2 = $result2->fetch_assoc()) {
-											echo "new row";
+											
 											$salearray[$index][0] = $row2['id']; 
 											$salearray[$index][1] = $row2['street']; 
 											$salearray[$index][2] = $row2['city']; 
@@ -190,9 +126,9 @@ session_start();
 										}
 										$_SESSION['index'] = $index;
 									}	
-
+									echo $salearray;
 								 	foreach ($salearray as &$value){
-								 		echo '<tr><td><a href="create2.php#edit?id=' . $value['id'] . ' ">Show</a></td>';
+								 		echo '<tr><td><a href="editSale.php?id=' . $value['id'] . ' ">Show</a></td>';
 										echo '<td>' . $value['street'] . "</td>";
 										echo '<td>' . $value['city'] . "</td>";
 										echo '<td>' . $value['state'] . "</td>";
