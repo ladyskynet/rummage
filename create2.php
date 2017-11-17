@@ -84,21 +84,24 @@ session_start();
 						die("Connection failed: " . $mysqli->connect_error);
 					}
 
-					$sql = "SELECT * FROM yardsale WHERE id='$id'"
-					$result = $mysqli->query($sql);
-					if ($result->num_rows > 0){
-						$row = $result->fetch_assoc()
-						echo '<form action="edit.php" method="post">
-								
-								<input type="text" name="street" maxlength="40" value="' echo $row["street"] '"><br>
-								
-								<input type="text" name"city" maxlength="20" value="' echo $row["city"] '"><br>
-								
-								<input type="text" name="state" maxlength="2" value="' echo $row["state"] '"><br>
-								
-								<input type="text" name="zip" maxlength="5" value="' echo $row["zip"] '"><br>
+					$sql = "SELECT * FROM yardsale WHERE id='$id'";
 
-								<div class="field half first">';
+					$result = $mysqli->query($sql);
+					
+					if ($result->num_rows > 0){
+						$row = $result->fetch_assoc();
+						
+						echo '<form action="edit.php" method="post">';
+						
+						echo '<input type="text" name="street" maxlength="40" value="' . $row["street"] . '"><br>';
+								
+						echo '<input type="text" name"city" maxlength="20" value="' . $row["city"] . '"><br>';
+								
+						echo '<input type="text" name="state" maxlength="2" value="' . $row["state"] . '"><br>';
+								
+						echo '<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"><br>';
+
+						echo '<div class="field half first">';
 								if ($row["type"] == 'c')
 								{
 									echo '<input type="radio" id="community" name="type" value="c" checked>
@@ -113,7 +116,7 @@ session_start();
 										<input type="radio" id="single" name="type" value="s" checked>
 									</div><br>';
 								}
-								echo '<input type="datetime-local" name="eventdate" style="font-color: black"><br><br> value="' echo $row["eventdate"] '">';
+								echo '<input type="datetime-local" name="eventdate" style="font-color: black"><br><br> value="' . $row["eventdate"] . '">';
 					}
 					?>
 						<label for="street">Street Address</label> 
