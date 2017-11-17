@@ -36,13 +36,14 @@ session_start();
 						die("Connection failed: " . $mysqli->connect_error());
 					} 
 					$saleid = $mysqli->real_escape_string($_REQUEST['id']);
+					echo $saleid;
 
-					$sql2 = "SELECT * FROM yardsale WHERE id='$saleid'";
+					/**$sql2 = "SELECT * FROM yardsale WHERE id='$saleid'";
 
 					$result2 = $mysqli->query($sql2);
 					
 					if ($result2->num_rows == 1){
-						echo "okay";
+						echo "okay";**/
 
 						/**$row2 = $result->fetch_assoc();
 
@@ -65,7 +66,7 @@ session_start();
 						echo '<li><a href="create2.php#sales">Sales</a></li>';
 
 						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';**/
-					} else {
+					/**} else {
 						echo "FAILURE?"
 					}**/
 					$mysqli->close();
