@@ -128,13 +128,13 @@ session_start();
 									}	
 									echo $salearray;
 								 	foreach ($salearray as &$value){
-								 		echo '<tr><td><a href="editSale.php?id=' . $value['id'] . ' ">Show</a></td>';
-										echo '<td>' . $value['street'] . "</td>";
-										echo '<td>' . $value['city'] . "</td>";
-										echo '<td>' . $value['state'] . "</td>";
-										echo '<td>' . $value['zip'] . "</td>";
-										echo '<td>' . $value['type'] . "</td>" ;
-							 			echo '<td>' . $value['eventdate'] . "</td></tr>";
+								 		echo '<tr><td><a href="editSale.php?id=' . $value[0] . ' ">Show</a></td>';
+										echo '<td>' . $value[1] . "</td>";
+										echo '<td>' . $value[2] . "</td>";
+										echo '<td>' . $value[3] . "</td>";
+										echo '<td>' . $value[4] . "</td>";
+										echo '<td>' . $value[7] . "</td>" ;
+							 			echo '<td>' . $value[5] . "</td></tr>";
 									}
 									?>
 								</tbody>
