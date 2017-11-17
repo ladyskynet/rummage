@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+<DOCTYPE HTML>
 <html>
 	<head>
 		<title>Rummage</title>
@@ -23,16 +24,16 @@ session_start();
 						<div class="content">
 							<div class="inner">
 								<h1>Rummage</h1>
-								<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.</p>
+								<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.<?php echo "pleasE?"?></p>
 							</div>
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#profile">Profile</a></li>
-								<li><a href="#create">Create</a></li>
-								<li><a href="#explore">Explore</a></li>
-								<li><a href="#elements">Elements</a></li>
-								<li><a href="logout.php">Logout</a></li>
+								<li><a href="#join">Join</a></li>
+								<li><a href="#login">Login</a></li>
+								<li><a href="#about">About</a></li>
+								<!--<li><a href="/create.html">Create</a></li>-->
+								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
 					</header>
@@ -41,61 +42,41 @@ session_start();
 					<div id="main">
 
 						<!-- Intro -->
-							<article id="create">
-								<h2 class="major">Create</h2>
+							<article id="join">
+								<h2 class="major">Join</h2>
 								<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
-								<form action="create.php" method="post">
-									
-									Street Address: <input type="text" name="street" maxlength="40"><br>
-									City: <input type="text" name"city" maxlength="20"><br>
-									State: <input type="text" name="state" maxlength="2"><br>
-									Zip: <input type="text" name="zip" maxlength="5"><br>
-									<div class="field half first">
-                                                                       		<input type="radio" id="community" name="type" value="c">
-                                                                                <label for="community">Community Rummage Sale</label>
-                                                                        </div>
-									<div class="field half first">
-                                                                                <input type="radio" id="single" name="type" value="s">
-                                                                                <label for="single">Single Family Rummage Sale</label>
-                                                                              </div><br>
-
-
-									Date/Time: <br> <input type="datetime-local" name="eventdate" style="font-color: black"><br><br>
-									<input type="submit">
+								<form action="join.php" method="post">
+									First Name: <input type="text" name="firstname" required/><br>
+									Last Name: <input type="text" name"lastname" required/><br>
+									Username: <input type="text" name="username" required/><br>
+									Password: <input type="text" name="password" required/><br>
+									Email: <input type="text" name="email" required/><br>
+									<input type="submit" class="button special">
 								</form>	
 							</article>
 
 						<!-- Login -->
-							<article id="profile">
-								<h2 class="major">Profile</h2>
+							<article id="login">
+								<h2 class="major">Login</h2>
 								<!--<span class="image main"><img src="images/pic02.jpg" alt="" /></span>-->
-								Username: <?php echo $_SESSION['username'];?><br>
-								First Name: <?php echo $_SESSION['firstname'];?><br>
-								Last Name: <?php echo $_SESSION['lastname']; ?><br>
-								Password: <?php echo $_SESSION['password']; ?><br>
-								Email: <?php echo $_SESSION['email'];?><br>
-
+								<form action="login.php" method="post">
+									<label for="username">Username</label>
+									<input type="text" name="username" required/><br>
+									<label for="password">Password</label>
+									<input type="text" name="password" required/><br>
+									<input type="submit">
+								</form>
 							</article>
 
-						<!-- Sales -->
-							<article id="sales">
-								<h2 class="major">My Rummage Sales</h2>
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">About</h2>
 								<!--<span class="image main"><img src="images/pic03.jpg" alt="" /></span>-->
-								<?php
-							 	foreach ($_SESSION['salearray'] as &$value){
-									echo 'Street: ' . $value['street'];
-									echo 'City: ' . $value['city'];
-									echo 'State: ' . $value['state'];
-									echo 'Zip: ' . $value['zip'];
-									echo 'Type : ' . $value['type'];
-						 			echo 'Event Date/Time: ' . $value['eventdate'];
-						 
-								}
-								?></p>
+								<p>Created by Erin Combs and Jacob Richardson for CS405G: Intro to Databases.</p>
 							</article>
 
 						<!-- Contact -->
-							<!--<article id="contact">
+							<article id="contact">
 								<h2 class="major">Contact</h2>
 								<form method="post" action="#">
 									<div class="field half first">
@@ -121,7 +102,7 @@ session_start();
 									<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
 									<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
-							</article>-->
+							</article>
 
 						<!-- Elements -->
 							<article id="elements">

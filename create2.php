@@ -1,12 +1,6 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>Rummage</title>
@@ -39,7 +33,7 @@ session_start();
 								<li><a href="#explore">Explore</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 								<li><a href="#sales">Sales</a></li>
-								<li><a href="#logout">Logout</a></li>
+								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -89,7 +83,25 @@ session_start();
 								<h2 class="major">My Rummage Sales</h2>
 								<!--<span class="image main"><img src="images/pic03.jpg" alt="" /></span>-->
 								<?php
-							 	foreach ($_SESSION['salearray'] as &$value){
+								$userid = $_SESSION['id'];
+								$sql2 = "SELECT * FROM yardsale WHERE uid='$userid';";
+								$result2 = $mysqli->query($sql2);
+								$salearray = array();
+								$index = 0;
+								if ($result2->num_rows > 0){
+        								while($row2 = $result2->fetch_assoc()) {
+                								$salearray[$index][0] = $row2['id'];
+                								$salearray[$index][1] = $row2['street'];
+                								$salearray[$index][2] = $row2['city'];
+                								$salearray[$index][3] = $row2['state'];
+                								$salearray[$index][4] = $row2['zip'];
+                								$salearray[$index][5] = $row2['eventdate'];
+               	 								$salearray[$index][6] = $row2['uid'];
+                								$salearray[$index][7] = $row2['type'];
+										$index += 1;
+        								}
+								}
+							 	foreach ($salearray as &$value){
 									echo 'Street: ' . $value['street'] . "<br>";
 									echo 'City: ' . $value['city'] . "<br>";
 									echo 'State: ' . $value['state'] . "<br>";
@@ -376,7 +388,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">&copy; Rummage.</p>
 					</footer>
 
 			</div>
