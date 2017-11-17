@@ -104,13 +104,12 @@ session_start();
 									<tbody>
 										<?php
 									 	foreach ($_SESSION['salearray'] as &$value){
-											echo '<tr><td>Street: ' . $value['street'] . "</td>";
-											echo '<td>City: ' . $value['city'] . "</td>";
-											echo '<td>State: ' . $value['state'] . "</td>";
-											echo '<td>Zip: ' . $value['zip'] . "</td>";
-											echo '<td>Type : ' . $value['type'] . "</td>" ;
-								 			echo '<td>Event Date/Time: ' . $value['eventdate'] . "</td></tr>";
-								 
+											echo '<tr><td>' . $value['street'] . "</td>";
+											echo '<td>' . $value['city'] . "</td>";
+											echo '<td>' . $value['state'] . "</td>";
+											echo '<td>' . $value['zip'] . "</td>";
+											echo '<td>' . $value['type'] . "</td>" ;
+								 			echo '<td>' . $value['eventdate'] . "</td></tr>";
 										}
 										?>
 									</tbody>

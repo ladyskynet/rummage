@@ -24,7 +24,7 @@ session_start();
 						<div class="content">
 							<div class="inner">
 								<h1>Rummage</h1>
-								<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.<?php echo "pleasE?"?></p>
+								<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.</p>
 							</div>
 						</div>
 						<nav>
