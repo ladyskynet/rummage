@@ -45,13 +45,13 @@ session_start();
 					if ($result2->num_rows == 1){
 						echo "okay";
 
-						$row2 = $result->fetch_assoc();
+						$row2 = $result2->fetch_assoc();
 
 						echo '<ul><li>Street: ' . $row2["street"] . '</li>';
 								
-						/**echo '<li>City: ' . $row2["city"] . '</li>';
+						echo '<li>City: ' . $row2["city"] . '</li>';
 								
-						echo '<li>State: ' . $row2["state"] . '</li>';
+						/**echo '<li>State: ' . $row2["state"] . '</li>';
 								
 						echo '<li>Zip: ' . $row2["zip"] . '</li>' 
 
