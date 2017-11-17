@@ -37,34 +37,34 @@ session_start();
 					} 
 					$saleid = $mysqli->real_escape_string($_REQUEST['id']);
 
-					$sql = "SELECT * FROM yardsale WHERE id='$saleid'";
+					$sql2 = "SELECT * FROM yardsale WHERE id='$saleid'";
 
-					$result = $mysqli->query($sql);
+					$result2 = $mysqli->query($sql2);
 					
-					if ($result->num_rows == 1){
+					if ($result2->num_rows == 1){
 						echo "okay";
 
-						$row = $result->fetch_assoc();
+						$row2 = $result->fetch_assoc();
 
-						echo '<ul><li>Street: ' . $row["street"] . '</li>';
+						echo '<ul><li>Street: ' . $row2["street"] . '</li>';
 								
-						echo '<li>City: ' . $row["city"] . '</li>';
+						echo '<li>City: ' . $row2["city"] . '</li>';
 								
-						echo '<li>State: ' . $row["state"] . '</li>';
+						echo '<li>State: ' . $row2["state"] . '</li>';
 								
-						echo '<li>Zip: ' . $row["zip"] . '</li>' 
+						echo '<li>Zip: ' . $row2["zip"] . '</li>' 
 
-						if ($row["type"] == 'c')
+						if ($row2["type"] == 'c')
 						{
 							echo '<li>Type: Community Rummage Sale</li>';
 						} else {
 							echo '<li>Type: Single Family Rummage Sale</li>';
 						}
-						echo '<li>Date/Time: ' . $row["eventdate"] . '</li><br/>';
+						echo '<li>Date/Time: ' . $row2["eventdate"] . '</li><br/>';
 						
 						echo '<li><a href="create2.php#sales">Sales</a></li>';
 
-						echo '<li><a href="editSale.php?id=' . $id . ' ">Edit</a></li></ul>';
+						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';
 					} else {
 						echo "FAILURE?"
 					}**/
