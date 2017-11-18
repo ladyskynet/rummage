@@ -57,11 +57,11 @@ session_start();
 								</thead>
 								<tbody>';
 						
-						echo '<tr><td>' . $row["Name"] . '</td>';
+						echo '<tr><td>' . $row["name"] . '</td>';
 								
-						echo '<td>' . $row["Description"] . '</td>';
+						echo '<td>' . $row["description"] . '</td>';
 								
-						echo '<td>' . $row["Price"] . '</td>';
+						echo '<td>' . $row["price"] . '</td>';
 								
 
 						echo '<td><a href="editItem.php?id=' . $saleid . ' ">Edit</a></td>
