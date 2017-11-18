@@ -41,9 +41,7 @@ session_start();
 					$sql2 = "SELECT * FROM yardsale WHERE id='$saleid'";
 					
 					$result2 = $mysqli->query($sql2);
-					echo $saleid;
 					if ($result2->num_rows == 1){
-						echo "okay";
 
 						$row2 = $result2->fetch_array();
  
