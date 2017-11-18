@@ -82,20 +82,7 @@ session_start();
 				<article id="sales">
 					<section>
 						<h3 class="major">My Rummage Sales</h2>
-						<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>ID</th>
-										<th>Street</th>
-										<th>City</th>
-										<th>State</th>
-										<th>Zip</th>
-										<th>Type</th>
-										<th>Event Date</th>
-									</tr>
-								</thead>
-								<tbody>
+						
 									<?php
 									$mysqli = new mysqli("localhost", "root", "password", "yardsale");
 
@@ -104,7 +91,6 @@ session_start();
 									}
 
 									$userid = $_SESSION['id'];
-									echo $userid;
 									$sql2 = "SELECT * FROM yardsale WHERE uid='$userid'";
 									$result2 = $mysqli->query($sql2);
 									$salearray = array();
@@ -124,21 +110,39 @@ session_start();
 											$salearray[$index][7] = $row2['type']; 
 											$index +=1;
 										}
+
+										echo '<div class="table-wrapper">
+												<table class="alt">
+													<thead>
+														<tr>
+															<th>ID</th>
+															<th>Street</th>
+															<th>City</th>
+															<th>State</th>
+															<th>Zip</th>
+															<th>Type</th>
+															<th>Event Date</th>
+														</tr>
+													</thead>
+													<tbody>';
 										$_SESSION['index'] = $index;
+										foreach ($salearray as &$value){
+								 			echo '<tr><td><a href="showSale.php?id=' . $value[0] . ' ">Show</a></td>';
+											echo '<td>' . $value[1] . "</td>";
+											echo '<td>' . $value[2] . "</td>";
+											echo '<td>' . $value[3] . "</td>";
+											echo '<td>' . $value[4] . "</td>";
+											echo '<td>' . $value[7] . "</td>" ;
+							 				echo '<td>' . $value[5] . "</td></tr>";
+										}
+										echo '		</tbody>
+												</table>
+											</div>';
+									} else {
+										echo "<p>You don't currentnly have any rummage sales to display.</p>";
 									}	
-								 	foreach ($salearray as &$value){
-								 		echo '<tr><td><a href="showSale.php?id=' . $value[0] . ' ">Show</a></td>';
-										echo '<td>' . $value[1] . "</td>";
-										echo '<td>' . $value[2] . "</td>";
-										echo '<td>' . $value[3] . "</td>";
-										echo '<td>' . $value[4] . "</td>";
-										echo '<td>' . $value[7] . "</td>" ;
-							 			echo '<td>' . $value[5] . "</td></tr>";
-									}
+								 	
 									?>
-								</tbody>
-							</table>
-						</div>
 					</section>
 				</article>
 			</div>

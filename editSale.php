@@ -63,22 +63,16 @@ session_start();
 						echo '<label for="zip">Zip</label> 
 						<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"/><br>';
 
-						echo '<div class="field half first">
-									<select>';
+						echo '<select>';
 						if ($row["type"] == 'c')
 						{
 							echo '<option id="community" name="type" value="c" selected="selected">Community Rummage Sale</option>
-							</div>
-							<div class="field half first">
 								<option id="single" name="type" value="s">Single Family Rummage Sale</option>
-							</div><br>';
+							<br>';
 						} else {
 							echo '<option id="community" name="type" value="c">Community Rummage Sale</option>
-							</div>
-							<div class="field half first">
 								<option id="single" name="type" value="s" selected="selected">Single Family Rummage Sale</option>
-								</select>
-							</div><br>';
+								</select><br>';
 						}
 						$date = str_replace(' ', 'T', $row["eventdate"]);
 						echo '<label for="eventdate">Date/Time</label><br>
