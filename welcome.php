@@ -64,7 +64,7 @@ session_start();
 						</div><br>
 						<label for="eventdate">Date/Time</label> 
 						<br> <input type="datetime-local" name="eventdate" style="font-color: black"><br><br>
-						<input type="submit">
+						<input type="submit" class="button special">
 					</form>	
 				</article>
 
@@ -107,8 +107,13 @@ session_start();
 											$salearray[$index][4] = $row2['zip']; 
 											$salearray[$index][5] = $row2['eventdate']; 
 											$salearray[$index][6] = $row2['uid']; 
+											if ($row2['type'] == 's'){
+												$type = "Single Family Rummage Sale";
+											} else {
+												$type = "Community Rummage Sale";
+											}
 											$salearray[$index][7] = $row2['type']; 
-											$index +=1;
+											$index += 1;
 										}
 
 										echo '<div class="table-wrapper">
@@ -132,7 +137,7 @@ session_start();
 											echo '<td>' . $value[2] . "</td>";
 											echo '<td>' . $value[3] . "</td>";
 											echo '<td>' . $value[4] . "</td>";
-											echo '<td>' . $value[7] . "</td>" ;
+											echo '<td>' . $type . "</td>" ;
 							 				echo '<td>' . $value[5] . "</td></tr>";
 										}
 										echo '		</tbody>
