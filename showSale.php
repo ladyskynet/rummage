@@ -46,26 +46,45 @@ session_start();
 						echo "okay";
 
 						$row2 = $result2->fetch_array();
+ 
+						echo '<h4>View Details</h4>
+						<div class="table-wrapper">
+							<table class="alt">
+								<thead>
+									<tr>
+										<th>Street</th>
+										<th>City</th>
+										<th>State</th>
+										<th>Zip</th>
+										<th>Event Date/Time</th>
+										<th>Type</th>
+									</tr>
+								</thead>
+								<tbody>';
 						
-						echo '<ul><li>Street: ' . $row2["street"] . '</li>';
+						echo '<tr><td>' . $row2["street"] . '</td></tr>';
 								
-						echo '<li>City: ' . $row2["city"] . '</li>';
+						echo '<tr><td>' . $row2["city"] . '</td></tr>';
 								
-						echo '<li>State: ' . $row2["state"] . '</li>';
+						echo '<tr><td>' . $row2["state"] . '</td></tr>';
 								
-						echo '<li>Zip: ' . $row2["zip"] . '</li>'; 
+						echo '<tr><td>' . $row2["zip"] . '</td></tr>'; 
 
 						if ($row2["type"] == 'c')
 						{
-							echo '<li>Type: Community Rummage Sale</li>';
+							echo '<tr><td>Community Rummage Sale</td></tr>';
 						} else {
-							echo '<li>Type: Single Family Rummage Sale</li>';
+							echo '<tr><td>Type: Single Family Rummage Sale</td></tr>';
 						}
-						echo '<li>Date/Time: ' . $row2["eventdate"] . '</li><br/>';
+						echo '<tr><td>Date/Time: ' . $row2["eventdate"] . '</td></tr><br/>
+						</tbody>
+					</table>
+				</div>';
 						
-						echo '<li><a href="create2.php#sales">Sales</a></li>';
+						echo '<a href="create2.php#sales">Sales</a><br/>';
 
-						echo '<li><a href="editSale.php?id=' . $saleid . ' ">Edit</a></li></ul>';
+						echo '<a href="editSale.php?id=' . $saleid . ' ">Edit</a>';
+						
 					}
 
 					$mysqli->close();
