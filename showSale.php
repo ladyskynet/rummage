@@ -58,6 +58,7 @@ session_start();
 										<th>Zip</th>
 										<th>Event Date/Time</th>
 										<th>Type</th>
+										<th>Edit</th>
 									</tr>
 								</thead>
 								<tbody>';
@@ -76,14 +77,14 @@ session_start();
 						} else {
 							echo '<td>Type: Single Family Rummage Sale</td>';
 						}
-						echo '<td>Date/Time: ' . $row2["eventdate"] . '</td></tr><br/>
+						echo '<td>Date/Time: ' . $row2["eventdate"] . '</td>
+						<td><a href="editSale.php?id=' . $saleid . ' ">Edit</a>
 						</tbody>
 					</table>
 				</div>';
 						
-						echo '<a href="create2.php#sales">Sales</a><br/>';
 
-						echo '<a href="editSale.php?id=' . $saleid . ' ">Edit</a>';
+						
 						
 					}
 
