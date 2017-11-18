@@ -62,21 +62,21 @@ session_start();
 								</thead>
 								<tbody>';
 						
-						echo '<tr><td>' . $row2["street"] . '</td></tr>';
+						echo '<tr><td>' . $row2["street"] . '</td>';
 								
-						echo '<tr><td>' . $row2["city"] . '</td></tr>';
+						echo '<td>' . $row2["city"] . '</td>';
 								
-						echo '<tr><td>' . $row2["state"] . '</td></tr>';
+						echo '<td>' . $row2["state"] . '</td>';
 								
-						echo '<tr><td>' . $row2["zip"] . '</td></tr>'; 
+						echo '<td>' . $row2["zip"] . '</td>'; 
 
 						if ($row2["type"] == 'c')
 						{
-							echo '<tr><td>Community Rummage Sale</td></tr>';
+							echo '<td>Community Rummage Sale</td>';
 						} else {
-							echo '<tr><td>Type: Single Family Rummage Sale</td></tr>';
+							echo '<td>Type: Single Family Rummage Sale</td>';
 						}
-						echo '<tr><td>Date/Time: ' . $row2["eventdate"] . '</td></tr><br/>
+						echo '<td>Date/Time: ' . $row2["eventdate"] . '</td></tr><br/>
 						</tbody>
 					</table>
 				</div>';
