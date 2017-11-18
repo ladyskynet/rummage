@@ -37,12 +37,12 @@ session_start();
 					$saleid = $mysqli->real_escape_string($_REQUEST['id']);
 					
 
-					$sql2 = "SELECT * FROM yardsale WHERE id='$saleid'";
+					$sql = "SELECT * FROM yardsale WHERE id='$saleid'";
 					
-					$result2 = $mysqli->query($sql2);
-					if ($result2->num_rows == 1){
+					$result = $mysqli->query($sql);
+					if ($result->num_rows == 1){
 
-						$row2 = $result2->fetch_array();
+						$row = $result->fetch_array();
  
 						echo '<h4>View Details</h4>
 						<div class="table-wrapper">
@@ -61,26 +61,63 @@ session_start();
 								</thead>
 								<tbody>';
 						
-						echo '<tr><td>' . $row2["street"] . '</td>';
+						echo '<tr><td>' . $row["street"] . '</td>';
 								
-						echo '<td>' . $row2["city"] . '</td>';
+						echo '<td>' . $row["city"] . '</td>';
 								
-						echo '<td>' . $row2["state"] . '</td>';
+						echo '<td>' . $row["state"] . '</td>';
 								
-						echo '<td>' . $row2["zip"] . '</td>'; 
+						echo '<td>' . $row["zip"] . '</td>'; 
 
-						if ($row2["type"] == 'c')
+						if ($row["type"] == 'c')
 						{
 							echo '<td>Community Rummage Sale</td>';
 						} else {
 							echo '<td>Type: Single Family Rummage Sale</td>';
 						}
-						echo '<td>Date/Time: ' . $row2["eventdate"] . '</td>
-						<td><a href="editSale.php?id=' . $saleid . ' ">Edit</a></td>
-						<td><a href="deleteSale.php?id=' . $saleid . ' ">Delete</a>
-						</tbody>
-					</table>
-				</div>';	
+						echo '	<td>Date/Time: ' . $row["eventdate"] . '</td>
+							  	<td><a href="editSale.php?id=' . $saleid . ' ">Edit</a></td>
+							  	<td><a href="deleteSale.php?id=' . $saleid . ' ">Delete</a>
+							</tbody>
+					    </table>
+					</div>';
+						$sql2 = "SELECT * FROM item WHERE sid='$saleid'";
+						$result2 = $mysqli->query($sql2);
+						if ($result2->num_rows > 0){
+							echo '<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Name</th>
+												<th>Description</th>
+												<th>Price</th>
+											</tr>
+										</thead>
+										<tbody>';
+							while($row2 = $result2->fetch_array()) {
+
+								if ($row2['type'] == 's'){
+									$type = "Single Family Rummage Sale";
+								} else {
+									$type = "Community Rummage Sale";
+								}
+				 				echo '<tr><td><a href="showItem.php?id=' . $row['id'] . ' ">Show</a></td>';
+								echo '<td>' . $row3['name'] . "</td>";
+								echo '<td>' . $row3['description'] . "</td>";
+								echo '<td>$' . $row3['price'] . "</td>";
+								echo '<td>' . $row3['zip'] . "</td>";
+								echo '<td>' . $type . "</td>" ;
+			 					echo '<td>' . $row3['eventdate'] . "</td></tr>";
+							}
+							echo '		</tbody>
+									</table>
+								</div>';
+						} else {
+							echo "<p>There aren't any items attached to this sale.</p>";
+						}
+					} else {
+						echo "<p>You don't currenntly have any rummage sales to display.</p>";
 					}
 					$mysqli->close();
 					?>

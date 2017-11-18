@@ -36,24 +36,6 @@ session_start();
 
 					if ($result2->num_rows > 0){
 
-						while($row2 = $result2->fetch_array()) {
-							
-							$salearray[$index][0] = $row2['id']; 
-							$salearray[$index][1] = $row2['street']; 
-							$salearray[$index][2] = $row2['city']; 
-							$salearray[$index][3] = $row2['state']; 
-							$salearray[$index][4] = $row2['zip']; 
-							$salearray[$index][5] = $row2['eventdate']; 
-							$salearray[$index][6] = $row2['uid']; 
-							if ($row2['type'] == 's'){
-								$type = "Single Family Rummage Sale";
-							} else {
-								$type = "Community Rummage Sale";
-							}
-							$salearray[$index][7] = $row2['type']; 
-							$index += 1;
-						}
-
 						echo '<div class="table-wrapper">
 								<table class="alt">
 									<thead>
@@ -68,21 +50,26 @@ session_start();
 										</tr>
 									</thead>
 									<tbody>';
-						$_SESSION['index'] = $index;
-						foreach ($salearray as &$value){
-				 			echo '<tr><td><a href="showSale.php?id=' . $value[0] . ' ">Show</a></td>';
-							echo '<td>' . $value[1] . "</td>";
-							echo '<td>' . $value[2] . "</td>";
-							echo '<td>' . $value[3] . "</td>";
-							echo '<td>' . $value[4] . "</td>";
+						while($row2 = $result2->fetch_array()) {
+
+							if ($row2['type'] == 's'){
+								$type = "Single Family Rummage Sale";
+							} else {
+								$type = "Community Rummage Sale";
+							}
+				 			echo '<tr><td><a href="showSale.php?id=' . $row['id'] . ' ">Show</a></td>';
+							echo '<td>' . $row2['street'] . "</td>";
+							echo '<td>' . $row2['city'] . "</td>";
+							echo '<td>' . $row2['state'] . "</td>";
+							echo '<td>' . $row2['zip'] . "</td>";
 							echo '<td>' . $type . "</td>" ;
-			 				echo '<td>' . $value[5] . "</td></tr>";
+			 				echo '<td>' . $row2['eventdate'] . "</td></tr>";
 						}
 						echo '		</tbody>
 								</table>
 							</div>';
 					} else {
-						echo "<p>You don't currentnly have any rummage sales to display.</p>";
+						echo "<p>You don't currenntly have any rummage sales to display.</p>";
 					}	
 				 	
 					?>

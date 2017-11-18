@@ -23,10 +23,10 @@ $userid = $_SESSION['id'];
 $sql2 = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate')"; 
 
 if($mysqli->query($sql2) === true){
-	#	header('Location: sales.php');
-		echo "Rummage sale created.";
+	header('Location: sales.php');
+	echo "Rummage sale created.";
 } else {
-	#header('Location: welcome.php#profile');
+	header('Location: welcome.php#profile');
 	echo "Something went wrong. " . $mysqli->error;
 }
 $mysqli->close();
