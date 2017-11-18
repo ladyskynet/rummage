@@ -61,7 +61,6 @@ session_start();
 					}
 					$mysqli->close();
 					?>
-					<br /><br/>
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>
