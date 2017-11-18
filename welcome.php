@@ -32,7 +32,7 @@ session_start();
 						<li><a href="#create">Create</a></li>
 						<li><a href="#explore">Explore</a></li>
 						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="#sales">Sales</a></li>
+						<li><a href="sales.php">Sales</a></li>
 						<li><a href="logout.php">Logout</a></li>
 					</ul>
 				</nav>
@@ -76,79 +76,6 @@ session_start();
 					First Name: <?php echo("{$_SESSION['firstname']}"."<br>"); ?><br>
 					Last Name: <?php echo("{$_SESSION['lastname']}"."<br>"); ?><br>
 					Email: <?php echo("{$_SESSION['email']}"."<br>"); ?>
-				</article>
-
-				<!-- Saless -->
-				<article id="sales">
-					<section>
-						<h3 class="major">My Rummage Sales</h2>
-						
-									<?php
-									$mysqli = new mysqli("localhost", "root", "password", "yardsale");
-
-									if ($mysqli === false){
-										die("ERROR: Could not connect. " . $mysqli->connect_error);
-									}
-
-									$userid = $_SESSION['id'];
-									$sql2 = "SELECT * FROM yardsale WHERE uid='$userid'";
-									$result2 = $mysqli->query($sql2);
-									$salearray = array();
-									$index = 0;
-
-									if ($result2->num_rows > 0){
-
-										while($row2 = $result2->fetch_array()) {
-											
-											$salearray[$index][0] = $row2['id']; 
-											$salearray[$index][1] = $row2['street']; 
-											$salearray[$index][2] = $row2['city']; 
-											$salearray[$index][3] = $row2['state']; 
-											$salearray[$index][4] = $row2['zip']; 
-											$salearray[$index][5] = $row2['eventdate']; 
-											$salearray[$index][6] = $row2['uid']; 
-											if ($row2['type'] == 's'){
-												$type = "Single Family Rummage Sale";
-											} else {
-												$type = "Community Rummage Sale";
-											}
-											$salearray[$index][7] = $row2['type']; 
-											$index += 1;
-										}
-
-										echo '<div class="table-wrapper">
-												<table class="alt">
-													<thead>
-														<tr>
-															<th>ID</th>
-															<th>Street</th>
-															<th>City</th>
-															<th>State</th>
-															<th>Zip</th>
-															<th>Type</th>
-															<th>Event Date</th>
-														</tr>
-													</thead>
-													<tbody>';
-										$_SESSION['index'] = $index;
-										foreach ($salearray as &$value){
-								 			echo '<tr><td><a href="showSale.php?id=' . $value[0] . ' ">Show</a></td>';
-											echo '<td>' . $value[1] . "</td>";
-											echo '<td>' . $value[2] . "</td>";
-											echo '<td>' . $value[3] . "</td>";
-											echo '<td>' . $value[4] . "</td>";
-											echo '<td>' . $type . "</td>" ;
-							 				echo '<td>' . $value[5] . "</td></tr>";
-										}
-										echo '		</tbody>
-												</table>
-											</div>';
-									} else {
-										echo "<p>You don't currentnly have any rummage sales to display.</p>";
-									}	
-								 	
-									?>
-					</section>
 				</article>
 			</div>
 

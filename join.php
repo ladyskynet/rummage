@@ -24,7 +24,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows == 0){
 	$sql2 = "INSERT INTO user (firstname, lastname, username, password, email, type) VALUES ('$firstname', '$lastname', '$username', '$password', '$email', 'x')"; 
 	if($mysqli->query($sql2) === true){
-		header('Location: welcome.php');
+		header('Location: welcome.php#profile');
 		echo "Welcome to Rummage, $username.";
 		$_SESSION['firstname'] = $firstname;
 		$_SESSION['username'] = $username;
@@ -34,6 +34,7 @@ if ($result->num_rows == 0){
 	} 
 	else {
 		echo "Something went wrong. " . $mysqli->error;
+		header('Location: index.html');
 	}
 } 
 else {
@@ -41,5 +42,4 @@ else {
 }
 
 $mysqli->close();
-
 ?>

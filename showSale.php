@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -80,13 +79,8 @@ session_start();
 						<td><a href="deleteSale.php?id=' . $saleid . ' ">Delete</a>
 						</tbody>
 					</table>
-				</div>';
-						
-
-						
-						
+				</div>';	
 					}
-
 					$mysqli->close();
 					?>
 				
@@ -97,7 +91,7 @@ session_start();
 						<li><a href="welcome.php#create">Create</a></li>
 						<li><a href="welcome.php#explore">Explore</a></li>
 						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="welcome.php#sales">Sales</a></li>
+						<li><a href="sales.php">Sales</a></li>
 						<li><a href="logout.php">Logout</a></li>
 					</ul>
 				</nav>

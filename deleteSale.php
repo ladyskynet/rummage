@@ -18,7 +18,7 @@ $sql = "DELETE FROM yardsale WHERE id='$saleid'";
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale deleted.";
-	header('Location: welcome.php#sales');
+	header('Location: sales.php');
 	
 } 
 else {
