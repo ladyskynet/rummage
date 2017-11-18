@@ -55,10 +55,10 @@ session_start();
 						<label for="zip">Zip</label> 
 						<input type="text" name="zip" maxlength="5"><br>
 
-						<label for="tellem">Sale Type</label>
-						<select id="tellem">
-							<option id="community" name="type" value="c">Community Rummage Sale</option>
-							<option id="single" name="type" value="s">Single Family Rummage Sale</option>
+						<label for="type">Sale Type</label>
+						<select name="type">
+							<option value="c">Community Rummage Sale</option>
+							<option value="s">Single Family Rummage Sale</option>
 						</select>
 						<br><br>
 						<label for="eventdate">Date/Time</label> 
