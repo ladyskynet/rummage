@@ -97,19 +97,10 @@ session_start();
 										</thead>
 										<tbody>';
 							while($row2 = $result2->fetch_array()) {
-
-								if ($row2['type'] == 's'){
-									$type = "Single Family Rummage Sale";
-								} else {
-									$type = "Community Rummage Sale";
-								}
-				 				echo '<tr><td><a href="showItem.php?id=' . $row['id'] . ' ">Show</a></td>';
-								echo '<td>' . $row3['name'] . "</td>";
-								echo '<td>' . $row3['description'] . "</td>";
-								echo '<td>$' . $row3['price'] . "</td>";
-								echo '<td>' . $row3['zip'] . "</td>";
-								echo '<td>' . $type . "</td>" ;
-			 					echo '<td>' . $row3['eventdate'] . "</td></tr>";
+				 				echo '<tr><td><a href="showItem.php?id=' . $row2['id'] . ' ">Show</a></td>';
+								echo '<td>' . $row2['name'] . "</td>";
+								echo '<td>' . $row2['description'] . "</td>";
+								echo '<td>$' . $row2['price'] . "</td>";
 							}
 							echo '		</tbody>
 									</table>
