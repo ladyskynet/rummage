@@ -44,7 +44,7 @@ session_start();
 
 						$row = $result->fetch_array();
  
-						echo '<h4>View Sale Details</h4>
+						echo '<h3>Sale Details</h3>
 						<div class="table-wrapper">
 							<table class="alt">
 								<thead>
@@ -85,7 +85,7 @@ session_start();
 						$sql2 = "SELECT * FROM item WHERE sid='$saleid'";
 						$result2 = $mysqli->query($sql2);
 						if ($result2->num_rows > 0){
-							echo '<h4>View Sale Items</h4>
+							echo '<h3>Sale Items</h3>
 							<div class="table-wrapper">
 									<table class="alt">
 										<thead>

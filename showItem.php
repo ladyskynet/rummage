@@ -64,13 +64,13 @@ session_start();
 						echo '<td>' . $row["price"] . '</td>';
 								
 
-						echo '<td><a href="editItem.php?id=' . $saleid . ' ">Edit</a></td>
-							  	<td><a href="deleteItem.php?id=' . $saleid . ' ">Delete</a>
+						echo '<td><a href="editItem.php?id=' . $itemid . ' ">Edit</a></td>
+							  	<td><a href="deleteItem.php?id=' . $itemid . ' ">Delete</a>
 							</tbody>
 					    </table>
 					</div>';
 					} else {
-						echo "<p>You don't currently have any rummage sales to display.</p>";
+						echo "<p>Please select a valid item to display.</p>";
 					}
 					$mysqli->close();
 					?>
