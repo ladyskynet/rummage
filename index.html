@@ -47,11 +47,14 @@ session_start();
 					<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
 					<form action="join.php" method="post">
 						First Name: <input type="text" name="firstname" required/><br>
-						Last Name: <input type="text" name"lastname" required/><br>
+						Last Name: <input type="text" name="lastname" required/><br>
 						Username: <input type="text" name="username" required/><br>
 						Password: <input type="text" name="password" required/><br>
 						Email: <input type="text" name="email" required/><br>
-						<input type="submit" class="button special">
+						<ul class="actions">
+							<li><input type="submit" class="button special" /></li>
+							<li><input type="reset" value="Reset" /></li>
+						</ul>
 					</form>	
 				</article>
 
@@ -62,7 +65,10 @@ session_start();
 					<form action="login.php" method="post">
 						Username: <input type="text" name="username" required/><br>
 						Password: <input type="text" name="password" required/><br>
-						<input type="submit" class="button special">
+						<ul class="actions">
+							<li><input type="submit" class="button special" /></li>
+							<li><input type="reset" value="Reset" /></li>
+						</ul>
 					</form>
 				</article>
 

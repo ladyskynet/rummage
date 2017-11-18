@@ -56,6 +56,7 @@ session_start();
 										<th>Type</th>
 										<th>Event Date/Time</th>
 										<th>Edit</th>
+										<th>Delete</th>
 									</tr>
 								</thead>
 								<tbody>';

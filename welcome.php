@@ -54,17 +54,18 @@ session_start();
 						<input type="text" name="state" maxlength="2"><br>
 						<label for="zip">Zip</label> 
 						<input type="text" name="zip" maxlength="5"><br>
-						<div class="field half first">
-							<input type="radio" id="community" name="type" value="c">
-							<label for="community">Community Rummage Sale</label>
-						</div>
-						<div class="field half first">
-							<input type="radio" id="single" name="type" value="s">
-							<label for="single">Single Family Rummage Sale</label>
-						</div><br>
+
+
+						<select>
+							<option id="community" name="type" value="c">Community Rummage Sale</option>
+							<option id="single" name="type" value="s">Single Family Rummage Sale</option>
+						</select>
 						<label for="eventdate">Date/Time</label> 
 						<br> <input type="datetime-local" name="eventdate" style="font-color: black"><br><br>
-						<input type="submit" class="button special">
+						<ul class="actions">
+							<li><input type="submit" class="button special" /></li>
+							<li><input type="reset" value="Reset" /></li>
+						</ul>
 					</form>	
 				</article>
 

@@ -81,7 +81,10 @@ session_start();
 					$mysqli->close();
 					?>
 					<br /><br/>
-						<input type="submit" class="button special">
+						<ul class="actions">
+							<li><input type="submit" class="button special" /></li>
+							<li><input type="reset" value="Reset" /></li>
+						</ul>
 					</form>
 					<!--<div class="inner">
 						<h1>Rummage</h1>
