@@ -76,7 +76,8 @@ session_start();
 							echo '<td>Type: Single Family Rummage Sale</td>';
 						}
 						echo '<td>Date/Time: ' . $row2["eventdate"] . '</td>
-						<td><a href="editSale.php?id=' . $saleid . ' ">Edit</a>
+						<td><a href="editSale.php?id=' . $saleid . ' ">Edit</a></td>
+						<td><a href="deleteSale.php?id=' . $saleid . ' ">Delete</a>
 						</tbody>
 					</table>
 				</div>';
