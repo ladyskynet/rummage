@@ -57,7 +57,7 @@ session_start();
 						<input type="text" name="description" maxlength="100" value="' . $row["description"] . '"/><br>';
 								
 						echo '<label for="price">Price</label>
-						<input type="number" name="price" value="' . $row["price"] . '"/><br>';
+						<input type="text" name="price" value="' . $row["price"] . '"/><br>';
 					}
 					$mysqli->close();
 					?>
