@@ -85,7 +85,8 @@ session_start();
 						$sql2 = "SELECT * FROM item WHERE sid='$saleid'";
 						$result2 = $mysqli->query($sql2);
 						if ($result2->num_rows > 0){
-							echo '<div class="table-wrapper">
+							echo '<h4>View Sale Items</h4>
+							<div class="table-wrapper">
 									<table class="alt">
 										<thead>
 											<tr>
