@@ -104,7 +104,7 @@ session_start();
 									}
 
 									$userid = $_SESSION['id'];
-							
+									echo $userid;
 									$sql2 = "SELECT * FROM yardsale WHERE uid='$userid'";
 									$result2 = $mysqli->query($sql2);
 									$salearray = array();
@@ -112,7 +112,7 @@ session_start();
 
 									if ($result2->num_rows > 0){
 
-										while($row2 = $result2->fetch_assoc()) {
+										while($row2 = $result2->fetch_array()) {
 											
 											$salearray[$index][0] = $row2['id']; 
 											$salearray[$index][1] = $row2['street']; 
