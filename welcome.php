@@ -45,15 +45,15 @@ session_start();
 				<article id="create">
 					<h2 class="major">Create</h2>
 					<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
-					<form action="create.php" method="post">
+					<form action="createSaleAction.php" method="post">
 						<label for="street">Street Address</label> 
-						<input type="text" name="street" maxlength="40"><br>
+						<input type="text" name="street" maxlength="40"/>
 						<label for="city">City</label>
-						<input type="text" name="city" maxlength="20"><br>
+						<input type="text" name="city" maxlength="20"/>
 						<label for="state">State</label>
-						<input type="text" name="state" maxlength="2"><br>
+						<input type="text" name="state" maxlength="2"/>
 						<label for="zip">Zip</label> 
-						<input type="text" name="zip" maxlength="5"><br>
+						<input type="text" name="zip" maxlength="5"/>
 
 						<label for="type">Sale Type</label>
 						<select name="type">
@@ -62,7 +62,7 @@ session_start();
 						</select>
 						<br><br>
 						<label for="eventdate">Date/Time</label> 
-						<br> <input type="datetime-local" name="eventdate" style="font-color: black"><br>
+						<br> <input type="datetime-local" name="eventdate" style="font-color: black"/>
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>

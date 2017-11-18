@@ -20,12 +20,11 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Edit Sale</h2>
+				<h2>Edit Item</h2>
 				<div class="content">
 
 				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
 				<br>
-
 					<?php
 					$servername = "localhost";
 					$username = "root";
@@ -38,48 +37,22 @@ session_start();
 						die("Connection failed: " . $mysqli->connect_error);
 					}
 					$id = $mysqli->real_escape_string($_REQUEST['id']);
-
-					$sql = "SELECT * FROM yardsale WHERE id='$id'";
-
-					$result = $mysqli->query($sql);
 					
-					if ($result->num_rows > 0){
-						$row = $result->fetch_assoc();
-						
-						echo '<form action="editSaleAction.php" method="post">';
-						
-						echo '<label for="street">Street Address</label> 
-						<input type="hidden" name="saleid" value="' . $row["id"] . '"/>
-						<input type="hidden" name="uid" value="' . $row["uid"] . '"/>
-						<input type="text" name="street" maxlength="40" value="' . $row["street"] . '"/><br>';
-								
-						echo '<label for="city">City</label>
-						<input type="text" name="city" maxlength="20" value="' . $row["city"] . '"/><br>';
-								
-						echo '<label for="state">State</label>
-						<input type="text" name="state" maxlength="2" value="' . $row["state"] . '"/><br>';
-								
-						echo '<label for="zip">Zip</label> 
-						<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"/><br>';
+					echo '<form action="createItemAction.php" method="post">
+					
+						<label for="name">Name</label> 
 
-						echo '<select>';
-						if ($row["type"] == 'c')
-						{
-							echo '<option id="community" name="type" value="c" selected="selected">Community Rummage Sale</option>
-								<option id="single" name="type" value="s">Single Family Rummage Sale</option>
-							<br>';
-						} else {
-							echo '<option id="community" name="type" value="c">Community Rummage Sale</option>
-								<option id="single" name="type" value="s" selected="selected">Single Family Rummage Sale</option>
-								</select><br>';
-						}
-						$date = str_replace(' ', 'T', $row["eventdate"]);
-						echo '<label for="eventdate">Date/Time</label><br>
-						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
-					}
-					$mysqli->close();
+						<input type="hidden" name="id" value="' . $id .'"/>'
+						$mysqli->close();
 					?>
-					<br /><br/>
+						<input type="text" name="name" maxlength="40"/>
+							
+						<label for="description">Description</label>
+						<input type="text" name="description" maxlength="100" />
+						
+						<label for="price">Price</label>
+						<input type="number" name="price"/>
+				
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>
