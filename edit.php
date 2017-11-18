@@ -28,7 +28,7 @@ if ($mysqli->query($sql) === TRUE){
 } 
 else {
 	echo "Something went wrong.";
-	header('Location: create2.php#sales');
+	header('Location: welcome.php#sales');
 }
 
 $mysqli->close();

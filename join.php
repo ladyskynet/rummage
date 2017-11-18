@@ -24,7 +24,7 @@ $result = $mysqli->query($sql);
 if ($result->num_rows == 0){
 	$sql2 = "INSERT INTO user (firstname, lastname, username, password, email, type) VALUES ('$firstname', '$lastname', '$username', '$password', '$email', 'x')"; 
 	if($mysqli->query($sql2) === true){
-		header('Location: http://128.163.141.189/create2.php');
+		header('Location: welcome.php');
 		echo "Welcome to Rummage, $username.";
 		$_SESSION['firstname'] = $firstname;
 		$_SESSION['username'] = $username;

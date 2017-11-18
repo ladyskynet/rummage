@@ -52,7 +52,7 @@ if ($result->num_rows == 1){
 	$_SESSION['password'] = $password2;
 	$_SESSION['email'] = $email;
 	
-	header('Location: http://128.163.141.189/create2.php#profile');
+	header('Location: welcome.php#profile');
 	echo "Welcome, $username.";
 	echo"<br>";
 	# echo $row["firstname"];

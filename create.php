@@ -22,10 +22,10 @@ $userid = $_SESSION['id'];
 $sql2 = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate')"; 
 
 if($mysqli->query($sql2) === true){
-		header('Location: http://128.163.141.189/create2.php#sales');
+		header('Location: http://128.163.141.189/welcome.php#sales');
 		echo "Rummage sale created.";
 } else {
-	header('Location: http://128.163.141.189/create2.php#profile');
+	header('Location: http://128.163.141.189/welcome.php#profile');
 	echo "Something went wrong. " . $mysqli->error;
 }
 $mysqli->close();

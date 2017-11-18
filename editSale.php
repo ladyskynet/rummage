@@ -63,23 +63,21 @@ session_start();
 						echo '<label for="zip">Zip</label> 
 						<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"/><br>';
 
-						echo '<div class="field half first">';
+						echo '<div class="field half first">
+									<select>';
 						if ($row["type"] == 'c')
 						{
-							echo '<label for="community">Community Rummage Sale</label>
-								<input type="radio" id="community" name="type" value="c" checked="checked"/>
+							echo '<option id="community" name="type" value="c" selected="selected">Community Rummage Sale</option>
 							</div>
 							<div class="field half first">
-							<label for="single">Single Family Rummage Sale</label>
-								<input type="radio" id="single" name="type" value="s"/>
+								<option id="single" name="type" value="s">Single Family Rummage Sale</option>
 							</div><br>';
 						} else {
-							echo '<label for="community">Community Rummage Sale</label>
-							<input type="radio" id="community" name="type" value="c"/>
+							echo '<option id="community" name="type" value="c">Community Rummage Sale</option>
 							</div>
 							<div class="field half first">
-							<label for="single">Single Family Rummage Sale</label>
-								<input type="radio" id="single" name="type" value="s" checked="checked"/>
+								<option id="single" name="type" value="s" selected="selected">Single Family Rummage Sale</option>
+								</select>
 							</div><br>';
 						}
 						$date = str_replace(' ', 'T', $row["eventdate"]);
@@ -98,11 +96,11 @@ session_start();
 				</div>
 				<nav>
 					<ul>
-						<li><a href="#profile">Profile</a></li>
-						<li><a href="#create">Create</a></li>
-						<li><a href="#explore">Explore</a></li>
+						<li><a href="welcome.php#profile">Profile</a></li>
+						<li><a href="wlecome.php#create">Create</a></li>
+						<li><a href="welcome.php#explore">Explore</a></li>
 						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="#sales">Sales</a></li>
+						<li><a href="welcome.php#sales">Sales</a></li>
 						<li><a href="logout.php">Logout</a></li>
 					</ul>
 				</nav>

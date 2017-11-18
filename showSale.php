@@ -54,8 +54,8 @@ session_start();
 										<th>City</th>
 										<th>State</th>
 										<th>Zip</th>
-										<th>Event Date/Time</th>
 										<th>Type</th>
+										<th>Event Date/Time</th>
 										<th>Edit</th>
 									</tr>
 								</thead>
@@ -92,11 +92,11 @@ session_start();
 				</div>
 				<nav>
 					<ul>
-						<li><a href="#profile">Profile</a></li>
-						<li><a href="#create">Create</a></li>
-						<li><a href="#explore">Explore</a></li>
+						<li><a href="welcome.php#profile">Profile</a></li>
+						<li><a href="welcome.php#create">Create</a></li>
+						<li><a href="welcome.php#explore">Explore</a></li>
 						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="#sales">Sales</a></li>
+						<li><a href="welcome.php#sales">Sales</a></li>
 						<li><a href="logout.php">Logout</a></li>
 					</ul>
 				</nav>
