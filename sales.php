@@ -29,12 +29,12 @@ session_start();
 					}
 
 					$userid = $_SESSION['id'];
-					$sql2 = "SELECT * FROM yardsale WHERE uid='$userid'";
-					$result2 = $mysqli->query($sql2);
+					$sql = "SELECT * FROM yardsale WHERE uid='$userid'";
+					$result = $mysqli->query($sql);
 					$salearray = array();
 					$index = 0;
 
-					if ($result2->num_rows > 0){
+					if ($result->num_rows > 0){
 
 						echo '<div class="table-wrapper">
 								<table class="alt">
@@ -50,20 +50,20 @@ session_start();
 										</tr>
 									</thead>
 									<tbody>';
-						while($row2 = $result2->fetch_array()) {
+						while($row = $result->fetch_array()) {
 
-							if ($row2['type'] == 's'){
+							if ($row['type'] == 's'){
 								$type = "Single Family Rummage Sale";
 							} else {
 								$type = "Community Rummage Sale";
 							}
 				 			echo '<tr><td><a href="showSale.php?id=' . $row['id'] . ' ">Show</a></td>';
-							echo '<td>' . $row2['street'] . "</td>";
-							echo '<td>' . $row2['city'] . "</td>";
-							echo '<td>' . $row2['state'] . "</td>";
-							echo '<td>' . $row2['zip'] . "</td>";
+							echo '<td>' . $row['street'] . "</td>";
+							echo '<td>' . $row['city'] . "</td>";
+							echo '<td>' . $row['state'] . "</td>";
+							echo '<td>' . $row['zip'] . "</td>";
 							echo '<td>' . $type . "</td>" ;
-			 				echo '<td>' . $row2['eventdate'] . "</td></tr>";
+			 				echo '<td>' . $row['eventdate'] . "</td></tr>";
 						}
 						echo '		</tbody>
 								</table>
