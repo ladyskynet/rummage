@@ -21,7 +21,7 @@ $sql = "UPDATE item set name='$name', description='$description', price='$price'
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Item updated.";
-	header('Location: showItem.php?id=' . $saleid);
+	header('Location: showItem.php?id=' . $id);
 } 
 else {
 	echo "Something went wrong.";
