@@ -24,7 +24,7 @@ session_start();
 				<div class="content">
 
 				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
-				<br>
+					<br>
 					<?php
 					$servername = "localhost";
 					$username = "root";
@@ -38,24 +38,24 @@ session_start();
 					}
 					$id = $mysqli->real_escape_string($_REQUEST['id']);
 					
-					/**echo '<form action="createItemAction.php" method="post">
+					echo '<form action="createItemAction.php" method="post">';
 					
-						<label for="name">Name</label> 
+					echo '<label for="name">Name</label>';
 
-						<input type="hidden" name="id" value="' . $id .'"/>
-						<input type="text" name="name" maxlength="40"/>
+					echo '<input type="hidden" name="id" value="' . $id .'"/>';
+					echo'<input type="text" name="name" maxlength="40"/>';
 							
-						<label for="description">Description</label>
-						<input type="text" name="description" maxlength="100" />
+					echo '<label for="description">Description</label>';
+					echo '<input type="text" name="description" maxlength="100" />';
 						
-						<label for="price">Price</label>
-						<input type="number" name="price"/>
+					echo '<label for="price">Price</label>';
+					echo '<input type="number" name="price"/>';
 				
-						<ul class="actions">
-							<li><input type="submit" class="button special" /></li>
-							<li><input type="reset" value="Reset" /></li>
-						</ul>
-					</form>'**/
+						echo '<ul class="actions">';
+							echo '<li><input type="submit" class="button special" /></li>';
+							echo '<li><input type="reset" value="Reset" /></li>';
+						echo'</ul>
+					</form>';
 						$mysqli->close();
 					?>
 						
