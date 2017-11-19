@@ -22,6 +22,7 @@ session_start();
 				</div>
 				<h2>My Rummage Sales</h2>
 				<div class="content">
+					<br>
 						<?php
 						$mysqli = new mysqli("localhost", "root", "password", "yardsale");
 
