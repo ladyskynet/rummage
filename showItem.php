@@ -20,7 +20,7 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Show Item</h2>
+				<h2>Item Details</h2>
 				<div class="content">
 					<br>
 					<?php
@@ -43,8 +43,7 @@ session_start();
 
 						$row = $result->fetch_array();
  
-						echo '<h4>View Item Details</h4>
-						<div class="table-wrapper">
+						echo '<div class="table-wrapper">
 							<table class="alt">
 								<thead>
 									<tr>

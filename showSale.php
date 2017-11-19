@@ -20,7 +20,7 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Show Sale</h2>
+				<h2>Sale Details</h2>
 				<div class="content">
 					<br>
 					<?php
