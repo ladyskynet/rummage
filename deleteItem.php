@@ -20,7 +20,7 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Are you sure you want to delete this sale?</h2>
+				<h2>Are you sure you want to delete this item?</h2>
 				<div class="content">
 					<br>
 					<?php
@@ -34,83 +34,42 @@ session_start();
 					if ($mysqli === false){
 						die("Connection failed: " . $mysqli->connect_error());
 					} 
-					$saleid = $mysqli->real_escape_string($_REQUEST['id']);
-					
+					$itemid = $mysqli->real_escape_string($_REQUEST['id']);
 
-					$sql = "SELECT * FROM yardsale WHERE id='$saleid'";
+					$sql = "SELECT * FROM item WHERE id='$itemid'";
 					
 					$result = $mysqli->query($sql);
 					if ($result->num_rows == 1){
 
 						$row = $result->fetch_array();
  
-						echo '<h3>Sale Details</h3>
+						echo '<h4>View Item Details</h4>
 						<div class="table-wrapper">
 							<table class="alt">
 								<thead>
 									<tr>
-										<th>Street</th>
-										<th>City</th>
-										<th>State</th>
-										<th>Zip</th>
-										<th>Type</th>
-										<th>Event Date/Time</th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
 										<th>Edit</th>
 										<th>Delete</th>
-										<th>Add Items</th>
 									</tr>
 								</thead>
 								<tbody>';
 						
-						echo '<tr><td>' . $row["street"] . '</td>';
+						echo '<tr><td>' . $row["name"] . '</td>';
 								
-						echo '<td>' . $row["city"] . '</td>';
+						echo '<td>' . $row["description"] . '</td>';
 								
-						echo '<td>' . $row["state"] . '</td>';
-								
-						echo '<td>' . $row["zip"] . '</td>'; 
+						echo '<td>$' . $row["price"] . '</td>';
 
-						if ($row["type"] == 'c')
-						{
-							echo '<td>Community Rummage Sale</td>';
-						} else {
-							echo '<td>Type: Single Family Rummage Sale</td>';
-						}
-						echo '	<td>Date/Time: ' . $row["eventdate"] . '</td>
-							  	<td><a href="showSale.php?id=' . $saleid . ' ">Cancel</a></td>
-							  	<td><a href="deleteSaleAction.php?id=' . $saleid . ' ">Delete</a></td>
+						echo '<td><a href="showItem.php?id=' . $itemid . ' ">Cancel</a></td>
+							  	<td><a href="deleteItemAction.php?id=' . $itemid . ' ">Delete</a>
 							</tbody>
 					    </table>
 					</div>';
-						$sql2 = "SELECT * FROM item WHERE sid='$saleid'";
-						$result2 = $mysqli->query($sql2);
-						if ($result2->num_rows > 0){
-							echo '<h3>Sale Items</h3>
-							<div class="table-wrapper">
-									<table class="alt">
-										<thead>
-											<tr>
-												<th>ID</th>
-												<th>Name</th>
-												<th>Description</th>
-												<th>Price</th>
-											</tr>
-										</thead>
-										<tbody>';
-							while($row2 = $result2->fetch_array()) {
-				 				echo '<tr><td><a href="showItem.php?id=' . $row2['id'] . ' ">Show</a></td>';
-								echo '<td>' . $row2['name'] . "</td>";
-								echo '<td>' . $row2['description'] . "</td>";
-								echo '<td>$' . $row2['price'] . "</td>";
-							}
-							echo '		</tbody>
-									</table>
-								</div>';
-						} else {
-							echo "<p>There aren't any items attached to this sale.</p>";
-						}
 					} else {
-						echo "<p>Please select a valid sale to display.</p>";
+						echo "<p>Please select a valid item to display.</p>";
 					}
 					$mysqli->close();
 					?>
