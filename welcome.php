@@ -60,7 +60,7 @@ session_start();
 							<option value="c">Community Rummage Sale</option>
 							<option value="s">Single Family Rummage Sale</option>
 						</select>
-						<br><br>
+						<br>
 						<label for="eventdate">Date/Time</label> 
 						<br> <input type="datetime-local" name="eventdate" style="font-color: black"/>
 						<ul class="actions">
