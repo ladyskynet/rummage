@@ -20,59 +20,61 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h3 class="major">My Rummage Sales</h2>
-					<?php
-					$mysqli = new mysqli("localhost", "root", "password", "yardsale");
+				<div class="content"
+					<h3 class="major">My Rummage Sales</h2>
+						<?php
+						$mysqli = new mysqli("localhost", "root", "password", "yardsale");
 
-					if ($mysqli === false){
-						die("ERROR: Could not connect. " . $mysqli->connect_error);
-					}
-
-					$userid = $_SESSION['id'];
-					$sql = "SELECT * FROM yardsale WHERE uid='$userid'";
-					$result = $mysqli->query($sql);
-					$salearray = array();
-					$index = 0;
-
-					if ($result->num_rows > 0){
-
-						echo '<div class="table-wrapper">
-								<table class="alt">
-									<thead>
-										<tr>
-											<th>ID</th>
-											<th>Street</th>
-											<th>City</th>
-											<th>State</th>
-											<th>Zip</th>
-											<th>Type</th>
-											<th>Event Date</th>
-										</tr>
-									</thead>
-									<tbody>';
-						while($row = $result->fetch_array()) {
-
-							if ($row['type'] == 's'){
-								$type = "Single Family Rummage Sale";
-							} else {
-								$type = "Community Rummage Sale";
-							}
-				 			echo '<tr><td><a href="showSale.php?id=' . $row['id'] . ' ">Show</a></td>';
-							echo '<td>' . $row['street'] . "</td>";
-							echo '<td>' . $row['city'] . "</td>";
-							echo '<td>' . $row['state'] . "</td>";
-							echo '<td>' . $row['zip'] . "</td>";
-							echo '<td>' . $type . "</td>" ;
-			 				echo '<td>' . $row['eventdate'] . "</td></tr>";
+						if ($mysqli === false){
+							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
-						echo '		</tbody>
-								</table>
-							</div>';
-					} else {
-						echo "<p>You don't currenntly have any rummage sales to display.</p>";
-					}	
-				 	
-					?>
+
+						$userid = $_SESSION['id'];
+						$sql = "SELECT * FROM yardsale WHERE uid='$userid'";
+						$result = $mysqli->query($sql);
+						$salearray = array();
+						$index = 0;
+
+						if ($result->num_rows > 0){
+
+							echo '<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Street</th>
+												<th>City</th>
+												<th>State</th>
+												<th>Zip</th>
+												<th>Type</th>
+												<th>Event Date</th>
+											</tr>
+										</thead>
+										<tbody>';
+							while($row = $result->fetch_array()) {
+
+								if ($row['type'] == 's'){
+									$type = "Single Family Rummage Sale";
+								} else {
+									$type = "Community Rummage Sale";
+								}
+					 			echo '<tr><td><a href="showSale.php?id=' . $row['id'] . ' ">Show</a></td>';
+								echo '<td>' . $row['street'] . "</td>";
+								echo '<td>' . $row['city'] . "</td>";
+								echo '<td>' . $row['state'] . "</td>";
+								echo '<td>' . $row['zip'] . "</td>";
+								echo '<td>' . $type . "</td>" ;
+				 				echo '<td>' . $row['eventdate'] . "</td></tr>";
+							}
+							echo '		</tbody>
+									</table>
+								</div>';
+						} else {
+							echo "<p>You don't currenntly have any rummage sales to display.</p>";
+						}	
+					 	
+						?>
+				</div>
 				<nav>
 					<ul>
 						<li><a href="welcome.php#profile">Profile</a></li>
