@@ -20,7 +20,7 @@ echo $name . "<br>";
 echo $description . "<br>";
 echo $price . "<br>";
 
-$sql = "INSERT INTO item (name, description, price, pid, sid) VALUES ('$name', '$description', '$price', '1', '$saleid')"; 
+/**$sql = "INSERT INTO item (name, description, price, pid, sid) VALUES ('$name', '$description', '$price', '1', '$saleid')"; 
 
 if($mysqli->query($sql) === true){
 	$url = 'showSale.php?id=' . $saleid
@@ -30,7 +30,7 @@ if($mysqli->query($sql) === true){
 	header('Location: welcome.php#profile');
 	echo "Something went wrong. " . $mysqli->error;
 }
-
+**/
 $mysqli->close();
 
 ?>
