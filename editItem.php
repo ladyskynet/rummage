@@ -45,7 +45,7 @@ session_start();
 					if ($result->num_rows > 0){
 						$row = $result->fetch_assoc();
 						
-						echo '<form action="editItemAction.php" method="post">';
+						echo '<form action="editItemAction.php" method="post" id="edititem">';
 						
 						echo '<label for="name">Name</label> 
 
@@ -54,7 +54,7 @@ session_start();
 						<input type="text" name="name" maxlength="40" value="' . $row["name"] . '"/><br>';
 								
 						echo '<label for="description">Description</label>
-						<input type="textarea" name="description" maxlength="100" value="' . $row["description"] . '"/><br>';
+						<textarea rows="4" cols="50" name="description" form="edititem">' . $row["description"] . '</textarea>';
 								
 						echo '<label for="price">Price</label>
 						<input type="text" name="price" value="' . $row["price"] . '"/><br>';
