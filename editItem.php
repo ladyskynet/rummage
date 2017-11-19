@@ -57,7 +57,7 @@ session_start();
 						<textarea rows="4" cols="50" name="description" form="edititem">' . $row["description"] . '</textarea><br>';
 								
 						echo '<label for="price">Price</label>
-						<input type="text" name="price" value="' . $row["price"] . '"/><br>';
+						<input type="text" name="price" value="' . $row["price"] . '"/>';
 					}
 					$mysqli->close();
 					?>
