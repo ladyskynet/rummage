@@ -20,7 +20,7 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Edit Item</h2>
+				<h2>Add Item</h2>
 				<div class="content">
 
 				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
@@ -42,9 +42,7 @@ session_start();
 					
 						<label for="name">Name</label> 
 
-						<input type="hidden" name="id" value="' . $id .'"/>'
-						$mysqli->close();
-					?>
+						<input type="hidden" name="id" value="' . $id .'"/>
 						<input type="text" name="name" maxlength="40"/>
 							
 						<label for="description">Description</label>
@@ -57,11 +55,10 @@ session_start();
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>
 						</ul>
-					</form>
-					<!--<div class="inner">
-						<h1>Rummage</h1>
-						<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.</p>
-					</div>-->
+					</form>'
+						$mysqli->close();
+					?>
+						
 				</div>
 				<nav>
 					<ul>
