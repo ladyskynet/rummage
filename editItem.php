@@ -54,7 +54,7 @@ session_start();
 						<input type="text" name="name" maxlength="40" value="' . $row["name"] . '"/><br>';
 								
 						echo '<label for="description">Description</label>
-						<input type="text" name="description" maxlength="100" value="' . $row["description"] . '"/><br>';
+						<input type="textarea" name="description" maxlength="100" value="' . $row["description"] . '"/><br>';
 								
 						echo '<label for="price">Price</label>
 						<input type="text" name="price" value="' . $row["price"] . '"/><br>';

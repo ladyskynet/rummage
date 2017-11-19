@@ -62,7 +62,6 @@ session_start();
 						echo '<td>' . $row["description"] . '</td>';
 								
 						echo '<td>$' . $row["price"] . '</td>';
-								
 
 						echo '<td><a href="editItem.php?id=' . $itemid . ' ">Edit</a></td>
 							  	<td><a href="deleteItem.php?id=' . $itemid . ' ">Delete</a>
