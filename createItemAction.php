@@ -20,9 +20,9 @@ echo $name . "<br>";
 echo $description . "<br>";
 echo $price . "<br>";
 
-/**$sql = "INSERT INTO item (name, description, price, pid, sid) VALUES ('$name', '$description', '$price', '1', '$saleid')"; 
+$sql = "INSERT INTO item (name, description, price, pid, sid) VALUES ('$name', '$description', '$price', '1', '$saleid')"; 
 
-if($mysqli->query($sql) === true){
+/***if($mysqli->query($sql) === true){
 	$url = 'showSale.php?id=' . $saleid
 	header('Location:' . $url );
 	echo "Rummage sale item created.";
