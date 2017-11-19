@@ -26,7 +26,6 @@ if($mysqli->query($sql) === true){
 	header('Location: welcome.php#profile');
 	echo "Something went wrong. " . $mysqli->error;
 }
-**/
 $mysqli->close();
 
 ?>
