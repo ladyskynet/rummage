@@ -43,8 +43,7 @@ session_start();
 
 						$row = $result->fetch_array();
  
-						echo '<h4>View Item Details</h4>
-						<div class="table-wrapper">
+						echo '<div class="table-wrapper">
 							<table class="alt">
 								<thead>
 									<tr>
