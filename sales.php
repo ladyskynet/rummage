@@ -20,8 +20,8 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<div class="content"
-					<h3 class="major">My Rummage Sales</h2>
+				<h3>My Rummage Sales</h2>
+				<div class="content">
 						<?php
 						$mysqli = new mysqli("localhost", "root", "password", "yardsale");
 
