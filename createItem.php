@@ -38,23 +38,22 @@ session_start();
 					}
 					$id = $mysqli->real_escape_string($_REQUEST['id']);
 					
-					echo '<form action="createItemAction.php" method="post">';
+					echo '<form action="createItemAction.php" method="post" id="createitem">';
+					echo '<input type="hidden" name="id" value="' . $id .'"/>';
 					
 					echo '<label for="name">Name</label>';
-
-					echo '<input type="hidden" name="id" value="' . $id .'"/>';
-					echo'<input type="text" name="name" maxlength="40"/>';
+					echo'<input type="text" name="name" maxlength="40"/><br>';
 							
-					echo '<label for="description">Description</label>';
-					echo '<input type="text" name="description" maxlength="100" />';
+					echo '<label for="description">Description</label>
+						<textarea rows="4" cols="50" name="description" form="createitem"></textarea><br>';
 						
 					echo '<label for="price">Price</label>';
-					echo '<input type="number" name="price"/>';
+					echo '<input type="text" name="price"/>';
 				
-						echo '<ul class="actions">';
-							echo '<li><input type="submit" class="button special" /></li>';
-							echo '<li><input type="reset" value="Reset" /></li>';
-						echo'</ul>
+					echo '<ul class="actions">';
+						echo '<li><input type="submit" class="button special" /></li>';
+						echo '<li><input type="reset" value="Reset" /></li>';
+					echo'</ul>
 					</form>';
 						$mysqli->close();
 					?>
