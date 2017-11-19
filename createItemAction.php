@@ -15,7 +15,7 @@ $saleid = $mysqli->real_escape_string($_REQUEST['id']);
 $name = $mysqli->real_escape_string($_REQUEST['name']);
 $description = $mysqli->real_escape_string($_REQUEST['description']);
 $price = $mysqli->real_escape_string($_REQUEST['price']);
-
+/**
 $sql = "INSERT INTO item (name, description, price, sid) VALUES ('$name', '$description', '$price', '$saleid')"; 
 
 if($mysqli->query($sql) === true){
@@ -26,6 +26,7 @@ if($mysqli->query($sql) === true){
 	header('Location: welcome.php#profile');
 	echo "Something went wrong. " . $mysqli->error;
 }
+**/
 $mysqli->close();
 
 ?>
