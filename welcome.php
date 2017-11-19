@@ -62,7 +62,7 @@ session_start();
 						</select>
 						<br>
 						<label for="eventdate">Date/Time</label> 
-						<br> <input type="datetime-local" name="eventdate" style="font-color: black"/>
+						<input type="datetime-local" name="eventdate" style="font-color: black"/>
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>
