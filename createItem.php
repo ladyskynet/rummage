@@ -38,7 +38,7 @@ session_start();
 					}
 					$id = $mysqli->real_escape_string($_REQUEST['id']);
 					
-					echo '<form action="createItemAction.php" method="post">
+					/**echo '<form action="createItemAction.php" method="post">
 					
 						<label for="name">Name</label> 
 
@@ -55,7 +55,7 @@ session_start();
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>
 						</ul>
-					</form>'
+					</form>'**/
 						$mysqli->close();
 					?>
 						
