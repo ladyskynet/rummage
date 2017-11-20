@@ -20,8 +20,8 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Edit Sale</h2>
-				<div class="content">
+				<h2>Search Sales</h2>
+				<div class="content"><br>
 					<form action="searchAction.php">
 						<label for="street">Street</label>
 						<input type="text" name="street"/>
