@@ -56,7 +56,8 @@ session_start();
 										<tbody>';
 							while($row = $result->fetch_array()) {
 								$id = $row['id'];
-								$sql2 = "SELECT SUM(price) as totalSaleIncome FROM item WHERE sid='$id'";
+								$sql2 = "SELECT SUM(price) as totalSaleIncome FROM item WHERE sid='$id";
+								echo "<p>" . $sql2 . "</p>";
 								$result2 = $mysqli->query($sql);
 								$row2 = $result2->fetch_array();
 
