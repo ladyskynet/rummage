@@ -76,6 +76,36 @@ session_start();
 						$date = str_replace(' ', 'T', $row["eventdate"]);
 						echo '<label for="eventdate">Date/Time</label><br>
 						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
+
+						$sql2 = "SELECT * FROM item WHERE sid='$id'";
+						$result2 = $mysqli->query($sql2);
+						if ($result2->num_rows > 0){
+							echo '<h3>Sale Items</h3>
+							<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Name</th>
+												<th>Description</th>
+												<th>Price</th>
+											</tr>
+										</thead>
+										<tbody>';
+							while($row2 = $result2->fetch_array()) {
+				 				echo '<tr><td><a href="showItem.php?id=' . $row2['id'] . ' ">Show</a></td>';
+				 				echo '<td><a href="editItem.php?id=' . $row2['id'] . ' ">Edit</a></td>';
+							    echo '<td><a href="deleteItem.php?id=' . $row2['id'] . ' ">Delete</a>';
+								echo '<td>' . $row2['name'] . "</td>";
+								echo '<td>' . $row2['description'] . "</td>";
+								echo '<td>$' . $row2['price'] . "</td>";
+							}
+							echo '		</tbody>
+									</table>
+								</div>';
+						} else {
+							echo "<p>There aren't any items attached to this sale.</p>";
+						}
 					}
 					$mysqli->close();
 					?>
