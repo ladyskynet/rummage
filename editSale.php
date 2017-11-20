@@ -62,7 +62,7 @@ session_start();
 						echo '<label for="zip">Zip</label> 
 						<input type="text" name="zip" maxlength="5" value="' . $row["zip"] . '"/><br>';
 
-						echo '<label for="type2">Type</label>'
+						echo '<label for="type2">Type</label>';
 						echo '<select name="type2">';
 						if ($row["type"] == 'c')
 						{
