@@ -75,8 +75,8 @@ session_start();
 								</select><br>';
 						}
 						$date = str_replace(' ', 'T', $row["eventdate"]);
-						echo '<label for="eventdate">Date/Time</label><br>
-						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
+						echo '<label for="eventdate">Date/Time</label>
+						<input type="datetime-local" name="eventdate" value="' . $date . '"/><br>';
 
 						$sql2 = "SELECT * FROM item WHERE sid='$id'";
 						$result2 = $mysqli->query($sql2);
