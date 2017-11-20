@@ -23,19 +23,19 @@ $string3 = "";
 $string4 = "";
 $string5 = "";
 
-if (isset($street)){
+if ($street != ''){
 	$string1 = " AND (street='$street')";
 }
-if (isset($city)){
+if ($city != ''){
 	$string2 = " AND (city='$city')";
 }
-if (isset($street)){
+if ($street != ''){
 	$string3 = " AND (state='$state')";
 }
-if (isset($city)){
+if ($city != ''){
 	$string4 = " AND (zip='$zip')";
 }
-if (isset($item)){
+if ($item != ''){
 	$string5 = " AND (item in (select * from item where name='$item'))";
 }
 
