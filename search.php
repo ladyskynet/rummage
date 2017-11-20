@@ -24,15 +24,15 @@ session_start();
 				<div class="content"><br>
 					<form action="searchAction.php">
 						<label for="street">Street</label>
-						<input type="text" name="street"/>
+						<input type="text" name="street"/><br>
 						<label for="city">City</label>
-						<input type="text" name="city"/>
+						<input type="text" name="city"/><br>
 						<label for="state">State</label>
-						<input type="text" name="state"/>
+						<input type="text" name="state"/><br>
 						<label for="zip">Zip</label>
-						<input type="text" name="zip"/>
+						<input type="text" name="zip"/><br>
 						<label for="item">Item</label>
-						<input type="text" name="item"/>
+						<input type="text" name="item"/><br>
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>
