@@ -22,7 +22,7 @@ session_start();
 				</div>
 				<h2>Search Sales</h2>
 				<div class="content"><br>
-					<form action="searchAction.php">
+					<form action="results.php">
 						<label for="street">Street</label>
 						<input type="text" name="street"/><br>
 						<label for="city">City</label>

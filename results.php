@@ -20,7 +20,7 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>My Rummage Sales</h2>
+				<h2>Results</h2>
 				<div class="content">
 					<br>
 						<?php
@@ -29,9 +29,36 @@ session_start();
 						if ($mysqli === false){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
+						$street = $mysqli->real_escape_string($_REQUEST['street']);
+						$city = $mysqli->real_escape_string($_REQUEST['city']);
+						$state = $mysqli->real_escape_string($_REQUEST['state']);
+						$zip = $mysqli->real_escape_string($_REQUEST['zip']);
+						$type = $mysqli->real_escape_string($_REQUEST['item']);
 
-						$userid = $_SESSION['id'];
-						$sql = "SELECT * FROM yardsale WHERE uid='$userid'";
+						$string1 = "";
+						$string2 = "";
+						$string3 = "";
+						$string4 = "";
+						$string5 = "";
+
+						if ($street != ''){
+							$string1 = " AND (street='$street')";
+						}
+						if ($city != ''){
+							$string2 = " AND (city='$city')";
+						}
+						if ($state != ''){
+							$string3 = " AND (state='$state')";
+						}
+						if ($zip != ''){
+							$string4 = " AND (zip='$zip')";
+						}
+						if ($item != ''){
+							$string5 = " AND (item in (select * from item where name='$item'))";
+						}
+
+						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5;
+
 						$result = $mysqli->query($sql);
 
 						if ($result->num_rows > 0){
@@ -40,7 +67,7 @@ session_start();
 									<table class="alt">
 										<thead>
 											<tr>
-												<th>ID</th>
+												<th>Show</th>
 												<th>Street</th>
 												<th>City</th>
 												<th>State</th>
@@ -69,7 +96,7 @@ session_start();
 									</table>
 								</div>';
 						} else {
-							echo "<p>You don't currenntly have any rummage sales to display.</p>";
+							echo "<p>No results matched your query. Click <a href='search.php'>here</a> to try again.</p>";
 						}	
 					 	
 						?>
