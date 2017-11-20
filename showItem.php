@@ -50,8 +50,6 @@ session_start();
 										<th>Name</th>
 										<th>Description</th>
 										<th>Price</th>
-										<th>Edit</th>
-										<th>Delete</th>
 									</tr>
 								</thead>
 								<tbody>';
