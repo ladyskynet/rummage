@@ -35,10 +35,6 @@ session_start();
 						$result = $mysqli->query($sql);
 
 						if ($result->num_rows > 0){
-							$sql2 = "SELECT SUM(price) as totalSaleIncome FROM item WHERE sid='$saleid'";
-							echo "<p>" . $sql2 . "</p>";
-							$result2 = $mysqli->query($sql);
-							$row2 = $result2->fetch_array();
 
 							echo '<div class="table-wrapper">
 									<table class="alt">
@@ -59,6 +55,10 @@ session_start();
 										</thead>
 										<tbody>';
 							while($row = $result->fetch_array()) {
+								$id = $row['id'];
+								$sql2 = "SELECT SUM(price) as totalSaleIncome FROM item WHERE sid='$id'";
+								$result2 = $mysqli->query($sql);
+								$row2 = $result2->fetch_array();
 
 								if ($row['type'] == 's'){
 									$type = "Single Family Rummage Sale";
