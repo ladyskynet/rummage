@@ -58,7 +58,7 @@ session_start();
 						}
 
 						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5;
-
+						echo "<p>" . $sql . "</p>";
 						$result = $mysqli->query($sql);
 
 						if ($result->num_rows > 0){
