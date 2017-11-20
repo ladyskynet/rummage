@@ -29,10 +29,10 @@ if ($street != ''){
 if ($city != ''){
 	$string2 = " AND (city='$city')";
 }
-if ($street != ''){
+if ($state != ''){
 	$string3 = " AND (state='$state')";
 }
-if ($city != ''){
+if ($zip != ''){
 	$string4 = " AND (zip='$zip')";
 }
 if ($item != ''){
