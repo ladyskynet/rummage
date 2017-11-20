@@ -30,10 +30,10 @@ session_start();
 					<ul>
 						<li><a href="#profile">Profile</a></li>
 						<li><a href="#create">Create</a></li>
-						<li><a href="#explore">Explore</a></li>
+						<li><a href="search.php">Search</a></li>
 						<!--<li><a href="#elements">Elements</a></li>-->
 						<li><a href="sales.php">Sales</a></li>
-						<li><a href="logout.php">Logout</a></li>
+						<li><a href="logoutAction.php">Logout</a></li>
 					</ul>
 				</nav>
 			</header>
