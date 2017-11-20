@@ -57,7 +57,6 @@ session_start();
 							while($row = $result->fetch_array()) {
 								$id = $row['id'];
 								$sql2 = "SELECT SUM(price) as total FROM item WHERE sid='$id'";
-								echo "<p>" . $sql2 . "</p>";
 								$result2 = $mysqli->query($sql2);
 								$row2 = $result2->fetch_array();
 
