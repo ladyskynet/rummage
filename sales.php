@@ -56,9 +56,9 @@ session_start();
 										<tbody>';
 							while($row = $result->fetch_array()) {
 								$id = $row['id'];
-								$sql2 = "SELECT SUM(price) as totalSaleIncome FROM item WHERE sid='$id'";
+								$sql2 = "SELECT SUM(price) as total FROM item WHERE sid='$id'";
 								echo "<p>" . $sql2 . "</p>";
-								$result2 = $mysqli->query($sql);
+								$result2 = $mysqli->query($sql2);
 								$row2 = $result2->fetch_array();
 
 								if ($row['type'] == 's'){
@@ -76,7 +76,7 @@ session_start();
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td>";
-				 				echo '<td>' . $row2['totalSaleIncome'] . "</td></tr>";
+				 				echo '<td>' . $row2['total'] . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
