@@ -29,6 +29,7 @@ session_start();
 						if ($mysqli === false){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
+
 						$street = $mysqli->real_escape_string($_REQUEST['street']);
 						$city = $mysqli->real_escape_string($_REQUEST['city']);
 						$state = $mysqli->real_escape_string($_REQUEST['state']);
@@ -58,7 +59,7 @@ session_start();
 						}
 
 						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5;
-						echo "<p>" . $sql . "</p>";
+					
 						$result = $mysqli->query($sql);
 
 						if ($result->num_rows > 0){

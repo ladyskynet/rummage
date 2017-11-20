@@ -34,9 +34,9 @@ session_start();
 					if ($mysqli === false){
 						die("Connection failed: " . $mysqli->connect_error());
 					} 
+
 					$saleid = $mysqli->real_escape_string($_REQUEST['id']);
 					
-
 					$sql = "SELECT * FROM yardsale WHERE id='$saleid'";
 					
 					$result = $mysqli->query($sql);
@@ -77,9 +77,6 @@ session_start();
 							echo '<td>Type: Single Family Rummage Sale</td>';
 						}
 						echo '	<td>Date/Time: ' . $row["eventdate"] . '</td>
-							  	<td><a href="editSale.php?id=' . $saleid . ' ">Edit</a></td>
-							  	<td><a href="deleteSale.php?id=' . $saleid . ' ">Delete</a></td>
-							  	<td><a href="createItem.php?id=' . $saleid . ' ">Add Item(s)</a></td>
 							</tbody>
 					    </table>
 					</div>';

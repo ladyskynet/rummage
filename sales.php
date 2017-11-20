@@ -35,18 +35,25 @@ session_start();
 						$result = $mysqli->query($sql);
 
 						if ($result->num_rows > 0){
+							$sql2 = "SELECT SUM(price) as totalSaleIncome FROM item WHERE sid='$saleid'";
+							$result2 = $mysqli->query($sql);
+							$row2 = $result2->fetch_array();
 
 							echo '<div class="table-wrapper">
 									<table class="alt">
 										<thead>
 											<tr>
-												<th>ID</th>
+												<th>Show</th>
+												<th>Edit</th>
+												<th>Delete</th>
+												<th>Add Item(s)</th>
 												<th>Street</th>
 												<th>City</th>
 												<th>State</th>
 												<th>Zip</th>
 												<th>Type</th>
 												<th>Event Date</th>
+												<th>Projected Income</th>
 											</tr>
 										</thead>
 										<tbody>';
@@ -58,12 +65,16 @@ session_start();
 									$type = "Community Rummage Sale";
 								}
 					 			echo '<tr><td><a href="showSale.php?id=' . $row['id'] . ' ">Show</a></td>';
+					 			echo '<td><a href="editSale.php?id=' . $row['id'] . ' ">Show</a></td>';
+					 			echo '<td><a href="deleteSale.php?id=' . $row['id'] . ' ">Show</a></td>';
+							  	echo '<td><a href="createItem.php?id=' . $row['id'] . ' ">Add Item(s)</a></td>';
 								echo '<td>' . $row['street'] . "</td>";
 								echo '<td>' . $row['city'] . "</td>";
 								echo '<td>' . $row['state'] . "</td>";
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
-				 				echo '<td>' . $row['eventdate'] . "</td></tr>";
+				 				echo '<td>' . $row['eventdate'] . "</td>";
+				 				echo '<td>' . $row2['totalSaleIncome'] . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
