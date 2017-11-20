@@ -76,7 +76,12 @@ session_start();
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td>";
-				 				echo '<td>' . round($row2['total'],2) . "</td></tr>";
+				 				if ($row2['total'] % 0.1 == 0){
+				 					$actualTotal = round($row2['total'],2) . 0;
+				 				} else {
+				 					$actualTotal = round($row2['total'],2);
+				 				}
+				 				echo '<td>$' . $actualTotal . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
