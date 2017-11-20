@@ -55,9 +55,8 @@ session_start();
 										<th>Zip</th>
 										<th>Type</th>
 										<th>Event Date/Time</th>
-										<th>Edit</th>
+										<th>Cancel</th>
 										<th>Delete</th>
-										<th>Add Items</th>
 									</tr>
 								</thead>
 								<tbody>';
