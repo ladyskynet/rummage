@@ -36,6 +36,7 @@ session_start();
 
 						if ($result->num_rows > 0){
 							$sql2 = "SELECT SUM(price) as totalSaleIncome FROM item WHERE sid='$saleid'";
+							echo "<p>" . $sql2 . "</p>";
 							$result2 = $mysqli->query($sql);
 							$row2 = $result2->fetch_array();
 
@@ -65,8 +66,8 @@ session_start();
 									$type = "Community Rummage Sale";
 								}
 					 			echo '<tr><td><a href="showSale.php?id=' . $row['id'] . ' ">Show</a></td>';
-					 			echo '<td><a href="editSale.php?id=' . $row['id'] . ' ">Show</a></td>';
-					 			echo '<td><a href="deleteSale.php?id=' . $row['id'] . ' ">Show</a></td>';
+					 			echo '<td><a href="editSale.php?id=' . $row['id'] . ' ">Edit</a></td>';
+					 			echo '<td><a href="deleteSale.php?id=' . $row['id'] . ' ">Delete</a></td>';
 							  	echo '<td><a href="createItem.php?id=' . $row['id'] . ' ">Add Item(s)</a></td>';
 								echo '<td>' . $row['street'] . "</td>";
 								echo '<td>' . $row['city'] . "</td>";
