@@ -33,7 +33,7 @@ session_start();
 						$city = $mysqli->real_escape_string($_REQUEST['city']);
 						$state = $mysqli->real_escape_string($_REQUEST['state']);
 						$zip = $mysqli->real_escape_string($_REQUEST['zip']);
-						$type = $mysqli->real_escape_string($_REQUEST['item']);
+						$item = $mysqli->real_escape_string($_REQUEST['item']);
 
 						$string1 = "";
 						$string2 = "";
