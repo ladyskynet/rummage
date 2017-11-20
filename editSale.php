@@ -76,12 +76,12 @@ session_start();
 						}
 						$date = str_replace(' ', 'T', $row["eventdate"]);
 						echo '<label for="eventdate">Date/Time</label>
-						<input type="datetime-local" name="eventdate" value="' . $date . '"/><br>';
+						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
 
 						$sql2 = "SELECT * FROM item WHERE sid='$id'";
 						$result2 = $mysqli->query($sql2);
 						if ($result2->num_rows > 0){
-							echo '<h3>Sale Items</h3>
+							echo '<br><br><h3>Sale Items</h3>
 							<div class="table-wrapper">
 									<table class="alt">
 										<thead>
@@ -112,7 +112,6 @@ session_start();
 					}
 					$mysqli->close();
 					?>
-					<br /><br/>
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>
