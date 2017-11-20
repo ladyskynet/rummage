@@ -76,7 +76,7 @@ session_start();
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td>";
-				 				echo '<td>' . $row2['total'] . "</td></tr>";
+				 				echo '<td>' . round($row2['total'],2) . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
