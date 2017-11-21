@@ -23,7 +23,7 @@ if ($mysqli->query($sql) === true){
 	$sql2 = "select id from payment where cardnumber='$cardnumber'";
 	$result2 = $mysqli->query($sql2);
 	$row2 = $result2->fetch_array();
-	$oid = $row['id'];
+	$oid = $row2['id'];
 
 	foreach $_SESSION['orderArray'] as $value {
 		$sql3 = "INSERT into orderitem (oid, pid) values ('$oid', '$value[5]')";
