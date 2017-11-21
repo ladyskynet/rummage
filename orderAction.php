@@ -23,7 +23,7 @@ if ($mysqli->query($sql) === true){
 	$sql2 = "select id from payment where cardnumber='$cardnumber'";
 	$result2 = $mysqli->query($sql2);
 	$row2 = $result2->fetch_array();
-	$orid = $row2['id'];
+	/**$orid = $row2['id'];
 
 	/**foreach $_SESSION['orderArray'] as $value {
 		/**$pid = $value[5];
