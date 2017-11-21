@@ -32,7 +32,7 @@ if $mysqli->query($sql) === true{
 		if (isset($_SESSION['orderArray'])){
 			$orderDetailArray = array();
 			$orderDetailArray[0] = $row2['newest'];
-			$orderDetailArray[1] = $_SESSION['id'];
+			$orderDetailArray[1] = $userid;
 			$orderDetailArray[2] = $type;
 			$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
 			$orderDetailArray[4] = $eventdate;
@@ -41,21 +41,18 @@ if $mysqli->query($sql) === true{
 			$_SESSION['orderArray'][$num] = $orderDetailArray;
 		} else {
 			$orderDetailArray = array();
-			$orderDetailArray[0] = $saleid;
+			$orderDetailArray[0] = $row2['newest'];
 			$orderDetailArray[1] = $userid;
-			$orderDetailArray[2] = $street;
-			$orderDetailArray[3] = $city;
-			$orderDetailArray[4] = $state;
-			$orderDetailArray[5] = $zip;
-			$orderDetailArray[6] = $eventdate;
-			$orderDetailArray[7] = $type;
+			$orderDetailArray[2] = $type;
+			$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
+			$orderDetailArray[4] = $eventdate;
+			$orderDetailArray[5] = $pid;
 			$orderArray = array();
 			$orderArray[0] = $orderDetailArray;
 			$_SESSION['orderArray'] = $orderArray;
 		}
 	} 
 	header('Location: sales.php');
-
 } else {
 	header('Location: welcome.php#profile');
 	echo "Something went wrong. " . $mysqli->error;
