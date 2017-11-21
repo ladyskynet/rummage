@@ -22,7 +22,7 @@ if ($mysqli->query($sql) === TRUE){
 	echo $sql2;
 	if ($mysqli->query($sql2) === TRUE){
 		echo "Sale updated.";
-		#header('Location: showSale.php?id=' . $saleid);
+		header('Location: showSale.php?id=' . $saleid);
 	} else {
 		echo "Something went wrong." . $mysqli->error;
 	}
