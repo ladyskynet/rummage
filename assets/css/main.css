@@ -134,12 +134,6 @@
 		border-color: #ffffff;
 	}
 
-	input[type="date"] {
-		background: transparent;
-		border-radius: 4px;
-		border-color: #ffffff;
-	}
-
 	a {
 		-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;

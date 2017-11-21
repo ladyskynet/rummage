@@ -25,10 +25,13 @@ session_start();
 					<form action="orderAction.php">
 						<label for="cardnumber">Card Number</label>
 						<input type="text" name="cardnumber"/><br>
+
 						<label for="exp">Expiration Date</label>
 						<input type="date" name="exp"/><br><br>
+
 						<label for="seccode">Security Code</label>
 						<input type="text" name="seccode"/><br>
+						
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>

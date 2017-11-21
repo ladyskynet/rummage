@@ -54,33 +54,35 @@ if (isset($_SESSION['id'])){
 				<article>
 					<section>
 						<br>
-					<form action="createSaleAction.php" method="post">
-						<label for="street">Street Address</label> 
-						<input type="text" name="street" maxlength="40" required/><br>
-						<label for="city">City</label>
-						<input type="text" name="city" maxlength="20" required/><br>
-						<label for="state">State</label>
-						<input type="text" name="state" maxlength="2" required/><br>
-						<label for="zip">Zip</label> 
-						<input type="text" name="zip" maxlength="5" required/><br>
-						<label for="type">Sale Type</label>
-						<select name="type">
-							<option value="c">Community Rummage Sale</option>
-							<option value="s">Single Family Rummage Sale</option>
-						</select>
-						<br>
-						<div class="field half">
-							<input type="checkbox" id="promoted" name="promoted" value="y">
-							<label for="promoted">Promoted</label>
-						</div><br><br>
-						<label for="eventdate">Date/Time</label> 
-						<input type="datetime-local" name="eventdate" style="font-color: black" required/>
-						<ul class="actions">
-							<li><input type="submit" class="button special" /></li>
-							<li><input type="reset" value="Reset" /></li>
-						</ul>
-					</form>	
-				</div>
+						<form action="createSaleAction.php" method="post">
+							<label for="street">Street Address</label> 
+							<input type="text" name="street" maxlength="40" required/><br>
+							<label for="city">City</label>
+							<input type="text" name="city" maxlength="20" required/><br>
+							<label for="state">State</label>
+							<input type="text" name="state" maxlength="2" required/><br>
+							<label for="zip">Zip</label> 
+							<input type="text" name="zip" maxlength="5" required/><br>
+							<label for="type">Sale Type</label>
+							<select name="type">
+								<option value="c">Community Rummage Sale</option>
+								<option value="s">Single Family Rummage Sale</option>
+							</select>
+							<br>
+							<div class="field half">
+								<input type="checkbox" id="promoted" name="promoted" value="y">
+								<label for="promoted">Promoted</label>
+							</div><br><br><br>
+							<label for="eventdate">Date/Time</label> 
+							<input type="datetime-local" name="eventdate" required/>
+							<ul class="actions">
+								<li><input type="submit" class="button special" /></li>
+								<li><input type="reset" value="Reset" /></li>
+							</ul>
+						</form>	
+					</section>
+				</article>
+			</div>
 
 			<!-- Footer -->
 			<footer id="footer">
