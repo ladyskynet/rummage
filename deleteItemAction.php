@@ -14,7 +14,7 @@ if ($mysqli === false){
 
 $itemid = $mysqli->real_escape_string($_REQUEST['id']);
 
-$sql = "SELECT FROM item where id='$itemid'";
+$sql = "SELECT * FROM item where id='$itemid'";
 $result = $mysqli->query($sql);
 
 if ($result->num_rows == 1){
