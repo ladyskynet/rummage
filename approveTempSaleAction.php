@@ -12,7 +12,7 @@ if ($mysqli === false){
 	die("Connection failed: " . $mysqli->connect_error);
 }
 
-$saleid = $mysqli->real_escape_string($_REQUEST['saleid']);
+$saleid = $mysqli->real_escape_string($_REQUEST['id']);
 
 $sql = "UPDATE yardsale set promoted='y', approved='y' WHERE id='$saleid'"; 
 
