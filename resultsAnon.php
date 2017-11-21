@@ -104,10 +104,10 @@ session_start();
 				</div>
 				<nav>
 					<ul>
-						<li><a href="#join">Join</a></li>
-						<li><a href="#login">Login</a></li>
+						<li><a href="index.html#join">Join</a></li>
+						<li><a href="index.html#login">Login</a></li>
 						<li><a href="search.php">Search</a></li>
-						<li><a href="#about">About</a></li>
+						<li><a href="index.html#about">About</a></li>
 						<!--<li><a href="/create.html">Create</a></li>-->
 						<!--<li><a href="#elements">Elements</a></li>-->
 					</ul>
