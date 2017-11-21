@@ -23,6 +23,7 @@ $pid = 1;
 
 if ($promoted == 'y'){
 	if (isset($_SESSION['orderArray'])){
+		echo "yes";
 		$orderDetailArray = array();
 		$orderDetailArray[0] = $saleid;
 		$orderDetailArray[1] = $_SESSION['id'];
@@ -30,8 +31,9 @@ if ($promoted == 'y'){
 		$orderDetailArray[3] = $description;
 		$orderDetailArray[4] = $price;
 		$orderDetailArray[5] = $pid;
-		$_SESSION['orderArray'].array_push($orderDetailArray);
+		$_SESSION['orderArray'][0] = $orderDetailArray;
 	} else {
+		echo "no";
 		$orderDetailArray = array();
 		$orderDetailArray[0] = $saleid;
 		$orderDetailArray[1] = $_SESSION['id'];
@@ -40,7 +42,7 @@ if ($promoted == 'y'){
 		$orderDetailArray[4] = $price;
 		$orderDetailArray[5] = $pid;
 		$orderArray = array();
-		$orderArray.array_push($orderDetailArray);
+		$orderArray[0] = $orderDetailArray;
 		$_SESSION['orderArray'] = $orderArray;
 	}
 } 
