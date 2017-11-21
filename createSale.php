@@ -25,12 +25,11 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Edit Sale</h2>
+				<h2>Create Sale</h2>
 				<div class="content">
 
 				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
-					<br>
-					<h2 class="major">Create</h2>
+					<br> 
 					<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
 					<form action="createSaleAction.php" method="post">
 						<label for="street">Street Address</label> 
