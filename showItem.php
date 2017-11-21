@@ -42,6 +42,11 @@ session_start();
 					if ($result->num_rows == 1){
 
 						$row = $result->fetch_array();
+						if ($row['approved'] == 'y'){
+							$approved = 'Yes';
+						} else {
+							$approved = 'No';
+						}
  
 						echo '<div class="table-wrapper">
 							<table class="alt">
@@ -50,6 +55,7 @@ session_start();
 										<th>Name</th>
 										<th>Description</th>
 										<th>Price</th>
+										<th>Promoted</th>
 									</tr>
 								</thead>
 								<tbody>';
@@ -57,8 +63,10 @@ session_start();
 						echo '<tr><td>' . $row["name"] . '</td>';
 								
 						echo '<td>' . $row["description"] . '</td>';
+
+						echo '<td>' . $approved . '</td>';
 								
-						echo '<td>$' . number_format(round($row["price"],2),2) . '</td>';
+						echo '<td>$' . number_format(round($row["price"],2),2) . '</td></tr>';
 
 						echo '</tbody>
 					    </table>
