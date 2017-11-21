@@ -33,12 +33,24 @@ if (isset($_SESSION['id'])){
 				</div>
 				<nav>
 					<ul>
-						<li><a href="welcome.php#profile">Profile</a></li>
-						<li><a href="createSale.php">Create</a></li>
-						<li><a href="search.php">Search</a></li>
-						<li><a href="cart.php">My Cart</a></li>
-						<li><a href="sales.php">Sales</a></li>
-						<li><a href="logout.php">Logout</a></li>
+						<?php
+						if (isset($_SESSION['id'])){
+							echo '<li><a href="welcome.php#profile">Profile</a></li>
+							<li><a href="createSale.php">Create</a></li>
+							<li><a href="search.php">Search</a></li>
+							<li><a href="cart.php">My Cart</a></li>
+							<li><a href="sales.php">Sales</a></li>
+							<li><a href="logout.php">Logout</a></li>';
+							if ($_SESSION['type'] == 'i'){
+								echo '<li><a href="prices.php">Prices</a></li>';
+							}
+						} else {
+							echo'<li><a href="index.html#join">Join</a></li>
+								<li><a href="index.html#login">Login</a></li>
+								<li><a href="search.php">Search</a></li>
+								<li><a href="index.html#about">About</a></li>';
+						}
+						?>
 					</ul>
 				</nav>
 			</header>
