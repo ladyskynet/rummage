@@ -55,11 +55,11 @@ if (isset($_SESSION['id'])){
 								$row = $result->fetch_array();
 								$listingPrice = $row['amount'];
 					 			echo '<tr><td>' . $value[0] . "</td>";
-					 			echo '<tr><td>' . $value[1] . "</td>";
-					 			echo '<tr><td>' . $value[2] . "</td>";
-					 			echo '<tr><td>' . $value[3] . "</td>";
-					 			echo '<tr><td>' . number_format(round($value[4],2),2) . "</td>";
-					 			echo '<tr><td>' . $listingPrice . "</td></tr>";
+					 			echo '<td>' . $value[1] . "</td>";
+					 			echo '<td>' . $value[2] . "</td>";
+					 			echo '<td>' . $value[3] . "</td>";
+					 			echo '<td>' . number_format(round($value[4],2),2) . "</td>";
+					 			echo '<td>' . $listingPrice . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
