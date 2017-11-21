@@ -59,7 +59,7 @@ if (isset($_SESSION['id'])){
 						<input type="text" name="name" maxlength="40" value="' . $row["name"] . '"/><br>';
 								
 						echo '<label for="description">Description</label>
-						<textarea rows="4" cols="50" name="description" form="edititem">' . $row["description"] . '</textarea><br>';
+						<textarea rows="4" cols="50" name="description" form="edititem" maxlength="100">' . $row["description"] . '</textarea><br>';
 								
 						echo '<label for="price">Price</label>
 						<input type="text" name="price" value="' . number_format(round($row["price"],2),2) . '"/>';
