@@ -38,8 +38,8 @@ if ($mysqli->query($sql) === true) {
 
 		$sql3 = "SELECT * from yardsale where id='$newsaleid'";
 		$result3 = $mysqli->query($sql3);
-		
-		if ($result3->num_rows() == 1){
+
+		if ($result3->num_rows == 1){
 			
 			$row3 = $result3->fetch_array();
 			$approved = $row2['approved'];
@@ -51,7 +51,7 @@ if ($mysqli->query($sql) === true) {
 					$orderDetailArray[0] = $row2['newest'];
 					$orderDetailArray[1] = $userid;
 					$orderDetailArray[2] = $type;
-					$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
+					$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
 					$orderDetailArray[4] = $eventdate;
 					$orderDetailArray[5] = $pid;
 					$num = count($_SESSION['orderArray']);
@@ -61,7 +61,7 @@ if ($mysqli->query($sql) === true) {
 					$orderDetailArray[0] = $row2['newest'];
 					$orderDetailArray[1] = $userid;
 					$orderDetailArray[2] = $type;
-					$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
+					$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
 					$orderDetailArray[4] = $eventdate;
 					$orderDetailArray[5] = $pid;
 					$orderArray = array();
