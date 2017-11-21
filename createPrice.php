@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
+if (isset($_SESSION['id'])){
 	echo "";
 } else {
 	header('Location: index.html');
@@ -25,53 +25,9 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Listing Prices</h2>
-				<div class="content">
-					<br>
-						<?php
-						$mysqli = new mysqli("localhost", "root", "password", "yardsale");
-
-						if ($mysqli === false){
-							die("ERROR: Could not connect. " . $mysqli->connect_error);
-						}
-
-						$sql = "select * from price";
-					
-						$result = $mysqli->query($sql);
-
-						if ($result->num_rows > 0){
-
-							echo '<div class="table-wrapper">
-									<table class="alt">
-										<thead>
-											<tr>
-												<th>Show</th>
-												<th>Edit</th>
-												<th>Delete</th>
-												<th>Type</th>
-												<th>Amount</th>
-											</tr>
-										</thead>
-										<tbody>';
-							while($row = $result->fetch_array()) {
-					 			echo '<tr><td><a href="showPrice.php?id=' . $row['id'] . ' ">Show</a></td>';
-					 			echo '<td><a href="editPrice.php?id=' . $row['id'] . ' ">Edit</a></td>';
-					 			echo '<td><a href="deletePrice.php?id=' . $row['id'] . ' ">Delete</a></td>';
-								echo '<td>' . $row['type'] . "</td>";
-				 				echo '<td>' . number_format(round($row["amount"],2),2) . "</td></tr>";
-							}
-							echo '		</tbody>
-									</table>
-								</div>';
-						} else {
-							echo "<p>No prices are currently in the system.</p>";
-						}	
-					 	
-						?>
-						<a href="createPrice.php">Add Price</a>
-				</div>
-				<nav>
-					<ul>
+				<h2>Add Price</h2>
+					<nav>
+				<ul>
 						<?php
 						if (isset($_SESSION['id'])){
 							echo '<li><a href="welcome.php#profile">Profile</a></li>
@@ -91,8 +47,50 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 						}
 						?>
 					</ul>
-				</nav>
+			</nav>
 			</header>
+			<div class="main">
+				<article>
+					<section>
+						<br>
+						<?php
+						$servername = "localhost";
+						$username = "root";
+						$password = "password";
+						$dbname = "yardsale";
+
+						$mysqli = new mysqli($servername, $username, $password, $dbname);
+
+						if ($mysqli === false){
+							die("Connection failed: " . $mysqli->connect_error);
+						}
+						$id = $mysqli->real_escape_string($_REQUEST['id']);
+						
+						echo '<form action="createPriceAction.php" method="post" id="createitem">';
+						
+						echo '<label for="type">Type</label>';
+						echo'<input type="text" name="type" maxlength="20"/><br>';
+							
+						echo '<label for="amount">Amount</label>';
+						echo '<input type="text" name="amount"/><br>';
+						echo '<br><ul class="actions">';
+							echo '<li><input type="submit" class="button special" /></li>';
+							echo '<li><input type="reset" value="Reset" /></li>';
+						echo'</ul>
+						</form>';
+							$mysqli->close();
+						?>
+					</section>
+				</article>
+			</div>
+		
+
+			<!-- Main -->
+			<div id="main">
+
+			<!-- Intro -->
+				
+			</div>
 
 			<!-- Footer -->
 			<footer id="footer">
