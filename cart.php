@@ -50,11 +50,11 @@ if (isset($_SESSION['id'])){
 									<tbody>';
 							$total = 0;
 							foreach ($_SESSION['orderArray'] as $value) {
-								$total += $listingPrice;
 								$sql = "SELECT amount FROM price where id='$value[5]'";
 								$result = $mysqli->query($sql);
 								$row = $result->fetch_array();
 								$listingPrice = $row['amount'];
+								$total += $listingPrice;
 					 			echo '<tr><td>' . $value[0] . "</td>";
 					 			echo '<td>' . $value[1] . "</td>";
 					 			echo '<td>' . $value[2] . "</td>";
