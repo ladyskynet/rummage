@@ -25,7 +25,7 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>My Cart</h2>
+				<h2>Logging out will discard this cart!</h2>
 				<div class="content">
 					<br>
 						<?php
@@ -72,13 +72,14 @@ if (isset($_SESSION['id'])){
 								  	</tfoot>
 								</table>
 							</div>';
-						?>
-						<a href="order.php">Place Order</a>
-						<?php
 					} else {
 						echo "<p>Your cart is empty right now.</p>";
 					} 
 					?>
+					<ul class="actions">
+						<li><a href="logoutAction.php">Logout</a></li>
+						<li><a href="cart.php">Cancel</a></li>
+					</ul>
 				</div>
 				<nav>
 					<ul>
