@@ -59,7 +59,7 @@ if ($mysqli->query($sql) === true){
 					echo "Order placed.";
 					# Reset orderArray so cart will be empty
 					$_SESSION['orderArray'] = array();
-					#header('Location:' . $url );
+					header('Location:' . $url );
 
 				} else {
 					echo "1) Something went wrong." . $mysqli->error;
