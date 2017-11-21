@@ -18,12 +18,11 @@ $sql = "DELETE FROM item WHERE id='itemid'";
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Item deleted.";
-	header('Location: sales.php');
-	
+	#header('Location: sales.php');
 } 
 else {
 	echo "Something went wrong.";
-	header('Location: showItem.php?id=' . $itemid);
+	#header('Location: showItem.php?id=' . $itemid);
 }
 
 $mysqli->close();
