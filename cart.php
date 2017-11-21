@@ -65,7 +65,7 @@ if (isset($_SESSION['id'])){
 							echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
-											<td colspan="2"></td>
+											<td colspan="6"></td>
 											<td>' . $total . '</td>
 									  	</tr>
 								  	</tfoot>
