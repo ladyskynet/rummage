@@ -24,21 +24,21 @@ $pid = 1;
 if ($promoted == 'y'){
 	if (isset($_SESSION['orderArray'])){
 		$orderDetailArray = array();
-		$orderDetailArray.array_push($saleid);
-		$orderDetailArray.array_push($_SESSION['id']);
-		$orderDetailArray.array_push($name);
-		$orderDetailArray.array_push($description);
-		$orderDetailArray.array_push($price);
-		$orderDetailArray.array_push($pid);
+		$orderDetailArray[0] = $saleid;
+		$orderDetailArray[1] = $_SESSION['id'];
+		$orderDetailArray[2] = $name;
+		$orderDetailArray[3] = $description;
+		$orderDetailArray[4] = $price;
+		$orderDetailArray[5] = $pid;
 		$_SESSION['orderArray'].array_push($orderDetailArray);
 	} else {
 		$orderDetailArray = array();
-		$orderDetailArray.array_push($saleid);
-		$orderDetailArray.array_push($_SESSION['id']);
-		$orderDetailArray.array_push($name);
-		$orderDetailArray.array_push($description);
-		$orderDetailArray.array_push($price);
-		$orderDetailArray.array_push($pid);
+		$orderDetailArray[0] = $saleid;
+		$orderDetailArray[1] = $_SESSION['id'];
+		$orderDetailArray[2] = $name;
+		$orderDetailArray[3] = $description;
+		$orderDetailArray[4] = $price;
+		$orderDetailArray[5] = $pid;
 		$orderArray = array();
 		$orderArray.array_push($orderDetailArray);
 		$_SESSION['orderArray'] = $orderArray;
