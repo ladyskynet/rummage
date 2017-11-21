@@ -64,12 +64,12 @@ session_start();
 							$result3 = $mysqli->query($sql3);
 							$row3 = $result3->fetch_array();
 							$amount = $row3['amount'];
-							
+
 							echo '<tr><td>' . $row["id"] . '</td>';
 								
 							echo '<td>' . $row["orid"] . '</td>';
 								
-							echo '<td>' . $amount . '</td></tr>';
+							echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
 						}
 						echo '</tbody>
 							  <tfoot>

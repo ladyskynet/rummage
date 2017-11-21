@@ -27,12 +27,10 @@ session_start();
 						<input type="text" name="cardnumber"/><br>
 
 						<label for="exp">Expiration Date</label>
-						<input type="date" name="exp" style="background: transparent;
-		border-radius: 4px;
-		border-color: #ffffff;"/><br><br>
+						<input type="date" name="exp" style="background: transparent; border-radius: 4px; border-color: #ffffff;"/><br><br>
 
 						<label for="seccode">Security Code</label>
-						<input type="text" name="seccode"/><br>
+						<input type="text" name="seccode" maxlength="3"/><br>
 
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
