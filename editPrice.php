@@ -43,7 +43,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 					}
 					$id = $mysqli->real_escape_string($_REQUEST['id']);
 
-					$sql = "SELECT * FROM item WHERE id='$id'";
+					$sql = "SELECT * FROM price WHERE id='$id'";
 
 					$result = $mysqli->query($sql);
 					
