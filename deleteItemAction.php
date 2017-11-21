@@ -42,11 +42,11 @@ if ($result->num_rows == 1){
 	
 	} else {
 		echo "Something went wrong." . $mysqli->error;
-		header('Location: showItem.php?id=' . $itemid);
+		#header('Location: showItem.php?id=' . $itemid);
 	}
 } else {
 	echo "Something went wrong." . $mysqli->error;
-	header('Location: showItem.php?id=' . $itemid);
+	#header('Location: showItem.php?id=' . $itemid);
 }
 
 $mysqli->close();

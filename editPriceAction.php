@@ -23,8 +23,8 @@ if ($mysqli->query($sql) === TRUE){
 	header('Location: showPrice.php?id=' . $id);
 } 
 else {
-	echo "Something went wrong.";
-	header('Location: welcome.php#profile');
+	echo "Something went wrong." . $mysqli->error;
+	#header('Location: welcome.php#profile');
 }
 
 $mysqli->close();

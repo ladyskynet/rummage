@@ -64,13 +64,13 @@ if ($mysqli->query($sql) === TRUE){
 		header('Location: showItem.php?id=' . $id);
 
 	} else {
-		echo "Something went wrong.";
-		header('Location: welcome.php#profile');
+		echo "Something went wrong." . $mysqli->error;
+		#header('Location: welcome.php#profile');
 	}
 
 } else {
-	echo "Something went wrong.";
-	header('Location: welcome.php#profile');
+	echo "Something went wrong." . $mysqli->error;
+	#header('Location: welcome.php#profile');
 }
 
 $mysqli->close();

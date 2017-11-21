@@ -21,8 +21,8 @@ if ($mysqli->query($sql) === TRUE){
 	header('Location: showSale.php?id=' . $saleid);
 } 
 else {
-	echo "Something went wrong.";
-	header('Location: welcome.php#sales');
+	echo "Something went wrong." . $mysqli->error;
+	#header('Location: welcome.php#sales');
 }
 
 $mysqli->close();
