@@ -54,7 +54,7 @@ if (isset($_SESSION['id'])){
 						
 						echo '<label for="name">Name</label> 
 
-						<input type="hidden" name="id" value="' . $row["id"] . '"/>
+						<input type="hidden" name="id" value="' . $id . '"/>
 
 						<input type="text" name="name" maxlength="40" value="' . $row["name"] . '"/><br>';
 								

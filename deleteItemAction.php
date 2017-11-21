@@ -14,7 +14,7 @@ if ($mysqli === false){
 
 $itemid = $mysqli->real_escape_string($_REQUEST['id']);
 
-$sql = "DELETE FROM item WHERE id='itemid'"; 
+$sql = "DELETE FROM item WHERE id='$itemid'"; 
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Item deleted.";
