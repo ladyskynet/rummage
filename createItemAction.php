@@ -29,7 +29,7 @@ if($mysqli->query($sql2) === true){
 	$result3 = $mysqli->query($sql3);
 
 	if ($result3->num_rows == 1){
-		echo "somewhere";
+
 		$row3 = $result3->fetch_array();
 		$approved = $row3['approved'];
 
@@ -42,6 +42,7 @@ if($mysqli->query($sql2) === true){
 				$orderDetailArray[3] = $description;
 				$orderDetailArray[4] = $price;
 				$orderDetailArray[5] = $pid;
+				$orderDetailArray[6] = $row3['id'];
 				$num = count($_SESSION['orderArray']);
 				$_SESSION['orderArray'][$num] = $orderDetailArray;
 			} else {
@@ -52,6 +53,7 @@ if($mysqli->query($sql2) === true){
 				$orderDetailArray[3] = $description;
 				$orderDetailArray[4] = $price;
 				$orderDetailArray[5] = $pid;
+				$orderDetailArray[6] = $row3['id'];
 				$orderArray = array();
 				$orderArray[0] = $orderDetailArray;
 				$_SESSION['orderArray'] = $orderArray;

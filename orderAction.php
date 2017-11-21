@@ -36,8 +36,13 @@ if ($mysqli->query($sql) === true){
 
 			$pid = $value[5];
 			$saleid = $value[0];
-
-			$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$pid')";
+			if ($pid == '2'){
+				$sql3 = "INSERT into orderitem (orid, pid, sid) values ('$orid', '$pid', '$saleid')";
+			} else {
+				$itemid = $value[6];
+				$sql3 = "INSERT into orderitem (orid, pid, sid, objid) values ('$orid', '$pid', '$saleid', '$itemid')";
+			}
+			
 
 			if ($mysqli->query($sql3) === true){
 				# If orderitem is for an ITEM 

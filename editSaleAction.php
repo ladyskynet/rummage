@@ -52,6 +52,7 @@ if ($mysqli->query($sql) === TRUE){
 			$orderDetailArray[3] = $description;
 			$orderDetailArray[4] = $price;
 			$orderDetailArray[5] = $pid;
+			$orderDetailArray[6] = NULL;
 			$num = count($_SESSION['orderArray']);
 			$_SESSION['orderArray'][$num] = $orderDetailArray;
 		} else {
@@ -62,6 +63,7 @@ if ($mysqli->query($sql) === TRUE){
 			$orderDetailArray[3] = $description;
 			$orderDetailArray[4] = $price;
 			$orderDetailArray[5] = $pid;
+			$orderDetailArray[6] = NULL;
 			$orderArray = array();
 			$orderArray[0] = $orderDetailArray;
 			$_SESSION['orderArray'] = $orderArray;
