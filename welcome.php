@@ -56,7 +56,7 @@ session_start();
 						<input type="text" name="zip" maxlength="5" required/><br>
 
 						<label for="type">Sale Type</label>
-						<select name="type"><a href="#" class="icon fa-arrow-circle-down"></a>
+						<select name="type"><a href="#" class="icon fa-arrow-circle-down">text</a>
 							<option value="c">Community Rummage Sale</option>
 							<option value="s">Single Family Rummage Sale</option>
 
