@@ -13,9 +13,6 @@ if ($mysqli === false){
 }
 
 $id = $mysqli->real_escape_string($_REQUEST['id']);
-$name = $mysqli->real_escape_string($_REQUEST['name']);
-$description = $mysqli->real_escape_string($_REQUEST['description']);
-$price = $mysqli->real_escape_string($_REQUEST['price']);
 
 $sql = "UPDATE item set promoted='y', approved='y' WHERE id='$id'"; 
 

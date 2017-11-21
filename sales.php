@@ -80,6 +80,7 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td>";
+				 				echo '<td>' . $row['approved'] . "</td>";
 				 				echo '<td>$' . number_format(round($row2['total'],2), 2) . "</td></tr>";
 							}
 							echo '		</tbody>
