@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id'])){
+if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 	echo "";
 } else {
 	header('Location: index.html');
@@ -25,7 +25,7 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>My Cart</h2>
+				<h2>Listing Prices</h2>
 				<div class="content">
 					<br>
 						<?php
@@ -35,44 +35,36 @@ if (isset($_SESSION['id'])){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 
-						echo '<div class="table-wrapper">
-								<table class="alt">
-									<thead>
-										<tr>
-											<th>Sale ID</th>
-											<th>User ID</th>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Set Price</th>
-											<th>Listing Price</th>
-										</tr>
-									</thead>
-									<tbody>';
-							$total = 0;
-							foreach ($_SESSION['orderArray'] as $value) {
-								$total += $listingPrice;
-								$sql = "SELECT amount FROM price where id='$value[5]'";
-								$result = $mysqli->query($sql);
-								$row = $result->fetch_array();
-								$listingPrice = $row['amount'];
-					 			echo '<tr><td>' . $value[0] . "</td>";
-					 			echo '<td>' . $value[1] . "</td>";
-					 			echo '<td>' . $value[2] . "</td>";
-					 			echo '<td>' . $value[3] . "</td>";
-					 			echo '<td>$' . number_format(round($value[4],2),2) . "</td>";
-					 			echo '<td>$' . number_format(round($listingPrice,2),2) . "</td></tr>";
+						$sql = "select * from price";
+					
+						$result = $mysqli->query($sql);
+
+						if ($result->num_rows > 0){
+
+							echo '<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Type</th>
+												<th>Amount</th>
+											</tr>
+										</thead>
+										<tbody>';
+							while($row = $result->fetch_array()) {
+					 			echo '<tr><td><a href="showPrice.php?id=' . $row['id'] . ' ">Show</a></td>';
+					 			echo '<td><a href="editPrice.php?id=' . $row['id'] . ' ">Show</a></td>';
+					 			echo '<td><a href="deletePrice.php?id=' . $row['id'] . ' ">Show</a></td>';
+								echo '<td>' . $row['type'] . "</td>";
+				 				echo '<td>' . number_format(round($row["amount"],2),2) . "</td></tr>";
 							}
-							echo '	</tbody>
-								  	<tfoot>
-								  	  	<tr>
-											<td colspan="5"></td>
-											<td>$' . number_format(round($total,2),2) . '</td>
-									  	</tr>
-								  	</tfoot>
-								</table>
-							</div>';
+							echo '		</tbody>
+									</table>
+								</div>';
+						} else {
+							echo "<p>No prices are currently in the system.</p>";
+						}	
+					 	
 						?>
-					<a href="order.php">Place Order</a>
 				</div>
 				<nav>
 					<ul>
@@ -100,5 +92,6 @@ if (isset($_SESSION['id'])){
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
 	</body>
 </html>
