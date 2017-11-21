@@ -17,22 +17,23 @@ $exp = $mysqli->real_escape_string($_REQUEST['exp']);
 
 $sql = "Insert into payment (uid, cardnumber, datepurc, expcarddate, seccode) values ('$_SESSION["id"]', '$cardnumber', '2017-11-20', '$exp', '$seccode')";
 
-if ($mysqli->query($sql) === true){
+/**if ($mysqli->query($sql) === true){
 	$sql2 = "select id from payment where cardnumber='$cardnumber'";
 	$result2 = $mysqli->query($sql2);
 	$row2 = $result2->fetch_array();
 	$oid = $row['id'];
+
 	foreach $_SESSION['orderArray'] as $value {
 		$sql3 = "INSERT into orderitem (oid, pid) values ('$oid', '$value[5]')";
+		if ($mysqli->query($sql3)===true){
+			$url = 'showOrder.php?id=' . $saleid;
+			#header('Location:' . $url );
+			echo "Order placed.";
+		} else {
+			echo "Something went wrong. " . $mysqli->error;
+		}
 	}
-}
+}**/
 
-if($mysqli->query($sql2) === true){
-	$url = 'showOrder.php?id=' . $saleid;
-	header('Location:' . $url );
-	echo "Order placed.";
-} else {
-	echo "Something went wrong. " . $mysqli->error;
-}
 $mysqli->close();
 ?>
