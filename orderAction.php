@@ -43,7 +43,8 @@ if ($mysqli->query($sql) === true){
 				# If orderitem is for an ITEM 
 				if ($pid == 1){
 					$name = $value[2];
-					$sql4 = "SELECT id from item where sid='$saleid' and name='$name'";
+					$description = $value[3];
+					$sql4 = "SELECT id from item where sid='$saleid' and name='$name' and description='$description'";
 					$result4 = $mysqli->query($sql4);
 					if ($result4->num_rows == 1){
 						$row4 = $result4->fetch_array();
