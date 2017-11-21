@@ -59,7 +59,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 										</thead>
 										<tbody>';
 							while($row = $result->fetch_array()) {
-					 			echo '<tr><td><a href="approveTempSaleAction.php?id=' . $row['id'] . ' ">Approve Promotion</a></td>';
+					 			echo '<tr><td><a href="approveTempSaleAction.php?id=' . $row["id"] . '">Approve Promotion</a></td>';
 								echo '<td>' . $row['street'] . "</td>";
 								echo '<td>' . $row['city'] . "</td>";
 								echo '<td>' . $row['state'] . "</td>";
@@ -89,7 +89,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 										</thead>
 										<tbody>';
 							while($row2 = $result2->fetch_array()) {
-					 			echo '<tr><td><a href="approveTempItemAction.php?id=' . $row2['id'] . ' ">Approve Promotion</a></td>';
+					 			echo '<tr><td><a href="approveTempItemAction.php?id=' . $row2["id"] . ' ">Approve Promotion</a></td>';
 								echo '<td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
 				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td></tr>";
