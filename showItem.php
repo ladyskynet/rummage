@@ -54,8 +54,9 @@ session_start();
 									<tr>
 										<th>Name</th>
 										<th>Description</th>
-										<th>Price</th>
 										<th>Promoted</th>
+										<th>Price</th>
+										
 									</tr>
 								</thead>
 								<tbody>';
