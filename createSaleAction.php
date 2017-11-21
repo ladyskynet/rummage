@@ -32,17 +32,17 @@ if ($mysqli->query($sql) === true) {
 	$sql2 = "SELECT MAX(id) as newest from yardsale";
 	$result2 = $mysqli->query($sql2);
 	if ($result2->num_rows == 1){
-		echo 'okay';
 		
-		/**$row2 = $result2->fetch_array();
+		
+		$row2 = $result2->fetch_array();
 		$newsaleid = $row2['newest'];
 
 		$sql3 = "SELECT * from yardsale where id='$newsaleid'";
 		$result3 = $mysqli->query($sql3);
 
 		if ($result3->num_rows == 1){
-			
-			$row3 = $result3->fetch_array();
+			echo 'okay';
+			/**$row3 = $result3->fetch_array();
 			$approved = $row2['approved'];
 
 			if (($promoted == 'y') && ($approved == 'n'){
@@ -71,10 +71,10 @@ if ($mysqli->query($sql) === true) {
 				}
 			} 
 			echo "Rummage sale created.";
-			header('Location: sales.php');
+			header('Location: sales.php');**/
 		} else {
 			echo "Something went wrong." . $mysqli->error;
-		}**/
+		}
 	} else {
 		echo "Something went wrong." . $mysqli->error;
 	}
