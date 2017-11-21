@@ -49,7 +49,7 @@ if ($mysqli->query($sql) === true) {
 				if ($type == 'c'){
 					$type = "Community Rummage Sale Listing";
 				} else {
-					$type = "Single Family Rummage Sale Listing"
+					$type = "Single Family Rummage Sale Listing";
 				}
 
 				if (isset($_SESSION['orderArray'])){
