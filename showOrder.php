@@ -59,11 +59,10 @@ session_start();
 						$sql2 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and orid='$orderid'";
 						$result2 = $mysqli->query($sql2);
 						$row2 = $result2->fetch_array();
-
 						while($row = $result->fetch_array()){
 
-							$pid = $row['pid'];
-							/**$sql3 = "SELECT amount from price where id='$pid'";
+							/**$pid = $row['pid'];
+							$sql3 = "SELECT amount from price where id='$pid'";
 							$result3 = $mysqli->query($sql3);
 							$row3 = $result3->fetch_array();
 							$amount = $row3['amount'];
