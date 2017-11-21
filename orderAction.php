@@ -40,22 +40,14 @@ if ($mysqli->query($sql) === true){
 				$sql3 = "INSERT into orderitem (orid, pid, sid) values ('$orid', '$pid', '$saleid')";
 			} else {
 				$itemid = $value[6];
-				$sql3 = "INSERT into orderitem (orid, pid, sid, objid) values ('$orid', '$pid', '$saleid', '$itemid')";
+				$sql3 = "INSERT into orderitem (orid, pid, sid, itemid) values ('$orid', '$pid', '$saleid', '$itemid')";
 			}
 			
 
 			if ($mysqli->query($sql3) === true){
 				# If orderitem is for an ITEM 
-				if ($pid == 1){
-					$name = $value[2];
-					$description = $value[3];
-					$sql4 = "SELECT id from item where sid='$saleid' and name='$name' and description='$description'";
-					$result4 = $mysqli->query($sql4);
-					if ($result4->num_rows == 1){
-						$row4 = $result4->fetch_array();
-						$itemid = $row4['id'];
-						$sql5 = "INSERT into temp (orid, sid, itemid) values ('$orid', '$saleid', '$itemid')";
-					}
+				if ($pid == 1) {
+					$sql5 = "INSERT into temp (orid, sid, itemid) values ('$orid', '$saleid', '$itemid')";
 				# If orderitem is for a SALE
 				} else {
 					$sql5 = "INSERT into temp (orid, sid) values ('$orid', '$saleid')";

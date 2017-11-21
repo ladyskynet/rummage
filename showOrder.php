@@ -48,6 +48,8 @@ session_start();
 									echo '<tr>';
 										echo '<th>ID</th>';
 										echo '<th>Order ID</th>';
+										echo '<th>Sale ID</th>';
+										echo '<th>ItemID</th>';
 										echo '<th>Listing Price</th>';
 									echo '</tr>
 								</thead>
@@ -68,8 +70,13 @@ session_start();
 							echo '<tr><td>' . $row["id"] . '</td>';
 								
 							echo '<td>' . $row["orid"] . '</td>';
-								
+
+							echo '<td>' . $row["sid"] . '</td>';
+
+							echo '<td>' . $row['itemid'] . '</td>';
+					
 							echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
+							}
 						}
 						echo '</tbody>
 							  <tfoot>
