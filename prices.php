@@ -69,6 +69,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 					 	
 						?>
 						<a href="createPrice.php">Add Price</a>
+						<br><br><br>
 				</div>
 				<nav>
 					<ul>

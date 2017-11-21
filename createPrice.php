@@ -83,14 +83,6 @@ if (isset($_SESSION['id'])){
 					</section>
 				</article>
 			</div>
-		
-
-			<!-- Main -->
-			<div id="main">
-
-			<!-- Intro -->
-				
-			</div>
 
 			<!-- Footer -->
 			<footer id="footer">
