@@ -43,6 +43,11 @@ session_start();
 					if ($result->num_rows == 1){
 
 						$row = $result->fetch_array();
+						if ($row['approved'] == 'n'){
+							$approved = "No";
+						} else {
+							$approved = "Yes";
+						}
  
 						echo '<h3>Sale Details</h3>
 						<div class="table-wrapper">
@@ -55,6 +60,7 @@ session_start();
 										<th>Zip</th>
 										<th>Type</th>
 										<th>Event Date/Time</th>
+										<th>Promoted</th>
 									</tr>
 								</thead>
 								<tbody>';
@@ -74,6 +80,7 @@ session_start();
 							echo '<td>Single Family Rummage Sale</td>';
 						}
 						echo '<td>' . $row["eventdate"] . '</td>
+							<td>' . $approved . '</td></tr>
 							</tbody>
 					    </table>
 					</div>';
