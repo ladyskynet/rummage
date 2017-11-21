@@ -58,7 +58,7 @@ if (isset($_SESSION['id'])){
 						echo '<div class="field half first">
 								<input type="checkbox" id="promoted" name="promoted" value="y">
 								<label for="promoted">Promoted</label>
-							</div>'
+							</div>';
 					
 						echo '<ul class="actions">';
 							echo '<li><input type="submit" class="button special" /></li>';
