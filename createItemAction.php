@@ -22,8 +22,8 @@ if ($promoted == ""){
 
 echo $saleid . " " . $name . " " . $description . " " . $price . " " . $promoted;
 
-/**if ($promoted == 'y'){
-	echo 'yes';**/
+if ($promoted == 'y'){
+	echo 'yes';}
 	/**if (isset($_SESSION['orderArray'])){
 		$orderDetailArray = array();
 		$orderDetailArray.array_push($saleid);
