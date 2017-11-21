@@ -45,6 +45,7 @@ if ($mysqli->query($sql) === true){
 			$url = 'showOrder.php?id=' . $orid;
 			header('Location:' . $url );
 			echo "Order placed.";
+			$_SESSION['orderArray'] = array();
 		} else {
 			echo "Something went wrong. " . $mysqli->error;
 		}
