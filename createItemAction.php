@@ -16,7 +16,7 @@ $name = $mysqli->real_escape_string($_REQUEST['name']);
 $description = $mysqli->real_escape_string($_REQUEST['description']);
 $price = $mysqli->real_escape_string($_REQUEST['price']);
 
-$sql = "INSERT INTO item (name, description, price, pid, sid) VALUES ('$name', '$description', '$price', '1', '$saleid')"; 
+$sql = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '1', '$saleid', 'n')"; 
 echo $sql;
 if($mysqli->query($sql) === true){
 	$url = 'showSale.php?id=' . $saleid;
