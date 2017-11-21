@@ -29,40 +29,44 @@ $pid = 2;
 
 $sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate' WHERE id='$saleid'";
 
-$sql2 = "SELECT * from item where id='$id'";
-$result2 = $mysqli->query($sql2);
-$row2 = $result2->fetch_array();
-$saleid = $row2['sid'];
-
-if ($promoted == 'y' && ){
-	if (isset($_SESSION['orderArray'])){
-		$orderDetailArray = array();
-		$orderDetailArray[0] = $saleid;
-		$orderDetailArray[1] = $userid;
-		$orderDetailArray[2] = $name;
-		$orderDetailArray[3] = $description;
-		$orderDetailArray[4] = $price;
-		$orderDetailArray[5] = $pid;
-		$num = count($_SESSION['orderArray']);
-		$_SESSION['orderArray'][$num] = $orderDetailArray;
-	} else {
-		$orderDetailArray = array();
-		$orderDetailArray[0] = $saleid;
-		$orderDetailArray[1] = $_SESSION['id'];
-		$orderDetailArray[2] = $name;
-		$orderDetailArray[3] = $description;
-		$orderDetailArray[4] = $price;
-		$orderDetailArray[5] = $pid;
-		$orderArray = array();
-		$orderArray[0] = $orderDetailArray;
-		$_SESSION['orderArray'] = $orderArray;
-	}
-} 
-
- 
-
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale updated.";
+
+	$sql2 = "SELECT * from yardsale where id='$saleid'";	
+	$result2 = $mysqli->query($sql2);
+
+	if ($result2->num_rows == 1){
+		$row2 = $result2->fetch_array();
+		$approved = $row2['approved'];
+	} else {
+		echo "Something went wrong.";
+		header('Location: welcome.php#profile');
+
+	}
+	if ($promoted == 'y' && $approved == 'n'){
+		if (isset($_SESSION['orderArray'])){
+			$orderDetailArray = array();
+			$orderDetailArray[0] = $saleid;
+			$orderDetailArray[1] = $userid;
+			$orderDetailArray[2] = $name;
+			$orderDetailArray[3] = $description;
+			$orderDetailArray[4] = $price;
+			$orderDetailArray[5] = $pid;
+			$num = count($_SESSION['orderArray']);
+			$_SESSION['orderArray'][$num] = $orderDetailArray;
+		} else {
+			$orderDetailArray = array();
+			$orderDetailArray[0] = $saleid;
+			$orderDetailArray[1] = $_SESSION['id'];
+			$orderDetailArray[2] = $name;
+			$orderDetailArray[3] = $description;
+			$orderDetailArray[4] = $price;
+			$orderDetailArray[5] = $pid;
+			$orderArray = array();
+			$orderArray[0] = $orderDetailArray;
+			$_SESSION['orderArray'] = $orderArray;
+		}
+	} 
 	header('Location: showSale.php?id=' . $saleid);
 } 
 else {

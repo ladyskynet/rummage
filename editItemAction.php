@@ -26,42 +26,49 @@ if ($promoted == ""){
 $pid = 1;
 
 $sql = "UPDATE item set name='$name', description='$description', price='$price' WHERE id='$id'"; 
-
-$sql2 = "SELECT sid from item where id='$id'";
-$result2 = $mysqli->query($sql2);
-$row2 = $result2->fetch_array();
-$saleid = $row2['sid'];
-
-if ($promoted == 'y'){
-	if (isset($_SESSION['orderArray'])){
-		$orderDetailArray = array();
-		$orderDetailArray[0] = $saleid;
-		$orderDetailArray[1] = $userid;
-		$orderDetailArray[2] = $name;
-		$orderDetailArray[3] = $description;
-		$orderDetailArray[4] = $price;
-		$orderDetailArray[5] = $pid;
-		$num = count($_SESSION['orderArray']);
-		$_SESSION['orderArray'][$num] = $orderDetailArray;
-	} else {
-		$orderDetailArray = array();
-		$orderDetailArray[0] = $saleid;
-		$orderDetailArray[1] = $_SESSION['id'];
-		$orderDetailArray[2] = $name;
-		$orderDetailArray[3] = $description;
-		$orderDetailArray[4] = $price;
-		$orderDetailArray[5] = $pid;
-		$orderArray = array();
-		$orderArray[0] = $orderDetailArray;
-		$_SESSION['orderArray'] = $orderArray;
-	}
-} 
-
 if ($mysqli->query($sql) === TRUE){
-	echo "Item updated.";
-	header('Location: showItem.php?id=' . $id);
-} 
-else {
+
+	$sql2 = "SELECT sid from item where id='$id'";
+	$result2 = $mysqli->query($sql2);
+
+	if ($result2->num_rows == 1){
+		$row2 = $result2->fetch_array();
+		$saleid = $row2['sid'];
+
+		if ($promoted == 'y'){
+			if (isset($_SESSION['orderArray'])){
+				$orderDetailArray = array();
+				$orderDetailArray[0] = $saleid;
+				$orderDetailArray[1] = $userid;
+				$orderDetailArray[2] = $name;
+				$orderDetailArray[3] = $description;
+				$orderDetailArray[4] = $price;
+				$orderDetailArray[5] = $pid;
+				$num = count($_SESSION['orderArray']);
+				$_SESSION['orderArray'][$num] = $orderDetailArray;
+			} else {
+				$orderDetailArray = array();
+				$orderDetailArray[0] = $saleid;
+				$orderDetailArray[1] = $_SESSION['id'];
+				$orderDetailArray[2] = $name;
+				$orderDetailArray[3] = $description;
+				$orderDetailArray[4] = $price;
+				$orderDetailArray[5] = $pid;
+				$orderArray = array();
+				$orderArray[0] = $orderDetailArray;
+				$_SESSION['orderArray'] = $orderArray;
+			}
+		}
+
+		echo "Item updated.";
+		header('Location: showItem.php?id=' . $id);
+
+	} else {
+		echo "Something went wrong.";
+		header('Location: welcome.php#sales');
+	}
+
+} else {
 	echo "Something went wrong.";
 	header('Location: welcome.php#sales');
 }

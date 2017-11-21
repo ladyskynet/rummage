@@ -30,7 +30,7 @@ if ($result->num_rows == 1){
 }
 
 else {
-	header('Location: index.html');
+	header('Location: index.html#login');
 	echo "That username or password is incorrect. Please try again.";
 }
 
