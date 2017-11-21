@@ -70,7 +70,7 @@ if (isset($_SESSION['id'])){
 								<label for="promoted">Promoted</label>
 							</div>';
 					
-						echo '<ul class="actions">';
+						echo '<br><ul class="actions">';
 							echo '<li><input type="submit" class="button special" /></li>';
 							echo '<li><input type="reset" value="Reset" /></li>';
 						echo'</ul>
