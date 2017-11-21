@@ -64,9 +64,6 @@ if (isset($_SESSION['id'])){
 							echo '		</tbody>
 									</table>
 								</div>';
-						} else {
-							echo "<p>No items in your cart yet.</p>";
-						}	
 						?>
 				</div>
 				<nav>
@@ -95,6 +92,5 @@ if (isset($_SESSION['id'])){
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
