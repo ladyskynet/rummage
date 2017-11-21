@@ -20,7 +20,7 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Sale Details</h2>
+				<h2>Order Details</h2>
 				<div class="content">
 					<br>
 
@@ -42,8 +42,6 @@ session_start();
 					
 					$result = $mysqli->query($sql);
 					if ($result->num_rows > 0){
-
-						echo '<h3>Order Details</h3>';
 						echo '<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
