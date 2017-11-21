@@ -73,7 +73,7 @@ session_start();
 
 							echo '<td>' . $row["sid"] . '</td>';
 
-							echo '<td>' . $row['itemid'] . '</td>';
+							echo '<td>' . $row["itemid"] . '</td>';
 					
 							echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
 							}
