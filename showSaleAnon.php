@@ -1,10 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['id'])){
-	echo "";
-} else {
-	header('Location: index.html');
-}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,7 +20,7 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Are you sure you want to delete this sale?</h2>
+				<h2>Sale Details</h2>
 				<div class="content">
 					<br>
 					<?php
@@ -39,9 +34,9 @@ if (isset($_SESSION['id'])){
 					if ($mysqli === false){
 						die("Connection failed: " . $mysqli->connect_error());
 					} 
+
 					$saleid = $mysqli->real_escape_string($_REQUEST['id']);
 					
-
 					$sql = "SELECT * FROM yardsale WHERE id='$saleid'";
 					
 					$result = $mysqli->query($sql);
@@ -60,8 +55,6 @@ if (isset($_SESSION['id'])){
 										<th>Zip</th>
 										<th>Type</th>
 										<th>Event Date/Time</th>
-										<th>Cancel</th>
-										<th>Delete</th>
 									</tr>
 								</thead>
 								<tbody>';
@@ -81,8 +74,6 @@ if (isset($_SESSION['id'])){
 							echo '<td>Type: Single Family Rummage Sale</td>';
 						}
 						echo '	<td>Date/Time: ' . $row["eventdate"] . '</td>
-							  	<td><a href="showSale.php?id=' . $saleid . ' ">Cancel</a></td>
-							  	<td><a href="deleteSaleAction.php?id=' . $saleid . ' ">Delete</a></td>
 							</tbody>
 					    </table>
 					</div>';
@@ -122,12 +113,12 @@ if (isset($_SESSION['id'])){
 				</div>
 				<nav>
 					<ul>
-						<li><a href="welcome.php#profile">Profile</a></li>
-						<li><a href="welcome.php#create">Create</a></li>
+						<li><a href="#join">Join</a></li>
+						<li><a href="#login">Login</a></li>
 						<li><a href="search.php">Search</a></li>
+						<li><a href="#about">About</a></li>
+						<!--<li><a href="/create.html">Create</a></li>-->
 						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="sales.php">Sales</a></li>
-						<li><a href="logoutAction.php">Logout</a></li>
 					</ul>
 				</nav>
 			</header>

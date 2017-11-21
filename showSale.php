@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -36,6 +37,11 @@ session_start();
 					} 
 
 					$saleid = $mysqli->real_escape_string($_REQUEST['id']);
+					if (isset($_SESSION['id'])){
+						echo "";
+					} else {
+						header('Location: showSaleAnon.php?id=' . $saleid);
+					}
 					
 					$sql = "SELECT * FROM yardsale WHERE id='$saleid'";
 					

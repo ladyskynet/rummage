@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['id'])){
-	echo ""
+	echo "";
 } else {
 	header('Location: resultsAnon.php');
 }

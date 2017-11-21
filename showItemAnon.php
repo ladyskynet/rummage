@@ -1,10 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['id'])){
-	echo "";
-} else {
-	header('Location: index.html');
-}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,7 +20,7 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Are you sure you want to delete this item?</h2>
+				<h2>Item Details</h2>
 				<div class="content">
 					<br>
 					<?php
@@ -55,8 +50,6 @@ if (isset($_SESSION['id'])){
 										<th>Name</th>
 										<th>Description</th>
 										<th>Price</th>
-										<th>Edit</th>
-										<th>Delete</th>
 									</tr>
 								</thead>
 								<tbody>';
@@ -67,9 +60,7 @@ if (isset($_SESSION['id'])){
 								
 						echo '<td>$' . $row["price"] . '</td>';
 
-						echo '<td><a href="showItem.php?id=' . $itemid . ' ">Cancel</a></td>
-							  	<td><a href="deleteItemAction.php?id=' . $itemid . ' ">Delete</a>
-							</tbody>
+						echo '</tbody>
 					    </table>
 					</div>';
 					} else {
@@ -81,12 +72,12 @@ if (isset($_SESSION['id'])){
 				</div>
 				<nav>
 					<ul>
-						<li><a href="welcome.php#profile">Profile</a></li>
-						<li><a href="welcome.php#create">Create</a></li>
+						<li><a href="#join">Join</a></li>
+						<li><a href="#login">Login</a></li>
 						<li><a href="search.php">Search</a></li>
+						<li><a href="#about">About</a></li>
+						<!--<li><a href="/create.html">Create</a></li>-->
 						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="sales.php">Sales</a></li>
-						<li><a href="logoutAction.php">Logout</a></li>
 					</ul>
 				</nav>
 			</header>

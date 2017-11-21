@@ -36,6 +36,12 @@ session_start();
 					} 
 					$itemid = $mysqli->real_escape_string($_REQUEST['id']);
 
+					if (isset($_SESSION['id'])){
+						echo "";
+					} else {
+						header('Location: showItemAnon.php?id=' . $itemid);
+					}
+
 					$sql = "SELECT * FROM item WHERE id='$itemid'";
 					
 					$result = $mysqli->query($sql);
