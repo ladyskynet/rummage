@@ -19,9 +19,10 @@ $sql = "UPDATE yardsale set promoted='y', approved='y' WHERE id='$saleid'";
 if ($mysqli->query($sql) === TRUE){
 	
 	$sql2 = "DELETE FROM temp WHERE sid='$saleid' and itemid=NULL"; 
+	echo $sql2;
 	if ($mysqli->query($sql2) === TRUE){
 		echo "Sale updated.";
-		header('Location: showSale.php?id=' . $saleid);
+		#header('Location: showSale.php?id=' . $saleid);
 	} else {
 		echo "Something went wrong." . $mysqli->error;
 	}
