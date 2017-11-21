@@ -58,7 +58,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 					 			echo '<td><a href="editPrice.php?id=' . $row['id'] . ' ">Edit</a></td>';
 					 			echo '<td><a href="deletePrice.php?id=' . $row['id'] . ' ">Delete</a></td>';
 								echo '<td>' . $row['type'] . "</td>";
-				 				echo '<td>' . number_format(round($row["amount"],2),2) . "</td></tr>";
+				 				echo '<td>$' . number_format(round($row["amount"],2),2) . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>

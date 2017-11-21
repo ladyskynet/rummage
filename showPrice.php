@@ -54,21 +54,25 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 							<table class="alt">
 								<thead>
 									<tr>
-										<th>Street</th>
-										<th>City</th>
-										<th>State</th>
-										<th>Zip</th>
+										<th>Show</th>
+										<th>Edit</th>
+										<th>Delete</th>
+										<th>ID</th>
 										<th>Type</th>
-										<th>Event Date/Time</th>
+										<th>Amount/th>
 									</tr>
 								</thead>
 								<tbody>';
+
+						echo '<tr><td><a href="showPrice.php?id=' . $row['id'] . ' ">Show</a></td>';
+					 	echo '<td><a href="editPrice.php?id=' . $row['id'] . ' ">Edit</a></td>';
+					 	echo '<td><a href="deletePrice.php?id=' . $row['id'] . ' ">Delete</a></td>';
 						
 						echo '<tr><td>' . $row["id"] . '</td>';
 								
 						echo '<td>' . $row["type"] . '</td>';
 								
-						echo '	<td>' . number_format(round($row["amount"],2),2) . '</td></tr>
+						echo '	<td>$' . number_format(round($row["amount"],2),2) . '</td></tr>
 							</tbody>
 					    </table>
 					</div>';
