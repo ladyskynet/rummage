@@ -27,7 +27,7 @@ if ($promoted == ""){
 
 $sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, promoted, pid) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', 'n', '$pid')"; 
 
-if ($mysqli->query($sql) === true) {
+/**if ($mysqli->query($sql) === true) {
 
 	$sql2 = "SELECT MAX(id) as newest from yardsale";
 	$result2 = $mysqli->query($sql2);
@@ -79,7 +79,7 @@ if ($mysqli->query($sql) === true) {
 	}
 } else {
 	echo "Something went wrong." . $mysqli->error;
-}
+}**/
 
 $mysqli->close();
 ?>
