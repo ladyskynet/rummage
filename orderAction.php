@@ -26,16 +26,15 @@ if ($mysqli->query($sql) === true){
 	$orid = $row2['id'];
 	echo $orid;
 	foreach ($_SESSION['orderArray'] as $value) {
-		echo "we get in...";
 		$pid = $value[5];
-		$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$pid')";
+		/**$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$pid')";
 		if ($mysqli->query($sql3)===true){
 			$url = 'showOrder.php?id=' . $saleid;
 			header('Location:' . $url );
 			echo "Order placed.";
 		} else {
 			echo "Something went wrong. " . $mysqli->error;
-		}
+		}**/
 	}
 }
 
