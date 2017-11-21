@@ -48,8 +48,9 @@ if (isset($_SESSION['id'])){
 										</tr>
 									</thead>
 									<tbody>';
+							$total = 0;
 							foreach ($_SESSION['orderArray'] as $value) {
-								
+								$total += $listingPrice;
 								$sql = "SELECT amount FROM price where id='$value[5]'";
 								$result = $mysqli->query($sql);
 								$row = $result->fetch_array();
@@ -61,9 +62,15 @@ if (isset($_SESSION['id'])){
 					 			echo '<td>$' . number_format(round($value[4],2),2) . "</td>";
 					 			echo '<td>$' . number_format(round($listingPrice,2),2) . "</td></tr>";
 							}
-							echo '		</tbody>
-									</table>
-								</div>';
+							echo '	</tbody>
+								  	<tfoot>
+								  	  	<tr>
+											<td colspan="2"></td>
+											<td>' . $total . '</td>
+									  	</tr>
+								  	</tfoot>
+								</table>
+							</div>';
 						?>
 				</div>
 				<nav>
