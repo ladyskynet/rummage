@@ -31,7 +31,8 @@ if ($promoted == 'y'){
 		$orderDetailArray[3] = $description;
 		$orderDetailArray[4] = $price;
 		$orderDetailArray[5] = $pid;
-		$_SESSION['orderArray'][0] = $orderDetailArray;
+		$num = count($_SESSION['orderArray']);
+		$_SESSION['orderArray'][$num] = $orderDetailArray;
 	} else {
 		echo "no";
 		$orderDetailArray = array();
