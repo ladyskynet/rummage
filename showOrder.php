@@ -43,7 +43,7 @@ session_start();
 					$result = $mysqli->query($sql);
 
 					if ($result->num_rows > 0){
-						/**echo '<div class="table-wrapper">';
+						echo '<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
@@ -56,7 +56,7 @@ session_start();
 								</thead>
 								<tbody>';
 
-						$sql2 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and orid='$orderid'";
+						/**$sql2 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and orid='$orderid'";
 						$result2 = $mysqli->query($sql2);
 						$row2 = $result2->fetch_array();
 
