@@ -42,8 +42,8 @@ session_start();
 					
 					$result = $mysqli->query($sql);
 
-					/**if ($result->num_rows > 0){
-						echo '<div class="table-wrapper">';
+					if ($result->num_rows > 0){
+						/**echo '<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
@@ -87,11 +87,11 @@ session_start();
 							  	echo '</tr>
 						  	</tfoot>
 					     </table>
-				 	 </div>';
+				 	 </div>';**/
 					
 					} else {
 						echo "<p>Please select a valid order to display.</p>";
-					}**/
+					}
 					$mysqli->close();
 					?>
 				
