@@ -13,9 +13,8 @@ if ($mysqli === false){
 }
 
 $id = $mysqli->real_escape_string($_REQUEST['id']);
-$name = $mysqli->real_escape_string($_REQUEST['name']);
-$description = $mysqli->real_escape_string($_REQUEST['description']);
-$price = $mysqli->real_escape_string($_REQUEST['price']);
+$type = $mysqli->real_escape_string($_REQUEST['type']);
+$amount = $mysqli->real_escape_string($_REQUEST['amount']);
 
 $sql = "UPDATE price set type='$type', amount='$amount' WHERE id='$id'"; 
 
@@ -25,7 +24,7 @@ if ($mysqli->query($sql) === TRUE){
 } 
 else {
 	echo "Something went wrong.";
-	header('Location: welcome.php#sales');
+	header('Location: welcome.php#profile');
 }
 
 $mysqli->close();
