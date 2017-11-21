@@ -18,7 +18,7 @@ $sql = "UPDATE yardsale set promoted='y', approved='y' WHERE id='$saleid'";
 
 if ($mysqli->query($sql) === TRUE){
 	
-	$sql2 = "DELETE FROM temp WHERE sid='$saleid' and itemid=NULL"; 
+	$sql2 = "DELETE FROM temp WHERE sid='$saleid' and itemid is NULL"; 
 	echo $sql2;
 	if ($mysqli->query($sql2) === TRUE){
 		echo "Sale updated.";
