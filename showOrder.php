@@ -56,11 +56,11 @@ session_start();
 								</thead>
 								<tbody>';
 
-						/**$sql2 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and orid='$orderid'";
+						$sql2 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and orid='$orderid'";
 						$result2 = $mysqli->query($sql2);
 						$row2 = $result2->fetch_array();
 
-						while($row = $result->fetch_array()){
+						/**while($row = $result->fetch_array()){
 
 							$pid = $row['pid'];
 							$sql3 = "SELECT amount from price where id='$pid'";
@@ -82,7 +82,7 @@ session_start();
 						echo '</tbody>
 							  <tfoot>
 						  	  	<tr>
-									<td colspan="2"></td>';
+									<td colspan="4"></td>';
 									echo '<td>$' . number_format(round($row2["total"],2),2) . '</td>';
 							  	echo '</tr>
 						  	</tfoot>
