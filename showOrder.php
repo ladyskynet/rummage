@@ -60,10 +60,10 @@ session_start();
 						$result2 = $mysqli->query($sql2);
 						$row2 = $result2->fetch_array();
 
-						/**while($row = $result->fetch_array()){
+						while($row = $result->fetch_array()){
 
 							$pid = $row['pid'];
-							$sql3 = "SELECT amount from price where id='$pid'";
+							/**$sql3 = "SELECT amount from price where id='$pid'";
 							$result3 = $mysqli->query($sql3);
 							$row3 = $result3->fetch_array();
 							$amount = $row3['amount'];
@@ -76,9 +76,9 @@ session_start();
 
 							echo '<td>' . $row["itemid"] . '</td>';
 					
-							echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
+							echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';**/
 							}
-						}**/
+						}
 						echo '</tbody>
 							  <tfoot>
 						  	  	<tr>
