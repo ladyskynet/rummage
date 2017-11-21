@@ -34,7 +34,7 @@ if (isset($_SESSION['id'])){
 				<nav>
 					<ul>
 						<li><a href="#profile">Profile</a></li>
-						<li><a href="#create">Create</a></li>
+						<li><a href="createSale.php">Create</a></li>
 						<li><a href="search.php">Search</a></li>
 						<!--<li><a href="#elements">Elements</a></li>-->
 						<li><a href="sales.php">Sales</a></li>

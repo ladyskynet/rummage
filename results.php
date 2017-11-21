@@ -58,7 +58,7 @@ session_start();
 							$string5 = " AND (id in (select sid from item where name='$item'))";
 						}
 
-						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5 . "GROUP BY promoted;
+						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5 . "GROUP BY promoted";
 					
 						$result = $mysqli->query($sql);
 
@@ -107,7 +107,7 @@ session_start();
 				<?php
 				if (isset($_SESSION['id'])){
 					echo '<li><a href="welcome.php#profile">Profile</a></li>
-						<li><a href="welcome.php#create">Create</a></li>
+						<li><a href="createSale.php">Create</a></li>
 						<li><a href="search.php">Search</a></li>
 						<!--<li><a href="#elements">Elements</a></li>-->
 						<li><a href="sales.php">Sales</a></li>
