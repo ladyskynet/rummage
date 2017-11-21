@@ -19,7 +19,7 @@ $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 
 if ($promoted == 'y'){
 	echo 'yes';
-	if (isset($_SESSION['orderArray'])){
+	/**if (isset($_SESSION['orderArray'])){
 		$orderDetailArray = array();
 		$orderDetailArray.array_push($saleid);
 		$orderDetailArray.array_push($_SESSION['id']);
