@@ -38,15 +38,15 @@ if ($result->num_rows == 1){
 
 			$_SESSION['orderArray'] = $newOrder;
 		}
-		#header('Location: sales.php');
+		header('Location: sales.php');
 	
 	} else {
 		echo "Something went wrong." . $mysqli->error;
-		#header('Location: showItem.php?id=' . $itemid);
+		header('Location: showItem.php?id=' . $itemid);
 	}
 } else {
 	echo "Something went wrong." . $mysqli->error;
-	#header('Location: showItem.php?id=' . $itemid);
+	header('Location: showItem.php?id=' . $itemid);
 }
 
 $mysqli->close();
