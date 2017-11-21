@@ -16,6 +16,9 @@ $name = $mysqli->real_escape_string($_REQUEST['name']);
 $description = $mysqli->real_escape_string($_REQUEST['description']);
 $price = $mysqli->real_escape_string($_REQUEST['price']);
 $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
+if ($promoted == ""){
+	$promoted = 'n';
+}
 
 echo $saleid . " " . $name . " " . $description . " " . $price . " " . $promoted;
 
