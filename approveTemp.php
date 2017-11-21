@@ -36,7 +36,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 						}
 
 						$sql = "select * from yardsale where id in (select sid from temp)";
-						$sql2 = "select * from item where id in (select thing from temp)";
+						$sql2 = "select * from item where id in (select itemid from temp)";
 					
 						$result = $mysqli->query($sql);
 						$result2 = $mysqli->query($sql2);
