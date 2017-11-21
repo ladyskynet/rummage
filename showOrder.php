@@ -55,7 +55,7 @@ session_start();
 								</thead>
 								<tbody>';
 
-						$sql2 = "select sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and orid='$orderid'";
+						$sql2 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and orid='$orderid'";
 						$result2 = $mysqli->query($sql2);
 						$row2 = $result2->fetch_array();
 
