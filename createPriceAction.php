@@ -14,7 +14,7 @@ if ($mysqli === false){
 $type = $mysqli->real_escape_string($_REQUEST['type']);
 $amount = $mysqli->real_escape_string($_REQUEST['amount']);
 
-$sql = "INSERT INTO price (type, amount VALUES ('$type', '$amount')"; 
+$sql = "INSERT INTO price (type, amount) VALUES ('$type', '$amount')"; 
 
 if($mysqli->query($sql) === true){
 	$sql2 = "select id from price where type='$type' and amount='$amount'";

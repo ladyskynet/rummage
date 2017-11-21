@@ -66,13 +66,14 @@ if (isset($_SESSION['id'])){
 						}
 						$id = $mysqli->real_escape_string($_REQUEST['id']);
 						
-						echo '<form action="createPriceAction.php" method="post" id="createitem">';
+						echo '<form action="createPriceAction.php" method="post">';
 						
 						echo '<label for="type">Type</label>';
 						echo'<input type="text" name="type" maxlength="20"/><br>';
 							
 						echo '<label for="amount">Amount</label>';
 						echo '<input type="text" name="amount"/><br>';
+						
 						echo '<br><ul class="actions">';
 							echo '<li><input type="submit" class="button special" /></li>';
 							echo '<li><input type="reset" value="Reset" /></li>';
