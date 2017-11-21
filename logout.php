@@ -35,7 +35,7 @@ if (isset($_SESSION['id'])){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 
-						if (isset($_SESSION['orderArray'])){
+						if (count($_SESSION['orderArray']) > 0){
 							echo '<div class="table-wrapper">
 								<table class="alt">
 									<thead>
