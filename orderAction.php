@@ -48,11 +48,11 @@ if ($mysqli->query($sql) === true){
 					if ($result4->num_rows == 1){
 						$row4 = $result4->fetch_array();
 						$itemid = $row4['id'];
-						$sql5 = "INSERT into temp (orid, pid, sid, itemid) values ('$orid', '$pid', '$saleid', '$itemid')";
+						$sql5 = "INSERT into temp (orid, sid, itemid) values ('$orid', '$saleid', '$itemid')";
 					}
 				# If orderitem is for a SALE
 				} else {
-					$sql5 = "INSERT into temp (orid, pid, sid) values ('$orid', '$pid', '$saleid')";
+					$sql5 = "INSERT into temp (orid, sid) values ('$orid', '$saleid')";
 				}
 				if ($mysqli->query($sql5) === true){
 					$url = 'showOrder.php?id=' . $orid;
