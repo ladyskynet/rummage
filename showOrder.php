@@ -75,7 +75,7 @@ session_start();
 						echo '</tbody>
 							  <tfoot>
 						  	  	<tr>
-									<td colspan="3"></td>';
+									<td colspan="2"></td>';
 									echo '<td>$' . number_format(round($row2["total"],2),2) . '</td>';
 							  	echo '</tr>
 						  	</tfoot>
