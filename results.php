@@ -57,8 +57,8 @@ session_start();
 						if ($item != ''){
 							$string5 = " AND (id in (select sid from item where name='$item'))";
 						}
-
-						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5;
+						
+						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5 . " order by approved desc";
 					
 						$result = $mysqli->query($sql);
 
