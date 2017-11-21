@@ -14,8 +14,9 @@ if ($mysqli === false){
 $cardnumber = $mysqli->real_escape_string($_REQUEST['cardnumber']);
 $seccode = $mysqli->real_escape_string($_REQUEST['seccode']);
 $exp = $mysqli->real_escape_string($_REQUEST['exp']);
+$userid = $_SESSION["id"];
 
-$sql = "Insert into payment (uid, cardnumber, datepurc, expcarddate, seccode) values ('$_SESSION["id"]', '$cardnumber', '2017-11-20', '$exp', '$seccode')";
+$sql = "Insert into payment (uid, cardnumber, datepurc, expcarddate, seccode) values ('$userid', '$cardnumber', '2017-11-20', '$exp', '$seccode')";
 
 /**if ($mysqli->query($sql) === true){
 	$sql2 = "select id from payment where cardnumber='$cardnumber'";
