@@ -22,7 +22,7 @@ $pid = 2;
 
 $sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, promoted, pid) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', 'n', '$pid')"; 
 
-if $mysqli->query($sql) === true{
+if ($mysqli->query($sql) === true) {
 	if ($mysqli->real_escape_string($_REQUEST['promoted'])=='y'){
 
 		$sql2 = "select MAX(id) as newest from yardsale";
