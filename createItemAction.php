@@ -35,14 +35,14 @@ if ($promoted == 'y'){
 		echo 'no';
 		$orderDetailArray = array();
 		$orderDetailArray.array_push($saleid);
-		$orderDetailArray.array_push($_SESSION['id']);
+		/**$orderDetailArray.array_push($_SESSION['id']);
 		$orderDetailArray.array_push($name);
 		$orderDetailArray.array_push($description);
 		$orderDetailArray.array_push($price);
 		$orderDetailArray.array_push(1);
 		$orderArray = array();
 		$orderArray.array_push($orderDetailArray);
-		$_SESSION['orderArray'] = $orderArray;
+		$_SESSION['orderArray'] = $orderArray;**/
 	}
 } 
 $sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '1', '$saleid', 'n')"; 
