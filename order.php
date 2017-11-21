@@ -26,7 +26,7 @@ session_start();
 						<label for="cardnumber">Card Number</label>
 						<input type="text" name="cardnumber"/><br>
 						<label for="exp">Expiration Date</label>
-						<input type="date" name="exp" style="font-color: black"/><br>
+						<input type="date" name="exp"/><br><br>
 						<label for="seccode">Security Code</label>
 						<input type="text" name="seccode"/><br>
 						<ul class="actions">
@@ -34,10 +34,6 @@ session_start();
 							<li><input type="reset" value="Reset" /></li>
 						</ul>
 					</form>
-					<!--<div class="inner">
-						<h1>Rummage</h1>
-						<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.</p>
-					</div>-->
 				</div>
 				<nav>
 					<ul>
