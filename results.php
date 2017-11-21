@@ -117,6 +117,7 @@ session_start();
 							<li><a href="logout.php">Logout</a></li>';
 							if ($_SESSION['type'] == 'i'){
 								echo '<li><a href="prices.php">Prices</a></li>';
+								echo '<li><a href="approveTemp.php">Approve</a></li>';
 							}
 						} else {
 							echo'<li><a href="index.html#join">Join</a></li>
