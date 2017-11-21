@@ -26,6 +26,16 @@ if (isset($_SESSION['id'])){
 					<span class="icon fa-trash"></span>
 				</div>
 				<h2>Add Item</h2>
+					<nav>
+				<ul>
+					<li><a href="welcome.php#profile">Profile</a></li>
+					<li><a href="wlecome.php#create">Create</a></li>
+					<li><a href="search.php">Search</a></li>
+					<!--<li><a href="#elements">Elements</a></li>-->
+					<li><a href="sales.php">Sales</a></li>
+					<li><a href="logoutAction.php">Logout</a></li>
+				</ul>
+			</nav>
 			</header>
 			<div class="main">
 				<article>
@@ -70,16 +80,7 @@ if (isset($_SESSION['id'])){
 					</section>
 				</article>
 			</div>
-			<nav>
-				<ul>
-					<li><a href="welcome.php#profile">Profile</a></li>
-					<li><a href="wlecome.php#create">Create</a></li>
-					<li><a href="search.php">Search</a></li>
-					<!--<li><a href="#elements">Elements</a></li>-->
-					<li><a href="sales.php">Sales</a></li>
-					<li><a href="logoutAction.php">Logout</a></li>
-				</ul>
-			</nav>
+		
 
 			<!-- Main -->
 			<div id="main">
