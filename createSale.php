@@ -26,11 +26,21 @@ if (isset($_SESSION['id'])){
 					<span class="icon fa-trash"></span>
 				</div>
 				<h2>Create Sale</h2>
-				<div class="content">
-
-				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
-					<br> 
-					<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
+				<nav>
+					<ul>
+						<li><a href="welcome.php#profile">Profile</a></li>
+						<li><a href="createSale.php">Create</a></li>
+						<li><a href="search.php">Search</a></li>
+						<!--<li><a href="#elements">Elements</a></li>-->
+						<li><a href="sales.php">Sales</a></li>
+						<li><a href="logoutAction.php">Logout</a></li>
+					</ul>
+				</nav>
+			</header>
+			<div class="main">
+				<article>
+					<section>
+						<br>
 					<form action="createSaleAction.php" method="post">
 						<label for="street">Street Address</label> 
 						<input type="text" name="street" maxlength="40" required/><br>
@@ -46,6 +56,10 @@ if (isset($_SESSION['id'])){
 							<option value="s">Single Family Rummage Sale</option>
 						</select>
 						<br>
+						<div class="field half">
+							<input type="checkbox" id="promoted" name="promoted" value="y">
+							<label for="promoted">Promoted</label>
+						</div><br>
 						<label for="eventdate">Date/Time</label> 
 						<input type="datetime-local" name="eventdate" style="font-color: black" required/>
 						<ul class="actions">
@@ -54,17 +68,6 @@ if (isset($_SESSION['id'])){
 						</ul>
 					</form>	
 				</div>
-				<nav>
-					<ul>
-						<li><a href="welcome.php#profile">Profile</a></li>
-						<li><a href="createSale.php">Create</a></li>
-						<li><a href="search.php">Search</a></li>
-						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="sales.php">Sales</a></li>
-						<li><a href="logoutAction.php">Logout</a></li>
-					</ul>
-				</nav>
-			</header>
 
 			<!-- Footer -->
 			<footer id="footer">
