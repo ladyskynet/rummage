@@ -44,6 +44,8 @@ if ($promoted == 'y'){
 		$_SESSION['orderArray'] = $orderArray;
 	}
 } 
+echo $orderArray;
+echo $orderDetailArray;
 foreach ($_SESSION['orderArray'] as $value) {
 	echo $value[0] . " " . $value[1];
 }
