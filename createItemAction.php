@@ -21,7 +21,8 @@ if ($promoted == ""){
 }
 
 if ($promoted == 'y'){
-	if (isset($_SESSION['orderArray'])){
+	echo 'yes';
+	/**if (isset($_SESSION['orderArray'])){
 		$orderDetailArray = array();
 		$orderDetailArray.array_push($saleid);
 		$orderDetailArray.array_push($_SESSION['id']);
@@ -41,7 +42,7 @@ if ($promoted == 'y'){
 		$orderArray = array();
 		$orderArray.array_push($orderDetailArray);
 		$_SESSION['orderArray'] = $orderArray;
-	}
+	}**/
 } 
 $sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '1', '$saleid', 'n')"; 
 if($mysqli->query($sql2) === true){
