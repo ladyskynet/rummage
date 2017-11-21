@@ -20,7 +20,7 @@ $sql = "Insert into payment (uid, cardnumber, datepurc, expcarddate, seccode) va
 
 if ($mysqli->query($sql) === true){
 	echo 'yay';	
-	/**$sql2 = "select id from payment where cardnumber='$cardnumber'";
+	$sql2 = "select id from payment where cardnumber='$cardnumber'";
 	$result2 = $mysqli->query($sql2);
 	$row2 = $result2->fetch_array();
 	$oid = $row['id'];
@@ -34,7 +34,7 @@ if ($mysqli->query($sql) === true){
 		} else {
 			echo "Something went wrong. " . $mysqli->error;
 		}
-	}**/
+	}
 }
 
 $mysqli->close();
