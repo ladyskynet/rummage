@@ -54,7 +54,7 @@ if $mysqli->query($sql) === true{
 			$_SESSION['orderArray'] = $orderArray;
 		}
 	} 
-	header('Location: sales.php')
+	header('Location: sales.php');
 
 } else {
 	header('Location: welcome.php#profile');
