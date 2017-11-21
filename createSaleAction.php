@@ -46,7 +46,7 @@ if ($mysqli->query($sql) === true) {
 			$approved = $row3['approved'];
 			echo $approved . " " . $promoted;
 			if (($promoted == 'y') and ($approved == 'n')){
-				echo 'okaynn';}
+				echo 'okaynn';
 				if (isset($_SESSION['orderArray'])){
 				
 					$orderDetailArray = array();
