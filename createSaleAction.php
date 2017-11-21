@@ -24,13 +24,11 @@ if ($mysqli->real_escape_string($_REQUEST['promoted'])=='y'){
 	if (isset($_SESSION['orderArray'])){
 		$orderDetailArray = array();
 		$orderDetailArray[0] = $saleid;
-		$orderDetailArray[1] = $userid;
-		$orderDetailArray[2] = $street;
-		$orderDetailArray[3] = $city;
-		$orderDetailArray[4] = $state;
-		$orderDetailArray[5] = $zip;
-		$orderDetailArray[6] = $eventdate;
-		$orderDetailArray[7] = $type;
+		$orderDetailArray[1] = $_SESSION['id'];
+		$orderDetailArray[2] = $type;
+		$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
+		$orderDetailArray[4] = $eventdate;
+		$orderDetailArray[5] = $pid;
 		$num = count($_SESSION['orderArray']);
 		$_SESSION['orderArray'][$num] = $orderDetailArray;
 	} else {
