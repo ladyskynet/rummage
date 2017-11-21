@@ -62,17 +62,17 @@ if ($mysqli->query($sql) === true){
 					header('Location:' . $url );
 
 				} else {
-					echo "Something went wrong." . $mysqli->error;
+					echo "1) Something went wrong." . $mysqli->error;
 				}
 			} else {
-				echo "Something went wrong. " . $mysqli->error;
+				echo "2) Something went wrong. " . $mysqli->error;
 			}
 		}
 	} else {
-		echo "Something went wrong. " . $mysqli->error;
+		echo "3) Something went wrong. " . $mysqli->error;
 	}
 } else {
-	echo "Something went wrong. " . $mysqli->error;
+	echo "4) Something went wrong. " . $mysqli->error;
 }
 
 $mysqli->close();
