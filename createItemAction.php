@@ -19,6 +19,7 @@ $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 if ($promoted == ""){
 	$promoted = 'n';
 }
+$pid = 1;
 
 if ($promoted == 'y'){
 	if (isset($_SESSION['orderArray'])){
@@ -39,7 +40,7 @@ if ($promoted == 'y'){
 		$orderDetailArray.array_push($name);
 		$orderDetailArray.array_push($description);
 		$orderDetailArray.array_push($price);
-		$orderDetailArray.array_push('1');
+		$orderDetailArray.array_push($pid);
 		/**$orderArray = array();
 		$orderArray.array_push($orderDetailArray);
 		$_SESSION['orderArray'] = $orderArray;**/
