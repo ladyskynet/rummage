@@ -25,7 +25,7 @@ if ($mysqli->query($sql) === true){
 	$row2 = $result2->fetch_array();
 	$orid = $row2['id'];
 
-	foreach $_SESSION['orderArray'] as $value {
+	/**foreach $_SESSION['orderArray'] as $value {
 		/**$pid = $value[5];
 		$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$pid')";
 		if ($mysqli->query($sql3)===true){
