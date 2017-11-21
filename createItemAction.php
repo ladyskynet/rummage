@@ -25,7 +25,7 @@ $pid = 1;
 $sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '$pid', '$saleid', 'n')";
 
 if($mysqli->query($sql2) === true){
-
+	echo "somewhere";
 	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description'";
 	$result3 = $mysqli->query($sql3);
 
