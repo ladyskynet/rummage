@@ -66,7 +66,7 @@ if (isset($_SESSION['id'])){
 								  	<tfoot>
 								  	  	<tr>
 											<td colspan="5"></td>
-											<td>' . $total . '</td>
+											<td>$' . number_format(round($total,2),2) . '</td>
 									  	</tr>
 								  	</tfoot>
 								</table>
