@@ -68,14 +68,14 @@ session_start();
 
 							echo '<tr><td>' . $row["id"] . '</td>';
 								
-							echo '<td>' . $row["oid"] . '</td>';
+							echo '<td>' . $row["orid"] . '</td>';
 								
 							echo '<td>' . $row3["amount"] . '</td></tr>';
 						}
 						echo '</tbody>
 							  <tfoot>
 						  	  	<tr>
-									<td colspan="5"></td>';
+									<td colspan="3"></td>';
 									echo '<td>$' . number_format(round($row2["total"],2),2) . '</td>';
 							  	echo '</tr>
 						  	</tfoot>
