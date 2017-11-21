@@ -42,8 +42,8 @@ if ($promoted == 'y'){
 		$orderDetailArray.array_push(1);
 		$orderArray = array();
 		$orderArray.array_push($orderDetailArray);
-		$_SESSION['orderArray'] = $orderArray;
-	}**/
+		$_SESSION['orderArray'] = $orderArray;**/
+	}
 } 
 $sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '1', '$saleid', 'n')"; 
 if($mysqli->query($sql2) === true){
