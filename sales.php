@@ -61,6 +61,11 @@ if (isset($_SESSION['id'])){
 										</thead>
 										<tbody>';
 							while($row = $result->fetch_array()) {
+								if ($row['approved'] == 'n'){
+									$approved = "No";
+								} else {
+									$approved = "Yes";
+								}
 								$id = $row['id'];
 								$sql2 = "SELECT SUM(price) as total FROM item WHERE sid='$id'";
 								$result2 = $mysqli->query($sql2);
@@ -81,7 +86,7 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td>";
-				 				echo '<td>' . $row['approved'] . "</td>";
+				 				echo '<td>' . $approved . "</td>";
 				 				echo '<td>$' . number_format(round($row2['total'],2), 2) . "</td></tr>";
 							}
 							echo '		</tbody>

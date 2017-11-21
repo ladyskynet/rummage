@@ -80,6 +80,11 @@ session_start();
 										</thead>
 										<tbody>';
 							while($row = $result->fetch_array()) {
+								if ($row['approved'] == 'n'){
+									$approved = "No";
+								} else {
+									$approved = "Yes";
+								}
 
 								if ($row['type'] == 's'){
 									$type = "Single Family Rummage Sale";
@@ -92,7 +97,7 @@ session_start();
 								echo '<td>' . $row['state'] . "</td>";
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
-								echo '<td>' . $row['approved'] . "</td>" ;
+								echo '<td>' . $approved . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td></tr>";
 
 							}
