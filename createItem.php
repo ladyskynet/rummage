@@ -71,7 +71,7 @@ if (isset($_SESSION['id'])){
 						echo '<input type="hidden" name="id" value="' . $id .'"/>';
 						
 						echo '<label for="name">Name</label>';
-						echo'<input type="text" name="name" maxlength="40"/><br>';
+						echo'<input type="text" name="name" maxlength="40" required/><br>';
 								
 						echo '<label for="description">Description</label>
 							<textarea rows="4" cols="50" name="description" form="createitem" maxlength="100"></textarea><br>';

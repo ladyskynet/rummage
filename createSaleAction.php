@@ -46,6 +46,11 @@ if ($mysqli->query($sql) === true) {
 			$approved = $row3['approved'];
 			echo $approved . " " . $promoted;
 			if (($promoted == 'y') and ($approved == 'n')){
+				if ($type == 'c'){
+					$type = "Community Rummage Sale Listing";
+				} else {
+					$type = "Single Family Rummage Sale Listing"
+				}
 
 				if (isset($_SESSION['orderArray'])){
 				
