@@ -23,13 +23,13 @@ $sql = "INSERT into payment (uid, cardnumber, datepurc, expcarddate, seccode) va
 if ($mysqli->query($sql) === true){
 
 	# Get newly generated ID from order
-	$sql2 = "SELECT id from payment where cardnumber='$cardnumber'";
+	$sql2 = "SELECT MAX(id) as newest from payment where cardnumber='$cardnumber'";
 	$result2 = $mysqli->query($sql2);
 
 	if ($result2->num_rows == 1){
 
 		$row2 = $result2->fetch_array();
-		$orid = $row2['id'];
+		$orid = $row2['newest'];
 
 		# For each of the values in order array, make an orderitem
 		foreach ($_SESSION['orderArray'] as $value) {
