@@ -26,46 +26,48 @@ if (isset($_SESSION['id'])){
 					<span class="icon fa-trash"></span>
 				</div>
 				<h2>Add Item</h2>
-				<div class="content">
+				<div class="main">
+					<article>
+						<section>
+							<br>
+							<?php
+							$servername = "localhost";
+							$username = "root";
+							$password = "password";
+							$dbname = "yardsale";
 
-				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
-					<br>
-					<?php
-					$servername = "localhost";
-					$username = "root";
-					$password = "password";
-					$dbname = "yardsale";
+							$mysqli = new mysqli($servername, $username, $password, $dbname);
 
-					$mysqli = new mysqli($servername, $username, $password, $dbname);
-
-					if ($mysqli === false){
-						die("Connection failed: " . $mysqli->connect_error);
-					}
-					$id = $mysqli->real_escape_string($_REQUEST['id']);
-					
-					echo '<form action="createItemAction.php" method="post" id="createitem">';
-					echo '<input type="hidden" name="id" value="' . $id .'"/>';
-					
-					echo '<label for="name">Name</label>';
-					echo'<input type="text" name="name" maxlength="40"/><br>';
+							if ($mysqli === false){
+								die("Connection failed: " . $mysqli->connect_error);
+							}
+							$id = $mysqli->real_escape_string($_REQUEST['id']);
 							
-					echo '<label for="description">Description</label>
-						<textarea rows="4" cols="50" name="description" form="createitem"></textarea><br>';
+							echo '<form action="createItemAction.php" method="post" id="createitem">';
+							echo '<input type="hidden" name="id" value="' . $id .'"/>';
+							
+							echo '<label for="name">Name</label>';
+							echo'<input type="text" name="name" maxlength="40"/><br>';
+									
+							echo '<label for="description">Description</label>
+								<textarea rows="4" cols="50" name="description" form="createitem"></textarea><br>';
+								
+							echo '<label for="price">Price</label>';
+							echo '<input type="text" name="price"/><br>';
+							echo '<div class="field half first">
+									<input type="checkbox" id="promoted" name="promoted" value="y">
+									<label for="promoted">Promoted</label>
+								</div>'
 						
-					echo '<label for="price">Price</label>';
-					echo '<input type="text" name="price"/><br>';
-
-					echo '<label for="promoted">Promoted</label>';
-					echo '<input type="checkbox" name="promoted" value="y"/>';
-				
-					echo '<ul class="actions">';
-						echo '<li><input type="submit" class="button special" /></li>';
-						echo '<li><input type="reset" value="Reset" /></li>';
-					echo'</ul>
-					</form>';
-						$mysqli->close();
-					?>
-						
+							echo '<ul class="actions">';
+								echo '<li><input type="submit" class="button special" /></li>';
+								echo '<li><input type="reset" value="Reset" /></li>';
+							echo'</ul>
+							</form>';
+								$mysqli->close();
+							?>
+						</section>
+					</article>
 				</div>
 				<nav>
 					<ul>
