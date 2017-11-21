@@ -41,7 +41,8 @@ session_start();
 					$sql = "SELECT * FROM orderitem WHERE orid='$orderid'";
 					
 					$result = $mysqli->query($sql);
-					if ($result->num_rows > 0){
+
+					/**if ($result->num_rows > 0){
 						echo '<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
@@ -90,7 +91,7 @@ session_start();
 					
 					} else {
 						echo "<p>Please select a valid order to display.</p>";
-					}
+					}**/
 					$mysqli->close();
 					?>
 				
