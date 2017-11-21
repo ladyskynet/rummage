@@ -18,8 +18,9 @@ $userid = $_SESSION["id"];
 
 $sql = "Insert into payment (uid, cardnumber, datepurc, expcarddate, seccode) values ('$userid', '$cardnumber', '2017-11-20', '$exp', '$seccode')";
 
-/**if ($mysqli->query($sql) === true){
-	$sql2 = "select id from payment where cardnumber='$cardnumber'";
+if ($mysqli->query($sql) === true){
+	echo 'yay';	
+	/**$sql2 = "select id from payment where cardnumber='$cardnumber'";
 	$result2 = $mysqli->query($sql2);
 	$row2 = $result2->fetch_array();
 	$oid = $row['id'];
@@ -33,8 +34,8 @@ $sql = "Insert into payment (uid, cardnumber, datepurc, expcarddate, seccode) va
 		} else {
 			echo "Something went wrong. " . $mysqli->error;
 		}
-	}
-}**/
+	}**/
+}
 
 $mysqli->close();
 ?>
