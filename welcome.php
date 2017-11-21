@@ -54,15 +54,13 @@ session_start();
 						<input type="text" name="state" maxlength="2" required/><br>
 						<label for="zip">Zip</label> 
 						<input type="text" name="zip" maxlength="5" required/><br>
-
-						<label for="type">Sale Type</label>
-						<select name="type"><a href="#" class="icon fa-arrow-circle-down">text</a>
-							<option value="c">Community Rummage Sale</option>
-							<option value="s">Single Family Rummage Sale</option>
-
-							<a href="#" class="icon fa-twitter"></a>
-						</ul>
-						</select>
+						<div class="selectdiv">
+							<label for="type">Sale Type</label>
+							<select name="type">
+								<option value="c">Community Rummage Sale</option>
+								<option value="s">Single Family Rummage Sale</option>
+							</select>
+						</div>
 						<br>
 						<label for="eventdate">Date/Time</label> 
 						<input type="datetime-local" name="eventdate" style="font-color: black" required/>
