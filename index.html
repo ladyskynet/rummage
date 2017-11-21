@@ -55,19 +55,6 @@ session_start();
 						<input type="text" name="username" required/><br>
 						<label for="password">Password</label>
 						<input type="password" name="password" required/><br>
-						<label for="password2">Confirm Password</label> 
-						<input type="password" name="password2" required oninput="check(this)" /><br>
-
-						<script language='javascript' type='text/javascript'>
-						    function check(input) {
-						        if (input.value != document.getElementById('password').value) {
-						            input.setCustomValidity('Password Must be Matching.');
-						        } else {
-						            // input is valid -- reset the error message
-						            input.setCustomValidity('');
-						        }
-						    }
-						</script>
 						<label for="email">Email</label> 
 						<input type="text" name="email" required/><br>
 						<ul class="actions">
