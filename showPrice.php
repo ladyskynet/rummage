@@ -59,7 +59,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 										<th>Delete</th>
 										<th>ID</th>
 										<th>Type</th>
-										<th>Amount/th>
+										<th>Amount</th>
 									</tr>
 								</thead>
 								<tbody>';
