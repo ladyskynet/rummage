@@ -23,6 +23,7 @@ session_start();
 				<h2>Sale Details</h2>
 				<div class="content">
 					<br>
+
 					<?php
 					$servername = "localhost";
 					$username = "root";
@@ -54,13 +55,14 @@ session_start();
 								</thead>
 								<tbody>';
 
-						$sql2 = "SELECT sum(amount) as total from price where id in (SELECT pid FROM orderitem WHERE orid='$orderid')";
+						$sql2 = "SELECT SUM(amount) as total from price where id in (SELECT pid FROM orderitem WHERE orid='$orderid')";
 						$result2 = $mysqli->query($sql2);
 						$row2 = $result2->fetch_array();
 
 						while($row = $result->fetch_array()){
 
-							$sql3 = "SELECT amount from price where id='$row["pid"]'";
+							$pid = $row['pid'];
+							$sql3 = "SELECT amount from price where id='$pid'";
 							$result3 = $mysqli->query($sql3);
 							$row3 = $result3->fetch_array();
 
