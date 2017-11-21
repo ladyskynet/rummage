@@ -72,7 +72,7 @@ if ($mysqli->query($sql) === true) {
 				}
 			}**/
 			echo "Rummage sale created.";
-			header('Location: sales.php');
+			#header('Location: sales.php');
 		} else {
 			echo "Something went wrong." . $mysqli->error;
 		}
