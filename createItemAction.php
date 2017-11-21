@@ -21,7 +21,9 @@ if ($promoted == ""){
 }
 $pid = 1;
 
-if ($promoted == 'y'){
+$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '1', '$saleid', 'n')"; 
+if($mysqli->query($sql2) === true){
+	if ($promoted == 'y'){
 	if (isset($_SESSION['orderArray'])){
 		$orderDetailArray = array();
 		$orderDetailArray[0] = $saleid;
@@ -45,9 +47,6 @@ if ($promoted == 'y'){
 		$_SESSION['orderArray'] = $orderArray;
 	}
 } 
-
-$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '1', '$saleid', 'n')"; 
-if($mysqli->query($sql2) === true){
 	$url = 'showSale.php?id=' . $saleid;
 	header('Location:' . $url );
 	echo "Rummage sale item created.";
