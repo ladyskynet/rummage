@@ -72,7 +72,7 @@ if (isset($_SESSION['id'])){
 								</table>
 							</div>';
 						?>
-						<a href="order.php">Place Order</a>
+						<a href="order.php">Place Order</a><br><br><br>
 						<?php
 					} else {
 						echo "<p>Your cart is empty right now.</p>";
