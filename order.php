@@ -26,7 +26,7 @@ session_start();
 						<label for="cardnumber">Card Number</label>
 						<input type="text" name="cardnumber"/><br>
 						<label for="exp">Expiration Date</label>
-						<input type="text" name="exp"/><br>
+						<input type="date" name="exp"/><br>
 						<label for="seccode">Security Code</label>
 						<input type="text" name="seccode"/><br>
 						<ul class="actions">

@@ -38,10 +38,10 @@ if ($mysqli->query($sql) === TRUE){
 	if ($result2->num_rows == 1){
 		$row2 = $result2->fetch_array();
 		$approved = $row2['approved'];
+
 	} else {
 		echo "Something went wrong.";
 		header('Location: welcome.php#profile');
-
 	}
 	if ($promoted == 'y' && $approved == 'n'){
 		if (isset($_SESSION['orderArray'])){

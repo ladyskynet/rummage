@@ -65,12 +65,12 @@ if ($mysqli->query($sql) === TRUE){
 
 	} else {
 		echo "Something went wrong.";
-		header('Location: welcome.php#sales');
+		header('Location: welcome.php#profile');
 	}
 
 } else {
 	echo "Something went wrong.";
-	header('Location: welcome.php#sales');
+	header('Location: welcome.php#profile');
 }
 
 $mysqli->close();

@@ -19,11 +19,15 @@ $sql = "INSERT INTO price (type, amount) VALUES ('$type', '$amount')";
 if($mysqli->query($sql) === true){
 	$sql2 = "select id from price where type='$type' and amount='$amount'";
 	$result2 = $mysqli->query($sql2);
-	$row2 = $result2->fetch_array();
-	$id = $row2['id'];
-	$url = 'showPrice.php?id=' . $id;
-	header('Location:' . $url );
-	echo "Price Category Created.";
+	if ($result2->num_rows() == 1){
+		$row2 = $result2->fetch_array();
+		$id = $row2['id'];
+		$url = 'showPrice.php?id=' . $id;
+		header('Location:' . $url );
+		echo "Price Category Created.";
+	} else {
+		echo "Something went wrong." . $mysqli->error;
+	}	
 } else {
 	echo "Something went wrong. " . $mysqli->error;
 }

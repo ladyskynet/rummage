@@ -17,7 +17,7 @@ $name = $mysqli->real_escape_string($_REQUEST['name']);
 $description = $mysqli->real_escape_string($_REQUEST['description']);
 $price = $mysqli->real_escape_string($_REQUEST['price']);
 
-$sql = "UPDATE item set promoted='y' WHERE id='$id'"; 
+$sql = "UPDATE item set promoted='y', approved='y' WHERE id='$id'"; 
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Item updated.";

@@ -14,7 +14,7 @@ if ($mysqli === false){
 
 $saleid = $mysqli->real_escape_string($_REQUEST['saleid']);
 
-$sql = "UPDATE yardsale set promoted='y' WHERE id='$saleid'"; 
+$sql = "UPDATE yardsale set promoted='y', approved='y' WHERE id='$saleid'"; 
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale updated.";

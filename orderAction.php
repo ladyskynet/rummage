@@ -11,15 +11,18 @@ if ($mysqli === false){
 	die("Connection failed: " . $mysqli->connect_error);
 }
 
+# Get payment info submitted by user
 $cardnumber = $mysqli->real_escape_string($_REQUEST['cardnumber']);
 $seccode = $mysqli->real_escape_string($_REQUEST['seccode']);
 $exp = $mysqli->real_escape_string($_REQUEST['exp']);
 $userid = $_SESSION["id"];
 
-$sql = "Insert into payment (uid, cardnumber, datepurc, expcarddate, seccode) values ('$userid', '$cardnumber', '2017-11-20', '$exp', '$seccode')";
+# Insert payment info to create order
+$sql = "INSERT into payment (uid, cardnumber, datepurc, expcarddate, seccode) values ('$userid', '$cardnumber', '2017-11-20', '$exp', '$seccode')";
 
 if ($mysqli->query($sql) === true){
 
+	# Get newly generated ID from order
 	$sql2 = "SELECT id from payment where cardnumber='$cardnumber'";
 	$result2 = $mysqli->query($sql2);
 
@@ -28,6 +31,7 @@ if ($mysqli->query($sql) === true){
 		$row2 = $result2->fetch_array();
 		$orid = $row2['id'];
 
+		# For each of the values in order array, make an orderitem
 		foreach ($_SESSION['orderArray'] as $value) {
 
 			$pid = $value[5];
@@ -36,25 +40,27 @@ if ($mysqli->query($sql) === true){
 			$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$pid')";
 
 			if ($mysqli->query($sql3) === true){
+				# If orderitem is for an ITEM 
 				if ($pid == 1){
 					$name = $value[2];
-					$sql4 = "select id from item where sid='$saleid' and name='$name'";
+					$sql4 = "SELECT id from item where sid='$saleid' and name='$name'";
 					$result4 = $mysqli->query($sql4);
 					if ($result4->num_rows == 1){
 						$row4 = $result4->fetch_array();
 						$itemid = $row4['id'];
 						$sql5 = "INSERT into temp (orid, pid, sid, itemid) values ('$orid', '$pid', '$saleid', '$itemid')";
 					}
+				# If orderitem is for a SALE
 				} else {
 					$sql5 = "INSERT into temp (orid, pid, sid) values ('$orid', '$pid', '$saleid')";
 				}
 				if ($mysqli->query($sql5) === true){
 					$url = 'showOrder.php?id=' . $orid;
 					echo "Order placed.";
-
+					# Reset orderArray so cart will be empty
 					$_SESSION['orderArray'] = array();
 					header('Location:' . $url );
-					
+
 				} else {
 					echo "Something went wrong." . $mysqli->error;
 				}

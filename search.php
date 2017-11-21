@@ -28,7 +28,7 @@ session_start();
 						<label for="city">City</label>
 						<input type="text" name="city"/><br>
 						<label for="state">State</label>
-						<input type="text" name="state"/><br>
+						<input type="text" name="state" maxlength="2"/><br>
 						<label for="zip">Zip</label>
 						<input type="text" name="zip"/><br>
 						<label for="item">Item</label>

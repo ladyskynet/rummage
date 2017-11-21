@@ -18,44 +18,66 @@ $zip = $mysqli->real_escape_string($_REQUEST['zip']);
 $type = $mysqli->real_escape_string($_REQUEST['type']);
 $eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
 $userid = $_SESSION['id'];
+$promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 $pid = 2;
+
+if ($promoted == ""){
+	$promoted = 'n';
+}
 
 $sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, promoted, pid) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', 'n', '$pid')"; 
 
 if ($mysqli->query($sql) === true) {
-	if ($mysqli->real_escape_string($_REQUEST['promoted'])=='y'){
 
-		$sql2 = "select MAX(id) as newest from yardsale";
-		$result2 = $mysqli->query($sql2);
+	$sql2 = "SELECT MAX(id) as newest from yardsale";
+	$result2 = $mysqli->query($sql2);
+	if ($result2->num_rows() == 1){
+		
 		$row2 = $result2->fetch_array();
+		$newsaleid = $row2['newest'];
+		$sql3 = "SELECT * from yardsale where id='$newsaleid'";
+		$result3 = $mysqli->query($sql3);
+		if ($result3->num_rows() == 1){
+			
+			$row3 = $result3->fetch_array();
+			$approved = $row2['approved'];
 
-		if (isset($_SESSION['orderArray'])){
-			$orderDetailArray = array();
-			$orderDetailArray[0] = $row2['newest'];
-			$orderDetailArray[1] = $userid;
-			$orderDetailArray[2] = $type;
-			$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
-			$orderDetailArray[4] = $eventdate;
-			$orderDetailArray[5] = $pid;
-			$num = count($_SESSION['orderArray']);
-			$_SESSION['orderArray'][$num] = $orderDetailArray;
+			if ($promoted == 'y' && $approved == 'n'){
+				if (isset($_SESSION['orderArray'])){
+				
+					$orderDetailArray = array();
+					$orderDetailArray[0] = $row2['newest'];
+					$orderDetailArray[1] = $userid;
+					$orderDetailArray[2] = $type;
+					$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
+					$orderDetailArray[4] = $eventdate;
+					$orderDetailArray[5] = $pid;
+					$num = count($_SESSION['orderArray']);
+					$_SESSION['orderArray'][$num] = $orderDetailArray;
+				} else {
+					$orderDetailArray = array();
+					$orderDetailArray[0] = $row2['newest'];
+					$orderDetailArray[1] = $userid;
+					$orderDetailArray[2] = $type;
+					$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
+					$orderDetailArray[4] = $eventdate;
+					$orderDetailArray[5] = $pid;
+					$orderArray = array();
+					$orderArray[0] = $orderDetailArray;
+					$_SESSION['orderArray'] = $orderArray;
+				}
+			} 
+			echo "Rummage sale created.";
+			header('Location: sales.php');
 		} else {
-			$orderDetailArray = array();
-			$orderDetailArray[0] = $row2['newest'];
-			$orderDetailArray[1] = $userid;
-			$orderDetailArray[2] = $type;
-			$orderDetailArray[3] = $street . "," . $city . "," . $state . "," . $zip;
-			$orderDetailArray[4] = $eventdate;
-			$orderDetailArray[5] = $pid;
-			$orderArray = array();
-			$orderArray[0] = $orderDetailArray;
-			$_SESSION['orderArray'] = $orderArray;
+			echo "Something went wrong." . $mysqli->error;
 		}
-	} 
-	header('Location: sales.php');
+	} else {
+		echo "Something went wrong." . $mysqli->error;
+	}
 } else {
-	header('Location: welcome.php#profile');
-	echo "Something went wrong. " . $mysqli->error;
+	echo "Something went wrong." . $mysqli->error;
 }
+
 $mysqli->close();
 ?>
