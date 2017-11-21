@@ -17,8 +17,8 @@ $description = $mysqli->real_escape_string($_REQUEST['description']);
 $price = $mysqli->real_escape_string($_REQUEST['price']);
 $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 
-if ($promoted == 'y'){
-	echo 'yes';
+/**if ($promoted == 'y'){
+	echo 'yes';**/
 	/**if (isset($_SESSION['orderArray'])){
 		$orderDetailArray = array();
 		$orderDetailArray.array_push($saleid);
