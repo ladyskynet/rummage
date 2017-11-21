@@ -1,10 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['id'])){
-	echo ""
-} else {
-	header('Location: searchAnon.php');
-}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -27,7 +22,7 @@ if (isset($_SESSION['id'])){
 				</div>
 				<h2>Search Sales</h2>
 				<div class="content"><br>
-					<form action="results.php">
+					<form action="resultsAnon.php">
 						<label for="street">Street</label>
 						<input type="text" name="street"/><br>
 						<label for="city">City</label>
@@ -50,12 +45,12 @@ if (isset($_SESSION['id'])){
 				</div>
 				<nav>
 					<ul>
-						<li><a href="welcome.php#profile">Profile</a></li>
-						<li><a href="wlecome.php#create">Create</a></li>
+						<li><a href="#join">Join</a></li>
+						<li><a href="#login">Login</a></li>
 						<li><a href="search.php">Search</a></li>
+						<li><a href="#about">About</a></li>
+						<!--<li><a href="/create.html">Create</a></li>-->
 						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="sales.php">Sales</a></li>
-						<li><a href="logoutAction.php">Logout</a></li>
 					</ul>
 				</nav>
 			</header>

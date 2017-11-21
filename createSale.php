@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['id'])){
 	echo ""
 } else {
-	header('Location: searchAnon.php');
+	header('Location: index.html');
 }
 ?>
 <!DOCTYPE HTML>
@@ -25,28 +25,35 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Search Sales</h2>
-				<div class="content"><br>
-					<form action="results.php">
-						<label for="street">Street</label>
-						<input type="text" name="street"/><br>
+				<h2>Edit Sale</h2>
+				<div class="content">
+
+				<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
+					<br>
+					<h2 class="major">Create</h2>
+					<!--<span class="image main"><img src="images/pic01.jpg" alt="" /></span>-->
+					<form action="createSaleAction.php" method="post">
+						<label for="street">Street Address</label> 
+						<input type="text" name="street" maxlength="40" required/><br>
 						<label for="city">City</label>
-						<input type="text" name="city"/><br>
+						<input type="text" name="city" maxlength="20" required/><br>
 						<label for="state">State</label>
-						<input type="text" name="state"/><br>
-						<label for="zip">Zip</label>
-						<input type="text" name="zip"/><br>
-						<label for="item">Item</label>
-						<input type="text" name="item"/><br>
+						<input type="text" name="state" maxlength="2" required/><br>
+						<label for="zip">Zip</label> 
+						<input type="text" name="zip" maxlength="5" required/><br>
+						<label for="type">Sale Type</label>
+						<select name="type">
+							<option value="c">Community Rummage Sale</option>
+							<option value="s">Single Family Rummage Sale</option>
+						</select>
+						<br>
+						<label for="eventdate">Date/Time</label> 
+						<input type="datetime-local" name="eventdate" style="font-color: black" required/>
 						<ul class="actions">
 							<li><input type="submit" class="button special" /></li>
 							<li><input type="reset" value="Reset" /></li>
 						</ul>
-					</form>
-					<!--<div class="inner">
-						<h1>Rummage</h1>
-						<p>A site to peruse, create, and manage <br> rummage, yard, and garage sales.</p>
-					</div>-->
+					</form>	
 				</div>
 				<nav>
 					<ul>
@@ -59,13 +66,6 @@ if (isset($_SESSION['id'])){
 					</ul>
 				</nav>
 			</header>
-
-			<!-- Main -->
-			<div id="main">
-
-			<!-- Intro -->
-				
-			</div>
 
 			<!-- Footer -->
 			<footer id="footer">

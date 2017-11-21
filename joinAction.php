@@ -24,6 +24,11 @@ $result = $mysqli->query($sql);
 if ($result->num_rows == 0){
 	$sql2 = "INSERT INTO user (firstname, lastname, username, password, email, type) VALUES ('$firstname', '$lastname', '$username', '$password', '$email', 'x')"; 
 	if($mysqli->query($sql2) === true){
+
+		$sql3 = "SELECT id from user where username='$username'";
+		$result3 = $mysqli->query($sql2);
+		$row3 = $result3->fetch_array();
+		$_SESSION['id'] = $row3['id'];
 		header('Location: welcome.php#profile');
 		echo "Welcome to Rummage, $username.";
 		$_SESSION['firstname'] = $firstname;

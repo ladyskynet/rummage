@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_SESSION['id'])){
+	echo ""
+} else {
+	header('Location: index.html');
+}
 ?>
 <!DOCTYPE HTML>
 <html>

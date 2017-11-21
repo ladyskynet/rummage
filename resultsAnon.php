@@ -1,10 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['id'])){
-	echo ""
-} else {
-	header('Location: index.html');
-}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,7 +20,7 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>My Rummage Sales</h2>
+				<h2>Results</h2>
 				<div class="content">
 					<br>
 						<?php
@@ -35,8 +30,36 @@ if (isset($_SESSION['id'])){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 
-						$userid = $_SESSION['id'];
-						$sql = "SELECT * FROM yardsale WHERE uid='$userid'";
+						$street = $mysqli->real_escape_string($_REQUEST['street']);
+						$city = $mysqli->real_escape_string($_REQUEST['city']);
+						$state = $mysqli->real_escape_string($_REQUEST['state']);
+						$zip = $mysqli->real_escape_string($_REQUEST['zip']);
+						$item = $mysqli->real_escape_string($_REQUEST['item']);
+
+						$string1 = "";
+						$string2 = "";
+						$string3 = "";
+						$string4 = "";
+						$string5 = "";
+
+						if ($street != ''){
+							$string1 = " AND (street='$street')";
+						}
+						if ($city != ''){
+							$string2 = " AND (city='$city')";
+						}
+						if ($state != ''){
+							$string3 = " AND (state='$state')";
+						}
+						if ($zip != ''){
+							$string4 = " AND (zip='$zip')";
+						}
+						if ($item != ''){
+							$string5 = " AND (id in (select sid from item where name='$item'))";
+						}
+
+						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5;
+					
 						$result = $mysqli->query($sql);
 
 						if ($result->num_rows > 0){
@@ -46,24 +69,16 @@ if (isset($_SESSION['id'])){
 										<thead>
 											<tr>
 												<th>Show</th>
-												<th>Edit</th>
-												<th>Delete</th>
-												<th>Add Item(s)</th>
 												<th>Street</th>
 												<th>City</th>
 												<th>State</th>
 												<th>Zip</th>
 												<th>Type</th>
 												<th>Event Date</th>
-												<th>Projected Income</th>
 											</tr>
 										</thead>
 										<tbody>';
 							while($row = $result->fetch_array()) {
-								$id = $row['id'];
-								$sql2 = "SELECT SUM(price) as total FROM item WHERE sid='$id'";
-								$result2 = $mysqli->query($sql2);
-								$row2 = $result2->fetch_array();
 
 								if ($row['type'] == 's'){
 									$type = "Single Family Rummage Sale";
@@ -71,34 +86,30 @@ if (isset($_SESSION['id'])){
 									$type = "Community Rummage Sale";
 								}
 					 			echo '<tr><td><a href="showSale.php?id=' . $row['id'] . ' ">Show</a></td>';
-					 			echo '<td><a href="editSale.php?id=' . $row['id'] . ' ">Edit</a></td>';
-					 			echo '<td><a href="deleteSale.php?id=' . $row['id'] . ' ">Delete</a></td>';
-							  	echo '<td><a href="createItem.php?id=' . $row['id'] . ' ">Add Item(s)</a></td>';
 								echo '<td>' . $row['street'] . "</td>";
 								echo '<td>' . $row['city'] . "</td>";
 								echo '<td>' . $row['state'] . "</td>";
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
-				 				echo '<td>' . $row['eventdate'] . "</td>";
-				 				echo '<td>$' . number_format(round($row2['total'],2), 2) . "</td></tr>";
+				 				echo '<td>' . $row['eventdate'] . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
 								</div>';
 						} else {
-							echo "<p>You don't currenntly have any rummage sales to display.</p>";
+							echo "<p>No results matched your query. Click <a href='search.php'>here</a> to try again.</p>";
 						}	
 					 	
 						?>
 				</div>
 				<nav>
 					<ul>
-						<li><a href="welcome.php#profile">Profile</a></li>
-						<li><a href="welcome.php#create">Create</a></li>
+						<li><a href="#join">Join</a></li>
+						<li><a href="#login">Login</a></li>
 						<li><a href="search.php">Search</a></li>
+						<li><a href="#about">About</a></li>
+						<!--<li><a href="/create.html">Create</a></li>-->
 						<!--<li><a href="#elements">Elements</a></li>-->
-						<li><a href="sales.php">Sales</a></li>
-						<li><a href="logoutAction.php">Logout</a></li>
 					</ul>
 				</nav>
 			</header>
