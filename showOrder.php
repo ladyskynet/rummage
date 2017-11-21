@@ -37,30 +37,30 @@ session_start();
 
 					$orderid = $mysqli->real_escape_string($_REQUEST['id']);
 					
-					$sql = "SELECT * FROM orderitem WHERE oid='$orderid'";
+					$sql = "SELECT * FROM orderitem WHERE orid='$orderid'";
 					
 					$result = $mysqli->query($sql);
 					if ($result->num_rows > 0){
 
-						echo '<h3>Order Details</h3>
-						<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>ID</th>
-										<th>Order ID</th>
-										<th>Listing Price</th>
-									</tr>
+						echo '<h3>Order Details</h3>';
+						echo '<div class="table-wrapper">';
+							echo '<table class="alt">';
+								echo '<thead>';
+									echo '<tr>';
+										echo '<th>ID</th>';
+										echo '<th>Order ID</th>';
+										echo '<th>Listing Price</th>';
+									echo '</tr>
 								</thead>
 								<tbody>';
 
-						$sql2 = "select sum(amount) as total from price where id in (SELECT pid FROM orderitem WHERE oid='$orderid')";
+						$sql2 = "SELECT sum(amount) as total from price where id in (SELECT pid FROM orderitem WHERE orid='$orderid')";
 						$result2 = $mysqli->query($sql2);
 						$row2 = $result2->fetch_array();
 
 						while($row = $result->fetch_array()){
 
-							$sql3 = "select amount from price where id='$row["pid"]'";
+							$sql3 = "SELECT amount from price where id='$row["pid"]'";
 							$result3 = $mysqli->query($sql3);
 							$row3 = $result3->fetch_array();
 
@@ -73,9 +73,9 @@ session_start();
 						echo '</tbody>
 							  <tfoot>
 						  	  	<tr>
-									<td colspan="5"></td>
-									<td>$' . number_format(round($row2["total"],2),2) . '</td>
-							  	</tr>
+									<td colspan="5"></td>';
+									echo '<td>$' . number_format(round($row2["total"],2),2) . '</td>';
+							  	echo '</tr>
 						  	</tfoot>
 					     </table>
 				 	 </div>';
@@ -91,17 +91,17 @@ session_start();
 					<ul>
 						<?php
 						if (isset($_SESSION['id'])){
-							echo '<li><a href="welcome.php#profile">Profile</a></li>
-						<li><a href="createSale.php">Create</a></li>
-						<li><a href="search.php">Search</a></li>
-						<li><a href="cart.php">My Cart</a></li>
-						<li><a href="sales.php">Sales</a></li>
-						<li><a href="logout.php">Logout</a></li>';
+							echo '	<li><a href="welcome.php#profile">Profile</a></li>
+									<li><a href="createSale.php">Create</a></li>
+									<li><a href="search.php">Search</a></li>
+									<li><a href="cart.php">My Cart</a></li>
+									<li><a href="sales.php">Sales</a></li>
+									<li><a href="logout.php">Logout</a></li>';
 						} else {
-							echo'<li><a href="index.html#join">Join</a></li>
-								<li><a href="index.html#login">Login</a></li>
-								<li><a href="search.php">Search</a></li>
-								<li><a href="index.html#about">About</a></li>';
+							echo'	<li><a href="index.html#join">Join</a></li>
+									<li><a href="index.html#login">Login</a></li>
+									<li><a href="search.php">Search</a></li>
+									<li><a href="index.html#about">About</a></li>';
 						}
 						?>
 					</ul>
