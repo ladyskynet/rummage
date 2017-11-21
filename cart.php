@@ -50,7 +50,7 @@ if (isset($_SESSION['id'])){
 									<tbody>';
 							foreach ($_SESSION['orderArray'] as $value) {
 								
-								$sql = "SELECT amount FROM price where id='$value[5]'"
+								$sql = "SELECT amount FROM price where id='$value[5]'";
 								$result = $mysqli->query($sql);
 								$row = $result->fetch_array();
 								$listingPrice = $row['amount'];
