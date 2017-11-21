@@ -105,7 +105,7 @@ if (isset($_SESSION['id'])){
 				 				echo '<tr><td><a href="showItem.php?id=' . $row2['id'] . ' ">Show</a></td>';
 								echo '<td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
-								echo '<td>$' . $row2['price'] . "</td>";
+								echo '<td>$' . number_format(round($row2["price"],2),2) . "</td>";
 							}
 							echo '		</tbody>
 									</table>

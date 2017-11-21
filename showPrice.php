@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
+	echo "";
+} else {
+	header('Location: index.html');
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -20,7 +25,7 @@ session_start();
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Item Details</h2>
+				<h2>Sale Details</h2>
 				<div class="content">
 					<br>
 					<?php
@@ -34,37 +39,42 @@ session_start();
 					if ($mysqli === false){
 						die("Connection failed: " . $mysqli->connect_error());
 					} 
-					$itemid = $mysqli->real_escape_string($_REQUEST['id']);
 
-					$sql = "SELECT * FROM item WHERE id='$itemid'";
+					$priceid = $mysqli->real_escape_string($_REQUEST['id']);
+					
+					$sql = "SELECT * FROM price WHERE id='$priceid'";
 					
 					$result = $mysqli->query($sql);
 					if ($result->num_rows == 1){
 
 						$row = $result->fetch_array();
  
-						echo '<div class="table-wrapper">
+						echo '<h3>Price Details</h3>
+						<div class="table-wrapper">
 							<table class="alt">
 								<thead>
 									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
+										<th>Street</th>
+										<th>City</th>
+										<th>State</th>
+										<th>Zip</th>
+										<th>Type</th>
+										<th>Event Date/Time</th>
 									</tr>
 								</thead>
 								<tbody>';
 						
-						echo '<tr><td>' . $row["name"] . '</td>';
+						echo '<tr><td>' . $row["id"] . '</td>';
 								
-						echo '<td>' . $row["description"] . '</td>';
+						echo '<td>' . $row["type"] . '</td>';
 								
-						echo '<td>$' . number_format(round($row["price"],2),2) . '</td>';
-
-						echo '</tbody>
+						echo '	<td>' . number_format(round($row["amount"],2),2) . '</td></tr>
+							</tbody>
 					    </table>
 					</div>';
+						
 					} else {
-						echo "<p>Please select a valid item to display.</p>";
+						echo "<p>Please select a valid sale to display.</p>";
 					}
 					$mysqli->close();
 					?>
@@ -72,12 +82,12 @@ session_start();
 				</div>
 				<nav>
 					<ul>
-						<li><a href="index.html#join">Join</a></li>
-						<li><a href="index.html#login">Login</a></li>
+						<li><a href="welcome.php#profile">Profile</a></li>
+						<li><a href="welcome.php#create">Create</a></li>
 						<li><a href="search.php">Search</a></li>
-						<li><a href="index.html#about">About</a></li>
-						<!--<li><a href="/create.html">Create</a></li>-->
 						<!--<li><a href="#elements">Elements</a></li>-->
+						<li><a href="sales.php">Sales</a></li>
+						<li><a href="logoutAction.php">Logout</a></li>
 					</ul>
 				</nav>
 			</header>

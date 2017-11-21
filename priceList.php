@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id'])){
+if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 	echo "";
 } else {
 	header('Location: index.html');
@@ -25,59 +25,46 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>Are you sure you want to delete this item?</h2>
+				<h2>Listing Prices</h2>
 				<div class="content">
 					<br>
-					<?php
-					$servername = "localhost";
-					$username = "root";
-					$password = "password";
-					$dbname = "yardsale";
+						<?php
+						$mysqli = new mysqli("localhost", "root", "password", "yardsale");
 
-					$mysqli = new mysqli($servername, $username, $password, $dbname);
+						if ($mysqli === false){
+							die("ERROR: Could not connect. " . $mysqli->connect_error);
+						}
 
-					if ($mysqli === false){
-						die("Connection failed: " . $mysqli->connect_error());
-					} 
-					$itemid = $mysqli->real_escape_string($_REQUEST['id']);
-
-					$sql = "SELECT * FROM item WHERE id='$itemid'";
+						$sql = "select * from price";
 					
-					$result = $mysqli->query($sql);
-					if ($result->num_rows == 1){
+						$result = $mysqli->query($sql);
 
-						$row = $result->fetch_array();
- 
-						echo '<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-										<th>Edit</th>
-										<th>Delete</th>
-									</tr>
-								</thead>
-								<tbody>';
-						
-						echo '<tr><td>' . $row["name"] . '</td>';
-								
-						echo '<td>' . $row["description"] . '</td>';
-								
-						echo '<td>$' . number_format(round($row["price"],2),2) . '</td>';
+						if ($result->num_rows > 0){
 
-						echo '<td><a href="showItem.php?id=' . $itemid . ' ">Cancel</a></td>
-							  	<td><a href="deleteItemAction.php?id=' . $itemid . ' ">Delete</a>
-							</tbody>
-					    </table>
-					</div>';
-					} else {
-						echo "<p>Please select a valid item to display.</p>";
-					}
-					$mysqli->close();
-					?>
-				
+							echo '<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Type</th>
+												<th>Amount</th>
+											</tr>
+										</thead>
+										<tbody>';
+							while($row = $result->fetch_array()) {
+					 			echo '<tr><td><a href="showPrice.php?id=' . $row['id'] . ' ">Show</a></td>';
+					 			echo '<td><a href="editPrice.php?id=' . $row['id'] . ' ">Show</a></td>';
+					 			echo '<td><a href="deletePrice.php?id=' . $row['id'] . ' ">Show</a></td>';
+								echo '<td>' . $row['type'] . "</td>";
+				 				echo '<td>' . number_format(round($row["amount"],2),2) . "</td></tr>";
+							}
+							echo '		</tbody>
+									</table>
+								</div>';
+						} else {
+							echo "<p>No prices are currently in the system.</p>";
+						}	
+					 	
+						?>
 				</div>
 				<nav>
 					<ul>

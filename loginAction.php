@@ -22,6 +22,7 @@ if ($result->num_rows == 1){
 	$_SESSION['firstname'] = $row["firstname"];
 	$_SESSION['lastname'] = $row["lastname"];
 	$_SESSION['email'] = $row["email"];
+	$_SESSION['type'] = $row["type"];
 	
 	header('Location: welcome.php#profile');
 	echo "Welcome, $username.";

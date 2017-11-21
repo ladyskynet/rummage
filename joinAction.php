@@ -29,13 +29,16 @@ if ($result->num_rows == 0){
 		$result3 = $mysqli->query($sql2);
 		$row3 = $result3->fetch_array();
 		$_SESSION['id'] = $row3['id'];
+
 		header('Location: welcome.php#profile');
 		echo "Welcome to Rummage, $username.";
+
 		$_SESSION['firstname'] = $firstname;
 		$_SESSION['username'] = $username;
 		$_SESSION['password'] = $password;
 		$_SESSION['email'] = $email;
 		$_SESSION['lastname'] = $lastname;
+		$_SESSION['type'] = $row3["type"];
 	} 
 	else {
 		echo "Something went wrong. " . $mysqli->error;

@@ -62,7 +62,7 @@ if (isset($_SESSION['id'])){
 						<textarea rows="4" cols="50" name="description" form="edititem">' . $row["description"] . '</textarea><br>';
 								
 						echo '<label for="price">Price</label>
-						<input type="text" name="price" value="' . $row["price"] . '"/>';
+						<input type="text" name="price" value="' . number_format(round($row["price"],2),2) . '"/>';
 					}
 					$mysqli->close();
 					?>

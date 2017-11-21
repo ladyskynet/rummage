@@ -64,7 +64,7 @@ session_start();
 								
 						echo '<td>' . $row["description"] . '</td>';
 								
-						echo '<td>$' . $row["price"] . '</td>';
+						echo '<td>$' . number_format(round($row["price"],2),2) . '</td>';
 
 						echo '</tbody>
 					    </table>

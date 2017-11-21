@@ -106,7 +106,7 @@ if (isset($_SESSION['id'])){
 							    echo '<td><a href="deleteItem.php?id=' . $row2['id'] . ' ">Delete</a>';
 								echo '<td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
-								echo '<td>$' . $row2['price'] . "</td>";
+								echo '<td>$' . number_format(round($row2["price"],2),2) . "</td>";
 							}
 							echo '		</tbody>
 									</table>
