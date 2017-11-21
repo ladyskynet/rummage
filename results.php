@@ -58,7 +58,7 @@ session_start();
 							$string5 = " AND (id in (select sid from item where name='$item'))";
 						}
 
-						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5 . "GROUP BY promoted";
+						$sql = "select * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5 . " GROUP BY promoted";
 					
 						$result = $mysqli->query($sql);
 
