@@ -76,9 +76,9 @@ if (isset($_SESSION['id'])){
 							<br>';
 						} else {
 							echo '<option id="community" name="type" value="c">Community Rummage Sale</option>
-								<option id="single" name="type" value="s" selected="selected">Single Family Rummage Sale</option>
-								</select><br>';
+								<option id="single" name="type" value="s" selected="selected">Single Family Rummage Sale</option>';
 						}
+						echo '</select><br>';
 						$date = str_replace(' ', 'T', $row["eventdate"]);
 						echo '<label for="eventdate">Date/Time</label>
 						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
