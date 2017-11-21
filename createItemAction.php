@@ -21,18 +21,19 @@ if ($promoted == ""){
 }
 
 if ($promoted == 'y'){
-	echo 'yes';
-	/**if (isset($_SESSION['orderArray'])){
-		$orderDetailArray = array();
+	if (isset($_SESSION['orderArray'])){
+		echo 'yes';
+		/**$orderDetailArray = array();
 		$orderDetailArray.array_push($saleid);
 		$orderDetailArray.array_push($_SESSION['id']);
 		$orderDetailArray.array_push($name);
 		$orderDetailArray.array_push($description);
 		$orderDetailArray.array_push($price);
 		$orderDetailArray.array_push(1);
-		$_SESSION['orderArray'].array_push($orderDetailArray);
+		$_SESSION['orderArray'].array_push($orderDetailArray);**/
 	} else {
-		$orderDetailArray = array();
+		echo 'no';
+		/**$orderDetailArray = array();
 		$orderDetailArray.array_push($saleid);
 		$orderDetailArray.array_push($_SESSION['id']);
 		$orderDetailArray.array_push($name);
