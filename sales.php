@@ -55,6 +55,7 @@ if (isset($_SESSION['id'])){
 												<th>Zip</th>
 												<th>Type</th>
 												<th>Event Date</th>
+												<th>Promoted</th>
 												<th>Projected Income</th>
 											</tr>
 										</thead>

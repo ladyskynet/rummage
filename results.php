@@ -74,6 +74,7 @@ session_start();
 												<th>State</th>
 												<th>Zip</th>
 												<th>Type</th>
+												<th>Promoted</th>
 												<th>Event Date</th>
 											</tr>
 										</thead>
@@ -91,7 +92,9 @@ session_start();
 								echo '<td>' . $row['state'] . "</td>";
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
+								echo '<td>' . $row['approved'] . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td></tr>";
+
 							}
 							echo '		</tbody>
 									</table>
