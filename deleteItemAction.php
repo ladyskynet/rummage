@@ -19,6 +19,7 @@ $result = $mysqli->query($sql);
 
 if ($result->num_rows == 1){
 	$row = $result->fetch_array();
+
 	$sql2 = "DELETE FROM item WHERE id='$itemid'"; 
 
 	if ($mysqli->query($sql2) === TRUE){
@@ -37,15 +38,15 @@ if ($result->num_rows == 1){
 
 			$_SESSION['orderArray'] = $newOrder;
 		}
-		header('Location: sales.php');
+		#header('Location: sales.php');
 	
 	} else {
-		echo "Something went wrong.";
-		header('Location: showItem.php?id=' . $itemid);
+		echo "Something went wrong." . $mysqli->error;
+		#header('Location: showItem.php?id=' . $itemid);
 	}
 } else {
-	echo "Something went wrong.";
-	header('Location: showItem.php?id=' . $itemid);
+	echo "Something went wrong." . $mysqli->error;
+	#header('Location: showItem.php?id=' . $itemid);
 }
 
 $mysqli->close();
