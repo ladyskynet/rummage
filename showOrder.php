@@ -78,7 +78,7 @@ session_start();
 					
 							echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
 							}
-						}
+						}**/
 						echo '</tbody>
 							  <tfoot>
 						  	  	<tr>
@@ -87,7 +87,7 @@ session_start();
 							  	echo '</tr>
 						  	</tfoot>
 					     </table>
-				 	 </div>';**/
+				 	 </div>';
 					
 					} else {
 						echo "<p>Please select a valid order to display.</p>";
