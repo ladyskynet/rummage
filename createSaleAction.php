@@ -18,8 +18,38 @@ $zip = $mysqli->real_escape_string($_REQUEST['zip']);
 $type = $mysqli->real_escape_string($_REQUEST['type']);
 $eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
 $userid = $_SESSION['id'];
+$pid = 2;
 
-$sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate')"; 
+if ($mysqli->real_escape_string($_REQUEST['promoted'])=='y'){
+	if (isset($_SESSION['orderArray'])){
+		$orderDetailArray = array();
+		$orderDetailArray[0] = $saleid;
+		$orderDetailArray[1] = $userid;
+		$orderDetailArray[2] = $street;
+		$orderDetailArray[3] = $city;
+		$orderDetailArray[4] = $state;
+		$orderDetailArray[5] = $zip;
+		$orderDetailArray[6] = $eventdate;
+		$orderDetailArray[7] = $type;
+		$num = count($_SESSION['orderArray']);
+		$_SESSION['orderArray'][$num] = $orderDetailArray;
+	} else {
+		$orderDetailArray = array();
+		$orderDetailArray[0] = $saleid;
+		$orderDetailArray[1] = $userid;
+		$orderDetailArray[2] = $street;
+		$orderDetailArray[3] = $city;
+		$orderDetailArray[4] = $state;
+		$orderDetailArray[5] = $zip;
+		$orderDetailArray[6] = $eventdate;
+		$orderDetailArray[7] = $type;
+		$orderArray = array();
+		$orderArray[0] = $orderDetailArray;
+		$_SESSION['orderArray'] = $orderArray;
+	}
+}
+
+$sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, promoted, pid) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', '$promoted', '$pid')"; 
 
 if($mysqli->query($sql) === true){
 	header('Location: sales.php');

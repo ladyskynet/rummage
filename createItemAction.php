@@ -23,7 +23,6 @@ $pid = 1;
 
 if ($promoted == 'y'){
 	if (isset($_SESSION['orderArray'])){
-		echo "yes";
 		$orderDetailArray = array();
 		$orderDetailArray[0] = $saleid;
 		$orderDetailArray[1] = $_SESSION['id'];
@@ -34,7 +33,6 @@ if ($promoted == 'y'){
 		$num = count($_SESSION['orderArray']);
 		$_SESSION['orderArray'][$num] = $orderDetailArray;
 	} else {
-		echo "no";
 		$orderDetailArray = array();
 		$orderDetailArray[0] = $saleid;
 		$orderDetailArray[1] = $_SESSION['id'];

@@ -59,7 +59,7 @@ if (isset($_SESSION['id'])){
 						<div class="field half">
 							<input type="checkbox" id="promoted" name="promoted" value="y">
 							<label for="promoted">Promoted</label>
-						</div><br>
+						</div><br><br>
 						<label for="eventdate">Date/Time</label> 
 						<input type="datetime-local" name="eventdate" style="font-color: black" required/>
 						<ul class="actions">
