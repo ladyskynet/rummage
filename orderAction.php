@@ -31,7 +31,7 @@ if ($mysqli->query($sql) === true){
 		$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$pid')";
 		if ($mysqli->query($sql3)===true){
 			$url = 'showOrder.php?id=' . $saleid;
-			#header('Location:' . $url );
+			header('Location:' . $url );
 			echo "Order placed.";
 		} else {
 			echo "Something went wrong. " . $mysqli->error;
