@@ -68,7 +68,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 					 	echo '<td><a href="editPrice.php?id=' . $row['id'] . ' ">Edit</a></td>';
 					 	echo '<td><a href="deletePrice.php?id=' . $row['id'] . ' ">Delete</a></td>';
 						
-						echo '<tr><td>' . $row["id"] . '</td>';
+						echo '<td>' . $row["id"] . '</td>';
 								
 						echo '<td>' . $row["type"] . '</td>';
 								
