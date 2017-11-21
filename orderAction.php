@@ -25,7 +25,7 @@ if ($mysqli->query($sql) === true){
 	$row2 = $result2->fetch_array();
 	$orid = $row2['id'];
 
-	foreach $_SESSION['orderArray'] as $value {
+	/***foreach $_SESSION['orderArray'] as $value {
 		$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$value[5]')";
 		if ($mysqli->query($sql3)===true){
 			$url = 'showOrder.php?id=' . $saleid;
@@ -34,7 +34,7 @@ if ($mysqli->query($sql) === true){
 		} else {
 			echo "Something went wrong. " . $mysqli->error;
 		}
-	}
+	}**/
 }
 
 $mysqli->close();
