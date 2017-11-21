@@ -27,9 +27,10 @@ if ($mysqli->query($sql) === true){
 
 	foreach ($_SESSION['orderArray'] as $value) {
 		$pid = $value[5];
-		echo $pid;
-		/**$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$pid')";
-		if ($mysqli->query($sql3)===true){
+
+		$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$pid')";
+		echo $sql3;
+		/**if ($mysqli->query($sql3)===true){
 			$url = 'showOrder.php?id=' . $saleid;
 			header('Location:' . $url );
 			echo "Order placed.";
