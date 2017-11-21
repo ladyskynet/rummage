@@ -41,12 +41,12 @@ if ($mysqli->query($sql) === true) {
 		$result3 = $mysqli->query($sql3);
 
 		if ($result3->num_rows == 1){
-			echo 'okay';
+
 			$row3 = $result3->fetch_array();
 			$approved = $row3['approved'];
 			echo $approved . " " . $promoted;
 			if (($promoted == 'y') and ($approved == 'n')){
-				echo 'okaynn';
+
 				if (isset($_SESSION['orderArray'])){
 				
 					$orderDetailArray = array();
@@ -72,7 +72,7 @@ if ($mysqli->query($sql) === true) {
 				}
 			}
 			echo "Rummage sale created.";
-			#header('Location: sales.php');
+			header('Location: sales.php');
 		} else {
 			echo "Something went wrong." . $mysqli->error;
 		}
