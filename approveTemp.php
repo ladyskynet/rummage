@@ -60,12 +60,12 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 										<tbody>';
 							while($row = $result->fetch_array()) {
 					 			echo '<tr><td><a href="approveTempSaleAction.php?id=' . $row['id'] . ' ">Approve Promotion</a></td>';
-								echo '<td>' . $row['Street'] . "</td>";
-								echo '<td>' . $row['City'] . "</td>";
-								echo '<td>' . $row['State'] . "</td>";
-								echo '<td>' . $row['Zip'] . "</td>";
-								echo '<td>' . $row['Type'] . "</td>";
-								echo '<td>' . $row['Event Date'] . "</td>";
+								echo '<td>' . $row['street'] . "</td>";
+								echo '<td>' . $row['sity'] . "</td>";
+								echo '<td>' . $row['state'] . "</td>";
+								echo '<td>' . $row['sip'] . "</td>";
+								echo '<td>' . $row['type'] . "</td>";
+								echo '<td>' . $row['eventdate'] . "</td>";
 								echo '<td>' . $row['uid'] . "</td></tr>";
 							}
 							echo '		</tbody>
