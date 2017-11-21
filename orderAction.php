@@ -23,10 +23,10 @@ if ($mysqli->query($sql) === true){
 	$sql2 = "select id from payment where cardnumber='$cardnumber'";
 	$result2 = $mysqli->query($sql2);
 	$row2 = $result2->fetch_array();
-	$oid = $row2['id'];
+	$orid = $row2['id'];
 
 	foreach $_SESSION['orderArray'] as $value {
-		$sql3 = "INSERT into orderitem (oid, pid) values ('$oid', '$value[5]')";
+		$sql3 = "INSERT into orderitem (orid, pid) values ('$orid', '$value[5]')";
 		if ($mysqli->query($sql3)===true){
 			$url = 'showOrder.php?id=' . $saleid;
 			#header('Location:' . $url );
