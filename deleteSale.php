@@ -78,9 +78,9 @@ if (isset($_SESSION['id'])){
 						{
 							echo '<td>Community Rummage Sale</td>';
 						} else {
-							echo '<td>Type: Single Family Rummage Sale</td>';
+							echo '<td>Single Family Rummage Sale</td>';
 						}
-						echo '	<td>Date/Time: ' . $row["eventdate"] . '</td>
+						echo '	<td>' . $row["eventdate"] . '</td>
 							  	<td><a href="showSale.php?id=' . $saleid . ' ">Cancel</a></td>
 							  	<td><a href="deleteSaleAction.php?id=' . $saleid . ' ">Delete</a></td>
 							</tbody>
