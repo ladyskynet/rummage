@@ -59,7 +59,7 @@ if (isset($_SESSION['id'])){
 					 			echo '<td>' . $value[2] . "</td>";
 					 			echo '<td>' . $value[3] . "</td>";
 					 			echo '<td>$' . number_format(round($value[4],2),2) . "</td>";
-					 			echo '<td>$' . $listingPrice . "</td></tr>";
+					 			echo '<td>$' . number_format(round($listingPrice,2),2) . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
