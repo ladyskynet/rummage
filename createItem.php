@@ -53,10 +53,10 @@ if (isset($_SESSION['id'])){
 						<textarea rows="4" cols="50" name="description" form="createitem"></textarea><br>';
 						
 					echo '<label for="price">Price</label>';
-					echo '<input type="text" name="price" value="y"/>';
+					echo '<input type="text" name="price"/>';
 
 					echo '<label for="promoted">Promoted</label>';
-					echo '<input type="checkbox" name="promoted"/>';
+					echo '<input type="checkbox" name="promoted" value="y"/>';
 				
 					echo '<ul class="actions">';
 						echo '<li><input type="submit" class="button special" /></li>';
