@@ -22,7 +22,7 @@ if ($promoted == ""){
 }
 $pid = 1;
 
-$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '$pid', '$saleid', 'n')";
+$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted, approved) VALUES ('$name', '$description', '$price', '$pid', '$saleid', 'n', 'n')";
 
 if($mysqli->query($sql2) === true){
 	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description'";
