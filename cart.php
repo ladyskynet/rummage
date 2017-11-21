@@ -35,7 +35,8 @@ if (isset($_SESSION['id'])){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 
-						echo '<div class="table-wrapper">
+						if (isset($_SESSION['orderArray'])){
+							echo '<div class="table-wrapper">
 								<table class="alt">
 									<thead>
 										<tr>
@@ -72,7 +73,12 @@ if (isset($_SESSION['id'])){
 								</table>
 							</div>';
 						?>
-					<a href="order.php">Place Order</a>
+						<a href="order.php">Place Order</a>
+						<?php
+					} else {
+						echo "<p>Your cart is empty right now.</p>";
+					} 
+					?>
 				</div>
 				<nav>
 					<ul>
