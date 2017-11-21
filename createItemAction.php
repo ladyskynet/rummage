@@ -22,17 +22,19 @@ if ($promoted == ""){
 }
 $pid = 1;
 
-$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '1', '$saleid', 'n')";
+$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted) VALUES ('$name', '$description', '$price', '$pid', '$saleid', 'n')";
 
 if($mysqli->query($sql2) === true){
 
 	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description'";
 	$result3 = $mysqli->query($sql3);
 
-	if ($result3->num_rows() == 1){
+	if ($result3->num_rows == 1){
+
 		$row3 = $result3->fetch_array();
 		$approved = $row3['approved'];
-		if ($promoted == 'y' && $approved == 'n'){
+
+		if (($promoted == 'y') && ($approved == 'n')){
 			if (isset($_SESSION['orderArray'])){
 				$orderDetailArray = array();
 				$orderDetailArray[0] = $saleid;
