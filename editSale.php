@@ -79,6 +79,17 @@ if (isset($_SESSION['id'])){
 								<option id="single" name="type" value="s" selected="selected">Single Family Rummage Sale</option>';
 						}
 						echo '</select><br>';
+
+						if (($row["promoted"] == 'y') && ($row["approved"] == 'y')){
+							echo "<p>This item has already been promoted and approved.</p>";
+						}
+						if ($row['promoted'] == 'n'){
+							echo '<div class="field half">
+								<input type="checkbox" id="promoted" name="promoted" value="y">
+								<label for="promoted">Promoted</label>
+							</div><br><br><br>';
+						}
+						
 						$date = str_replace(' ', 'T', $row["eventdate"]);
 						echo '<label for="eventdate">Date/Time</label>
 						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
