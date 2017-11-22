@@ -112,7 +112,7 @@ if (isset($_SESSION['id'])){
 									</table>
 								</div>';
 						} else {
-							echo "<p>There aren't any items attached to this sale.</p>";
+							echo "<br><br><p>There aren't any items attached to this sale.</p>";
 						}
 					}
 					$mysqli->close();
