@@ -63,22 +63,19 @@ if (isset($_SESSION['id'])){
 
 							<label for="state">State</label>
 							<input type="text" name="state" maxlength="2" required/><br>
-
+							
 							<label for="zip">Zip</label> 
 							<input type="text" name="zip" maxlength="5" required/><br>
-
 							<label for="type">Sale Type</label>
 							<select name="type">
 								<option value="c">Community Rummage Sale</option>
 								<option value="s">Single Family Rummage Sale</option>
-							</select><br>
-
-							<label for="promoted">Promoted</label>
-							<input type="checkbox" id="promoted" name="promoted" value="y"/><br>
-							
+							</select>
+							<br>
+							<input type="checkbox" id="promoted" name="promoted" value="y">
+							<label for="promoted">Promoted</label><br>
 							<label for="eventdate">Date/Time</label> 
 							<input type="datetime-local" name="eventdate" required/>
-							
 							<ul class="actions">
 								<li><input type="submit" class="button special" /></li>
 								<li><input type="reset" value="Reset" /></li>
