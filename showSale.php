@@ -109,7 +109,7 @@ session_start();
 									</table>
 								</div>';
 						} else {
-							echo "<p>There aren't any items attached to this sale.</p>";
+							echo "<br><br><p>There aren't any items attached to this sale.</p>";
 						}
 					} else {
 						echo "<p>Please select a valid sale to display.</p>";
