@@ -38,7 +38,7 @@ if($mysqli->query($sql2) === true){
 				$orderDetailArray = array();
 				$orderDetailArray[0] = $saleid;
 				$orderDetailArray[1] = $_SESSION['id'];
-				$orderDetailArray[2] = $name . "Listing";
+				$orderDetailArray[2] = $name . " Listing";
 				$orderDetailArray[3] = $description;
 				$orderDetailArray[4] = $price;
 				$orderDetailArray[5] = $pid;
@@ -49,7 +49,7 @@ if($mysqli->query($sql2) === true){
 				$orderDetailArray = array();
 				$orderDetailArray[0] = $saleid;
 				$orderDetailArray[1] = $_SESSION['id'];
-				$orderDetailArray[2] = $name . "Listing";
+				$orderDetailArray[2] = $name . " Listing";
 				$orderDetailArray[3] = $description;
 				$orderDetailArray[4] = $price;
 				$orderDetailArray[5] = $pid;

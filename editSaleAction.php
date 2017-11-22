@@ -26,6 +26,8 @@ if ($promoted == ""){
 	$promoted = 'n';
 }
 
+
+
 $pid = 2;
 
 $sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate' WHERE id='$saleid'";
@@ -45,24 +47,30 @@ if ($mysqli->query($sql) === TRUE){
 		header('Location: welcome.php#profile');
 	}
 	if ($promoted == 'y' && $approved == 'n'){
+		if ($type == 'c'){
+			$type = "Community Rummage Sale Listing";
+		} else {
+			$type = "Single Family Rummage Sale Listing";
+		}
 		if (isset($_SESSION['orderArray'])){
+				
 			$orderDetailArray = array();
-			$orderDetailArray[0] = $saleid;
+			$orderDetailArray[0] = $newsaleid;
 			$orderDetailArray[1] = $userid;
-			$orderDetailArray[2] = $name;
-			$orderDetailArray[3] = $description;
-			$orderDetailArray[4] = $price;
+			$orderDetailArray[2] = $type;
+			$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
+			$orderDetailArray[4] = $eventdate;
 			$orderDetailArray[5] = $pid;
 			$orderDetailArray[6] = NULL;
 			$num = count($_SESSION['orderArray']);
 			$_SESSION['orderArray'][$num] = $orderDetailArray;
 		} else {
 			$orderDetailArray = array();
-			$orderDetailArray[0] = $saleid;
-			$orderDetailArray[1] = $_SESSION['id'];
-			$orderDetailArray[2] = $name;
-			$orderDetailArray[3] = $description;
-			$orderDetailArray[4] = $price;
+			$orderDetailArray[0] = $newsaleid;
+			$orderDetailArray[1] = $userid;
+			$orderDetailArray[2] = $type;
+			$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
+			$orderDetailArray[4] = $eventdate;
 			$orderDetailArray[5] = $pid;
 			$orderDetailArray[6] = NULL;
 			$orderArray = array();
