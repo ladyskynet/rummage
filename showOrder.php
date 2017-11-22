@@ -47,6 +47,14 @@ session_start();
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
+										echo '<th>ID</th>';
+										echo '<th>Order ID</th>';
+										echo '<th>Sale ID</th>';
+										echo '<th>ItemID</th>';
+										echo '<th>Listing Price</th>';
+									echo '</tr>
+								</thead>
+								<tbody>';
 
 						$sql2 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and orid='$orderid'";
 						$result2 = $mysqli->query($sql2);
@@ -59,65 +67,16 @@ session_start();
 							if ($result3->num_rows > 0){
 								$row3 = $result3->fetch_array();
 								$amount = $row3['amount'];
-								$sid = $row['sid'];
-								$itemid = $row['itemid'];
 
-								if ($pid == '1'){
-									$sql4 = "SELECT * FROM item where id='$itemid'";
-								} else {
-									$sql4 = "SELECT * FROM yardsale where id='$sid'";
-								}
-								
-								$result4 = $mysqli->query($sql4);
-								if ($result4->num_rows){
-									$row4 = $result4->fetch_array();
-									if ($row4['approved'] == 'n'){
-										$promoted = 'No';
-									} else {
-										$promoted = "Yes";
-									}
-
-									if ($pid == '1'){
-										echo '<th>Name</th>';
-										echo '<th>Description</th>';
-										echo '<th>Amount</th>';
-										echo '</tr>
-											</thead>
-										<tbody>';
-										$amount = $row4['amount'];
-
-										echo '<tr><td>' . $row4["name"] . '</td>';
+								echo '<tr><td>' . $row["id"] . '</td>';
 									
-										echo '<td>' . $row4["description"] . '</td>';
-							
-										echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
-									} else {
-										echo '<th>Street</th>';
-										echo '<th>City</th>';
-										echo '<th>State</th>';
-										echo '<th>Zip</th>';
-										echo '<th>Event Date</th>';
-										echo '<th>Type</th>';
-										echo '</tr>
-											</thead>
-										<tbody>';
-										echo '<tr><td>' . $row4["street"] . '</td>';
-									
-										echo '<td>' . $row4["city"] . '</td>';
+								echo '<td>' . $row["orid"] . '</td>';
 
-										echo '<td>' . $row4["state"] . '</td>';
+								echo '<td>' . $row["sid"] . '</td>';
 
-										echo '<td>' . $row4["zip"] . '</td>';
-										
-										echo '<td>' . $row4["eventdate"] . '</td>';
-										
-										echo '<td>' . $row4["type"] . '</td></tr>';
-									}
-
-								} else {
-									echo "Something went wrong." . $mysqli->error;
-								}
-								
+								echo '<td>' . $row["itemid"] . '</td>';
+						
+								echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
 							} else {
 								echo "Something went wrong." . $mysqli->error;
 							}
