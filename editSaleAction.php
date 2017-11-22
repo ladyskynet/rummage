@@ -20,6 +20,7 @@ $zip = $mysqli->real_escape_string($_REQUEST['zip']);
 $type = $mysqli->real_escape_string($_REQUEST['type']);
 $eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
 $userid = $_SESSION['id'];
+$promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 
 if ($promoted == ""){
 	$promoted = 'n';
