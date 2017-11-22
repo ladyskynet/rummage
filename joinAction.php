@@ -26,7 +26,7 @@ if ($result->num_rows == 0){
 	if($mysqli->query($sql2) === true){
 
 		$sql3 = "SELECT id from user where username='$username'";
-		$result3 = $mysqli->query($sql2);
+		$result3 = $mysqli->query($sql3);
 		$row3 = $result3->fetch_array();
 		$_SESSION['id'] = $row3['id'];
 
@@ -38,7 +38,7 @@ if ($result->num_rows == 0){
 		$_SESSION['password'] = $password;
 		$_SESSION['email'] = $email;
 		$_SESSION['lastname'] = $lastname;
-		$_SESSION['type'] = $row3["type"];
+		$_SESSION['type'] = 'x';
 	} 
 	else {
 		echo "Something went wrong. " . $mysqli->error;
