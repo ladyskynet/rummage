@@ -50,7 +50,8 @@ session_start();
 										echo '<th>ID</th>';
 										echo '<th>Order ID</th>';
 										echo '<th>Sale ID</th>';
-										echo '<th>ItemID</th>';
+										echo '<th>Item ID</th>';
+										echo '<th>Order Date</th>';
 										echo '<th>Listing Price</th>';
 									echo '</tr>
 								</thead>
