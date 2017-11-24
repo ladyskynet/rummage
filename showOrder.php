@@ -61,6 +61,11 @@ session_start();
 						$row2 = $result2->fetch_array();
 						while($row = $result->fetch_array()) {
 
+							if ($row['itemid'] == NULL){
+								$item = "N/A";
+							} else {
+								$item = $row['itemid'];
+							}
 							$pid = $row['pid'];
 							$sql3 = "SELECT amount from price where id='$pid'";
 							$result3 = $mysqli->query($sql3);
@@ -74,7 +79,7 @@ session_start();
 
 								echo '<td>' . $row["sid"] . '</td>';
 
-								echo '<td>' . $row["itemid"] . '</td>';
+								echo '<td>' . $item . '</td>';
 						
 								echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
 							} else {
