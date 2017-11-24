@@ -61,9 +61,9 @@ if (isset($_SESSION['id'])){
 										<tbody>';
 							while($row = $result->fetch_array()) {
 
-								/**if ($row['approved'] == 'y'){
+								if ($row['approved'] == 'y'){
 									$approved = "Yes";
-									$pid = $row['pid'];
+									/**$pid = $row['pid'];
 									$sql2 = "SELECT amount from price where pid='$pid'";
 									if ($result2->num_rows > 0){
 										$result2 = $mysqli->query($sql2);
@@ -71,10 +71,10 @@ if (isset($_SESSION['id'])){
 										$saleamount = $row2['amount'];
 									} else {
 										echo "Something went wrong." . $mysqli->error;
-									}
+									}**/
 								} else {
 									$approved = "No";
-									$saleamount = 0;
+									#$saleamount = 0;
 								}
 
 								$saleid = $row['id'];
@@ -83,7 +83,7 @@ if (isset($_SESSION['id'])){
 								
 								$result3 = $mysqli->query($sql3);
 								$row3 = $result3->fetch_array();
-								$saleamount += $row3['total'];**/
+								$saleamount += $row3['total'];
 								$saleamount = 0;
 							
 								if ($row['type'] == 's'){
