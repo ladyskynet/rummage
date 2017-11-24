@@ -51,7 +51,7 @@ if (isset($_SESSION['id'])){
 							echo'<input type="text" name="type" maxlength="20" required/><br>';
 								
 							echo '<label for="amount">Amount</label>';
-							echo '<input type="text" name="amount" required/><br>';
+							echo '<input type="text" name="amount" required/>';
 
 							echo '<br><ul class="actions">';
 								echo '<li><input type="submit" class="button special" /></li>';
