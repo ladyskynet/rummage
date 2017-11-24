@@ -79,11 +79,11 @@ if (isset($_SESSION['id'])){
 
 								$saleid = $row['id'];
 
-								$sql3 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and sid='$saleid' and itemid not null";
+								#$sql3 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and sid='$saleid' and itemid not null";
 								
-								$result3 = $mysqli->query($sql3);
-								$row3 = $result3->fetch_array();
-								$saleamount += $row3['total'];
+								#$result3 = $mysqli->query($sql3);
+								#$row3 = $result3->fetch_array();
+								#$saleamount += $row3['total'];
 								$saleamount = 0;
 							
 								if ($row['type'] == 's'){
