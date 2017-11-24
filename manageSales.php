@@ -65,12 +65,12 @@ if (isset($_SESSION['id'])){
 									$approved = "Yes";
 									$pid = $row['pid'];
 									$sql2 = "SELECT amount from price where pid='$pid'";
+									$result2 = $mysqli->query($sql2);
 									if ($result2->num_rows > 0){
-										$result2 = $mysqli->query($sql2);
 										$row2 = $result2->fetch_array();
 										$saleamount = $row2['amount'];
 									} else {
-										echo "Something went wrong." . $mysqli->error;
+										echo "1) Something went wrong." . $mysqli->error;
 									}
 								} else {
 									$approved = "No";
