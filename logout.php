@@ -79,7 +79,7 @@ if (isset($_SESSION['id'])){
 					?>
 					<ul class="actions">
 						<li><a href="logoutAction.php">Logout</a></li>
-						<li><a href="cart.php">Cancel</a></li>
+						<li><a href="welcome.php#profile">Cancel</a></li>
 					</ul>
 				</div>
 				<nav>
