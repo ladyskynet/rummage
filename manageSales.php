@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['id'])){
+if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 	echo "";
 } else {
 	header('Location: index.html');
