@@ -107,16 +107,23 @@ if (isset($_SESSION['id'])){
 												<th>Delete</th>
 												<th>Name</th>
 												<th>Description</th>
+												<th>Promoted</th>
 												<th>Price</th>
 											</tr>
 										</thead>
 										<tbody>';
 							while($row2 = $result2->fetch_array()) {
+								if ($row2['approved'] == 'y'){
+									$approved = 'Yes';
+								} else {
+									$approved = 'No';
+								}
 				 				echo '<tr><td><a href="showItem.php?id=' . $row2['id'] . ' ">Show</a></td>';
 				 				echo '<td><a href="editItem.php?id=' . $row2['id'] . ' ">Edit</a></td>';
 							    echo '<td><a href="deleteItem.php?id=' . $row2['id'] . ' ">Delete</a>';
 								echo '<td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
+								echo '<td>' . $approved . '</td>'
 								echo '<td>$' . number_format(round($row2["price"],2),2) . "</td>";
 							}
 							echo '		</tbody>
