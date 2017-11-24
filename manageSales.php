@@ -35,7 +35,6 @@ if (isset($_SESSION['id'])){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 
-						$userid = $_SESSION['id'];
 						$sql = "SELECT * FROM yardsale";
 						$result = $mysqli->query($sql);
 
@@ -61,15 +60,18 @@ if (isset($_SESSION['id'])){
 										</thead>
 										<tbody>';
 							while($row = $result->fetch_array()) {
+
 								if ($row['approved'] == 'n'){
 									$approved = "No";
 								} else {
 									$approved = "Yes";
 									$pid = $row['pid'];
 									$sql2 = "SELECT amount from price where pid='$pid'";
-									$result2 = $mysqli->query($sql6);
-									$row2 = $result6->fetch_array();
-									$saleamount = $row2['amount'];
+									if ($result->num_rows > 0){
+										$result2 = $mysqli->query($sql2);
+										$row2 = $result2->fetch_array();
+										$saleamount = $row2['amount'];
+									}
 								}
 
 								$saleid = $row['id'];
