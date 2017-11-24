@@ -16,9 +16,10 @@ $cardnumber = $mysqli->real_escape_string($_REQUEST['cardnumber']);
 $seccode = $mysqli->real_escape_string($_REQUEST['seccode']);
 $exp = $mysqli->real_escape_string($_REQUEST['exp']);
 $userid = $_SESSION["id"];
+$now = date();
 
 # Insert payment info to create order
-$sql = "INSERT into payment (uid, cardnumber, datepurc, expcarddate, seccode) values ('$userid', '$cardnumber', '2017-11-20', '$exp', '$seccode')";
+$sql = "INSERT into payment (uid, cardnumber, datepurc, expcarddate, seccode) values ('$userid', '$cardnumber', '$now', '$exp', '$seccode')";
 
 if ($mysqli->query($sql) === true){
 
