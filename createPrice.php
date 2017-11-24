@@ -26,6 +26,43 @@ if (isset($_SESSION['id'])){
 					<span class="icon fa-trash"></span>
 				</div>
 				<h2>Add Price</h2>
+				
+			
+				<div class="content">
+					<article>
+						<section>
+							<br>
+							<?php
+							$servername = "localhost";
+							$username = "root";
+							$password = "password";
+							$dbname = "yardsale";
+
+							$mysqli = new mysqli($servername, $username, $password, $dbname);
+
+							if ($mysqli === false){
+								die("Connection failed: " . $mysqli->connect_error);
+							}
+							$id = $mysqli->real_escape_string($_REQUEST['id']);
+							
+							echo '<form action="createPriceAction.php" method="post">';
+							
+							echo '<label for="type">Type</label>';
+							echo'<input type="text" name="type" maxlength="20" required/><br>';
+								
+							echo '<label for="amount">Amount</label>';
+							echo '<input type="text" name="amount" required/><br>';
+
+							echo '<br><ul class="actions">';
+								echo '<li><input type="submit" class="button special" /></li>';
+								echo '<li><input type="reset" value="Reset" /></li>';
+							echo'</ul>
+							</form>';
+								$mysqli->close();
+							?>
+						</section>
+					</article>
+				</div>
 				<nav>
 					<ul>
 						<?php
@@ -54,41 +91,6 @@ if (isset($_SESSION['id'])){
 					</ul>
 				</nav>
 			</header>
-			<div class="main">
-				<article>
-					<section>
-						<br>
-						<?php
-						$servername = "localhost";
-						$username = "root";
-						$password = "password";
-						$dbname = "yardsale";
-
-						$mysqli = new mysqli($servername, $username, $password, $dbname);
-
-						if ($mysqli === false){
-							die("Connection failed: " . $mysqli->connect_error);
-						}
-						$id = $mysqli->real_escape_string($_REQUEST['id']);
-						
-						echo '<form action="createPriceAction.php" method="post">';
-						
-						echo '<label for="type">Type</label>';
-						echo'<input type="text" name="type" maxlength="20" required/><br>';
-							
-						echo '<label for="amount">Amount</label>';
-						echo '<input type="text" name="amount" required/><br>';
-
-						echo '<br><ul class="actions">';
-							echo '<li><input type="submit" class="button special" /></li>';
-							echo '<li><input type="reset" value="Reset" /></li>';
-						echo'</ul>
-						</form>';
-							$mysqli->close();
-						?>
-					</section>
-				</article>
-			</div>
 
 			<!-- Footer -->
 			<footer id="footer">
