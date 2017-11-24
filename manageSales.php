@@ -64,7 +64,7 @@ if (isset($_SESSION['id'])){
 								if ($row['approved'] == 'y'){
 									$approved = "Yes";
 									$pid = $row['pid'];
-									$sql2 = "SELECT amount from price where pid='$pid'";
+									$sql2 = "SELECT amount from price where id='$pid'";
 									$result2 = $mysqli->query($sql2);
 									if ($result2->num_rows > 0){
 										$row2 = $result2->fetch_array();
