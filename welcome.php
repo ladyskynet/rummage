@@ -62,10 +62,10 @@ if (isset($_SESSION['id'])){
 				<article id="profile">
 					<h2 class="major">Profile</h2>
 					<!--<span class="image main"><img src="images/pic02.jpg" alt="" /></span>-->
-					Username: <?php echo("{$_SESSION['username']}"."<br>"); ?><br>
-					First Name: <?php echo("{$_SESSION['firstname']}"."<br>"); ?><br>
-					Last Name: <?php echo("{$_SESSION['lastname']}"."<br>"); ?><br>
-					Email: <?php echo("{$_SESSION['email']}"."<br>"); ?>
+					<strong>Username: </strong><?php echo("{$_SESSION['username']}"."<br>"); ?><br>
+					<strong>First Name: </strong><?php echo("{$_SESSION['firstname']}"."<br>"); ?><br>
+					<strong>Last Name: </strong><?php echo("{$_SESSION['lastname']}"."<br>"); ?><br>
+					<strong>Email: </strong><?php echo("{$_SESSION['email']}"."<br>"); ?>
 				</article>
 			</div>
 
