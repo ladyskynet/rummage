@@ -61,17 +61,20 @@ if (isset($_SESSION['id'])){
 										<tbody>';
 							while($row = $result->fetch_array()) {
 
-								if ($row['approved'] == 'n'){
-									$approved = "No";
-								} else {
+								if ($row['approved'] == 'y'){
 									$approved = "Yes";
 									$pid = $row['pid'];
 									$sql2 = "SELECT amount from price where pid='$pid'";
-									if ($result->num_rows > 0){
+									if ($result2->num_rows > 0){
 										$result2 = $mysqli->query($sql2);
 										$row2 = $result2->fetch_array();
 										$saleamount = $row2['amount'];
+									} else {
+										echo "Something went wrong." . $mysqli->error;
 									}
+								} else {
+									$approved = "No";
+									$saleamount = 0;
 								}
 
 								$saleid = $row['id'];
