@@ -36,7 +36,8 @@ if (isset($_SESSION['id'])){
 						}
 
 						if (count($_SESSION['orderArray']) > 0){
-							echo '<div class="table-wrapper">
+							echo '<h3>This cart will be discarded and these items will not be promoted.</h3>
+								<div class="table-wrapper">
 								<table class="alt">
 									<thead>
 										<tr>
