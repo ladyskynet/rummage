@@ -74,17 +74,16 @@ if (isset($_SESSION['id'])){
 									}
 								} else {
 									$approved = "No";
-									#$saleamount = 0;
+									$saleamount = 0;
 								}
 
 								$saleid = $row['id'];
 
-								#$sql3 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and sid='$saleid'";
+								$sql3 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and sid='$saleid'";
 								
-								#$result3 = $mysqli->query($sql3);
-								#$row3 = $result3->fetch_array();
-								#$saleamount += $row3['total'];
-								$saleamount = 0;
+								$result3 = $mysqli->query($sql3);
+								$row3 = $result3->fetch_array();
+								$saleamount += $row3['total'];
 							
 								if ($row['type'] == 's'){
 									$type = "Single Family Rummage Sale";
