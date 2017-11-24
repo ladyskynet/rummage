@@ -49,8 +49,9 @@ if (isset($_SESSION['id'])){
 									<option value="s">Single Family Rummage Sale</option>
 								</select><br>
 								
+								<label for="promoted">Promoted</label>
 								<input type="checkbox" id="promoted" name="promoted" value="y">
-								<label for="promoted">Promoted</label><br><br>
+								<br><br>
 
 								<label for="eventdate">Date/Time</label> 
 								<input type="datetime-local" name="eventdate" required/>
