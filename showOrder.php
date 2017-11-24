@@ -50,7 +50,7 @@ session_start();
 										echo '<th>ID</th>';
 										echo '<th>Order ID</th>';
 										echo '<th>Sale ID</th>';
-										echo '<th>Item ID</th>';
+										echo '<th>Promotion Type</th>';
 										echo '<th>Order Date</th>';
 										echo '<th>Listing Price</th>';
 									echo '</tr>
@@ -63,9 +63,9 @@ session_start();
 						while($row = $result->fetch_array()) {
 
 							if ($row['itemid'] == NULL){
-								$item = "N/A";
+								$item = "Item Promotion";
 							} else {
-								$item = $row['itemid'];
+								$item = "Sale Promotion";
 							}
 							$pid = $row['pid'];
 							$sql3 = "SELECT amount from price where id='$pid'";
