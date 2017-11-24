@@ -45,9 +45,6 @@ if (isset($_SESSION['id'])){
 										<thead>
 											<tr>
 												<th>Show</th>
-												<th>Edit</th>
-												<th>Delete</th>
-												<th>Add Item(s)</th>
 												<th>Street</th>
 												<th>City</th>
 												<th>State</th>
@@ -91,9 +88,6 @@ if (isset($_SESSION['id'])){
 									$type = "Community Rummage Sale";
 								}
 					 			echo '<tr><td><a href="showSale.php?id=' . $saleid . ' ">Show</a></td>';
-					 			echo '<td><a href="editSale.php?id=' . $saleid . ' ">Edit</a></td>';
-					 			echo '<td><a href="deleteSale.php?id=' . $saleid . ' ">Delete</a></td>';
-							  	echo '<td><a href="createItem.php?id=' . $saleid . ' ">Add Item(s)</a></td>';
 								echo '<td>' . $row['street'] . "</td>";
 								echo '<td>' . $row['city'] . "</td>";
 								echo '<td>' . $row['state'] . "</td>";
