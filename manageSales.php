@@ -61,20 +61,20 @@ if (isset($_SESSION['id'])){
 										<tbody>';
 							while($row = $result->fetch_array()) {
 
-								if ($row['approved'] == 'y'){
+								/**if ($row['approved'] == 'y'){
 									$approved = "Yes";
-									#$pid = $row['pid'];
-									#$sql2 = "SELECT amount from price where pid='$pid'";
-									#if ($result2->num_rows > 0){
-									#	$result2 = $mysqli->query($sql2);
-									#	$row2 = $result2->fetch_array();
-									#	$saleamount = $row2['amount'];
-									#} else {
-									#	echo "Something went wrong." . $mysqli->error;
-									#}
+									$pid = $row['pid'];
+									$sql2 = "SELECT amount from price where pid='$pid'";
+									if ($result2->num_rows > 0){
+										$result2 = $mysqli->query($sql2);
+										$row2 = $result2->fetch_array();
+										$saleamount = $row2['amount'];
+									} else {
+										echo "Something went wrong." . $mysqli->error;
+									}
 								} else {
 									$approved = "No";
-									#$saleamount = 0;
+									$saleamount = 0;
 								}
 
 								$saleid = $row['id'];
@@ -83,8 +83,8 @@ if (isset($_SESSION['id'])){
 								
 								$result3 = $mysqli->query($sql3);
 								$row3 = $result3->fetch_array();
-								$saleamount += $row3['total'];
-								**/
+								$saleamount += $row3['total'];**/
+							
 								if ($row['type'] == 's'){
 									$type = "Single Family Rummage Sale";
 								} else {
