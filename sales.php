@@ -36,7 +36,6 @@ if (isset($_SESSION['id'])){
 						}
 
 						$userid = $_SESSION['id'];
-						echo $userid;
 						$sql = "SELECT * FROM yardsale WHERE uid='$userid'";
 						$result = $mysqli->query($sql);
 
@@ -63,7 +62,9 @@ if (isset($_SESSION['id'])){
 							while($row = $result->fetch_array()) {
 								if ($row['approved'] == 'n'){
 									$approved = "No";
+									echo 'yes';
 								} else {
+									echo 'no';
 									$approved = "Yes";
 								}
 								$id = $row['id'];
