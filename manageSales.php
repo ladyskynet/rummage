@@ -63,7 +63,7 @@ if (isset($_SESSION['id'])){
 
 								if ($row['approved'] == 'y'){
 									$approved = "Yes";
-									/**$pid = $row['pid'];
+									$pid = $row['pid'];
 									$sql2 = "SELECT amount from price where pid='$pid'";
 									if ($result2->num_rows > 0){
 										$result2 = $mysqli->query($sql2);
@@ -71,7 +71,7 @@ if (isset($_SESSION['id'])){
 										$saleamount = $row2['amount'];
 									} else {
 										echo "Something went wrong." . $mysqli->error;
-									}**/
+									}
 								} else {
 									$approved = "No";
 									#$saleamount = 0;
@@ -79,7 +79,7 @@ if (isset($_SESSION['id'])){
 
 								$saleid = $row['id'];
 
-								#$sql3 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and sid='$saleid' and itemid not null";
+								#$sql3 = "SELECT sum(amount) as total from price inner join orderitem on price.id = orderitem.pid and sid='$saleid'";
 								
 								#$result3 = $mysqli->query($sql3);
 								#$row3 = $result3->fetch_array();
