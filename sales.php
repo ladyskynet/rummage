@@ -62,15 +62,13 @@ if (isset($_SESSION['id'])){
 							while($row = $result->fetch_array()) {
 								if ($row['approved'] == 'n'){
 									$approved = "No";
-									echo 'yes';
 								} else {
-									echo 'no';
 									$approved = "Yes";
 								}
 								$id = $row['id'];
 								#$sql2 = "SELECT SUM(price) as total FROM item WHERE sid='$id'";
-								$result2 = $mysqli->query($sql2);
-								$row2 = $result2->fetch_array();
+								#$result2 = $mysqli->query($sql2);
+								#$row2 = $result2->fetch_array();
 
 								if ($row['type'] == 's'){
 									$type = "Single Family Rummage Sale";
