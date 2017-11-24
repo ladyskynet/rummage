@@ -93,7 +93,7 @@ session_start();
 									<table class="alt">
 										<thead>
 											<tr>
-												<th>ID</th>
+												<th>Show</th>
 												<th>Name</th>
 												<th>Description</th>
 												<th>Promoted</th>
