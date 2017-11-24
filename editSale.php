@@ -84,10 +84,8 @@ if (isset($_SESSION['id'])){
 							echo "<p>This item has already been promoted and approved.</p>";
 						}
 						if ($row['promoted'] == 'n'){
-							echo '<div class="field half">
-								<input type="checkbox" id="promoted" name="promoted" value="y">
-								<label for="promoted">Promoted</label>
-							</div><br><br><br>';
+							echo '<input type="checkbox" id="promoted" name="promoted" value="y">
+								<label for="promoted">Promoted</label><br><br><br>';
 						}
 						
 						$date = str_replace(' ', 'T', $row["eventdate"]);
