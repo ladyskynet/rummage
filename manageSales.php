@@ -61,7 +61,7 @@ if (isset($_SESSION['id'])){
 										<tbody>';
 							while($row = $result->fetch_array()) {
 
-								if ($row['approved'] == 'y'){
+								/**if ($row['approved'] == 'y'){
 									$approved = "Yes";
 									$pid = $row['pid'];
 									$sql2 = "SELECT amount from price where pid='$pid'";
@@ -84,7 +84,7 @@ if (isset($_SESSION['id'])){
 								$result3 = $mysqli->query($sql3);
 								$row3 = $result3->fetch_array();
 								$saleamount += $row3['total'];
-
+								**/
 								if ($row['type'] == 's'){
 									$type = "Single Family Rummage Sale";
 								} else {
@@ -101,7 +101,7 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $type . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td>";
 				 				echo '<td>' . $approved . "</td>";
-				 				echo '<td>$' . number_format(round($saleamount,2), 2) . "</td></tr>";
+				 				#echo '<td>$' . number_format(round($saleamount,2), 2) . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
