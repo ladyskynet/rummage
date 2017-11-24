@@ -68,7 +68,7 @@ if (isset($_SESSION['id'])){
 									$result2 = $mysqli->query($sql2);
 									if ($result2->num_rows > 0){
 										$row2 = $result2->fetch_array();
-										$saleamount = $row2['amount'];
+										$saleamount = 0;
 									} else {
 										echo "1) Something went wrong." . $mysqli->error;
 									}
