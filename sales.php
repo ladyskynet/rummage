@@ -36,6 +36,7 @@ if (isset($_SESSION['id'])){
 						}
 
 						$userid = $_SESSION['id'];
+						echo $userid;
 						$sql = "SELECT * FROM yardsale WHERE uid='$userid'";
 						$result = $mysqli->query($sql);
 
