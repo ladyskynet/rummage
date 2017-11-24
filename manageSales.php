@@ -111,7 +111,6 @@ if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 						<?php
 						if (isset($_SESSION['id'])){
 							echo '<li><a href="welcome.php#profile">Profile</a></li>';
-							echo '<li><a href="search.php">Search</a></li>';
 							
 							if ($_SESSION['type'] == 'i'){
 								echo '<li><a href="prices.php">Prices</a></li>';
@@ -122,9 +121,9 @@ if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 								echo '<li><a href="cart.php">My Cart</a></li>';
 							    echo '<li><a href="sales.php">Sales</a></li>';
 							}
-
+							echo '<li><a href="search.php">Search</a></li>';
 							echo '<li><a href="logout.php">Logout</a></li>';
-							
+
 						} else {
 							echo'<li><a href="index.html#join">Join</a></li>
 								<li><a href="index.html#login">Login</a></li>
