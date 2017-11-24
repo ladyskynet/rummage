@@ -26,33 +26,33 @@ if (isset($_SESSION['id'])){
 					<span class="icon fa-trash"></span>
 				</div>
 				<h2>Add Item</h2>
-					<nav>
-						<ul>
-							<?php
-							if (isset($_SESSION['id'])){
-								echo '<li><a href="welcome.php#profile">Profile</a></li>';
-								
-								if ($_SESSION['type'] == 'i'){
-									echo '<li><a href="prices.php">Prices</a></li>';
-									echo '<li><a href="approveTemp.php">Approve</a></li>';
-									echo '<li><a href="manageSales.php">All Sales</a></li>';
-								} else {
-									echo '<li><a href="createSale.php">Create</a></li>';
-									echo '<li><a href="cart.php">My Cart</a></li>';
-								    echo '<li><a href="sales.php">Sales</a></li>';
-								}
-								echo '<li><a href="search.php">Search</a></li>';
-								echo '<li><a href="logout.php">Logout</a></li>';
-
+				<nav>
+					<ul>
+						<?php
+						if (isset($_SESSION['id'])){
+							echo '<li><a href="welcome.php#profile">Profile</a></li>';
+							
+							if ($_SESSION['type'] == 'i'){
+								echo '<li><a href="prices.php">Prices</a></li>';
+								echo '<li><a href="approveTemp.php">Approve</a></li>';
+								echo '<li><a href="manageSales.php">All Sales</a></li>';
 							} else {
-								echo'<li><a href="index.html#join">Join</a></li>
-									<li><a href="index.html#login">Login</a></li>
-									<li><a href="search.php">Search</a></li>
-									<li><a href="index.html#about">About</a></li>';
+								echo '<li><a href="createSale.php">Create</a></li>';
+								echo '<li><a href="cart.php">My Cart</a></li>';
+							    echo '<li><a href="sales.php">Sales</a></li>';
 							}
-							?>
+							echo '<li><a href="search.php">Search</a></li>';
+							echo '<li><a href="logout.php">Logout</a></li>';
+
+						} else {
+							echo'<li><a href="index.html#join">Join</a></li>
+								<li><a href="index.html#login">Login</a></li>
+								<li><a href="search.php">Search</a></li>
+								<li><a href="index.html#about">About</a></li>';
+						}
+						?>
 					</ul>
-			</nav>
+				</nav>
 			</header>
 			<div class="main">
 				<article>
