@@ -26,8 +26,6 @@ if ($promoted == ""){
 	$promoted = 'n';
 }
 
-
-
 $pid = 2;
 
 $sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate' WHERE id='$saleid'";
@@ -55,7 +53,7 @@ if ($mysqli->query($sql) === TRUE){
 		if (isset($_SESSION['orderArray'])){
 				
 			$orderDetailArray = array();
-			$orderDetailArray[0] = $newsaleid;
+			$orderDetailArray[0] = $saleid;
 			$orderDetailArray[1] = $userid;
 			$orderDetailArray[2] = $type;
 			$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
@@ -66,7 +64,7 @@ if ($mysqli->query($sql) === TRUE){
 			$_SESSION['orderArray'][$num] = $orderDetailArray;
 		} else {
 			$orderDetailArray = array();
-			$orderDetailArray[0] = $newsaleid;
+			$orderDetailArray[0] = $saleid;
 			$orderDetailArray[1] = $userid;
 			$orderDetailArray[2] = $type;
 			$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
