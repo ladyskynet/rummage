@@ -71,6 +71,11 @@ session_start();
 							$result3 = $mysqli->query($sql3);
 							if ($result3->num_rows > 0){
 								$row3 = $result3->fetch_array();
+
+								$sql4 = "SELECT * from payment where id='$orderid'";
+								$result4 = $mysqli->query($sql4);
+								$row4 = $result4->fetch_array();
+
 								$amount = $row3['amount'];
 
 								echo '<tr><td>' . $row["id"] . '</td>';
@@ -80,6 +85,8 @@ session_start();
 								echo '<td>' . $row["sid"] . '</td>';
 
 								echo '<td>' . $item . '</td>';
+
+								echo '<td>' . $row4['datepurc'] . '</td>';
 						
 								echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
 							} else {
