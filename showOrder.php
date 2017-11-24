@@ -63,9 +63,9 @@ session_start();
 						while($row = $result->fetch_array()) {
 
 							if ($row['itemid'] == NULL){
-								$item = "Item Promotion";
-							} else {
 								$item = "Sale Promotion";
+							} else {
+								$item = "Item Promotion";
 							}
 							$pid = $row['pid'];
 							$sql3 = "SELECT amount from price where id='$pid'";
