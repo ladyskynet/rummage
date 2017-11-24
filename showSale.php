@@ -87,6 +87,7 @@ session_start();
 						$sql2 = "SELECT * FROM item WHERE sid='$saleid'";
 						$result2 = $mysqli->query($sql2);
 						if ($result2->num_rows > 0){
+
 							echo '<h3>Sale Items</h3>
 							<div class="table-wrapper">
 									<table class="alt">
@@ -95,14 +96,21 @@ session_start();
 												<th>ID</th>
 												<th>Name</th>
 												<th>Description</th>
+												<th>Promoted</th>
 												<th>Price</th>
 											</tr>
 										</thead>
 										<tbody>';
 							while($row2 = $result2->fetch_array()) {
+								if ($row2['approved'] == 'n'){
+									$approved2 = "No";
+								} else {
+									$approved2 = "Yes";
+								}
 				 				echo '<tr><td><a href="showItem.php?id=' . $row2['id'] . ' ">Show</a></td>';
 								echo '<td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
+								echo '<td>' . $approved2 . "</td>";
 								echo '<td>$' . number_format(round($row2["price"],2),2) . "</td>";
 							}
 							echo '		</tbody>
