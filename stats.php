@@ -44,6 +44,10 @@ session_start();
 					$lastmonth = $curryear . "-" . ($currmonth-1) . "-1";
 
 					$lastyear = ($curryear - 1) . "-" . $currmonth . "-1";
+
+					echo $lastweek . '<br>';
+					echo $lastmonth . '<br>';
+					echo $lastyear . '<br>';
 				
 
 					$sql = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
