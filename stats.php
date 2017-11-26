@@ -89,7 +89,7 @@ session_start();
 						echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
-											<td colspan="3"></td>
+											<td colspan="2"></td>
 											<td>$' . number_format(round($total,2),2) . '</td>
 									  	</tr>
 								  	</tfoot>
@@ -137,7 +137,7 @@ session_start();
 						echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
-											<td colspan="3"></td>
+											<td colspan="2"></td>
 											<td>$' . number_format(round($total,2),2) . '</td>
 									  	</tr>
 								  	</tfoot>
@@ -184,7 +184,7 @@ session_start();
 						echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
-											<td colspan="3"></td>
+											<td colspan="2"></td>
 											<td>$' . number_format(round($total,2),2) . '</td>
 									  	</tr>
 								  	</tfoot>
