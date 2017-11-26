@@ -54,6 +54,7 @@ session_start();
 					$result3 = $mysqli->query($sql3);
 					
 					if ($result->num_rows > 0){
+						$total = 0;
  
 						echo '<h3>Orders from Last Week</h3>
 							<div class="table-wrapper">';
@@ -68,6 +69,7 @@ session_start();
 								<tbody>';
 
 						while($row = $result->fetch_array()){
+							$total += $row["total"];
 
 							$oid = $row['oid'];
 
@@ -84,15 +86,23 @@ session_start();
 							echo '<td>$' . number_format(round($row["total"],2),2) . '</td></tr>';
 						}
 
-						echo '</tbody>
-					    </table>
-					</div>';
+						echo '	</tbody>
+								  	<tfoot>
+								  	  	<tr>
+											<td colspan="3"></td>
+											<td>$' . number_format(round($total,2),2) . '</td>
+									  	</tr>
+								  	</tfoot>
+								</table>
+							</div>';
 
 					} else {
 						echo "<p>No orders for last week.</p>";
 					}
 
 					if ($result2->num_rows > 0){
+
+						$total = 0;
  
 						echo '<h3>Orders from Last Month</h3>
 						<div class="table-wrapper">';
@@ -107,6 +117,7 @@ session_start();
 								<tbody>';
 
 						while($row2 = $result2->fetch_array()){
+							$total += $row2["total"];
 
 							$oid = $row2['oid'];
 
@@ -123,15 +134,22 @@ session_start();
 							echo '<td>$' . number_format(round($row2["total"],2),2) . '</td></tr>';
 						}
 
-						echo '</tbody>
-					    </table>
-					</div>';
+						echo '	</tbody>
+								  	<tfoot>
+								  	  	<tr>
+											<td colspan="3"></td>
+											<td>$' . number_format(round($total,2),2) . '</td>
+									  	</tr>
+								  	</tfoot>
+								</table>
+							</div>';
 
 					} else {
 						echo "<p>No orders for last month.</p>";
 					}
 
 					if ($result3->num_rows > 0){
+						$total = 0;
  
 						echo '<h3>Orders from Last Year</h3>
 							<div class="table-wrapper">';
@@ -146,6 +164,7 @@ session_start();
 								<tbody>';
 
 						while($row3 = $result3->fetch_array()){
+							$total += $row3["total"];
 
 							$oid = $row3['oid'];
 							
@@ -162,9 +181,15 @@ session_start();
 							echo '<td>$' . number_format(round($row3["total"],2),2) . '</td></tr>';
 						}
 
-						echo '</tbody>
-					    </table>
-					</div>';
+						echo '	</tbody>
+								  	<tfoot>
+								  	  	<tr>
+											<td colspan="3"></td>
+											<td>$' . number_format(round($total,2),2) . '</td>
+									  	</tr>
+								  	</tfoot>
+								</table>
+							</div>';
 
 					} else {
 						echo "<p>No orders for last year.</p>";
