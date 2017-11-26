@@ -48,6 +48,10 @@ session_start();
 					$sql2 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastmonth' group by payment.id";
 					$sql3 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastyear' group by payment.id";
 
+					echo $sql . '<br>';
+					echo $sql2 . '<br>';
+					echo $sql3 . '<br>';
+
 					$result = $mysqli->query($sql);
 					$result2 = $mysqli->query($sql2);
 					$result3 = $mysqli->query($sql3);
