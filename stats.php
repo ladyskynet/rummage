@@ -55,12 +55,12 @@ session_start();
 					$sql3 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastyear' group by payment.id";
 
 					echo $sql;
-					
+
 					$result = $mysqli->query($sql);
 					$result2 = $mysqli->query($sql2);
 					$result3 = $mysqli->query($sql3);
 					
-					if ($result->num_rows > 1){
+					if ($result->num_rows > 0){
  
 						echo '<h3>Orders from Last Week</h3>
 							<div class="table-wrapper">';
@@ -99,7 +99,7 @@ session_start();
 						echo "<p>No orders for last week.</p>";
 					}
 
-					if ($result2->num_rows > 1){
+					if ($result2->num_rows > 0){
  
 						echo '<h3>Orders from Last Month</h3>
 						<div class="table-wrapper">';
@@ -138,7 +138,7 @@ session_start();
 						echo "<p>No orders for last month.</p>";
 					}
 
-					if ($result3->num_rows > 1){
+					if ($result3->num_rows > 0){
  
 						echo '<h3>Orders from Last Year</h3>
 							<div class="table-wrapper">';
