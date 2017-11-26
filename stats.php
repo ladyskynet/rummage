@@ -36,8 +36,13 @@ session_start();
 					} 
 					#$itemid = $mysqli->real_escape_string($_REQUEST['id']);
 					$lastweek = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
+					echo $lastweek;
+
 					$lastmonth = mktime(0, 0, 0, date("m")-1, 1, date("Y"));
+					echo $lastmonth;
+
 					$lastyear  = mktime(0, 0, 0, 1, 1, date("Y")-1);
+					echo $lastyear;
 
 					$sql = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
 					$sql2 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastmonth' group by payment.id";
