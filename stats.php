@@ -37,13 +37,13 @@ session_start();
 					#$itemid = $mysqli->real_escape_string($_REQUEST['id']);
 					$curryear = date("Y");
 					$currmonth = date("m");
-					$l = date("d")-7;
+					$currday = date("d");
 
-					$lastweek = $curryear . "-" . $currmonth . "-" . $l;
+					$lastweek = $curryear . "-" . $currmonth . "-" . ($currday-7);
 
-					$lastmonth = $curryear . "-" . ($currmonth-1) . "-" . $l;
+					$lastmonth = $curryear . "-" . ($currmonth-1) . "-1";
 
-					$lastyear = ($curryear - 1) . "-" . $currmonth . "-" . $l;
+					$lastyear = ($curryear - 1) . "-" . $currmonth . "-1";
 				
 
 					$sql = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
