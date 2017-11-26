@@ -40,8 +40,8 @@ session_start();
 					$lastyear  = mktime(0, 0, 0, 1, 1, date("Y")-1);
 
 					$sql = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
-					$sql2 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
-					$sql3 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
+					$sql2 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastmonth' group by payment.id";
+					$sql3 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastyear' group by payment.id";
 
 					$result = $mysqli->query($sql);
 					$result2 = $mysqli->query($sql2);
@@ -135,7 +135,7 @@ session_start();
 									echo '</tr>
 									</thead>
 								<tbody>';
-								
+
 						while($row3 = $result3->fetch_array()){
 
 							$oid = $row3['oid'];
