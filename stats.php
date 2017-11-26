@@ -56,7 +56,8 @@ session_start();
 					
 					if ($result->num_rows > 1){
  
-						echo '<div class="table-wrapper">';
+						echo '<h3>Orders from Last Week</h3>
+							<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
@@ -94,7 +95,8 @@ session_start();
 
 					if ($result2->num_rows > 1){
  
-						echo '<div class="table-wrapper">';
+						echo '<h3>Orders from Last Month</h3>
+						<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
@@ -132,7 +134,8 @@ session_start();
 
 					if ($result3->num_rows > 1){
  
-						echo '<div class="table-wrapper">';
+						echo '<h3>Orders from Last Year</h3>
+							<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
