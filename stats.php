@@ -87,17 +87,15 @@ session_start();
 
 					if ($result2->num_rows > 1){
  
-						echo '<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Promoted</th>
-										<th>Price</th>
-										
-									</tr>
-								</thead>
+						echo '<div class="table-wrapper">';
+							echo '<table class="alt">';
+								echo '<thead>';
+									echo '<tr>';
+										echo '<th>Order ID</th>';
+										echo '<th>Order Date</th>';
+										echo '<th>Total</th>';
+									echo '</tr>
+									</thead>
 								<tbody>';
 
 						while($row2 = $result2->fetch_array()){
@@ -127,18 +125,17 @@ session_start();
 
 					if ($result3->num_rows > 1){
  
-						echo '<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Promoted</th>
-										<th>Price</th>
-										
-									</tr>
-								</thead>
+						echo '<div class="table-wrapper">';
+							echo '<table class="alt">';
+								echo '<thead>';
+									echo '<tr>';
+										echo '<th>Order ID</th>';
+										echo '<th>Order Date</th>';
+										echo '<th>Total</th>';
+									echo '</tr>
+									</thead>
 								<tbody>';
+								
 						while($row3 = $result3->fetch_array()){
 
 							$oid = $row3['oid'];
