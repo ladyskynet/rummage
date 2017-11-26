@@ -1,5 +1,10 @@
 <?php
 session_start();
+if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
+	echo "";
+} else {
+	header('Location: index.html');
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -40,9 +45,7 @@ session_start();
 					$currday = date("d");
 
 					$lastweek = $curryear . "-" . $currmonth . "-" . ($currday-7);
-
 					$lastmonth = $curryear . "-" . ($currmonth-1) . "-1";
-
 					$lastyear = ($curryear - 1) . "-" . $currmonth . "-1";
 
 					$sql = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
@@ -56,8 +59,9 @@ session_start();
 					if ($result->num_rows > 0){
 						$total = 0;
  
-						echo '<h3>Orders from Last Week</h3>
-							<div class="table-wrapper">';
+						echo '<h3>Orders Since ';
+						echo $lastweek;
+							'</h3><div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
@@ -104,8 +108,9 @@ session_start();
 
 						$total = 0;
  
-						echo '<h3>Orders from Last Month</h3>
-						<div class="table-wrapper">';
+						echo '<h3>Orders Since ';
+						echo $lastmonth;
+						'</h3><div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
@@ -151,8 +156,9 @@ session_start();
 					if ($result3->num_rows > 0){
 						$total = 0;
  
-						echo '<h3>Orders from Last Year</h3>
-							<div class="table-wrapper">';
+						echo '<h3>Orders Since ';
+						echo $lastyear;
+							'</h3><div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
 									echo '<tr>';
