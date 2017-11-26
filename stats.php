@@ -59,7 +59,7 @@ if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 					if ($result->num_rows > 0){
 						$total = 0;
  
-						echo '<h2>Orders Since ' . $lastweek . '</h2><br>';
+						echo '<h3>Orders Since ' . $lastweek . '</h3>';
 						echo '<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
@@ -107,7 +107,7 @@ if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 
 						$total = 0;
  
-						echo '<h2>Orders Since ' . $lastmonth . '</h2><br>';
+						echo '<h3>Orders Since ' . $lastmonth . '</h3>';
 						echo '<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
@@ -154,7 +154,7 @@ if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 					if ($result3->num_rows > 0){
 						$total = 0;
  
-						echo '<h2>Orders Since ' . $lastyear . '</h2><br>';
+						echo '<h3>Orders Since ' . $lastyear . '</h3>';
 						echo '<div class="table-wrapper">';
 							echo '<table class="alt">';
 								echo '<thead>';
