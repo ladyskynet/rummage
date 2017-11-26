@@ -89,6 +89,7 @@ session_start();
 								echo '<li><a href="prices.php">Prices</a></li>';
 								echo '<li><a href="approveTemp.php">Approve</a></li>';
 								echo '<li><a href="manageSales.php">All Sales</a></li>';
+								echo '<li><a href="stats.php">Statistics</a></li>';
 							} else {
 								echo '<li><a href="createSale.php">Create</a></li>';
 								echo '<li><a href="cart.php">My Cart</a></li>';
