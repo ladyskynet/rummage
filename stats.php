@@ -35,13 +35,17 @@ session_start();
 						die("Connection failed: " . $mysqli->connect_error());
 					} 
 					#$itemid = $mysqli->real_escape_string($_REQUEST['id']);
-					$lastweek = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
+					$curryear = date("Y");
+					$currmonth = date("m");
+					$l = date("d")-7;
+					$lastweek = $curryear . "-" . $currmonth . "-" . $l;
+
 					echo $lastweek;
 
-					$lastmonth = mktime(0, 0, 0, date("m")-1, 1, date("Y"));
+					$lastmonth = date("m")-1;
 					echo $lastmonth;
 
-					$lastyear  = mktime(0, 0, 0, 1, 1, date("Y")-1);
+					$lastyear  = date("Y")-1;
 					echo $lastyear;
 
 					$sql = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
