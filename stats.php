@@ -38,15 +38,16 @@ session_start();
 					$curryear = date("Y");
 					$currmonth = date("m");
 					$l = date("d")-7;
+
 					$lastweek = $curryear . "-" . $currmonth . "-" . $l;
 
-					echo $lastweek;
+					$lastmonth = $curryear . "-" . ($currmonth-1) . "-" . $l;
 
-					$lastmonth = date("m")-1;
-					echo $lastmonth;
-
-					$lastyear  = date("Y")-1;
-					echo $lastyear;
+					$lastyear = ($curryear - 1) . "-" . $currmonth . "-" . $l;
+					
+					echo $lastweek . '<br>';
+					echo $lastmonth . '<br>';
+					echo $lastyear . '<br>';
 
 					$sql = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
 					$sql2 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastmonth' group by payment.id";
