@@ -45,8 +45,8 @@ if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 					$currday = date("d");
 
 					$lastweek = $curryear . "-" . $currmonth . "-" . ($currday-7);
-					$lastmonth = $curryear . "-" . ($currmonth-1) . "-1";
-					$lastyear = ($curryear - 1) . "-" . $currmonth . "-1";
+					$lastmonth = $curryear . "-" . ($currmonth-1) . $currday;
+					$lastyear = ($curryear - 1) . "-" . $currmonth . $currday;
 
 					$sql = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastweek' group by payment.id";
 					$sql2 = "select sum(cost) as total, payment.id as oid from orderitem inner join payment on orderitem.orid=payment.id where datepurc >= '$lastmonth' group by payment.id";
