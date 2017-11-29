@@ -71,6 +71,7 @@ if (isset($_SESSION['id'])){
 						echo '<select name="type2">';
 						if ($row["type"] == 'c')
 						{
+							echo $row["type"];
 							echo '<option id="community" name="type" value="c" selected="selected">Community Rummage Sale</option>
 								<option id="single" name="type" value="s">Single Family Rummage Sale</option>
 							<br>';
