@@ -69,16 +69,15 @@ if (isset($_SESSION['id'])){
 
 						echo '<label for="type2">Type</label>';
 						echo '<select name="type2">';
-				
+
 						if ($row["type"] == 'c')
 						{
-
-							echo '<option id="community" name="type" value="c" selected="selected">Community Rummage Sale</option>
-								<option id="single" name="type" value="s">Single Family Rummage Sale</option>
+							echo '<option id="community" name="type2" value="c" selected="selected">Community Rummage Sale</option>
+								<option id="single" name="type2" value="s">Single Family Rummage Sale</option>
 							<br>';
 						} else {
-							echo '<option id="community" name="type" value="c">Community Rummage Sale</option>
-								<option id="single" name="type" value="s" selected="selected">Single Family Rummage Sale</option>';
+							echo '<option id="community" name="type2" value="c">Community Rummage Sale</option>
+								<option id="single" name="type2" value="s" selected="selected">Single Family Rummage Sale</option>';
 						}
 						echo '</select><br>';
 
