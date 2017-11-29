@@ -26,7 +26,7 @@ if ($promoted == ""){
 	$promoted = 'n';
 }
 
-$sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, enddate, promoted, pid, approved) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', '$enddate', 'n', '$pid', 'n')"; 
+$sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, enddate, promoted, pid, approved) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', '$enddate', 'y', '$pid', 'n')"; 
 
 if ($mysqli->query($sql) === true) {
 	
