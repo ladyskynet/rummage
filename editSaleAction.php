@@ -78,7 +78,7 @@ if ($mysqli->query($sql) === TRUE){
 			$orderArray[0] = $orderDetailArray;
 			$_SESSION['orderArray'] = $orderArray;
 		}
-	} 
+	}
 	header('Location: showSale.php?id=' . $saleid);
 } 
 else {
