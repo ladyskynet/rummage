@@ -11,7 +11,7 @@ if ($mysqli === false){
 	die("Connection failed: " . $mysqli->connect_error);
 }
 
-$street = ucwords($mysqli->real_escape_string($_REQUEST['street']);
+$street = ucwords($mysqli->real_escape_string($_REQUEST['street']));
 $city = ucwords($mysqli->real_escape_string($_REQUEST['city']));
 $state = strtoupper($mysqli->real_escape_string($_REQUEST['state']));
 $zip = $mysqli->real_escape_string($_REQUEST['zip']);

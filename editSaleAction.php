@@ -13,12 +13,13 @@ if ($mysqli === false){
 }
 
 $saleid = $mysqli->real_escape_string($_REQUEST['saleid']);
-$street = $mysqli->real_escape_string($_REQUEST['street']);
-$city = $mysqli->real_escape_string($_REQUEST['city']);
-$state = $mysqli->real_escape_string($_REQUEST['state']);
+$street = ucwords($mysqli->real_escape_string($_REQUEST['street']));
+$city = ucwords($mysqli->real_escape_string($_REQUEST['city']));
+$state = strtoupper($mysqli->real_escape_string($_REQUEST['state']));
 $zip = $mysqli->real_escape_string($_REQUEST['zip']);
 $type = $mysqli->real_escape_string($_REQUEST['type']);
 $eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
+$enddate = $mysqli->real_escape_string($_REQUEST['enddate']);
 $userid = $_SESSION['id'];
 $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 
@@ -28,7 +29,7 @@ if ($promoted == ""){
 
 $pid = 2;
 
-$sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate' WHERE id='$saleid'";
+$sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate', enddate='$enddate' WHERE id='$saleid'";
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale updated.";
@@ -60,6 +61,7 @@ if ($mysqli->query($sql) === TRUE){
 			$orderDetailArray[4] = $eventdate;
 			$orderDetailArray[5] = $pid;
 			$orderDetailArray[6] = NULL;
+			$orderDetailArray[7] = $enddate;
 			$num = count($_SESSION['orderArray']);
 			$_SESSION['orderArray'][$num] = $orderDetailArray;
 		} else {
@@ -71,6 +73,7 @@ if ($mysqli->query($sql) === TRUE){
 			$orderDetailArray[4] = $eventdate;
 			$orderDetailArray[5] = $pid;
 			$orderDetailArray[6] = NULL;
+			$orderDetailArray[7] = $enddate;
 			$orderArray = array();
 			$orderArray[0] = $orderDetailArray;
 			$_SESSION['orderArray'] = $orderArray;
