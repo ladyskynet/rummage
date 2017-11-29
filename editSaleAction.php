@@ -29,7 +29,7 @@ if ($promoted == ""){
 
 $pid = 2;
 
-$sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate', enddate='$enddate', promoted='$promoted' WHERE id='$saleid'";
+$sql = "UPDATE yardsale set street='$street', city='$city', state='$state', zip='$zip', type='$type', eventdate='$eventdate', enddate='$enddate', promoted='c' WHERE id='$saleid'";
 
 if ($mysqli->query($sql) === TRUE){
 	echo "Yard sale updated.";
