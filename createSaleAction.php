@@ -11,12 +11,13 @@ if ($mysqli === false){
 	die("Connection failed: " . $mysqli->connect_error);
 }
 
-$street = $mysqli->real_escape_string($_REQUEST['street']);
-$city = $mysqli->real_escape_string($_REQUEST['city']);
-$state = $mysqli->real_escape_string($_REQUEST['state']);
+$street = ucwords($mysqli->real_escape_string($_REQUEST['street']);
+$city = ucwords($mysqli->real_escape_string($_REQUEST['city']));
+$state = strtoupper($mysqli->real_escape_string($_REQUEST['state']));
 $zip = $mysqli->real_escape_string($_REQUEST['zip']);
 $type = $mysqli->real_escape_string($_REQUEST['type']);
 $eventdate = $mysqli->real_escape_string($_REQUEST['eventdate']);
+$enddate = $mysqli->real_escape_string($_REQUEST['enddate']);
 $userid = $_SESSION['id'];
 $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 $pid = 2;
@@ -25,7 +26,7 @@ if ($promoted == ""){
 	$promoted = 'n';
 }
 
-$sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, promoted, pid, approved) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', 'n', '$pid', 'n')"; 
+$sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, enddate, promoted, pid, approved) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', '$enddate', 'n', '$pid', 'n')"; 
 
 if ($mysqli->query($sql) === true) {
 	
@@ -62,6 +63,7 @@ if ($mysqli->query($sql) === true) {
 					$orderDetailArray[4] = $eventdate;
 					$orderDetailArray[5] = $pid;
 					$orderDetailArray[6] = NULL;
+					$orderDetailArray[7] = $enddate;
 					$num = count($_SESSION['orderArray']);
 					$_SESSION['orderArray'][$num] = $orderDetailArray;
 				} else {
@@ -73,6 +75,7 @@ if ($mysqli->query($sql) === true) {
 					$orderDetailArray[4] = $eventdate;
 					$orderDetailArray[5] = $pid;
 					$orderDetailArray[6] = NULL;
+					$orderDetailArray[7] = $enddate;
 					$orderArray = array();
 					$orderArray[0] = $orderDetailArray;
 					$_SESSION['orderArray'] = $orderArray;

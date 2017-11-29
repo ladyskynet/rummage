@@ -88,9 +88,13 @@ if (isset($_SESSION['id'])){
 								<label for="promoted">Promoted</label><br><br>';
 						}
 						
-						$date = str_replace(' ', 'T', $row["eventdate"]);
-						echo '<label for="eventdate">Date/Time</label>
-						<input type="datetime-local" name="eventdate" value="' . $date . '"/>';
+						$startdate = str_replace(' ', 'T', $row["eventdate"]);
+						echo '<label for="eventdate">Start Date/Time</label>
+						<input type="datetime-local" name="eventdate" value="' . $startdate . '"/>';
+
+						$enddate = str_replace(' ', 'T', $row["enddate"]);
+						echo '<label for="enddate">End Date/Time</label>
+						<input type="datetime-local" name="enddate" value="' . $enddate . '"/>';
 
 						$sql2 = "SELECT * FROM item WHERE sid='$id'";
 						$result2 = $mysqli->query($sql2);
@@ -157,7 +161,8 @@ if (isset($_SESSION['id'])){
 							} else {
 								echo '<li><a href="createSale.php">Create</a></li>';
 								echo '<li><a href="cart.php">My Cart</a></li>';
-							    echo '<li><a href="sales.php">Sales</a></li>';
+							    echo '<li><a href="sales.php">My Sales</a></li>';
+							    echo '<li><a href="orders.php">My Orders</a></li>';
 							}
 							echo '<li><a href="search.php">Search</a></li>';
 							echo '<li><a href="logout.php">Logout</a></li>';

@@ -12,11 +12,11 @@ if ($mysqli === false){
 	die("Connection failed: " . $mysqli->connect_error);
 }
 
-$firstname = $mysqli->real_escape_string($_REQUEST['firstname']);
-$lastname = $mysqli->real_escape_string($_REQUEST['lastname']);
-$username = $mysqli->real_escape_string($_REQUEST['username']);
+$firstname = ucwords($mysqli->real_escape_string($_REQUEST['firstname']));
+$lastname = ucwords($mysqli->real_escape_string($_REQUEST['lastname']));
+$username = ucwords($mysqli->real_escape_string($_REQUEST['username']));
 $password = $mysqli->real_escape_string($_REQUEST['password']);
-$email = $mysqli->real_escape_string($_REQUEST['email']);
+$email = ucwords($mysqli->real_escape_string($_REQUEST['email']));
 
 $sql = "SELECT * FROM user WHERE username='$username'";
 $result = $mysqli->query($sql);

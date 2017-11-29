@@ -59,7 +59,8 @@ session_start();
 										<th>State</th>
 										<th>Zip</th>
 										<th>Type</th>
-										<th>Event Date/Time</th>
+										<th>Event Start Date/Time</th>
+										<th>Event End Date/Time</th>
 										<th>Promoted</th>
 									</tr>
 								</thead>
@@ -80,7 +81,8 @@ session_start();
 							echo '<td>Single Family Rummage Sale</td>';
 						}
 						echo '<td>' . $row["eventdate"] . '</td>
-							<td>' . $approved . '</td></tr>
+							  <td>' . $row["enddate"] . '</td>
+							  <td>' . $approved . '</td></tr>
 							</tbody>
 					    </table>
 					</div>';
@@ -140,7 +142,8 @@ session_start();
 							} else {
 								echo '<li><a href="createSale.php">Create</a></li>';
 								echo '<li><a href="cart.php">My Cart</a></li>';
-							    echo '<li><a href="sales.php">Sales</a></li>';
+							    echo '<li><a href="sales.php">My Sales</a></li>';
+							    echo '<li><a href="orders.php">My Orders</a></li>';
 							}
 							echo '<li><a href="search.php">Search</a></li>';
 							echo '<li><a href="logout.php">Logout</a></li>';

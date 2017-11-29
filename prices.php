@@ -85,7 +85,8 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 							} else {
 								echo '<li><a href="createSale.php">Create</a></li>';
 								echo '<li><a href="cart.php">My Cart</a></li>';
-							    echo '<li><a href="sales.php">Sales</a></li>';
+							    echo '<li><a href="sales.php">My Sales</a></li>';
+							    echo '<li><a href="orders.php">My Orders</a></li>';
 							}
 							echo '<li><a href="search.php">Search</a></li>';
 							echo '<li><a href="logout.php">Logout</a></li>';

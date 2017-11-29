@@ -52,8 +52,12 @@ if (isset($_SESSION['id'])){
 								<input type="checkbox" id="promoted" name="promoted" value="y">
 								<label for="promoted">Promoted</label><br><br>
 
-								<label for="eventdate">Date/Time</label> 
+								<label for="eventdate">Start Date/Time</label> 
 								<input type="datetime-local" name="eventdate" required/>
+
+								<label for="enddate">Start Date/Time</label> 
+								<input type="datetime-local" name="enddate" required/>
+
 								<ul class="actions">
 									<li><input type="submit" class="button special" /></li>
 									<li><input type="reset" value="Reset" /></li>
@@ -77,7 +81,8 @@ if (isset($_SESSION['id'])){
 							} else {
 								echo '<li><a href="createSale.php">Create</a></li>';
 								echo '<li><a href="cart.php">My Cart</a></li>';
-							    echo '<li><a href="sales.php">Sales</a></li>';
+							    echo '<li><a href="sales.php">My Sales</a></li>';
+							    echo '<li><a href="orders.php">My Orders</a></li>';
 							}
 							echo '<li><a href="search.php">Search</a></li>';
 							echo '<li><a href="logout.php">Logout</a></li>';

@@ -54,7 +54,8 @@ if (isset($_SESSION['id'])){
 												<th>State</th>
 												<th>Zip</th>
 												<th>Type</th>
-												<th>Event Date</th>
+												<th>Event Start Date</th>
+												<th>Event End Date</th>
 												<th>Promoted</th>
 											</tr>
 										</thead>
@@ -85,6 +86,7 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td>";
+				 				echo '<td>' . $row['enddate'] . "</td>";
 				 				echo '<td>' . $approved . "</td>";
 				 				#echo '<td>$' . number_format(round($row2['total'],2), 2) . "</td></tr>";
 							}
@@ -111,7 +113,8 @@ if (isset($_SESSION['id'])){
 							} else {
 								echo '<li><a href="createSale.php">Create</a></li>';
 								echo '<li><a href="cart.php">My Cart</a></li>';
-							    echo '<li><a href="sales.php">Sales</a></li>';
+							    echo '<li><a href="sales.php">My Sales</a></li>';
+							    echo '<li><a href="orders.php">My Orders</a></li>';
 							}
 							echo '<li><a href="search.php">Search</a></li>';
 							echo '<li><a href="logout.php">Logout</a></li>';
