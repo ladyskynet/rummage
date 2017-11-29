@@ -69,7 +69,7 @@ if (isset($_SESSION['id'])){
 
 						echo '<label for="type2">Type</label>';
 						echo '<select name="type2">';
-						echo $row["type"];
+				
 						if ($row["type"] == 'c')
 						{
 
