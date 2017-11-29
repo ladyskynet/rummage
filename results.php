@@ -61,7 +61,6 @@ session_start();
 						$today = date("Y-m-d H:i:s");
 						
 						$sql = "SELECT * from yardsale where 1=1" . $string1 . $string2 . $string3 . $string4 . $string5 . " AND eventdate >='$today' order by approved desc";
-						echo $sql;
 					
 						$result = $mysqli->query($sql);
 
