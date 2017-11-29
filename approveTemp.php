@@ -53,7 +53,8 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 												<th>State</th>
 												<th>Zip</th>
 												<th>Type</th>
-												<th>Event Date</th>
+												<th>Event Start Date</th>
+												<th>Event End Date</th>
 												<th>User ID</th>
 											</tr>
 										</thead>
@@ -67,6 +68,7 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $row['type'] . "</td>";
 								echo '<td>' . $row['eventdate'] . "</td>";
+								echo '<td>' . $row['enddate'] . "</td>";
 								echo '<td>' . $row['uid'] . "</td></tr>";
 							}
 							echo '		</tbody>

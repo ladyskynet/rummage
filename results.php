@@ -77,7 +77,8 @@ session_start();
 												<th>Zip</th>
 												<th>Type</th>
 												<th>Promoted</th>
-												<th>Event Date</th>
+												<th>Event Start Date</th>
+												<th>Event End Date</th>
 											</tr>
 										</thead>
 										<tbody>';
@@ -100,7 +101,8 @@ session_start();
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
 								echo '<td>' . $approved . "</td>" ;
-				 				echo '<td>' . $row['eventdate'] . "</td></tr>";
+				 				echo '<td>' . $row['eventdate'] . "</td>";
+				 				echo '<td>' . $row['enddate'] . "</td></tr>";
 
 							}
 							echo '		</tbody>

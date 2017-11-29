@@ -50,7 +50,8 @@ if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 												<th>State</th>
 												<th>Zip</th>
 												<th>Type</th>
-												<th>Event Date</th>
+												<th>Event Start Date</th>
+												<th>Event End Date</th>
 												<th>Promoted</th>
 												<th>Projected Income</th>
 											</tr>
@@ -94,6 +95,7 @@ if ((isset($_SESSION['id'])) and ($_SESSION['type'] == 'i')){
 								echo '<td>' . $row['zip'] . "</td>";
 								echo '<td>' . $type . "</td>" ;
 				 				echo '<td>' . $row['eventdate'] . "</td>";
+				 				echo '<td>' . $row['enddate'] . "</td>";
 				 				echo '<td>' . $approved . "</td>";
 				 				echo '<td>$' . number_format(round($saleamount,2), 2) . "</td></tr>";
 							}
