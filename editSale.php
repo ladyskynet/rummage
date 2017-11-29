@@ -90,7 +90,7 @@ if (isset($_SESSION['id'])){
 						
 						$startdate = str_replace(' ', 'T', $row["eventdate"]);
 						echo '<label for="eventdate">Start Date/Time</label>
-						<input type="datetime-local" name="eventdate" value="' . $startdate . '"/>';
+						<input type="datetime-local" name="eventdate" value="' . $startdate . '"/><br>';
 
 						$enddate = str_replace(' ', 'T', $row["enddate"]);
 						echo '<label for="enddate">End Date/Time</label>
