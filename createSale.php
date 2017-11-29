@@ -53,7 +53,7 @@ if (isset($_SESSION['id'])){
 								<label for="promoted">Promoted</label><br><br>
 
 								<label for="eventdate">Start Date/Time</label> 
-								<input type="datetime-local" name="eventdate" required/>
+								<input type="datetime-local" name="eventdate" required/><br><br>
 
 								<label for="enddate">Start Date/Time</label> 
 								<input type="datetime-local" name="enddate" required/>
