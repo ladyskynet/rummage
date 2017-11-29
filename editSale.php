@@ -82,8 +82,15 @@ if (isset($_SESSION['id'])){
 
 						if (($row["promoted"] == 'y') && ($row["approved"] == 'y')){
 							echo "<p>This item has already been promoted and approved.</p>";
-						}
-						if ($row['promoted'] == 'n'){
+						} elseif ($row['promoted'] == 'a' && $row["approved"] == 'n'){
+							echo '<br><input type="checkbox" id="promoted" name="promoted" value="y" checked>
+								<label for="promoted">Promoted</label><br><br>
+								<p>This item is waiting for managerial approval.</p>';
+						} elseif ($row['promoted'] == 'c' && $row["approved"] == 'n'){
+							echo '<br><input type="checkbox" id="promoted" name="promoted" value="y" checked>
+								<label for="promoted">Promoted</label><br><br>
+								<p>This item is in your cart.</p>';
+						} else {
 							echo '<br><input type="checkbox" id="promoted" name="promoted" value="y">
 								<label for="promoted">Promoted</label><br><br>';
 						}
