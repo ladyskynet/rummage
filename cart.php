@@ -35,11 +35,10 @@ if (isset($_SESSION['id'])){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 
-						$sql = "select * from yardsale where promoted='c'";
-						$sql2 = "select * from item where promoted='c'";
+						$userid = $_SESSION['id'];
 
-						$result = $mysqli->query($sql);
-						$result2 = $mysqli->query($sql2);
+						$sql = "select * from yardsale where promoted='c' and uid='$userid'";
+						$sql2 = "select * from item where promoted='c' and uid='$userid'";
 
 						$result = $mysqli->query($sql);
 						$result2 = $mysqli->query($sql2);
