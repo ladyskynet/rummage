@@ -28,20 +28,21 @@ $pid = 1;
 $sql = "UPDATE item set name='$name', description='$description', price='$price' WHERE id='$id'"; 
 
 if ($mysqli->query($sql) === TRUE){
-
+	echo $sql . " " . $promoted;
 	if (($promoted == 'p') && ($approved == 'n')){
 
 		$sql3 = "UPDATE item set promoted='c' where id='$id'";
 		
 		if ($mysqli->query($sql3) === true){
 			echo "Item updated. 4";
-			header('Location: showItem.php?id=' . $id);
+			echo $sql3;
+			#header('Location: showItem.php?id=' . $id);
 		} else {
 			echo "Something went wrong.2" . $mysqli->error;
 		}
 	} else {
 		echo "Item updated. 7";
-		header('Location: showItem.php?id=' . $id);
+		#header('Location: showItem.php?id=' . $id);
 	}
 
 } else {
