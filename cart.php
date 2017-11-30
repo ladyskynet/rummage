@@ -35,47 +35,80 @@ if (isset($_SESSION['id'])){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 
-						if (count($_SESSION['orderArray']) > 0){
-							echo '<div class="table-wrapper">
-								<table class="alt">
-									<thead>
-										<tr>
-											<th>Sale ID</th>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Listing Price</th>
-											<th>Item ID</th>
-										</tr>
-									</thead>
-									<tbody>';
-							$userid = $_SESSION['id'];
-							$total = 0;
+						$sql = "select * from yardsale where promoted='c'";
+						$sql2 = "select * from item where promoted='c'";
 
-							foreach ($_SESSION['orderArray'] as $value) {
-				
-								$total += $value[3];
-					 			echo '<tr><td>' . $value[0] . "</td>"; # sid
-					 			echo '<td>' . $value[1] . "</td>"; # name
-					 			echo '<td>' . $value[2] . "</td>"; #desc
-					 			echo '<td>$' . number_format(round($value[3],2),2) . "</td>"; #cost
-					 			echo '<td>' . $value[4] . "</td></tr>"; # itemid
+						$result = $mysqli->query($sql);
+						$result2 = $mysqli->query($sql2);
+
+						$result = $mysqli->query($sql);
+						$result2 = $mysqli->query($sql2);
+
+						if ($result->num_rows > 0){
+
+							echo '<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Street</th>
+												<th>City</th>
+												<th>State</th>
+												<th>Zip</th>
+												<th>Type</th>
+												<th>Event Start Date</th>
+												<th>Event End Date</th>
+												<th>Discard</th>
+											</tr>
+										</thead>
+										<tbody>';
+							while($row = $result->fetch_array()) {
+								$saleid = $row['id'];
+					 			echo '<tr><td>' . $row['street'] . "</td>";
+								echo '<td>' . $row['city'] . "</td>";
+								echo '<td>' . $row['state'] . "</td>";
+								echo '<td>' . $row['zip'] . "</td>";
+								echo '<td>' . $row['type'] . "</td>";
+								echo '<td>' . $row['eventdate'] . "</td>";
+								echo '<td>' . $row['enddate'] . "</td>";
+								echo '<td><a href="deleteCartSaleAction.php?id=' . $saleid . ' ">Discard</a></td></tr>';
 							}
-							echo '	</tbody>
-								  	<tfoot>
-								  	  	<tr>
-											<td colspan="4"></td>
-											<td>$' . number_format(round($total,2),2) . '</td>
-									  	</tr>
-								  	</tfoot>
-								</table>
-							</div>';
+							echo '		</tbody>
+									</table>
+								</div>';
+						} else {
+							echo "<p>No sales in your cart right now.</p>";
+						}	
+
+						if ($result2->num_rows > 0){
+
+							echo '<br><br><div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Approve</th>
+												<th>Name</th>
+												<th>Description</th>
+												<th>Price</th>
+												<th>Discard</th>
+											</tr>
+										</thead>
+										<tbody>';
+							while($row2 = $result2->fetch_array()) {
+								$itemid = $row2['id'];
+					 			echo '<tr><td>' . $row2['name'] . "</td>";
+								echo '<td>' . $row2['description'] . "</td>";
+				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td>"
+				 				echo '<td><a href="deleteCartItemAction.php?id=' . $itemid . ' ">Discard</a></td>' . "</tr>";
+							}
+							echo '		</tbody>
+									</table>
+								</div>';
+						} else {
+							echo "<p>No sale items in your cart right now.</p>";
+						}	
+					 	
 						?>
 						<a href="order.php">Place Order</a><br><br><br>
-						<?php
-					} else {
-						echo "<p>Your cart is empty right now.</p>";
-					} 
-					?>
 				</div>
 				<nav>
 					<ul>

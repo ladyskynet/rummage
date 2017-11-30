@@ -35,8 +35,8 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 						$sql = "select * from yardsale where promoted='a'";
-						$sql = "select * from item where promoted='a'";
-						
+						$sql2 = "select * from item where promoted='a'";
+
 						$result = $mysqli->query($sql);
 						$result2 = $mysqli->query($sql2);
 

@@ -36,26 +36,6 @@ if ($mysqli->query($sql) === TRUE){
 		$saleid = $row2['sid'];
 
 		if (($promoted == 'p') && ($approved == 'n')){
-			if (isset($_SESSION['orderArray'])){
-				$orderDetailArray = array();
-				$orderDetailArray[0] = $saleid; #sid
-				$orderDetailArray[1] = $name . " Listing"; #name
-				$orderDetailArray[2] = $description; #description
-				$orderDetailArray[3] = 5.5; #cost of listing
-				$orderDetailArray[4] = $id; #itemid
-				$num = count($_SESSION['orderArray']); 
-				$_SESSION['orderArray'][$num] = $orderDetailArray;
-			} else {
-				$orderDetailArray = array();
-				$orderDetailArray[0] = $saleid; #sid
-				$orderDetailArray[1] = $name . " Listing"; #name
-				$orderDetailArray[2] = $description; #description
-				$orderDetailArray[3] = 5.5; #cost of listing
-				$orderDetailArray[4] = $id; #itemid
-				$orderArray = array();
-				$orderArray[0] = $orderDetailArray;
-				$_SESSION['orderArray'] = $orderArray;
-			}
 
 			$sql3 = "UPDATE item set promoted='c' where id='$id'";
 			

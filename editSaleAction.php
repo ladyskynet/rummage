@@ -53,27 +53,6 @@ if ($mysqli->query($sql) === TRUE){
 			$type = "Single Family Rummage Sale Listing";
 		}
 
-		if (isset($_SESSION['orderArray'])){
-			$orderDetailArray = array();
-			$orderDetailArray[0] = $saleid; #sid
-			$orderDetailArray[1] = $type; #name
-			$orderDetailArray[2] = $street . ", " . $city . ", " . $state . ", " . $zip; #description
-			$orderDetailArray[3] = 10.5; #cost of listing
-			$orderDetailArray[4] = "N/A"; #itemid
-			$num = count($_SESSION['orderArray']); 
-			$_SESSION['orderArray'][$num] = $orderDetailArray;
-		} else {
-			$orderDetailArray = array();
-			$orderDetailArray[0] = $saleid; #sid
-			$orderDetailArray[1] = $type; #name
-			$orderDetailArray[2] = $description; #description
-			$orderDetailArray[3] = 10.5; #cost of listing
-			$orderDetailArray[4] = "N/A"; #itemid
-			$orderArray = array();
-			$orderArray[0] = $orderDetailArray;
-			$_SESSION['orderArray'] = $orderArray;
-		}
-
 		$sql3 = "UPDATE yardsale set promoted='c' where id='$saleid'";
 
 		if ($mysqli->query($sql4) === true){

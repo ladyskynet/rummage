@@ -32,40 +32,53 @@ if ($mysqli->query($sql) === true){
 		$row2 = $result2->fetch_array();
 		$orid = $row2['newest'];
 
-		# For each of the values in order array, make an orderitem
-		foreach ($_SESSION['orderArray'] as $value) {
+		$sql3 = "SELECT * from yardsale where promoted='c' and uid='$userid'";
+		$sql4 = "SELECT * from item inner join yardsale where item.sid=yardsale.id where promoted='c' and yardsale.uid='$userid'";
 
-			$pid = $value[5];
-			$saleid = $value[0];
-			if ($pid == '2'){
-				$sql3 = "INSERT into orderitem (orid, pid, sid, cost) values ('$orid', '$pid', '$saleid', '10.5')";
-			} else {
-				$itemid = $value[6];
-				$sql3 = "INSERT into orderitem (orid, pid, sid, itemid, cost) values ('$orid', '$pid', '$saleid', '$itemid', '5.5')";
-			}
-			
-			if ($mysqli->query($sql3) === true){
-				# If orderitem is for an ITEM 
-				if ($pid == 1) {
-					$sql5 = "UPDATE item set promoted='a' where id='$itemid'";
-				# If orderitem is for a SALE
-				} else {
-					$sql5 = "UPDATE yardsale set promoted='a' where id='$saleid'";
-				}
+		$result3 = $mysqli->query($sql3);
+		$result4 = $mysqli->query($sql4);
+
+		if ($result3->num_rows > 0){
+			# For each of the values in order array, make an orderitem
+			while ($row3 = $result3->fetch_array()) {
+				$saleid = $row3['id'];
+				$sql5 = "INSERT into orderitem (orid, pid, sid, cost) values ('$orid', '2', '$saleid', '10.5')";
 				if ($mysqli->query($sql5) === true){
-					$url = 'showOrder.php?id=' . $orid;
-					echo "Order placed.";
-					# Reset orderArray so cart will be empty
-					$_SESSION['orderArray'] = array();
-					header('Location:' . $url );
+					$sql6 = "UPDATE yardsale set promoted='a' where id='$saleid'";
+					if ($mysqli->query($sql6) === true){
+						echo "It went okay.";
+					} else {
+						echo "Something went wrong." . $mysqli->error;
+					}
 
 				} else {
-					echo "1) Something went wrong." . $mysqli->error;
+					echo "Something went wrong." . $mysqli->error;
 				}
-			} else {
-				echo "2) Something went wrong. " . $mysqli->error;
+
 			}
 		}
+		if ($result4->num_rows > 0){
+			# For each of the values in order array, make an orderitem
+			while ($row4 = $result4->fetch_array()) {
+				$saleid = $row4['id'];
+				$sql7 =  "INSERT into orderitem (orid, pid, sid, itemid, cost) values ('$orid', '1', '$saleid', '$itemid', '5.5')";
+				if ($mysqli->query($sql7) === true){
+					$sql8 = "UPDATE item set promoted='a' where id='$itemid'";
+					$result8 = $mysqli->query($sql8);
+					if ($mysqli->query($sql8) === true){
+						echo "It went okay.";
+					} else {
+						echo "Something went wrong." . $mysqli->error;
+					}
+
+				} else {
+					echo "Something went wrong." . $mysqli->error;
+				}
+			}
+		}
+		$url = 'showOrder.php?id=' . $orid;
+		echo "Order placed.";
+		header('Location:' . $url );
 	} else {
 		echo "3) Something went wrong. " . $mysqli->error;
 	}
