@@ -103,9 +103,7 @@ if (isset($_SESSION['id'])){
 							echo '		</tbody>
 									</table>
 								</div>';
-						} else {
-							echo "<p>No sale items in your cart right now.</p>";
-						}	
+						} 	
 					 	
 						?>
 						<a href="order.php">Place Order</a><br><br><br>
