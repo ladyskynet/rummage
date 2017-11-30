@@ -61,7 +61,6 @@ if (isset($_SESSION['id'])){
 										</thead>
 										<tbody>';
 							while($row = $result->fetch_array()) {
-								$total += 10.5;
 								$saleid = $row['id'];
 					 			echo '<tr><td>' . $row['street'] . "</td>";
 								echo '<td>' . $row['city'] . "</td>";
@@ -72,11 +71,15 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $row['enddate'] . "</td>";
 								echo '<td><a href="deleteCartSaleAction.php?id=' . $saleid . ' ">Discard</a></td></tr>';
 							}
+
+							$sql3 = "select SUM(amount) as total from price inner join yardsale on yardsale.pid=price.id where promoted='c' and uid='$userid' group by uid";
+							$result3 = $mysqli->query($sql3);
+							$row3 = $result3.fetch_array();
 							echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
 											<td colspan="6"></td>
-											<td>$' . number_format(round($total,2),2) . '</td>
+											<td>$' . number_format(round($row3["total"],2),2) . '</td>
 									  	</tr>
 								  	</tfoot>
 								</table>
@@ -107,11 +110,15 @@ if (isset($_SESSION['id'])){
 				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td>";
 				 				echo '<td><a href="deleteCartItemAction.php?id=' . $itemid . ' ">Discard</a></td></tr>';
 							}
+							
+							$sql4 = "select SUM(amount) as total from price inner join item on item.pid=price.id where promoted='c' and uid='$userid' group by uid";
+							$result4 = $mysqli->query($sql4);
+							$row4 = $result4.fetch_array();
 							echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
-											<td colspan="3"></td>
-											<td>$' . number_format(round($total,2),2) . '</td>
+											<td colspan="6"></td>
+											<td>$' . number_format(round($row4["total"],2),2) . '</td>
 									  	</tr>
 								  	</tfoot>
 								</table>
