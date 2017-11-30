@@ -69,7 +69,7 @@ session_start();
 						echo '<td>' . $approved . '</td>';
 								
 						echo '<td>$' . number_format(round($row["price"],2),2) . '</td>';
-						echo '</td>' . $row["promoted"] . '</td></tr>;';
+						echo '</td>' . $row["promoted"] . '</td></tr>';
 
 						echo '</tbody>
 					    </table>
