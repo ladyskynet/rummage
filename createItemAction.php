@@ -44,7 +44,7 @@ if($mysqli->query($sql2) === true){
 				$url = 'showSale.php?id=' . $saleid;
 				header('Location:' . $url );
 			} else {
-				echo "Something went wrong." . $mysqli->error;
+				echo "Something went wrong4. " . $mysqli->error;
 			}
 		} else {
 			echo "Item created";
@@ -53,11 +53,11 @@ if($mysqli->query($sql2) === true){
 		}
 
 	} else {
-		echo "Something went wrong. " . $mysqli->error;
+		echo "Something went wrong5. " . $mysqli->error;
 	}
 
 } else {
-	echo "Something went wrong. " . $mysqli->error;
+	echo "Something went wrong6. " . $mysqli->error;
 }
 $mysqli->close();
 ?>
