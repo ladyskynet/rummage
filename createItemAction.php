@@ -25,10 +25,12 @@ if ($promoted == ""){
 $pid = 1;
 
 $sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted, approved, uid) VALUES ('$name', '$description', '$price', '$pid', '$saleid', '$promoted', 'n', '$userid')";
+echo $sql2 . "<br>";
 
 if($mysqli->query($sql2) === TRUE){
 	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description' and price='$price'";
 	$result3 = $mysqli->query($sql3);
+	echo $sql3;
 
 	if ($result3->num_rows > 0){
 
