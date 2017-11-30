@@ -56,6 +56,7 @@ if (isset($_SESSION['id'])){
 												<th>Type</th>
 												<th>Event Start Date</th>
 												<th>Event End Date</th>
+												<th>Approved</th>
 												<th>Promoted</th>
 											</tr>
 										</thead>
@@ -67,9 +68,6 @@ if (isset($_SESSION['id'])){
 									$approved = "Yes";
 								}
 								$id = $row['id'];
-								#$sql2 = "SELECT SUM(price) as total FROM item WHERE sid='$id'";
-								#$result2 = $mysqli->query($sql2);
-								#$row2 = $result2->fetch_array();
 
 								if ($row['type'] == 's'){
 									$type = "Single Family Rummage Sale";
@@ -88,7 +86,7 @@ if (isset($_SESSION['id'])){
 				 				echo '<td>' . $row['eventdate'] . "</td>";
 				 				echo '<td>' . $row['enddate'] . "</td>";
 				 				echo '<td>' . $approved . "</td>";
-				 				#echo '<td>$' . number_format(round($row2['total'],2), 2) . "</td></tr>";
+				 				echo '<td>' . $promoted . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
