@@ -25,7 +25,7 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>My Cart</h2>
+				<h2>My Rummage Sales</h2>
 				<div class="content">
 					<br>
 						<?php
@@ -35,47 +35,45 @@ if (isset($_SESSION['id'])){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
 
-						if (count($_SESSION['orderArray']) > 0){
-							echo '<div class="table-wrapper">
-								<table class="alt">
-									<thead>
-										<tr>
-											<th>Sale ID</th>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Listing Price</th>
-											<th>Item ID</th>
-										</tr>
-									</thead>
-									<tbody>';
-							$userid = $_SESSION['id'];
-							$total = 0;
+						$userid = $_SESSION['id'];
+						$sql = "SELECT * FROM payment WHERE uid='$userid'";
+						$result = $mysqli->query($sql);
 
-							foreach ($_SESSION['orderArray'] as $value) {
-				
-								$total += $value[3];
-					 			echo '<tr><td>' . $value[0] . "</td>"; # sid
-					 			echo '<td>' . $value[1] . "</td>"; # name
-					 			echo '<td>' . $value[2] . "</td>"; #desc
-					 			echo '<td>' . number_format(round($value[3],2),2) #cost
-					 			echo '<td>' . $value[4] . "</td></tr>"; # itemid
+						if ($result->num_rows > 0){
+
+							echo '<div class="table-wrapper">
+									<table class="alt">
+										<thead>
+											<tr>
+												<th>Show</th>
+												<th>Order ID</th>
+												<th>Order Date</th>
+												<th>Total</th>
+											</tr>
+										</thead>
+										<tbody>';
+							while($row = $result->fetch_array()) {
+								$id = $row['id'];
+
+								$sql2 = "SELECT SUM(cost) as total from orderitem inner join payment where orderitem.orid=payment.id and payment.id='$id'";
+								$result2 = $mysqli->query($sql2);
+								if ($result2->num_rows > 0 ){
+									$row2 = $result2->fetch_array();
+									echo '<tr><td><a href="showOrder.php?id=' . $id . ' ">Show</a></td>';
+									echo '<td>' . $id . "</td>";
+									echo '<td>' . $row['datepurc'] . "</td>";
+									echo '<td>' . $row['cost'] . "</td>";
+				 					echo '<td>$' . number_format(round($row2["total"],2),2) . '</td></tr>';
+								}
 							}
-							echo '	</tbody>
-								  	<tfoot>
-								  	  	<tr>
-											<td colspan="4"></td>
-											<td>$' . number_format(round($total,2),2) . '</td>
-									  	</tr>
-								  	</tfoot>
-								</table>
-							</div>';
+							echo '		</tbody>
+									</table>
+								</div>';
+						} else {
+							echo "<p>You don't currenntly have any rummage sales to display.</p>";
+						}	
+					 	
 						?>
-						<a href="order.php">Place Order</a><br><br><br>
-						<?php
-					} else {
-						echo "<p>Your cart is empty right now.</p>";
-					} 
-					?>
 				</div>
 				<nav>
 					<ul>
@@ -122,5 +120,6 @@ if (isset($_SESSION['id'])){
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
 	</body>
 </html>

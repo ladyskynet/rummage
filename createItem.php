@@ -54,7 +54,7 @@ if (isset($_SESSION['id'])){
 								
 							echo '<label for="price">Price</label>';
 							echo '<input type="text" name="price"/><br>';
-							echo '<input type="checkbox" id="promoted" name="promoted" value="y">
+							echo '<input type="checkbox" id="promoted" name="promoted" value="c">
 									<label for="promoted">Promoted</label>';
 						
 							echo '<br><ul class="actions">';

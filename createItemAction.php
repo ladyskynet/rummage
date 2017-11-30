@@ -20,9 +20,10 @@ $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 if ($promoted == ""){
 	$promoted = 'n';
 }
+
 $pid = 1;
 
-$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted, approved) VALUES ('$name', '$description', '$price', '$pid', '$saleid', 'n', 'n')";
+$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted, approved) VALUES ('$name', '$description', '$price', '$pid', '$saleid', '$promoted', 'n')";
 
 if($mysqli->query($sql2) === true){
 	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description'";
@@ -33,36 +34,42 @@ if($mysqli->query($sql2) === true){
 		$row3 = $result3->fetch_array();
 		$approved = $row3['approved'];
 
-		if (($promoted == 'y') && ($approved == 'n')){
+		if (($promoted == 'p') && ($approved == 'n')){
 			if (isset($_SESSION['orderArray'])){
 				$orderDetailArray = array();
-				$orderDetailArray[0] = $saleid;
-				$orderDetailArray[1] = $_SESSION['id'];
-				$orderDetailArray[2] = $name . " Listing";
-				$orderDetailArray[3] = $description;
-				$orderDetailArray[4] = $price;
-				$orderDetailArray[5] = $pid;
-				$orderDetailArray[6] = $row3['id'];
-				$num = count($_SESSION['orderArray']);
+				$orderDetailArray[0] = $saleid; #sid
+				$orderDetailArray[1] = $name . " Listing"; #name
+				$orderDetailArray[2] = $description; #description
+				$orderDetailArray[3] = 5.5; #cost of listing
+				$orderDetailArray[4] = $row3['id']; #itemid
+				$num = count($_SESSION['orderArray']); 
 				$_SESSION['orderArray'][$num] = $orderDetailArray;
 			} else {
 				$orderDetailArray = array();
-				$orderDetailArray[0] = $saleid;
-				$orderDetailArray[1] = $_SESSION['id'];
-				$orderDetailArray[2] = $name . " Listing";
-				$orderDetailArray[3] = $description;
-				$orderDetailArray[4] = $price;
-				$orderDetailArray[5] = $pid;
-				$orderDetailArray[6] = $row3['id'];
+				$orderDetailArray[0] = $saleid; #sid
+				$orderDetailArray[1] = $name . " Listing"; #name
+				$orderDetailArray[2] = $description; #description
+				$orderDetailArray[3] = 5.5; #cost of listing
+				$orderDetailArray[4] = $row3['id']; #itemid
 				$orderArray = array();
 				$orderArray[0] = $orderDetailArray;
 				$_SESSION['orderArray'] = $orderArray;
 			}
-		}
 
-		$url = 'showSale.php?id=' . $saleid;
-		header('Location:' . $url );
-		echo "Rummage sale item created.";
+			$sql4 = "UPDATE item set promoted='c' where id='$id'";
+			
+			if ($mysqli->query($sql4) === true){
+				echo "Item created";
+				$url = 'showSale.php?id=' . $saleid;
+				header('Location:' . $url );
+			} else {
+				echo "Something went wrong." . $mysqli->error;
+			}
+		} else {
+			echo "Item created";
+			$url = 'showSale.php?id=' . $saleid;
+			header('Location:' . $url );
+		}
 
 	} else {
 		echo "Something went wrong. " . $mysqli->error;

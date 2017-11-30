@@ -64,14 +64,19 @@ if (isset($_SESSION['id'])){
 						echo '<label for="price">Price</label>
 						<input type="text" name="price" value="' . number_format(round($row["price"],2),2) . '"/>';
 
-						if (($row["promoted"] == 'y') && ($row["approved"] == 'y')){
+						if (($row["promoted"] == 'f') && ($row["approved"] == 'y')){
 							echo "<p>This item has already been promoted and approved.</p>";
-						}
-						if ($row['promoted'] == 'n'){
-							echo '<div class="field half">
-								<input type="checkbox" id="promoted" name="promoted" value="y">
-								<label for="promoted">Promoted</label>
-							</div><br><br><br>';
+						} elseif ($row['promoted'] == 'a' && $row["approved"] == 'n'){
+							echo '<br><input type="checkbox" id="promoted" name="promoted" value="a" checked>
+								<label for="promoted">Promoted</label><br><br>
+								<p>This item is waiting for managerial approval.</p>';
+						} elseif ($row['promoted'] == 'c' && $row["approved"] == 'n'){
+							echo '<br><input type="checkbox" id="promoted" name="promoted" value="c" checked>
+								<label for="promoted">Promoted</label><br><br>
+								<p>This item is in your cart.</p>';
+						} else {
+							echo '<br><input type="checkbox" id="promoted" name="promoted" value="p">
+								<label for="promoted">Promoted</label><br><br>';
 						}
 					}
 					$mysqli->close();

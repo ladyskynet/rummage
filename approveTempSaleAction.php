@@ -14,22 +14,14 @@ if ($mysqli === false){
 
 $saleid = $mysqli->real_escape_string($_REQUEST['id']);
 
-$sql = "UPDATE yardsale set promoted='y', approved='y' WHERE id='$saleid'"; 
+$sql = "UPDATE yardsale set promoted='f', approved='y' WHERE id='$saleid'"; 
 
 if ($mysqli->query($sql) === TRUE){
-	
-	$sql2 = "DELETE FROM temp WHERE sid='$saleid' and itemid is NULL"; 
-	echo $sql2;
-	if ($mysqli->query($sql2) === TRUE){
-		echo "Sale updated.";
-		header('Location: showSale.php?id=' . $saleid);
-	} else {
-		echo "Something went wrong." . $mysqli->error;
-	}
+	echo "Sale updated.";
+	header('Location: showSale.php?id=' . $saleid);
 }  
 else {
 	echo "Something went wrong." . $mysqli->error;
-	#header('Location: welcome.php#sales');
 }
 
 $mysqli->close();

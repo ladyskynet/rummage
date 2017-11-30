@@ -47,10 +47,10 @@ if ($mysqli->query($sql) === true){
 			if ($mysqli->query($sql3) === true){
 				# If orderitem is for an ITEM 
 				if ($pid == 1) {
-					$sql5 = "INSERT into temp (orid, sid, itemid) values ('$orid', '$saleid', '$itemid')";
+					$sql5 = "UPDATE item set promoted='a' where id='$itemid'";
 				# If orderitem is for a SALE
 				} else {
-					$sql5 = "INSERT into temp (orid, sid) values ('$orid', '$saleid')";
+					$sql5 = "UPDATE yardsale set promoted='a' where id='$saleid'";
 				}
 				if ($mysqli->query($sql5) === true){
 					$url = 'showOrder.php?id=' . $orid;

@@ -34,10 +34,9 @@ if (isset($_SESSION['id']) && $_SESSION['type'] == 'i'){
 						if ($mysqli === false){
 							die("ERROR: Could not connect. " . $mysqli->connect_error);
 						}
-
-						$sql = "select * from yardsale where id in (select sid from temp where itemid is null)";
-						$sql2 = "select * from item where id in (select itemid from temp)";
-					
+						$sql = "select * from yardsale where promoted='a'";
+						$sql = "select * from item where promoted='a'";
+						
 						$result = $mysqli->query($sql);
 						$result2 = $mysqli->query($sql2);
 

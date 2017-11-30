@@ -35,44 +35,47 @@ if ($mysqli->query($sql) === TRUE){
 		$row2 = $result2->fetch_array();
 		$saleid = $row2['sid'];
 
-		if ($promoted == 'y'){
+		if (($promoted == 'p') && ($approved == 'n')){
 			if (isset($_SESSION['orderArray'])){
 				$orderDetailArray = array();
-				$orderDetailArray[0] = $saleid;
-				$orderDetailArray[1] = $userid;
-				$orderDetailArray[2] = $name . " Listing";
-				$orderDetailArray[3] = $description;
-				$orderDetailArray[4] = $price;
-				$orderDetailArray[5] = $pid;
-				$orderDetailArray[6] = $id;
-				$num = count($_SESSION['orderArray']);
+				$orderDetailArray[0] = $saleid; #sid
+				$orderDetailArray[1] = $name . " Listing"; #name
+				$orderDetailArray[2] = $description; #description
+				$orderDetailArray[3] = 5.5; #cost of listing
+				$orderDetailArray[4] = $id; #itemid
+				$num = count($_SESSION['orderArray']); 
 				$_SESSION['orderArray'][$num] = $orderDetailArray;
 			} else {
 				$orderDetailArray = array();
-				$orderDetailArray[0] = $saleid;
-				$orderDetailArray[1] = $_SESSION['id'];
-				$orderDetailArray[2] = $name . " Listing";
-				$orderDetailArray[3] = $description;
-				$orderDetailArray[4] = $price;
-				$orderDetailArray[5] = $pid;
-				$orderDetailArray[6] = $id;
+				$orderDetailArray[0] = $saleid; #sid
+				$orderDetailArray[1] = $name . " Listing"; #name
+				$orderDetailArray[2] = $description; #description
+				$orderDetailArray[3] = 5.5; #cost of listing
+				$orderDetailArray[4] = $id; #itemid
 				$orderArray = array();
 				$orderArray[0] = $orderDetailArray;
 				$_SESSION['orderArray'] = $orderArray;
 			}
-		}
 
-		echo "Item updated.";
-		header('Location: showItem.php?id=' . $id);
+			$sql3 = "UPDATE item set promoted='c' where id='$id'";
+			
+			if ($mysqli->query($sql4) === true){
+				echo "Item updated.";
+				header('Location: showItem.php?id=' . $id);
+			} else {
+				echo "Something went wrong." . $mysqli->error;
+			}
+		} else {
+			echo "Item updated";
+			header('Location: showItem.php?id=' . $id);
+		}
 
 	} else {
 		echo "Something went wrong." . $mysqli->error;
-		#header('Location: welcome.php#profile');
 	}
 
 } else {
 	echo "Something went wrong." . $mysqli->error;
-	#header('Location: welcome.php#profile');
 }
 
 $mysqli->close();

@@ -22,18 +22,19 @@ $userid = $_SESSION['id'];
 $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
 $pid = 2;
 
+# If promoted was not selected, set it to n for no
 if ($promoted == ""){
 	$promoted = 'n';
 }
+# Otherwise, it's c for cart
 
-$sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, enddate, promoted, pid, approved) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', '$enddate', 'y', '$pid', 'n')"; 
+$sql = "INSERT INTO yardsale (street, city, state, zip, type, uid, eventdate, enddate, promoted, pid, approved) VALUES ('$street', '$city', '$state', '$zip', '$type', '$userid', '$eventdate', '$enddate', '$promoted', '$pid', 'n')"; 
 
 if ($mysqli->query($sql) === true) {
 	
 	$sql2 = "SELECT MAX(id) as newest from yardsale";
 	$result2 = $mysqli->query($sql2);
 	if ($result2->num_rows == 1){
-		
 		
 		$row2 = $result2->fetch_array();
 		$newsaleid = $row2['newest'];
@@ -45,8 +46,8 @@ if ($mysqli->query($sql) === true) {
 
 			$row3 = $result3->fetch_array();
 			$approved = $row3['approved'];
-			echo $approved . " " . $promoted;
-			if (($promoted == 'y') and ($approved == 'n')){
+
+			if ($promoted == 'p' && $approved == 'n'){
 				if ($type == 'c'){
 					$type = "Community Rummage Sale Listing";
 				} else {
@@ -54,35 +55,38 @@ if ($mysqli->query($sql) === true) {
 				}
 
 				if (isset($_SESSION['orderArray'])){
-				
 					$orderDetailArray = array();
-					$orderDetailArray[0] = $newsaleid;
-					$orderDetailArray[1] = $userid;
-					$orderDetailArray[2] = $type;
-					$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
-					$orderDetailArray[4] = $eventdate;
-					$orderDetailArray[5] = $pid;
-					$orderDetailArray[6] = NULL;
-					$orderDetailArray[7] = $enddate;
-					$num = count($_SESSION['orderArray']);
+					$orderDetailArray[0] = $saleid; #sid
+					$orderDetailArray[1] = $type; #name
+					$orderDetailArray[2] = $street . ", " . $city . ", " . $state . ", " . $zip; #description
+					$orderDetailArray[3] = 10.5; #cost of listing
+					$orderDetailArray[4] = "N/A"; #itemid
+					$num = count($_SESSION['orderArray']); 
 					$_SESSION['orderArray'][$num] = $orderDetailArray;
 				} else {
 					$orderDetailArray = array();
-					$orderDetailArray[0] = $newsaleid;
-					$orderDetailArray[1] = $userid;
-					$orderDetailArray[2] = $type;
-					$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
-					$orderDetailArray[4] = $eventdate;
-					$orderDetailArray[5] = $pid;
-					$orderDetailArray[6] = NULL;
-					$orderDetailArray[7] = $enddate;
+					$orderDetailArray[0] = $saleid; #sid
+					$orderDetailArray[1] = $type; #name
+					$orderDetailArray[2] = $description; #description
+					$orderDetailArray[3] = 10.5; #cost of listing
+					$orderDetailArray[4] = "N/A"; #itemid
 					$orderArray = array();
 					$orderArray[0] = $orderDetailArray;
 					$_SESSION['orderArray'] = $orderArray;
 				}
+
+				$sql4 = "UPDATE yardsale set promoted='c' where id='$saleid'";
+				if ($mysqli->query($sql4) === true){
+					echo "Rummage sale created";
+					header('Location: sales.php');
+				} else {
+					echo "Something went wrong." . $mysqli->error;
+				}
+			} else {
+				echo "Rummage sale created.";
+				header('Location: sales.php');
 			}
-			echo "Rummage sale created.";
-			header('Location: sales.php');
+			
 		} else {
 			echo "Something went wrong." . $mysqli->error;
 		}

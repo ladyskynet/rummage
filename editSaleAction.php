@@ -45,45 +45,50 @@ if ($mysqli->query($sql) === TRUE){
 		echo "Something went wrong.";
 		header('Location: welcome.php#profile');
 	}
-	if ($promoted == 'y' && $approved == 'n'){
+
+	if ($promoted == 'p' && $approved == 'n'){
 		if ($type == 'c'){
 			$type = "Community Rummage Sale Listing";
 		} else {
 			$type = "Single Family Rummage Sale Listing";
 		}
+
 		if (isset($_SESSION['orderArray'])){
-				
 			$orderDetailArray = array();
-			$orderDetailArray[0] = $saleid;
-			$orderDetailArray[1] = $userid;
-			$orderDetailArray[2] = $type;
-			$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
-			$orderDetailArray[4] = $eventdate;
-			$orderDetailArray[5] = $pid;
-			$orderDetailArray[6] = NULL;
-			$orderDetailArray[7] = $enddate;
-			$num = count($_SESSION['orderArray']);
+			$orderDetailArray[0] = $saleid; #sid
+			$orderDetailArray[1] = $type; #name
+			$orderDetailArray[2] = $street . ", " . $city . ", " . $state . ", " . $zip; #description
+			$orderDetailArray[3] = 10.5; #cost of listing
+			$orderDetailArray[4] = "N/A"; #itemid
+			$num = count($_SESSION['orderArray']); 
 			$_SESSION['orderArray'][$num] = $orderDetailArray;
 		} else {
 			$orderDetailArray = array();
-			$orderDetailArray[0] = $saleid;
-			$orderDetailArray[1] = $userid;
-			$orderDetailArray[2] = $type;
-			$orderDetailArray[3] = $street . ", " . $city . ", " . $state . ", " . $zip;
-			$orderDetailArray[4] = $eventdate;
-			$orderDetailArray[5] = $pid;
-			$orderDetailArray[6] = NULL;
-			$orderDetailArray[7] = $enddate;
+			$orderDetailArray[0] = $saleid; #sid
+			$orderDetailArray[1] = $type; #name
+			$orderDetailArray[2] = $description; #description
+			$orderDetailArray[3] = 10.5; #cost of listing
+			$orderDetailArray[4] = "N/A"; #itemid
 			$orderArray = array();
 			$orderArray[0] = $orderDetailArray;
 			$_SESSION['orderArray'] = $orderArray;
 		}
+
+		$sql3 = "UPDATE yardsale set promoted='c' where id='$saleid'";
+
+		if ($mysqli->query($sql4) === true){
+			echo "Rummage sale created";
+			header('Location: showSale.php?id=' . $saleid);
+		} else {
+			echo "Something went wrong." . $mysqli->error;
+		}
+	} else {
+		echo "Rummage sale created";
+		header('Location: showSale.php?id=' . $saleid);
 	}
-	header('Location: showSale.php?id=' . $saleid);
-} 
-else {
+	
+} else {
 	echo "Something went wrong." . $mysqli->error;
-	#header('Location: welcome.php#sales');
 }
 
 $mysqli->close();
