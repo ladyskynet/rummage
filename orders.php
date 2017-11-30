@@ -62,7 +62,6 @@ if (isset($_SESSION['id'])){
 									echo '<tr><td><a href="showOrder.php?id=' . $id . ' ">Show</a></td>';
 									echo '<td>' . $id . "</td>";
 									echo '<td>' . $row2['datepurc'] . "</td>";
-									echo '<td>' . $row2['cost'] . "</td>";
 				 					echo '<td>$' . number_format(round($row2["total"],2),2) . '</td></tr>';
 								}
 							}
