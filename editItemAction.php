@@ -26,12 +26,13 @@ if ($promoted == ""){
 $pid = 1;
 
 $sql = "UPDATE item set name='$name', description='$description', price='$price' WHERE id='$id'"; 
+
 if ($mysqli->query($sql) === TRUE){
 
 	$sql2 = "SELECT sid from item where id='$id'";
 	$result2 = $mysqli->query($sql2);
 
-	if ($result2->num_rows == 1){
+	if ($result2->num_rows > 1){
 		$row2 = $result2->fetch_array();
 		$saleid = $row2['sid'];
 
@@ -40,14 +41,14 @@ if ($mysqli->query($sql) === TRUE){
 			$sql3 = "UPDATE item set promoted='c' where id='$id'";
 			
 			if ($mysqli->query($sql3) === true){
-				echo "Item updated.";
-				header('Location: showItem.php?id=' . $id);
+				echo "Item updated. 4";
+				#header('Location: showItem.php?id=' . $id);
 			} else {
 				echo "Something went wrong." . $mysqli->error;
 			}
 		} else {
-			echo "Item updated";
-			header('Location: showItem.php?id=' . $id);
+			echo "Item updated. 7";
+			#header('Location: showItem.php?id=' . $id);
 		}
 
 	} else {
