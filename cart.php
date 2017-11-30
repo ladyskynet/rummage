@@ -73,13 +73,13 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $row['eventdate'] . "</td>";
 								echo '<td>' . $row['enddate'] . "</td>";
 								echo '<td><a href="deleteCartSaleAction.php?id=' . $saleid . ' ">Discard</a></td>';
-								echo '<td>$' . number_format(round($row['amount'],2),2) . '</td></tr>';
+								echo '<td><strong>$' . number_format(round($row['amount'],2),2) . '</strong></td></tr>';
 							}
 
 							echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
-											<td colspan="6"></td>
+											<td colspan="8"></td>
 											<td><strong>$' . number_format(round($total,2),2) . '</strong></td>
 									  	</tr>
 								  	</tfoot>
@@ -122,7 +122,7 @@ if (isset($_SESSION['id'])){
 								  	<tfoot>
 								  	  	<tr>
 											<td colspan="4"></td>
-											<td>$' . number_format(round($total,2),2) . '</td>
+											<td><strong>$' . number_format(round($total,2),2) . '</strong></td>
 									  	</tr>
 								  	</tfoot>
 								</table>
