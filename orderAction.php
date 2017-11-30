@@ -61,8 +61,8 @@ if ($mysqli->query($sql) === true){
 		if ($result4->num_rows > 0){
 			# For each of the values in order array, make an orderitem
 			while ($row4 = $result4->fetch_array()) {
-				$itemid = $row4['item.id'];
-				$saleid = $row4['item.sid'];
+				$itemid = $row4['id'];
+				$saleid = $row4['sid'];
 				$sql7 =  "INSERT into orderitem (orid, pid, sid, itemid, cost) values ('$orid', '1', '$saleid', '$itemid', '1.5')";
 				echo $sql7 . " <br>";
 				if ($mysqli->query($sql7) === true){
