@@ -61,8 +61,8 @@ if (isset($_SESSION['id'])){
 									$row2 = $result2->fetch_array();
 									echo '<tr><td><a href="showOrder.php?id=' . $id . ' ">Show</a></td>';
 									echo '<td>' . $id . "</td>";
-									echo '<td>' . $row['datepurc'] . "</td>";
-									echo '<td>' . $row['cost'] . "</td>";
+									echo '<td>' . $row2['datepurc'] . "</td>";
+									echo '<td>' . $row2['cost'] . "</td>";
 				 					echo '<td>$' . number_format(round($row2["total"],2),2) . '</td></tr>';
 								}
 							}
