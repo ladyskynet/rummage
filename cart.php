@@ -44,7 +44,7 @@ if (isset($_SESSION['id'])){
 						$result2 = $mysqli->query($sql2);
 
 						if ($result->num_rows > 0){
-
+							$total = 0;
 							echo '<h3>Sales</h3><div class="table-wrapper">
 									<table class="alt">
 										<thead>
@@ -61,6 +61,7 @@ if (isset($_SESSION['id'])){
 										</thead>
 										<tbody>';
 							while($row = $result->fetch_array()) {
+								$total += 10.5;
 								$saleid = $row['id'];
 					 			echo '<tr><td>' . $row['street'] . "</td>";
 								echo '<td>' . $row['city'] . "</td>";
@@ -71,14 +72,21 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $row['enddate'] . "</td>";
 								echo '<td><a href="deleteCartSaleAction.php?id=' . $saleid . ' ">Discard</a></td></tr>';
 							}
-							echo '		</tbody>
-									</table>
-								</div>';
+							echo '	</tbody>
+								  	<tfoot>
+								  	  	<tr>
+											<td colspan="4"></td>
+											<td>$' . number_format(round($total,2),2) . '</td>
+									  	</tr>
+								  	</tfoot>
+								</table>
+							</div>';
 						} else {
 							echo "<p>No sales in your cart right now.</p>";
 						}	
 
 						if ($result2->num_rows > 0){
+							$total = 0;
 
 							echo '<br><br><h3>Items</h3><div class="table-wrapper">
 									<table class="alt">
@@ -92,15 +100,22 @@ if (isset($_SESSION['id'])){
 										</thead>
 										<tbody>';
 							while($row2 = $result2->fetch_array()) {
+								$total += 5.5;
 								$itemid = $row2['id'];
 					 			echo '<tr><td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
 				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td>";
 				 				echo '<td><a href="deleteCartItemAction.php?id=' . $itemid . ' ">Discard</a></td></tr>';
 							}
-							echo '		</tbody>
-									</table>
-								</div>';
+							echo '	</tbody>
+								  	<tfoot>
+								  	  	<tr>
+											<td colspan="4"></td>
+											<td>$' . number_format(round($total,2),2) . '</td>
+									  	</tr>
+								  	</tfoot>
+								</table>
+							</div>';
 						} 	
 					 	
 						?>
