@@ -86,7 +86,7 @@ if (isset($_SESSION['id'])){
 				 				echo '<td>' . $row['eventdate'] . "</td>";
 				 				echo '<td>' . $row['enddate'] . "</td>";
 				 				echo '<td>' . $approved . "</td>";
-				 				echo '<td>' . $promoted . "</td></tr>";
+				 				echo '<td>' . $row['promoted'] . "</td></tr>";
 							}
 							echo '		</tbody>
 									</table>
