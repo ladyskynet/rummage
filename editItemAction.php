@@ -39,7 +39,7 @@ if ($mysqli->query($sql) === TRUE){
 
 			$sql3 = "UPDATE item set promoted='c' where id='$id'";
 			
-			if ($mysqli->query($sql4) === true){
+			if ($mysqli->query($sql3) === true){
 				echo "Item updated.";
 				header('Location: showItem.php?id=' . $id);
 			} else {
