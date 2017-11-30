@@ -56,8 +56,9 @@ if (isset($_SESSION['id'])){
 												<th>Type</th>
 												<th>Event Start Date</th>
 												<th>Event End Date</th>
-												<th>Cost</th>
 												<th>Discard</th>
+												<th>Cost</th>
+												
 											</tr>
 										</thead>
 										<tbody>';
@@ -71,8 +72,8 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $row['type'] . "</td>";
 								echo '<td>' . $row['eventdate'] . "</td>";
 								echo '<td>' . $row['enddate'] . "</td>";
-								echo '<td>' . $row['amount'] . "</td>";
-								echo '<td><a href="deleteCartSaleAction.php?id=' . $saleid . ' ">Discard</a></td></tr>';
+								echo '<td><a href="deleteCartSaleAction.php?id=' . $saleid . ' ">Discard</a></td>';
+								echo '<td>$' . number_format(round($row['amount'],2),2) . '</td></tr>';
 							}
 
 							echo '	</tbody>
@@ -98,8 +99,9 @@ if (isset($_SESSION['id'])){
 												<th>Name</th>
 												<th>Description</th>
 												<th>Set Item Price</th>
-												<th>Listing Cost</th>
 												<th>Discard</th>
+												<th>Listing Cost</th>
+												
 											</tr>
 										</thead>
 										<tbody>';
@@ -109,8 +111,8 @@ if (isset($_SESSION['id'])){
 					 			echo '<tr><td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
 				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td>";
-				 				echo '<td>$' . $row2['amount'] . "</td>";
-				 				echo '<td><a href="deleteCartItemAction.php?id=' . $itemid . ' ">Discard</a></td></tr>';
+				 				echo '<td><a href="deleteCartItemAction.php?id=' . $itemid . ' ">Discard</a></td>';
+				 				echo '<td>$' . number_format(round($row2['amount'],2),2) . "</td></tr>";
 							}
 							
 							$sql4 = "select SUM(amount) as total from price inner join item on item.pid=price.id where promoted='c' and uid='$userid' group by uid";
