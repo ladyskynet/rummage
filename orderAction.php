@@ -62,9 +62,11 @@ if ($mysqli->query($sql) === true){
 			while ($row4 = $result4->fetch_array()) {
 				$itemid = $row4['item.id'];
 				$saleid = $row4['item.sid'];
-				$sql7 =  "INSERT into orderitem (orid, pid, sid, itemid, cost) values ('$orid', '1', '$saleid', '$itemid', '5.5')";
+				$sql7 =  "INSERT into orderitem (orid, pid, sid, itemid, cost) values ('$orid', '1', '$saleid', '$itemid', '1.5')";
+				echo $sql7 . " <br>";
 				if ($mysqli->query($sql7) === true){
 					$sql8 = "UPDATE item set promoted='a' where id='$itemid'";
+					echo $sql8;
 					$result8 = $mysqli->query($sql8);
 					if ($mysqli->query($sql8) === true){
 						echo "It went okay.";
@@ -79,7 +81,7 @@ if ($mysqli->query($sql) === true){
 		}
 		$url = 'showOrder.php?id=' . $orid;
 		echo "Order placed.";
-		header('Location:' . $url );
+		#header('Location:' . $url );
 	} else {
 		echo "3) Something went wrong. " . $mysqli->error;
 	}
