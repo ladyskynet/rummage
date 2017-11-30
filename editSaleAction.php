@@ -37,32 +37,26 @@ if ($mysqli->query($sql) === TRUE){
 	$sql2 = "SELECT * from yardsale where id='$saleid'";	
 	$result2 = $mysqli->query($sql2);
 
-	if ($result2->num_rows == 1){
+	if ($result2->num_rows > 0){
 		$row2 = $result2->fetch_array();
 		$approved = $row2['approved'];
-
 	} else {
 		echo "Something went wrong.";
 		header('Location: welcome.php#profile');
 	}
 
 	if ($promoted == 'p' && $approved == 'n'){
-		if ($type == 'c'){
-			$type = "Community Rummage Sale Listing";
-		} else {
-			$type = "Single Family Rummage Sale Listing";
-		}
 
 		$sql3 = "UPDATE yardsale set promoted='c' where id='$saleid'";
 
 		if ($mysqli->query($sql4) === true){
-			echo "Rummage sale created";
+			echo "Rummage sale updated.";
 			header('Location: showSale.php?id=' . $saleid);
 		} else {
 			echo "Something went wrong." . $mysqli->error;
 		}
 	} else {
-		echo "Rummage sale created";
+		echo "Rummage sale updated.";
 		header('Location: showSale.php?id=' . $saleid);
 	}
 	
