@@ -28,7 +28,7 @@ $pid = 1;
 $sql = "UPDATE item set name='$name', description='$description', price='$price' WHERE id='$id'"; 
 
 if ($mysqli->query($sql) === TRUE){
-	echo $sql . " " . $promoted;
+	echo $approved . " " . $promoted;
 	if (($promoted == 'p') && ($approved == 'n')){
 
 		$sql3 = "UPDATE item set promoted='c' where id='$id'";
