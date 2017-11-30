@@ -41,7 +41,7 @@ if ($mysqli->query($sql) === TRUE){
 		$row2 = $result2->fetch_array();
 		$approved = $row2['approved'];
 	} else {
-		echo "Something went wrong.";
+		echo "Something went wrong." . $mysqli->error;
 		header('Location: welcome.php#profile');
 	}
 
