@@ -57,7 +57,7 @@ if (isset($_SESSION['id'])){
 												<th>Event Start Date</th>
 												<th>Event End Date</th>
 												<th>Discard</th>
-												<th>Cost</th>
+												<th><strong>Listing Cost</strong></th>
 												
 											</tr>
 										</thead>
@@ -80,7 +80,7 @@ if (isset($_SESSION['id'])){
 								  	<tfoot>
 								  	  	<tr>
 											<td colspan="6"></td>
-											<td>$' . number_format(round($total,2),2) . '</td>
+											<td><strong>$' . number_format(round($total,2),2) . '</strong></td>
 									  	</tr>
 								  	</tfoot>
 								</table>
@@ -100,7 +100,7 @@ if (isset($_SESSION['id'])){
 												<th>Description</th>
 												<th>Set Item Price</th>
 												<th>Discard</th>
-												<th>Listing Cost</th>
+												<th><strong>Listing Cost</strong></th>
 												
 											</tr>
 										</thead>
@@ -112,7 +112,7 @@ if (isset($_SESSION['id'])){
 								echo '<td>' . $row2['description'] . "</td>";
 				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td>";
 				 				echo '<td><a href="deleteCartItemAction.php?id=' . $itemid . ' ">Discard</a></td>';
-				 				echo '<td>$' . number_format(round($row2['amount'],2),2) . "</td></tr>";
+				 				echo '<td><strong>$' . number_format(round($row2['amount'],2),2) . "</strong></td></tr>";
 							}
 							
 							$sql4 = "select SUM(amount) as total from price inner join item on item.pid=price.id where promoted='c' and uid='$userid' group by uid";
