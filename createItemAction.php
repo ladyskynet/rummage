@@ -16,6 +16,7 @@ $name = ucwords($mysqli->real_escape_string($_REQUEST['name']));
 $description = ucwords($mysqli->real_escape_string($_REQUEST['description']));
 $price = $mysqli->real_escape_string($_REQUEST['price']);
 $promoted = $mysqli->real_escape_string($_REQUEST['promoted']);
+$userid = $_SESSION['id'];
 
 if ($promoted == ""){
 	$promoted = 'n';
@@ -23,7 +24,7 @@ if ($promoted == ""){
 
 $pid = 1;
 
-$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted, approved) VALUES ('$name', '$description', '$price', '$pid', '$saleid', '$promoted', 'n')";
+$sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted, approved, uid) VALUES ('$name', '$description', '$price', '$pid', '$saleid', '$promoted', 'n', '$userid')";
 
 if($mysqli->query($sql2) === true){
 	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description'";
