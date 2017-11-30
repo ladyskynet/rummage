@@ -34,7 +34,6 @@ if ($mysqli->query($sql) === true){
 
 		$sql3 = "SELECT * from yardsale where promoted='c' and uid='$userid'";
 		$sql4 = "SELECT * from item where promoted='c' and uid='$userid'";
-		echo $sql4 . "<br>";
 
 		$result3 = $mysqli->query($sql3);
 		$result4 = $mysqli->query($sql4);
@@ -43,7 +42,16 @@ if ($mysqli->query($sql) === true){
 			# For each of the values in order array, make an orderitem
 			while ($row3 = $result3->fetch_array()) {
 				$saleid = $row3['id'];
-				$sql5 = "INSERT into orderitem (orid, pid, sid, cost) values ('$orid', '2', '$saleid', '10.5')";
+				$pid = $row3['pid'];
+				$sql10 = "SELECT amount from price where id='$pid'";
+				$result10 = $mysqli->query($sql10);
+				$amount = 0;
+				if ($result10->num_rows > 0){
+					$row10 = $result10->fetch_array();
+					$amount = $row10['amount'];
+				}
+
+				$sql5 = "INSERT into orderitem (orid, pid, sid, cost) values ('$orid', '$pid', '$saleid', '$amount')";
 				if ($mysqli->query($sql5) === true){
 					$sql6 = "UPDATE yardsale set promoted='a' where id='$saleid'";
 					if ($mysqli->query($sql6) === true){
@@ -55,7 +63,6 @@ if ($mysqli->query($sql) === true){
 				} else {
 					echo "Something went wrong." . $mysqli->error;
 				}
-
 			}
 		}
 		if ($result4->num_rows > 0){
@@ -63,7 +70,15 @@ if ($mysqli->query($sql) === true){
 			while ($row4 = $result4->fetch_array()) {
 				$itemid = $row4['id'];
 				$saleid = $row4['sid'];
-				$sql7 =  "INSERT into orderitem (orid, pid, sid, itemid, cost) values ('$orid', '1', '$saleid', '$itemid', '1.5')";
+				$pid = $row4['pid'];
+				$sql9 = "SELECT amount from price where id='$pid'";
+				$result9 = $mysqli->query($sql9);
+				$amount = 0;
+				if ($result9->num_rows > 0){
+					$row9 = $result9->fetch_array();
+					$amount = $row9['amount'];
+				}
+				$sql7 =  "INSERT into orderitem (orid, pid, sid, itemid, cost) values ('$orid', '$pid', '$saleid', '$itemid', '$amount')";
 				echo $sql7 . " <br>";
 				if ($mysqli->query($sql7) === true){
 					$sql8 = "UPDATE item set promoted='a' where id='$itemid'";

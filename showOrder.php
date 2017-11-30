@@ -89,7 +89,7 @@ session_start();
 
 								echo '<td>' . $row4['datepurc'] . '</td>';
 						
-								echo '<td>$' . number_format(round($amount,2),2) . '</td></tr>';
+								echo '<td><strong>$' . number_format(round($amount,2),2) . '</strong></td></tr>';
 							} else {
 								echo "Something went wrong." . $mysqli->error;
 							}
@@ -98,7 +98,7 @@ session_start();
 							  <tfoot>
 						  	  	<tr>
 									<td colspan="5"></td>';
-									echo '<td>$' . number_format(round($row2["total"],2),2) . '</td>';
+									echo '<td><strong>$' . number_format(round($row2["total"],2),2) . '</strong></td>';
 							  	echo '</tr>
 						  	</tfoot>
 					     </table>
