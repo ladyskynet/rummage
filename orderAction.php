@@ -97,7 +97,7 @@ if ($mysqli->query($sql) === true){
 		}
 		$url = 'showOrder.php?id=' . $orid;
 		echo "Order placed.";
-		#header('Location:' . $url );
+		header('Location:' . $url );
 	} else {
 		echo "3) Something went wrong. " . $mysqli->error;
 	}
