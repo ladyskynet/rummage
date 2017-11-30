@@ -75,7 +75,7 @@ if (isset($_SESSION['id'])){
 							echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
-											<td colspan="4"></td>
+											<td colspan="6"></td>
 											<td>$' . number_format(round($total,2),2) . '</td>
 									  	</tr>
 								  	</tfoot>
@@ -110,7 +110,7 @@ if (isset($_SESSION['id'])){
 							echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
-											<td colspan="4"></td>
+											<td colspan="3"></td>
 											<td>$' . number_format(round($total,2),2) . '</td>
 									  	</tr>
 								  	</tfoot>
