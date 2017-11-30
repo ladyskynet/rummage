@@ -27,17 +27,17 @@ $pid = 1;
 $sql2 = "INSERT INTO item (name, description, price, pid, sid, promoted, approved, uid) VALUES ('$name', '$description', '$price', '$pid', '$saleid', '$promoted', 'n', '$userid')";
 
 if($mysqli->query($sql2) === true){
-	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description'";
+	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description' and price='$price'";
 	$result3 = $mysqli->query($sql3);
 
 	if ($result3->num_rows == 1){
 
 		$row3 = $result3->fetch_array();
-		$approved = $row3['approved'];
+		$itemid = $row3['id'];
 
-		if (($promoted == 'p') && ($approved == 'n')){
+		if ($promoted == 'p'){
 
-			$sql4 = "UPDATE item set promoted='c' where id='$id'";
+			$sql4 = "UPDATE item set promoted='c' where id='$itemid'";
 			
 			if ($mysqli->query($sql4) === true){
 				echo "Item created";
