@@ -61,6 +61,7 @@ session_start();
 										<th>Type</th>
 										<th>Event Start Date/Time</th>
 										<th>Event End Date/Time</th>
+										<th>Approved</th>
 										<th>Promoted</th>
 									</tr>
 								</thead>
@@ -82,7 +83,8 @@ session_start();
 						}
 						echo '<td>' . $row["eventdate"] . '</td>
 							  <td>' . $row["enddate"] . '</td>
-							  <td>' . $approved . '</td></tr>
+							  <td>' . $approved . '</td>
+							  <td>' . $row["promoted"] . '</td></tr>
 							</tbody>
 					    </table>
 					</div>';
