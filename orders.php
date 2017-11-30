@@ -25,7 +25,7 @@ if (isset($_SESSION['id'])){
 				<div class="logo">
 					<span class="icon fa-trash"></span>
 				</div>
-				<h2>My Rummage Sales</h2>
+				<h2>My Rummage Orders</h2>
 				<div class="content">
 					<br>
 						<?php
