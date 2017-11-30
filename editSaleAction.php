@@ -49,11 +49,11 @@ if ($mysqli->query($sql) === TRUE){
 
 		$sql3 = "UPDATE yardsale set promoted='c' where id='$saleid'";
 
-		if ($mysqli->query($sql4) === true){
+		if ($mysqli->query($sql3) === true){
 			echo "Rummage sale updated.";
 			header('Location: showSale.php?id=' . $saleid);
 		} else {
-			echo "Something went wrong." . $mysqli->error . "POLP";
+			echo "Something went wrong." . $mysqli->error;
 		}
 	} else {
 		echo "Rummage sale updated.";
