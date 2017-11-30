@@ -74,7 +74,7 @@ if (isset($_SESSION['id'])){
 
 							$sql3 = "select SUM(amount) as total from price inner join yardsale on yardsale.pid=price.id where promoted='c' and uid='$userid' group by uid";
 							$result3 = $mysqli->query($sql3);
-							$row3 = $result3.fetch_array();
+							$row3 = $result3->fetch_array();
 							echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
@@ -91,7 +91,8 @@ if (isset($_SESSION['id'])){
 						if ($result2->num_rows > 0){
 							$total = 0;
 
-							echo '<br><br><h3>Items</h3><div class="table-wrapper">
+							echo '<br><br><h3>Items</h3>
+							<div class="table-wrapper">
 									<table class="alt">
 										<thead>
 											<tr>
@@ -113,7 +114,7 @@ if (isset($_SESSION['id'])){
 							
 							$sql4 = "select SUM(amount) as total from price inner join item on item.pid=price.id where promoted='c' and uid='$userid' group by uid";
 							$result4 = $mysqli->query($sql4);
-							$row4 = $result4.fetch_array();
+							$row4 = $result4->fetch_array();
 							echo '	</tbody>
 								  	<tfoot>
 								  	  	<tr>
