@@ -33,7 +33,7 @@ if ($mysqli->query($sql) === true){
 		$orid = $row2['newest'];
 
 		$sql3 = "SELECT * from yardsale where promoted='c' and uid='$userid'";
-		$sql4 = "SELECT * from item inner join yardsale where item.sid=yardsale.id where item.promoted='c' and yardsale.uid='$userid'";
+		$sql4 = "SELECT * from item where promoted='c' and uid='$userid'";
 		echo $sql4 . "<br>";
 
 		$result3 = $mysqli->query($sql3);
