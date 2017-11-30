@@ -60,7 +60,8 @@ if ($mysqli->query($sql) === true){
 		if ($result4->num_rows > 0){
 			# For each of the values in order array, make an orderitem
 			while ($row4 = $result4->fetch_array()) {
-				$saleid = $row4['id'];
+				$itemid = $row4['id'];
+				$saleid = $row4['sid'];
 				$sql7 =  "INSERT into orderitem (orid, pid, sid, itemid, cost) values ('$orid', '1', '$saleid', '$itemid', '5.5')";
 				if ($mysqli->query($sql7) === true){
 					$sql8 = "UPDATE item set promoted='a' where id='$itemid'";
@@ -78,7 +79,7 @@ if ($mysqli->query($sql) === true){
 		}
 		$url = 'showOrder.php?id=' . $orid;
 		echo "Order placed.";
-		header('Location:' . $url );
+		#header('Location:' . $url );
 	} else {
 		echo "3) Something went wrong. " . $mysqli->error;
 	}
