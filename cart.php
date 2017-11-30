@@ -79,7 +79,7 @@ if (isset($_SESSION['id'])){
 							echo "<p>No sales in your cart right now.</p>";
 						}**/	
 
-						if ($result2->num_rows > 0){
+						/**if ($result2->num_rows > 0){
 
 							echo '<br><br><div class="table-wrapper">
 									<table class="alt">
@@ -105,7 +105,7 @@ if (isset($_SESSION['id'])){
 								</div>';
 						} else {
 							echo "<p>No sale items in your cart right now.</p>";
-						}	
+						}**/	
 					 	
 						?>
 						<a href="order.php">Place Order</a><br><br><br>
