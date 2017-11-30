@@ -54,8 +54,9 @@ session_start();
 									<tr>
 										<th>Name</th>
 										<th>Description</th>
-										<th>Promoted</th>
+										<th>Approveed</th>
 										<th>Price</th>
+										<th>Promoted Status</th>
 										
 									</tr>
 								</thead>
@@ -67,7 +68,8 @@ session_start();
 
 						echo '<td>' . $approved . '</td>';
 								
-						echo '<td>$' . number_format(round($row["price"],2),2) . '</td></tr>';
+						echo '<td>$' . number_format(round($row["price"],2),2) . '</td>';
+						echo '</td>' . $row["promoted"] . '</td></tr>;';
 
 						echo '</tbody>
 					    </table>
