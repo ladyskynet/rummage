@@ -44,7 +44,7 @@ if ($mysqli->query($sql) === TRUE){
 				echo "Item updated. 4";
 				#header('Location: showItem.php?id=' . $id);
 			} else {
-				echo "Something went wrong." . $mysqli->error;
+				echo "Something went wrong.2" . $mysqli->error;
 			}
 		} else {
 			echo "Item updated. 7";
@@ -52,11 +52,11 @@ if ($mysqli->query($sql) === TRUE){
 		}
 
 	} else {
-		echo "Something went wrong." . $mysqli->error;
+		echo "Something went wrong.5" . $mysqli->error;
 	}
 
 } else {
-	echo "Something went wrong." . $mysqli->error;
+	echo "Something went wrong.6" . $mysqli->error;
 }
 
 $mysqli->close();
