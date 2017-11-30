@@ -53,7 +53,7 @@ if ($mysqli->query($sql) === TRUE){
 			echo "Rummage sale updated.";
 			header('Location: showSale.php?id=' . $saleid);
 		} else {
-			echo "Something went wrong." . $mysqli->error;
+			echo "Something went wrong." . $mysqli->error . "POLP";
 		}
 	} else {
 		echo "Rummage sale updated.";
