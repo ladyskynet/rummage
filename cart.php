@@ -97,7 +97,8 @@ if (isset($_SESSION['id'])){
 											<tr>
 												<th>Name</th>
 												<th>Description</th>
-												<th>Price</th>
+												<th>Set Item Price</th>
+												<th>Listing Cost</th>
 												<th>Discard</th>
 											</tr>
 										</thead>
@@ -108,7 +109,7 @@ if (isset($_SESSION['id'])){
 					 			echo '<tr><td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
 				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td>";
-				 				echo '<td>' . $row['amount'] . "</td>";
+				 				echo '<td>$' . $row['amount'] . "</td>";
 				 				echo '<td><a href="deleteCartItemAction.php?id=' . $itemid . ' ">Discard</a></td></tr>';
 							}
 							
