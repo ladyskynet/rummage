@@ -57,7 +57,7 @@ if (isset($_SESSION['id'])){
 					 			echo '<tr><td>' . $value[0] . "</td>"; # sid
 					 			echo '<td>' . $value[1] . "</td>"; # name
 					 			echo '<td>' . $value[2] . "</td>"; #desc
-					 			echo '<td>' . number_format(round($value[3],2),2) #cost
+					 			echo '<td>$' . number_format(round($value[3],2),2) "</td>"; #cost
 					 			echo '<td>' . $value[4] . "</td></tr>"; # itemid
 							}
 							echo '	</tbody>
