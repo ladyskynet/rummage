@@ -46,7 +46,7 @@ if (isset($_SESSION['id'])){
 
 						if ($result->num_rows > 0){
 
-							echo '<div class="table-wrapper">
+							echo '<h3>Sales</h3><div class="table-wrapper">
 									<table class="alt">
 										<thead>
 											<tr>
@@ -81,7 +81,7 @@ if (isset($_SESSION['id'])){
 
 						if ($result2->num_rows > 0){
 
-							echo '<br><br><div class="table-wrapper">
+							echo '<br><br><h3>Items</h3><div class="table-wrapper">
 									<table class="alt">
 										<thead>
 											<tr>
