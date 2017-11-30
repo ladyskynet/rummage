@@ -97,7 +97,7 @@ if (isset($_SESSION['id'])){
 								$itemid = $row2['id'];
 					 			echo '<tr><td>' . $row2['name'] . "</td>";
 								echo '<td>' . $row2['description'] . "</td>";
-				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td>"
+				 				echo '<td>' . number_format(round($row2["price"],2),2) . "</td>";
 				 				echo '<td><a href="deleteCartItemAction.php?id=' . $itemid . ' ">Discard</a></td></tr>';
 							}
 							echo '		</tbody>
