@@ -91,7 +91,7 @@ if (isset($_SESSION['id'])){
 
 						if ($result2->num_rows > 0){
 							$total = 0;
-							echo '<br><br><h3>Items</h3>
+							echo '<h3>Items</h3>
 							<div class="table-wrapper">
 									<table class="alt">
 										<thead>
