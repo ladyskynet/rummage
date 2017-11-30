@@ -30,7 +30,7 @@ if($mysqli->query($sql2) === true){
 	$sql3 = "SELECT * FROM item where sid='$saleid' and name='$name' and description='$description' and price='$price'";
 	$result3 = $mysqli->query($sql3);
 
-	if ($result3->num_rows == 1){
+	if ($result3->num_rows > 0){
 
 		$row3 = $result3->fetch_array();
 		$itemid = $row3['id'];
