@@ -44,7 +44,7 @@ if (isset($_SESSION['id'])){
 						$result = $mysqli->query($sql);
 						$result2 = $mysqli->query($sql2);
 
-						if ($result->num_rows > 0){
+						/**if ($result->num_rows > 0){
 
 							echo '<div class="table-wrapper">
 									<table class="alt">
@@ -77,7 +77,7 @@ if (isset($_SESSION['id'])){
 								</div>';
 						} else {
 							echo "<p>No sales in your cart right now.</p>";
-						}	
+						}**/	
 
 						if ($result2->num_rows > 0){
 
