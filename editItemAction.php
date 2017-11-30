@@ -35,13 +35,13 @@ if ($mysqli->query($sql) === TRUE){
 		
 		if ($mysqli->query($sql3) === true){
 			echo "Item updated. 4";
-			#header('Location: showItem.php?id=' . $id);
+			header('Location: showItem.php?id=' . $id);
 		} else {
 			echo "Something went wrong.2" . $mysqli->error;
 		}
 	} else {
 		echo "Item updated. 7";
-		#header('Location: showItem.php?id=' . $id);
+		header('Location: showItem.php?id=' . $id);
 	}
 
 } else {
