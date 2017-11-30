@@ -84,7 +84,6 @@ if (isset($_SESSION['id'])){
 									<table class="alt">
 										<thead>
 											<tr>
-												<th>Approve</th>
 												<th>Name</th>
 												<th>Description</th>
 												<th>Price</th>
